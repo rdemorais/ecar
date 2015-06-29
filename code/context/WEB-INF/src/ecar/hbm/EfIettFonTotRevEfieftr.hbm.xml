@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EfIettFonTotRevEfieftr" 
+    table="TB_EF_IETT_FON_TOT_REV_EFIEFTR"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.EfIettFonTotRevEfieftrPK">
+        <key-property 
+            name="codIettrev" 
+            column="COD_IETTREV" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codFonr" 
+            column="COD_FONR" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="valorEfieftr"
+        type="java.lang.Long"
+        column="VALOR_EFIEFTR"
+        length="14"
+    />
+    <property
+        name="dataValorEfieftr"
+        type="java.sql.Timestamp"
+        column="DATA_VALOR_EFIEFTR"
+        length="7"
+    />
+    <property
+        name="indAtivoEfieftr"
+        type="java.lang.String"
+        column="IND_ATIVO_EFIEFTR"
+        length="1"
+    />
+    <property
+        name="dataInclusaoEfieftr"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_EFIEFTR"
+        length="7"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturarevisaoIettrev"
+	    class="ecar.pojo.ItemEstruturarevisaoIettrev"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_IETTREV" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to FonteRecursoFonr -->
+    <many-to-one
+        name="fonteRecursoFonr"
+	    class="ecar.pojo.FonteRecursoFonr"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_FONR" />
+	</many-to-one>
+	
+
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

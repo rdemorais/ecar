@@ -1,0 +1,1299 @@
+############################################################################
+# Para utilizar este arquivo deve-se criar uma instância da classe java.util.Properties, dar um load no arquivo
+# de properties e acessar utilizando getProperties.
+# Ex:	Properties p = new Properties();  // Instancia a Properties
+#		p.load(new FileInputStream("/properties/codigo.properties")); // Abre o arquivo de properties
+#		System.out.println(p.getProperty("motivo.PRIMEIRA_HABILITACAO")); // Da um get na propriedade
+############################################################################
+
+#Indicador para gravar ou não o registro de acesso de usuário
+gravarRegistroAcesso=S
+
+#segmentos pré-definidos em admPortal
+admPortal.materias=1
+admPortal.taxacoes=2
+admPortal.pergFreq=3
+admPortal.glossario=4
+#segmentos itensFixos são codigos fixos que não são utilizados em Itens Livres
+admPortal.itensFixos=1,2,3,4
+
+#códigos de funções - utilizado na Pesquisa na Estrutura - ItemEstruturaDao
+item.funcao.acao=1
+item.funcao.anexo=2
+item.funcao.beneficiario=4
+item.funcao.criterio=6
+item.funcao.entidade=8
+item.funcao.fonteRecurso=9
+item.funcao.localizacao=11
+item.funcao.pontoCritico=12
+
+# === MENSAGENS GERAIS ===== #
+#pesquisa.erro=Erro na geração da pesquisa.
+#pesquisa.nenhumResultado=Nenhum registro encontrado.
+
+erro.hibernateException=Ocorreu um erro interno no Hibernate
+erro.exception=Ocorreu um erro interno
+erro.objectNotFound=Objeto não encontrado
+erro.upload=Erro ao processar upload.
+erro.excluirArquivo=Erro ao tentar excluir arquivo vinculado.
+erro.envio.email=Não foi possível enviar o e-mail.
+erro.email.invalido=Endereço de e-mail inválido.
+erro.servidor.email.invalido=Servidor de E-mail inválido, verificar a configuração do sistema.
+erro.liberar.imagem.ssl=Impossível liberar a imagem para o relatório.
+
+# == MENSAGEM UTILIZADA NA PÁGINA EXCECAO.JSP == #
+erro.excecao.jsp=Não foi possível acessar a funcionalidade através desta opção escolhida.
+
+# === MENSAGENS ESPECIFICAS ===== #
+#FUNÇÃO
+area.inclusao.sucesso=Função incluída com sucesso!
+area.inclusao.erro=Ocorreu um erro durante a gravação.
+area.alteracao.sucesso=Função alterada com sucesso!
+area.alteracao.erro=Ocorreu um erro durante a alteração.
+area.exclusao.sucesso=Função excluida com sucesso!
+area.exclusao.erro=Ocorreu um erro durante a exclusão.
+area.exclusao.erro.subArea=Não foi possível excluir a função pois ela possui sub funções cadastradas
+area.exclusao.erro.itemEstrutura=Não foi possível excluir a função pois ela possui itemEstrutura
+area.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+area.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+area.validacao.codigoIdentAre.invalido=Valor inválido para o Código.
+area.validacao.nomeAre.obrigatorio=Obrigatório o preenchimento do campo Nome.
+area.validacao.indAtivoAre.obrigatorio=Obrigatória a seleção do campo Ativo.
+area.validacao.registroDuplicado=Já existe uma Função com o nome informado.
+area.validacao.registroDuplicado.codigoIdentAre=Já existe uma Função com o Código informado.
+
+# SUB FUNÇÃO
+subArea.inclusao.sucesso=Sub Função incluída com sucesso!
+subArea.inclusao.erro=Ocorreu um erro durante a gravação.
+subArea.alteracao.sucesso=Sub Função alterada com sucesso!
+subArea.alteracao.erro=Ocorreu um erro durante a alteração.
+subArea.exclusao.sucesso=Sub Função excluida com sucesso!
+subArea.exclusao.erro=Ocorreu um erro durante a exclusão.
+subArea.exclusao.erro.itemEstruturaIetts=Não foi possível excluir a Sub Função pois ela possui itemEstrutura
+subArea.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+subArea.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+subArea.validacao.areaAre.obrigatorio=Obrigatório o preenchimento do campo Função.
+subArea.validacao.nomeSare.obrigatorio=Obrigatório o preenchimento do campo Nome.
+subArea.validacao.indAtivoSare.obrigatorio=Obrigatória a seleção do campo Ativo.
+subArea.validacao.registroDuplicado=Já existe uma Sub Função com o Código informado.
+
+#ÓRGÃO
+orgao.inclusao.sucesso=Órgão incluído com sucesso!
+orgao.inclusao.erro=Ocorreu um erro durante a gravação.
+orgao.alteracao.sucesso=Órgão alterado com sucesso!
+orgao.alteracao.erro=Ocorreu um erro durante a alteração.
+orgao.exclusao.sucesso=Órgão excluido com sucesso!
+orgao.exclusao.erro=Ocorreu um erro durante a exclusão.
+orgao.exclusao.erro.acompReferenciaArefs=Não foi possível excluir o Órgão pois ele possui acompReferenciaArefs
+orgao.exclusao.erro.itemEstruturaIettsByCodOrgaoResponsavel1Iett=Não foi possível excluir o Órgão pois ele possui itemEstruturaIettsByCodOrgaoResponsavel1Iett	       
+orgao.exclusao.erro.itemEstruturaIettsByCodOrgaoResponsavel2Iett=Não foi possível excluir o Órgão pois ele possui itemEstruturaIettsByCodOrgaoResponsavel2Iett	       
+orgao.exclusao.erro.usuarioUsus=Não foi possível excluir o Órgão pois ele possui usuários cadastrado.
+orgao.exclusao.erro.regDemandaRegds=Não foi possível excluir o Órgão pois ele possui demanda(s) cadastrada(s).
+orgao.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+orgao.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+orgao.validacao.siglaOrg.obrigatorio=Obrigatório o preenchimento do campo Sigla
+orgao.validacao.descricaoOrg.obrigatorio=Obrigatório o preenchimento do campo Nome
+orgao.validacao.indAtivoOrg.obrigatorio=Obrigatória a seleção do campo Ativo
+orgao.validacao.registroDuplicado=Já existe um Órgão com o nome ou a sigla informada.
+orgao.validacao.registroDuplicado.codigoIdentOrg=Já existe um Órgão com o Código informado.
+
+#COR
+cor.inclusao.sucesso=Cor incluída com sucesso!
+cor.inclusao.erro=Ocorreu um erro durante a gravação.
+cor.alteracao.sucesso=Cor alterada com sucesso!
+cor.alteracao.erro=Ocorreu um erro durante a alteração.
+cor.exclusao.sucesso=Cor excluida com sucesso!
+cor.exclusao.erro=Ocorreu um erro durante a exclusão.
+cor.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+cor.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+cor.validacao.nomeCor.obrigatorio=Obrigatório o preenchimento do campo Nome.
+cor.validacao.significadoCor.obrigatorio=Obrigatório o preenchimento do campo Significado.
+cor.validacao.registroDuplicado=Já existe uma cor com o nome informado.
+
+#UF
+uf.inclusao.sucesso=UF incluída com sucesso!
+uf.inclusao.erro=Ocorreu um erro durante a gravação.
+uf.inclusao.jaExiste=Já existe uma UF com esta sigla!
+uf.alteracao.sucesso=UF alterada com sucesso!
+uf.alteracao.erro=Ocorreu um erro durante a alteração.
+uf.exclusao.sucesso=UF excluida com sucesso!
+uf.exclusao.erro=Ocorreu um erro durante a exclusão.
+uf.exclusao.erro.usuarioUsu=Não foi possível excluir a UF pois ela possui relacionamentos com Usuários.
+uf.exclusao.erro.empresaEmp=Não foi possível excluir a UF pois ela possui relacionamentos com Empresas.
+uf.exclusao.erro.enderecoEnd=Não foi possível excluir a UF pois ela possui relacionamentos com Enderecos.
+uf.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+uf.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+uf.validacao.codUf.obrigatorio=Obrigatório o preenchimento do código do UF.
+uf.validacao.descricaoUf.obrigatorio=Obrigatório o preenchimento da descrição.
+uf.validacao.registroDuplicado=Já existe uma UF com o nome informado.
+
+#SITUACAO DO ITEM
+situacao.inclusao.sucesso=Situação do Item incluída com sucesso!
+situacao.alteracao.sucesso=Situação do Item alterada com sucesso!
+situacao.exclusao.sucesso=Situação do Item excluída com sucesso!
+situacao.exclusao.erro.acompRealFisicoArfs=Não foi possível excluir a situação pois ela possui Realizado Fisico.
+situacao.exclusao.erro.acompRelatorioArels=Não foi possível excluir a situação pois ela possui Registro de Acompanhamento.
+situacao.exclusao.erro.estruturaSituacaoEtts=Não foi possível excluir situação pois ela possui Estrutura
+situacao.exclusao.erro.itemEstruturaIetts=Não foi possível excluir situação pois ela possui Item
+situacao.exclusao.erro.situacaoTpFuncAcmpSitfas=Não foi possível excluir situação pois ela possui Função de Acompanhamento 
+situacao.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+situacao.validacao.descricaoSit.obrigatorio=Obrigatório o preenchimento do campo Descrição.
+situacao.validacao.comentarioSit.obrigatorio=Obrigatório o preenchimento do campo Comentários.
+situacao.validacao.indConcluidoSit.obrigatorio=Obrigatória a seleção do campo Representa Conclusão
+situacao.validacao.indComentarioSit.obrigatorio=Obrigatória a seleção do campo Exige Comentários em Acompanhamento Físico.
+situacao.validacao.registroDuplicado=Já existe uma Situação com a descrição informado.
+situacao.validacao.indMetaFisicaSit.obrigatorio=Obrigatória a seleção do campo Disponível em Metas Físicas
+situacao.validacao.indSemAcompanhamentoSit.obrigatorio=Obrigatória a seleção do campo Sem Acompanhamento
+
+#EXERCICIO
+exercicio.inclusao.sucesso=Exercício incluído com sucesso!
+exercicio.alteracao.sucesso=Exercício alterado com sucesso!
+exercicio.exclusao.sucesso=Exercício excluído com sucesso!
+exercicio.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+exercicio.validacao.descricaoExe.obrigatorio=Obrigatório o preenchimento da descrição.
+exercicio.validacao.dataInicialExe.obrigatorio=Obrigatório o preenchimento da data inicial.
+exercicio.validacao.dataInicialExe.invalido=Valor inválido para data inicial.
+exercicio.validacao.dataInicialExe.diaInvalido=Exercicio inicial deve começar no primeiro dia do mês.
+exercicio.validacao.dataFinalExe.obrigatorio=Obrigatório o preenchimento da data final.
+exercicio.validacao.dataFinalExe.invalido=Valor inválido para data final.
+exercicio.validacao.dataFinalExe.diaInvalido=Exercicio final deve terminar no último dia do mês.
+exercicio.validacao.dataFinalExe.dataFinalMenorQueDataInicial=A data final deve ser maior ou igual a data inicial.
+exercicio.validacao.erroSobreposicao=Existem exercícios que já compreendem as datas informadas.
+exercicio.exclusao.erro.efItemEstContaEfiecs=Não foi possível excluir o Exercício ele possui efItemEstContaEfiecs.
+exercicio.exclusao.erro.efItemEstPrevisaoEfieps=Não foi possível excluir o Exercício ele possui efItemEstPrevisaoEfieps.
+exercicio.exclusao.erro.itemEstrutFisicoIettfs=Não foi possível excluir o Exercício ele possui itemEstrutFisicoIettfs.
+exercicio.exclusao.erro.efItemEstPrevhistEfiephs=Não foi possível excluir o Exercício ele possui efItemEstPrevhistEfiephs.
+exercicio.exclusao.erro.acompReferenciaArefs=Não foi possível excluir o Exercício. Ele possui vínculo com Acompanhamentos de Referência.
+exercicio.validacao.registroDuplicado=Já existe um Exercício com a descrição informada.
+
+#PERIODO DE EXERCICIO
+perExe.inclusao.sucesso=Período de Exercício incluído com sucesso!
+perExe.alteracao.sucesso=Período de Exercício alterado com sucesso!
+perExe.exclusao.sucesso=Período de Exercício excluído com sucesso!
+perExe.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+perExe.validacao.descricaoExe.obrigatorio=Obrigatório o preenchimento da descrição.
+perExe.exclusao.erro.exercicioExes=Não foi possível excluir Período de Exercício. Ele possui vínculo com Exercício.
+perExe.validacao.registroDuplicado=Já existe um Período de Exercício com a descrição informada.
+
+
+#PERIODICIDADE
+periodicidade.inclusao.sucesso=Periodicidade incluída com sucesso!
+periodicidade.alteracao.sucesso=Periodicidade alterada com sucesso!
+periodicidade.exclusao.sucesso=Periodicidade excluída com sucesso!
+periodicidade.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+periodicidade.validacao.descricaoPrdc.obrigatorio=Obrigatório o preenchimento da descrição.
+periodicidade.validacao.numMesesPrdc.obrigatorio=Obrigatório o preenchimento do número de meses.
+periodicidade.validacao.numMesesPrdc.invalido=Valor inválido para o número de meses.
+periodicidade.exclusao.erro.configuracaoCfgs=Não foi possível excluir a Periodicidade ela possui configuracaoCfgs
+periodicidade.exclusao.erro.itemEstruturaIetts=Não foi possível excluir a Periodicidade ela possui itemEstruturaIetts
+periodicidade.validacao.registroDuplicado=Já existe uma Periodicidade com a descrição ou número de meses informado.
+
+
+#TIPO_PARTICIPACAO
+tipoParticipacao.inclusao.sucesso=Tipo de Participação incluída com sucesso!
+tipoParticipacao.alteracao.sucesso=Tipo de Participação alterada com sucesso!
+tipoParticipacao.exclusao.sucesso=Tipo de Participação excluída com sucesso!
+tipoParticipacao.exclusao.erro.itemEstrutEntidade=Não foi possível excluir o Tipo de Participação pois ele possui relacionamentos com Item Estrutura Entidade.
+tipoParticipacao.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+tipoParticipacao.validacao.descricaoTpp.obrigatorio=Obrigatório o preenchimento da Descrição.
+tipoParticipacao.validacao.indAtivoTpp.obrigatorio=Obrigatório o preenchimento do campo Ativo.
+
+#ENTIDADES
+entidade.inclusao.sucesso=Entidade incluída com sucesso!
+entidade.alteracao.sucesso=Entidade alterada com sucesso!
+entidade.exclusao.sucesso=Entidade excluída com sucesso!
+entidade.exclusao.erro.itemEstrutEntidade=Não foi possível excluir a Entidade pois ela possui relacionamentos com Item Estrutura Entidade.
+entidade.exclusao.erro.hierarquiaEntidadeHentsByCodEnt=Não foi possível excluir a Entidade pois ela possui relacionamentos com outra Entidade.
+entidade.exclusao.erro.hierarquiaEntidadeHentsByCodEntPai=Não foi possível excluir a Entidade pois ela possui relacionamentos com outra Entidade.
+entidade.exclusao.erro.regDemandaRegds=Não foi possível excluir a Entidade pois ela possui relacionamentos com uma Demanda Regional.
+entidade.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+entidade.validacao.nomeEnt.obrigatorio=Obrigatório o preenchimento do Nome.
+entidade.validacao.siglaEnt.obrigatorio=Obrigatório o preenchimento da Sigla.
+entidade.validacao.indAtivoEnt.obrigatorio=Obrigatório o preenchimento do campo Ativo.
+entidade.hierarquia.inclusao.sucesso=Hierarquia de entidades cadastrada com sucesso.
+entidade.hierarquia.validacao.codEnt.obrigatorio=Obrigatória a seleção do campo Entidade.
+
+
+#FONTE DE RECURSOS
+fonteRecurso.inclusao.sucesso=Fonte de Recurso incluída com sucesso!
+fonteRecurso.alteracao.sucesso=Fonte de Recurso alterada com sucesso!
+fonteRecurso.exclusao.sucesso=Fonte de Recurso excluída com sucesso!
+fonteRecurso.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+fonteRecurso.validacao.nomeFonr.obrigatorio=Obrigatório o preenchimento do nome.
+fonteRecurso.validacao.indOrcamentoFonr.obrigatorio=Obrigatório o preenchimento do campo orçamentária.
+fonteRecurso.validacao.configSisExecFinanCsef.obrigatorio=Obrigatório o preenchimento do sistema.
+fonteRecurso.validacao.dataIniValidadeFonr.obrigatorio=Obrigatório o preenchimento do início da validade.
+fonteRecurso.validacao.dataIniValidadeFonr.invalido=Valor inválido para o início da validade.
+fonteRecurso.validacao.dataFimValidadeFonr.obrigatorio=Obrigatório o preenchimento do fim da validade.
+fonteRecurso.validacao.dataFimValidadeFonr.invalido=Valor inválido para o fim da validade.
+fonteRecurso.validacao.dataFimValidadeFonr.dataFinalMenorQueDataInicial=O fim da validade deve ser maior que o início da validade.
+fonteRecurso.validacao.indAtivoFonr.obrigatorio=Obrigatório o preenchimento do campo ativo.
+fonteRecurso.validacao.sequenciaFonr.invalido=Valor inválido para Sequência.
+fonteRecurso.exclusao.erro.efItemEstContaEfiecs=Não foi possível excluir a Fonte de Recurso ela possui efItemEstContaEfiecs
+fonteRecurso.exclusao.erro.efItemEstPrevisaoEfieps=Não foi possível excluir a Fonte de Recurso ela possui efItemEstPrevisaoEfieps
+fonteRecurso.exclusao.erro.efItemEstPrevhistEfiephs=Não foi possível excluir a Fonte de Recurso ela possui efItemEstPrevhistEfiephs
+fonteRecurso.exclusao.erro.efIettFonteTotEfiefts=Não foi possível excluir a Fonte de Recurso ela possui efIettFonteTotEfiefts
+fonteRecurso.exclusao.erro.efIettFonteTothisEfiefh=Não foi possível excluir a Fonte de Recurso ela possui efIettFonteTothisEfiefh
+
+
+#RECURSO
+recurso.inclusao.sucesso=Recurso incluído com sucesso!
+recurso.alteracao.sucesso=Recurso alterado com sucesso!
+recurso.exclusao.sucesso=Recurso excluído com sucesso!
+recurso.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+recurso.validacao.nomeRec.obrigatorio=Obrigatório o preenchimento do nome.
+recurso.validacao.siglaRec.obrigatorio=Obrigatório o preenchimento da sigla.
+recurso.validacao.indOrcamentoRec.obrigatorio=Obrigatório o preenchimento do campo orçamentária.
+recurso.validacao.dataIniValidadeRec.obrigatorio=Obrigatório o preenchimento do início da validade.
+recurso.validacao.dataIniValidadeRec.invalido=Valor inválido para o início da validade.
+recurso.validacao.dataFimValidadeRec.obrigatorio=Obrigatório o preenchimento do fim da validade.
+recurso.validacao.dataFimValidadeRec.invalido=Valor inválido para o fim da validade.
+recurso.validacao.dataFimValidadeRec.dataFinalMenorQueDataInicial=O fim da validade deve ser maior que o início da validade.
+recurso.validacao.indAtivoRec.obrigatorio=Obrigatório o preenchimento do campo ativo.
+recurso.validacao.sequenciaRec.invalido=Valor inválido para Sequência.
+recurso.exclusao.erro.efItemEstContaEfiecs=Não foi possível excluir o Recurso ele possui efItemEstContaEfiecs
+recurso.exclusao.erro.efItemEstPrevisaoEfieps=Não foi possível excluir o Recurso ele possui efItemEstPrevisaoEfieps
+recurso.exclusao.erro.efItemEstPrevhistEfiephs=Não foi possível excluir o Recurso ele possui efItemEstPrevhistEfiephs
+
+
+#CRITÉRIOS
+criterio.inclusao.sucesso=Critério incluído com sucesso!
+criterio.alteracao.sucesso=Critério alterado com sucesso!
+criterio.exclusao.sucesso=Critério excluído com sucesso!
+criterio.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+criterio.exclusao.erro.itemEstrutCriterioIettcs=Não foi possível excluir o Critério pois ela possui relacionamento com Item Estrutura.
+criterio.validacao.indAtivoCri.obrigatorio=Obrigatória a seleção do campo Ativo
+criterio.validacao.descricaoCri.obrigatorio=Obrigatória o preenchimento do campo descrição.
+
+#GRUPOS DE LOCAIS
+localGrupo.inclusao.sucesso=Grupo de Local incluído com sucesso!
+localGrupo.inclusao.erro=Ocorreu um erro durante a gravação.
+localGrupo.hierarquia.inclusao.sucesso=Hierarquia do grupo cadastrada com sucesso.
+localGrupo.alteracao.sucesso=Grupo de Local alterado com sucesso!
+localGrupo.alteracao.erro=Ocorreu um erro durante a alteração.
+localGrupo.exclusao.sucesso=Grupo de Local excluido com sucesso!
+localGrupo.exclusao.erro=Ocorreu um erro durante a exclusão.
+localGrupo.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+localGrupo.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+localGrupo.validacao.identificacaoLgp.obrigatorio=Obrigatório o preenchimento do campo Nome.
+localGrupo.validacao.localGrupoLgp.obrigatorio=Obrigatório o preenchimento do campo grupo.
+localGrupo.validacao.indAtivoLgp.obrigatorio=Obrigatória a seleção do campo Ativo.
+localGrupo.validacao.registroDuplicado=Já existe um Grupo de Local com o nome informado.
+localGrupo.exclusao.erro.localItemLits=Não foi possível excluir Grupo de Local pois ele possui localItemLits
+localGrupo.exclusao.erro.localGrupoHierarquiaLgphsByCodLgp=Não foi possível exclui Local Grupo pois possui relacionamento com outro Grupo de Local
+localGrupo.exclusao.erro.localGrupoHierarquiaLgphsByCodLgpPai=Não foi possível exclui Local Grupo pois possui relacionamento com outro Grupo de Local
+
+
+#LOCAL ITEM
+localItem.inclusao.sucesso=Local incluído com sucesso!
+localItem.alteracao.sucesso=Local alterado com sucesso!
+localItem.exclusao.sucesso=Local excluído com sucesso!
+localItem.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+localItem.validacao.identificacaoLit.obrigatorio=Obrigatório o preenchimento da Descrição.
+localItem.validacao.localGrupoLgp.obrigatorio=Obrigatório o preenchimento do Grupo.
+localItem.validacao.indAtivoLit.obrigatorio=Obrigatória a seleção do campo Ativo.
+localItem.validacao.registroDuplicado=Já existe uma Localidade com o nome informado.
+localItem.exclusao.erro.localItemHierarquiaLithsByCodLit=Não foi possível excluir o Local ele possui localItemHierarquiaLithsByCodLit
+localItem.exclusao.erro.localItemHierarquiaLithsByCodLitPai=Não foi possível excluir o Local ele possui localItemHierarquiaLithsByCodLitPai
+localItem.exclusao.erro.itemEstrutLocalIettls=Não foi possível excluir o Local ele possui itemEstrutLocalIettls
+
+#BENEFICIÁRIO
+beneficiario.inclusao.sucesso=Beneficiário incluído com sucesso!
+beneficiario.inclusao.erro=Ocorreu um erro durante a gravação.
+beneficiario.alteracao.sucesso=Beneficiário alterado com sucesso!
+beneficiario.alteracao.erro=Ocorreu um erro durante a alteração.
+beneficiario.exclusao.sucesso=Beneficiário excluido com sucesso!
+beneficiario.exclusao.erro=Ocorreu um erro durante a exclusão.
+beneficiario.exclusao.erro.itemEstrutura=Não foi possível excluir o beneficiário pois ele possui item Estrutura
+beneficiario.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+beneficiario.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+beneficiario.validacao.nomeBnf.obrigatorio=Obrigatório o preenchimento do campo Nome.
+beneficiario.validacao.indAtivoBnf.obrigatorio=Obrigatória a seleção do campo Ativo.
+beneficiario.validacao.registroDuplicado=Já existe um Beneficiário com o nome informado.
+
+#HIERARQUIA LOCAL ITEM
+hierarquiaLocalItem.atualizacao.sucesso=Hierarquia de Local atualizada com sucesso!
+hierarquiaLocalItem.validacao.localItemLit.obrigatorio=Obrigatório o preenchimento do Local.
+
+#UNIDADE ORCAMENTARIA
+unidadeOrcamentaria.inclusao.sucesso=Unidade Orçamentária incluída com sucesso!
+unidadeOrcamentaria.alteracao.sucesso=Unidade Orçamentária alterada com sucesso!
+unidadeOrcamentaria.exclusao.sucesso=Unidade Orçamentária excluída com sucesso!
+unidadeOrcamentaria.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+unidadeOrcamentaria.validacao.orgaoOrg.obrigatorio=Obrigatória a seleção do campo Órgão.
+unidadeOrcamentaria.validacao.codigoIdentUo.invalido=Valor inválido para o Código.
+unidadeOrcamentaria.validacao.usuarioUsu.obrigatorio=Obrigatória a seleção do campo Usuário Autorizador.
+unidadeOrcamentaria.exclusao.erro.ItemEstruturaIetts=Não foi possível excluir a Unidade Orçamentária ela possui Itens.
+unidadeOrcamentaria.validacao.registroDuplicado=Já existe uma Unidade Orçamentária com o Nome Unidade ou Sigla informado.
+unidadeOrcamentaria.validacao.registroDuplicado.codigoIdentUo=Já existe uma Unidade Orçamentária com o Código informado.
+
+#PODER
+poder.inclusao.sucesso=Poder incluído com sucesso!
+poder.alteracao.sucesso=Poder alterado com sucesso!
+poder.exclusao.sucesso=Poder excluído com sucesso!
+poder.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+poder.validacao.nomePod.obrigatorio=O campo nome é obrigatório.
+poder.validacao.siglaPod.obrigatorio=O campo sigla é obrigatório.
+poder.validacao.registroDuplicado=Já existe um Poder com o Nome ou Sigla informado.
+poder.validacao.registroDuplicado.codigoIdentUo=Já existe uma poder com o Código informado.
+
+
+# ===== CONFIGURAÇÕES ===== #
+
+#GERAL#
+
+configuracao.geral.alteracao.sucesso=Configuração geral alterada com sucesso.
+
+geral.grAtributos.instrucao=Para alterar o Grupo de Classe Acesso n&atilde;o podem haver Classes associadas &agrave;s Fun&ccedil;&otilde;es. Selecione a opção 'nenhum' para todas as Fun&ccedil;&otilde;es e grave as altera&ccedil;&otilde;es.
+geral.validacao.indGerarHistoricoCfg.obrigatorio=Obrigatória a seleção do campo Gerar Histórico
+geral.validacao.indLiberarAcompCfg.obrigatorio=Obrigatória a seleção do campo Exige Liberar Acompanhamento
+geral.validacao.tpArqIntegFinanceiraCfg.obrigatorio=Obrigatória a seleção da Tipo de Arquivo de Integração Financeira
+geral.validacao.indOcultarObservacoesParecer.obrigatorio=Obrigatória a seleção do campo Ocultar Observações de Parecer
+
+#ESTRUTURA
+estrutura.inclusao.sucesso=Estrutura incluída com sucesso!
+estrutura.alteracao.sucesso=Estrutura alterada com sucesso!
+estrutura.exclusao.sucesso=Estrutura excluída com sucesso!
+estrutura.exclusao.erro.estruturaAtributoEttats=Não foi possível excluir a estrutura pois ela possui Atributos na Estrutura
+estrutura.exclusao.erro.estrutTpFuncAcmpEtttfas=Não foi possível excluir a estrutura pois ela possui Funções de Acompanhamento na Estrutura
+estrutura.exclusao.erro.estruturaAcessoEttas=Não foi possível excluir a estrutura pois ela possui estruturaAcessoEttas
+estrutura.exclusao.erro.estruturaSituacaoEtts=Não foi possível excluir a estrutura pois ela possui estruturaSituacaoEtts
+estrutura.exclusao.erro.tipoAcompanhamentoTas=Não foi possível excluir a estrutura pois ela possui tipoAcompanhamentoTas
+estrutura.exclusao.erro.estruturaFuncaoEttfs=Não foi possível excluir a estrutura pois ela possui Função na Estrutura
+estrutura.exclusao.erro.itemEstruturaIetts=Não foi possível excluir a estrutura pois ela possui Item na Estrutura
+estrutura.exclusao.erro.estruturaSituacaoEtts=Não foi possível excluir a estrutura pois ela possui Situação
+estrutura.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+estrutura.validacao.atributosAtb.obrigatorio=Ao menos 1 atributo deve ser selecionado.
+estrutura.validacao.funcaoDadosGeraisObrigatoria=Obrigatória a seleção da função Dados Gerais.
+estrutura.validacao.indAtivoEtt.obrigatorio=Obrigatória a seleção do campo Ativo.
+estrutura.validacao.registroDuplicado=Já existe uma Estrutura com a sigla informada.
+estrutura.validacao.seqApresentacaoInvalida=Intervalo inválido para seqüência de apresentação.
+estrutura.validacao.indResultDatas=É preciso selecionar Data de Início e Data de Término quando Indicadores de Resultados estiver selecionado.
+estrutura.validacao.funcAcomp.orgao1=Nível com Função de Acompanhamento deve ter obrigatoriamente Órgão Responsavel 1.
+estrutura.validacao.funcAcomp.periodicidade=Nível com Função de Acompanhamento deve ter obrigatoriamente Periodicidade de Acompanhamento.
+estrutura.validacao.funcAcomp.funcao=Nivel com Periodicidade de Acompanhamento deve ter ao menos uma Função de Acompanhamento.
+estrutura.validacao.atributos.unidadeOrcamentaria=Para o atributo Unidade Orçamentária é obrigatório selecionar o atributo Orgão Responsável 1.
+estrutura.validacao.indExibirImprimirListagem.obrigatorio=O campo Exibir Opção de Impressão na Listagem de Itens é obrigatório.
+estrutura.validacao.tamanhoListagemVerticalEtt.invalido=Valor inválido para o Tamanho Vertical da Listagem.
+estrutura.validacao.indEtapaNivelSuperiorEtt.obrigatorio=Obrigatória a seleção do campo Esta estrutura é etapa do nível superior.
+
+# FUNÇÕES NA ESTRUTURA 
+estruturaFuncao.alteracao.sucesso=Função na Estrutura alterada com sucesso.
+estruturaFuncao.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+estruturaFuncao.validacao.indListagemImpressCompEttf.obrigatorio=Obrigatória a seleção do campo Listagem Impressa Completa.
+estruturaFuncao.validacao.indListagemImpressaResEttf.obrigatorio=Obrigatória a seleção do campo Listagem Impressa Resumo.
+estruturaFuncao.validacao.seqApresentacaoTelaEttf.invalido=Valor inválido para Sequência de Apresentação de Tela.
+estruturaFuncao.validacao.seqApresentacaoRelatorioEttf.invalido=Valor inválido para Sequência de Apresentação de Relatório.
+
+# FUNÇÕES DE ACOMPANHAMENTO NA ESTRUTURA 
+estruturaTipoFuncAcomp.alteracao.sucesso=Função de Acompanhamento na Estrutura alterada com sucesso.
+estruturaTipoFuncAcomp.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+estruturaTipoFuncAcomp.validacao.indListagemTelaEtttfa.obrigatorio=Obrigatória a seleção do campo Exibir na Listagem em tela.
+estruturaTipoFuncAcomp.validacao.indListagemImprResEtttfa.obrigatorio=Obrigatória a seleção do campo Listagem Impressa Resumo.
+estruturaTipoFuncAcomp.validacao.indListagemImprCompEtttfa.obrigatorio=Obrigatória a seleção do campo Listagem Impressa Completa.
+estruturaTipoFuncAcomp.validacao.seqApresListagemTelaEtttfa.obrigatorio=Obrigatório o preenchimento do campo Sequência de Apresentação em Telas de Listagem quando Exibir na Listagem em Tela
+estruturaTipoFuncAcomp.validacao.larguraListagemTelaEtttfa.obrigatorio=Obrigatório o preenchimento do campo Largura da listagem em Tela quando Exibir na Listagem em Tela
+estruturaTipoFuncAcomp.validacao.indSeqCampoTelaEtttfa.obrigatorio=Obrigatória a seleção do campo Sequência na Tela de Cadastramento.
+
+#ATRIBUTOS NA ESTRUTURA
+estruturaAtributo.alteracao.sucesso=Atributo na Estrutura alterada com sucesso.
+estruturaAtributo.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+estruturaAtributo.validacao.indListagemImpressCompEtta.obrigatorio=Obrigatória a seleção do campo Listagem Impressa Completa.
+estruturaAtributo.validacao.indListagemImpressaResEtta.obrigatorio=Obrigatória a seleção do campo Listagem Impressa Resumo.
+estruturaAtributo.validacao.indListagemTelaEttat.obrigatorio=Obrigatória a seleção do campo Exibir na Listagem em Tela.
+estruturaAtributo.validacao.indObrigatorioEttat.obrigatorio=Obrigatória a seleção do campo Preenchimento Obrigatório.
+estruturaAtributo.validacao.larguraListagemTelaEttat.obrigatorio=Obrigatório o preenchimento do campo Largura da Coluna em Tela quando Exibir na Listagem em Tela
+estruturaAtributo.validacao.seqApresentTelaCampoEttat.obrigatorio=Obrigatório o preenchimento do campo Sequência de Apresentação nas Telas
+estruturaAtributo.validacao.seqApresListagemTelaEttat.obrigatorio=Obrigatório o preenchimento do campo Sequência de Apresentação nas Listagens quando Exibir na Listagem em Tela
+estruturaAtributo.validacao.indRelacaoImpressaEttat.obrigatorio=Obrigatório o preenchimento do campo Exibir na Relação Impressa.
+estruturaAtributo.validacao.tipoAcompanhamento.exibir.obrigatorio=O campo Exibir do Tipo de Acompanhamento é de preenchimento obrigatório.
+
+#ATRIBUTOS
+atributo.inclusao.sucesso=Atributo incluído com sucesso!
+atributo.alteracao.sucesso=Atributo alterado com sucesso!
+atributo.exclusao.sucesso=Atributo excluído com sucesso!
+atributo.exclusao.erro.estruturaAtributoEttats=Não foi possível excluir o atributo pois ele possui Estrutura Atributo.
+atributo.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+atributo.validacao.nomeAtb.obrigatorio=Obrigatório o preenchimento do campo Nome.
+atributo.validacao.labelPadraoAtb.obrigatorio=Obrigatório o preenchimento do campo Label Padrão.
+atributo.validacao.indExclusivoEstruturaAtb.obrigatorio=Obrigatório o preenchimento do campo Exclusivo em um nível da estrutura.
+atributo.validacao.indAtivoAtb.obrigatorio=Obrigatória a seleção do campo Ativo.
+atributo.validacao.indOpcionalAtb.obrigatorio=Obrigatória a seleção do campo Atributo opcional na Estrutura.
+atributo.validacao.registroDuplicado=Já existe um Atributo com o nome ou o label padrão informado.
+atributo.validacao.registroDuplicadoAtivo=Para este grupo de atributo livre já existe atributo ativo.
+
+
+#ATRIBUTOS NA DEMANDA
+atributoDemanda.inclusao.sucesso=Atributo na Demanda incluído com sucesso!
+atributoDemanda.alteracao.sucesso=Atributo na Demanda alterado com sucesso!
+atributoDemanda.exclusao.sucesso=Atributo na Demanda excluído com sucesso!
+atributoDemanda.exclusao.erro.estruturaAtributoEttats=Não foi possível excluir o atributo na Demanda pois ele possui Estrutura Atributo.
+atributoDemanda.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+atributoDemanda.validacao.nomeAtb.obrigatorio=Obrigatório o preenchimento do campo Nome.
+atributoDemanda.validacao.labelPadraoAtb.obrigatorio=Obrigatório o preenchimento do campo Label Padrão.
+atributoDemanda.validacao.indExclusivoEstruturaAtb.obrigatorio=Obrigatório o preenchimento do campo Exclusivo em um nível da estrutura.
+atributoDemanda.validacao.indAtivoAtb.obrigatorio=Obrigatória a seleção do campo Ativo.
+atributoDemanda.validacao.registroDuplicado=Já existe um Atributo na Demanda com o nome ou o label padrão informado.
+atributoDemanda.validacao.registroDuplicadoAtivo=Para este grupo de atributo livre já existe atributo na Demanda ativo.
+atributoDemanda.validacao.nomeAtributoDemandaInvalido=Nome do atributo na demanda inválido.
+atributo.validacao.indRestritivoInvalido=Indicador de atributo restritivo inválido para um grupo de atributos vazio ou que não seja utilizado pelo cadastro de Usuários.
+
+#FUNÇÕES
+funcao.inclusao.sucesso=Função incluída com sucesso!
+funcao.alteracao.sucesso=Função alterada com sucesso!
+funcao.exclusao.sucesso=Função excluída com sucesso!
+funcao.exclusao.erro.estruturaFuncaoEtts=Não foi possível excluir a função pois ela possui Estruturas.
+funcao.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+funcao.validacao.nomeFun.obrigatorio=Obrigatório o preenchimento do campo Nome.
+funcao.validacao.labelPadraoFun.obrigatorio=Obrigatório o preenchimento do campo Label Padrão.
+funcao.validacao.linkFuncaoFun.obrigatorio=Obrigatório o preenchimento do campo Link.
+funcao.validacao.indAtivoFun.obrigatorio=Obrigatória a seleção do campo Ativo.
+funcao.validacao.indExclusivoEstruturaFun.obrigatorio=Obrigatória a seleção do campo Exclusivo em um Nível da Estrutura.
+funcao.validacao.indOpcionalFun.obrigatorio=Obrigatória a seleção do campo Função Opcional na Estrutura.
+funcao.validacao.registroDuplicado=Já existe uma Função com o nome ou label informado.
+
+#TEXTOS SITE
+textoSite.inclusao.sucesso=Texto do sistema incluído com sucesso!
+textoSite.alteracao.sucesso=Texto do sistema alterado com sucesso!
+textoSite.exclusao.sucesso=Texto do sistema excluído com sucesso!
+textoSite.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+textoSite.validacao.empresaEmp.obrigatorio=Obrigatório o preenchimento da Empresa
+textoSite.validacao.idiomaIdm.obrigatorio=Obrigatório o preenchimento do Idioma
+textoSite.validacao.indAtivoTxts.obrigatorio=Obrigatório o preenchimento do campo Ativo
+textoSite.validacao.emailResponsavel.invalido=O e-mail informado é inválido.
+
+#EMPRESA
+empresa.inclusao.sucesso=Empresa incluída com sucesso!
+empresa.alteracao.sucesso=Empresa alterada com sucesso!
+empresa.exclusao.sucesso=Empresa excluída com sucesso!
+empresa.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+empresa.validacao.cnpjCpfEmp.invalido=Valor inválido para o CNPJ/CPF.
+empresa.validacao.cepEmp.invalido=Valor inválido para o CEP.
+empresa.validacao.ddd1Emp.invalido=Valor inválido para o DDD do telefone 1.
+empresa.validacao.telefone1Emp.invalido=Valor inválido para o telefone 1.
+empresa.validacao.ddd2Emp.invalido=Valor inválido para o DDD do telefone 2.
+empresa.validacao.telefone2Emp.invalido=Valor inválido para o telefone 2.
+empresa.validacao.dddFaxEmp.invalido=Valor inválido para o DDD do fax.
+empresa.validacao.faxEmp.invalido=Valor inválido para o fax.
+empresa.validacao.emailContatoEmp.invalido=Valor inválido para o e-mail contato.
+empresa.validacao.emailErrosEmp.invalido=Valor inválido para o e-mail erros.
+empresa.validacao.logotipoEmp.obrigatorio=Obrigatório o preenchimento do logotipo.
+empresa.validacao.logotipoEmailEmp.obrigatorio=Obrigatório o preenchimento do logotipo e-mail.
+empresa.validacao.logotipoRelatorioEmp.obrigatorio=Obrigatório o preenchimento do logotipo Relatório.
+empresa.exclusao.erro.textosSiteTxts=Não foi possível excluir a empresa pois ela possui Textos Site.
+
+#ÁREAS DO SITE
+paginaAreaSite.inclusao.sucesso=Área do Site incluída com sucesso!
+paginaAreaSite.inclusao.erro=Ocorreu um erro durante a gravação.
+paginaAreaSite.alteracao.sucesso=Área do Site alterada com sucesso!
+paginaAreaSite.alteracao.erro=Ocorreu um erro durante a alteração.
+paginaAreaSite.exclusao.sucesso=Área do Site excluida com sucesso!
+paginaAreaSite.exclusao.erro=Ocorreu um erro durante a exclusão.
+paginaAreaSite.exclusao.erro.opcaoMenuOpcms=Não foi possível excluir a área do site pois ela possui Opções de Menu cadastradas
+paginaAreaSite.exclusao.erro.paginaPgns=Não foi possível excluir a área do site pois ela possui páginas cadastradas
+paginaAreaSite.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+paginaAreaSite.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+paginaAreaSite.validacao.nomePas.obrigatorio=Obrigatório o preenchimento do campo Nome.
+paginaAreaSite.validacao.textoPas.obrigatorio=Obrigatório o preenchimento do campo Texto.
+paginaAreaSite.validacao.indCapaPas.obrigatorio=Obrigatória a seleção do campo Link na Capa.
+paginaAreaSite.validacao.urlPas.obrigatorio=Obrigatório o preenchimento do campo URL.
+paginaAreaSite.validacao.corPas.obrigatorio=Obrigatório o preenchimento do campo Cor.
+paginaAreaSite.validacao.seqApresentacaoPas.obrigatorio=Obrigatório o preenchimento do campo Seqüência.
+paginaAreaSite.validacao.seqApresentacaoPas.invalido=Valor inválido para o campo Seqüência.
+
+#PAGINAS
+paginaPgn.inclusao.sucesso=Página incluída com sucesso!
+paginaPgn.inclusao.erro=Ocorreu um erro durante a gravação.
+paginaPgn.alteracao.sucesso=Página alterada com sucesso!
+paginaPgn.alteracao.erro=Ocorreu um erro durante a alteração.
+paginaPgn.exclusao.sucesso=Página excluida com sucesso!
+paginaPgn.exclusao.erro=Ocorreu um erro durante a exclusão.
+paginaPgn.exclusao.erro.paginaPgns=Não foi possível excluir a página pois ela possui página(s) anteeior(es) cadastrada(s)
+paginaPgn.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+paginaPgn.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+paginaPgn.validacao.paginaAreaSitePa.obrigatorio=Obrigatório o preenchimento do campo Área do Site.
+paginaPgn.validacao.nomePgn.obrigatorio=Obrigatório o preenchimento do campo Nome.
+paginaPgn.validacao.tituloPgn.obrigatorio=Obrigatório o preenchimento do campo Título da Página.
+paginaPgn.validacao.idiomaIdm.obrigatorio=Obrigatório o preenchimento do campo Idioma.
+paginaPgn.validacao.urlPgn.obrigatorio=Obrigatório o preenchimento do campo URL.
+paginaPgn.validacao.indHomePgn.obrigatorio=Obrigatória a seleção do campo É Página Home.
+paginaPgn.validacao.indLoginPgn.obrigatorio=Obrigatória a seleção do campo É Página Login.
+paginaPgn.validacao.indMapaPgn.obrigatorio=Obrigatória a seleção do campo Página aparece no Mapa do Site.
+paginaPgn.validacao.descricaoMapaPgn.obrigatorio=Obrigatório o preenchimento do campo Descrição do Mapa.
+paginaPgn.validacao.qtdSubAreaPgn.obrigatorio=Obrigatório o preenchimento do Qtde. de Sub-Áreas.
+
+#ESTRUTURA CONTABIL
+configExecFinan.inclusao.sucesso=Estrutura Contábil incluída com sucesso!
+configExecFinan.inclusao.erro=Ocorreu um erro durante a gravação.
+configExecFinan.alteracao.sucesso=Estrutura Contábil alterada com sucesso!
+configExecFinan.alteracao.erro=Ocorreu um erro durante a alteração.
+configExecFinan.exclusao.sucesso=Estrutura Contábil excluida com sucesso!
+configExecFinan.exclusao.erro=Ocorreu um erro durante a exclusão.
+configExecFinan.exclusao.erro.opcaoMenuOpcms=Não foi possível excluir a estrutura contábil pois ela possui Opções de Menu cadastradas
+configExecFinan.exclusao.erro.paginaPngs=Não foi possível excluir a página pois ela possui páginas cadastradas
+configExecFinan.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+configExecFinan.pesquisa.erro=Ocorreu um erro na geração da pesquisa.
+configExecFinan.validacao.nomeCef.obrigatorio=Obrigatório o preenchimento do campo Nome.
+configExecFinan.validacao.labelCef.obrigatorio=Obrigatório o preenchimento do campo Label para utilizar nas telas.
+configExecFinan.validacao.seqApresentacaoPgn.obrigatorio=Obrigatório o preenchimento do Qtde de Sub-Áreas.
+configExecFinan.validacao.configTipoDadoCtd.obrigatorio=Obrigatório o preenchimento do Tipo de Dado.
+configExecFinan.validacao.configSisExecFinanCsefv.obrigatorio=Obrigatório o preenchimento do Sistema/Versão.
+
+#FUNÇÕES ACOMPANHAMENTO
+tipoFuncAcomp.inclusao.sucesso=Função Acompanhamento incluída com sucesso!
+tipoFuncAcomp.alteracao.sucesso=Função Acompanhamento alterada com sucesso!
+tipoFuncAcomp.exclusao.sucesso=Função Acompanhamento excluída com sucesso!
+tipoFuncAcomp.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+tipoFuncAcomp.validacao.indPlanejaTpfa.obrigatorio=Obrigatória a seleção do campo É função de Planejamento.
+tipoFuncAcomp.validacao.indMonitoraTpfa.obrigatorio=Obrigatória a seleção do campo É função de Monitoramento.
+tipoFuncAcomp.validacao.indInformaAndamentoTpfa.obrigatorio=Obrigatória a seleção do campo Informa Andamento.
+tipoFuncAcomp.validacao.indEmitePosicaoTpfa.obrigatorio=Obrigatória a seleção do campo Emite Posição.
+tipoFuncAcomp.validacao.indEmitePosicaoMonitorado.obrigatorio=Quando emite posição, obrigatória a seleção de um dos campos Emite Monitorado ou Emite Não Monitorado.
+tipoFuncAcomp.validacao.tamanhoSinalTpfa.obrigatorio=Obrigatório o preenchimento do campo Tamanho da Imagem de Sinal.
+tipoFuncAcomp.validacao.tamanhoSinalTpfa.invalido=Valor inválido para o Tamanho da Imagem de Sinal.
+tipoFuncAcomp.exclusao.erro.estrutTpFuncAcmpEtttfas=Não foi possível excluir a função pois ela possui estrutTpFuncAcmpEtttfas.
+tipoFuncAcomp.exclusao.erro.itemEstUsutpfuacIettutfas=Não foi possível excluir a função pois ela possui itemEstUsutpfuacIettutfas.
+tipoFuncAcomp.exclusao.erro.situacaoTpFuncAcmpSitfas=Não foi possível excluir a função pois ela possui situacaoTpFuncAcmpSitfas.
+tipoFuncAcomp.exclusao.erro.tipoFuncAcompTpfas=Não foi possível excluir a função pois ela possui tipoFuncAcompTpfas.
+tipoFuncAcomp.exclusao.erro.acompRefItemLimitesArlis=Não foi possível excluir a função pois ela possui acompRefItemLimitesArlis.
+tipoFuncAcomp.exclusao.erro.acompRefLimitesArls=Não foi possível excluir a função pois ela possui acompRefLimitesArls.
+
+#EXIBIÇÃO DE ABAS
+aba.alteracao.sucesso=Abas alteradas com sucesso!
+aba.validacao.ordemAba.obrigatorio=Obrigatório o preenchimento dos campos Ordem.
+aba.validacao.ordemAba.invalido=Valor inválido para o campo Ordem.
+aba.validacao.labelAba.obrigatorio=Obrigatório o preenchimento dos campos Label.
+
+#TIPO ACOMPANHAMENTO
+tipoAcompanhamento.inclusao.sucesso=Tipo Acompanhamento incluído com sucesso!
+tipoAcompanhamento.alteracao.sucesso=Tipo Acompanhamento alterado com sucesso!
+tipoAcompanhamento.exclusao.sucesso=Tipo Acompanhamento excluído com sucesso!
+tipoAcompanhamento.exclusao.erro.existeAref=Não foi possível excluir o tipo de acompanhamento, pois existem períodos gerados com este tipo.
+tipoAcompanhamento.exclusao.erro.existeEata=Não foi possível excluir o tipo de acompanhamento, pois existem atributos na estrutura associados a este tipo.
+tipoAcompanhamento.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+tipoAcompanhamento.validacao.indMonitoramentoTa.obrigatorio=Obrigatória a seleção do campo Inclui Monitorado.
+tipoAcompanhamento.validacao.indNaoMonitoramentoTa.obrigatorio=Obrigatória a seleção do campo Inclui Não Monitorado.
+tipoAcompanhamento.validacao.indSepararOrgaoTa.obrigatorio=Obrigatória a seleção do campo Separar por Órgão.
+tipoAcompanhamento.validacao.seqApresentacaoTa.invalido=Valor inválido para a Sequência de Apresentação.
+tipoAcompanhamento.validacao.indRegistroPosicao.obrigatorioOpcional=É obrigatório o preenchimento do campo Registro de Posição para a função
+tipoAcompanhamento.ativo.comAref.nenhumRegistro=Não existe tipo de acompanhamento ativo com acompanhamento informado.
+tipoAcompanhamento.validacao.indLiberarAcompTa.obrigatorio=Obrigatória a seleção do campo Exige Liberar Acompanhamento
+
+
+#CONFIG SIS EXEC FINAN
+csef.exclusao.erro.configSisExecFinanCsefv=Não é possível excluir este registro pois ele possui relação com uma versão
+
+#ENDERECO 
+endereco.exclusao.erro.entidadeEnderecoEnens=Não é possível excluir este endereço pois ele possui relação com uma entidade
+
+#PRIORIDADE
+prioridade.exclusao.erro.regDemandaRegds=Não foi possível excluir a prioridade pois ele possui Demanda relacionada.
+
+#SIT DEMANDA
+sitDemanda.exclusao.erro.regDemandaRegds=Não foi possível excluir a situação pois ele possui Demanda relacionada.
+
+#TELEFONE
+telefone.exclusao.erro.entidadeTelefoneEntts=Não foi possível excluir o telefone pois ele possui Entidade relacionada.
+
+# ===== USUÁRIOS ===== #
+
+#USUARIOS
+usuario.inclusao.sucesso=Usuário incluído com sucesso!
+usuario.alteracao.sucesso=Usuário alterado com sucesso!
+usuario.exclusao.sucesso=Usuário excluído com sucesso!
+usuario.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+usuario.validacao.indAtivoUsu.obrigatorio=Obrigatória a seleção do campo Ativo.
+usuario.validacao.cnpjCpfUsu.invalido=CPF ou CNPJ inválido.
+usuario.validacao.dataNascimento.obrigatorio=Obrigatório o preenchimento do campo Data de Nascimento.
+usuario.validacao.dataNascimento.invalido=Campo Data de Nascimento inválido.
+usuario.validacao.classeAcesso.obrigatorio=Obrigatória a seleção de pelo menos uma Classe de Acesso.
+usuario.validacao.indAutentSisOpUsu.obrigatorio=Obrigatória a seleção do campo Tipo de Autenticação.
+usuario.validacao.senha.invalido=Senha e Confirmação de senha não conferem.
+usuario.validacao.registroDuplicado=Usuário não pode ser incluído. Login já existente!
+usuario.exclusao.erro.acompReferenciaArefsByCodUsuIncAref=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.acompReferenciaArefsByCodUsuUltManutAref=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.acompRelatorioArels=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.agendaAges=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.apontamentoApts=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.efItemEstRealizadoEfiers=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.estruturaEtts=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.itemEstrutMarcadorIettms=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.itemEstrutUploadIettups=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.itemEstruturaIettsByCodUsuIncIett=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.itemEstruturaIettsByCodUsuUltManutIett=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.itemEstrutUsuarioIettuses=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.itemEstUsutpfuacIettutfas=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.logs=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.regControleAcessoRcas=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.segmentoCategoriaSgtcs=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.segmentoItemSgtis=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.segmentoSgts=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.regDemandaRegdsByCodUsuSolicitanteRegd=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.regDemandaRegdsByCodUsuInclusaoRegd=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.iettutfaHistorIettutfahsByCodUsuHistoricoIettutfah=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.exclusao.erro.iettutfaHistorIettutfahsByCodUsu=Não é possível excluir o usuário pois ele possui relação com outras tabelas.
+usuario.alteracao.semPermissao.Sentinela=Usuário sem permissão de acessar os métodos de vincular a grupos do Sentinela.
+
+#PERFIL
+perfil.inclusao.sucesso=Perfil incluído com sucesso!
+perfil.alteracao.sucesso=Perfil alterado com sucesso!
+perfil.exclusao.sucesso=Perfil excluído com sucesso!
+perfil.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+perfil.validacao.nivelPfl.obrigatorio=Obrigatória a seleção do campo Nível.
+perfil.validacao.indAreaReservadaPfl.obrigatorio=Obrigatória a seleção do campo Área Reservada.
+perfil.exclusao.erro.usuarioPerfilUsups=Não foi possível excluir o perfil pois ele possui usuarioPerfilUsups.
+perfil.exclusao.erro.opcaoPerfilOpcps=Não foi possível excluir o perfil pois ele possui opcaoPerfilOpcps.
+
+#GRUPOS DE ATRIBUTOS
+sisGrupoAtributo.inclusao.sucesso=Grupo de Atributo incluído com sucesso!
+sisGrupoAtributo.alteracao.sucesso=Grupo de Atributo alterado com sucesso!
+sisGrupoAtributo.exclusao.sucesso=Grupo de Atributo excluído com sucesso!
+sisGrupoAtributo.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+sisGrupoAtributo.validacao.sisTipoExibicGrupoSteg.obrigatorio=Obrigatória a seleção do campo Tipo de Exibição.
+sisGrupoAtributo.validacao.sisTipoOrdenacaoSto.obrigatorio=Obrigatória a seleção do campo Ordenação.
+sisGrupoAtributo.validacao.indObrigatorioSga.obrigatorio=Obrigatória a seleção do campo Obrigatório.
+sisGrupoAtributo.validacao.indCadSiteSga.obrigatorio=Obrigatória a seleção do campo Exibir no Cadastro do Site.
+sisGrupoAtributo.validacao.seqApresentacaoSga.obrigatorio=Obrigatório o preenchimento do campo Seq. de Ordenação.
+sisGrupoAtributo.validacao.seqApresentacaoSga.invalido=Valor inválido para o campo Seq. de Ordenação.
+sisGrupoAtributo.validacao.indAtivoSga.obrigatorio=Obrigatória a seleção do campo Ativo.
+sisGrupoAtributo.exclusao.erro.segmentoSgts=Não foi possível excluir o Grupo de Atributo pois ele possui segmentoSgts.
+sisGrupoAtributo.exclusao.erro.sisAtributoSatbs=Não foi possível excluir o Grupo de Atributo pois ele possui sisAtributoSatbs.
+sisGrupoAtributo.exclusao.erro.configuracaoCfgsByCodSgaGrAtrPgIni=Não foi possível excluir o Grupo de Atributo pois ele possui configuracaoCfgsByCodSgaGrAtrPgIni.
+sisGrupoAtributo.exclusao.erro.configuracaoCfgsByCodSgaGrAtrNvPlan=Não foi possível excluir o Grupo de Atributo pois ele possui configuracaoCfgsByCodSgaGrAtrNvPlan.
+sisGrupoAtributo.exclusao.erro.configuracaoCfgsByCodSgaGrAtrClAcesso=Não foi possível excluir o Grupo de Atributo pois ele possui configuracaoCfgsByCodSgaGrAtrClAcesso.
+sisGrupoAtributo.exclusao.erro.configuracaoCfgsByCodSgaGrAtrLeiCapa=Não foi possível excluir o Grupo de Atributo pois ele possui configuracaoCfgsByCodSgaGrAtrLeiCapa.
+sisGrupoAtributo.exclusao.erro.configuracaoCfgsByCodSgaGrAtrTpAcesso=Não foi possível excluir o Grupo de Atributo pois ele possui configuracaoCfgsByCodSgaGrAtrTpAcesso.
+
+
+#ATRIBUTOS
+sisAtributo.inclusao.sucesso=Atributo incluído com sucesso!
+sisAtributo.alteracao.sucesso=Atributo alterado com sucesso!
+sisAtributo.exclusao.sucesso=Atributo excluído com sucesso!
+sisAtributo.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+sisAtributo.validacao.sisGrupoAtributoSga.obrigatorio=Obrigatória a seleção do campo Grupo de Atributos.
+sisAtributo.validacao.indAtivoSatb.obrigatorio=Obrigatória a seleção do campo Ativo.
+sisAtributo.exclusao.erro.usuarioAtributoUsuas=Não foi possível excluir o Atributo pois ele possui usuarioAtributoUsuas
+sisAtributo.exclusao.erro.entidadeAtributoEntas=Não foi possível excluir o Atributo pois pois é utilizadao por Entidade
+sisAtributo.exclusao.erro.locAtributoLocas=Não foi possível excluir o Atributo pois é utilizadao por Local
+sisAtributo.exclusao.erro.demAtributoDemas=Não foi possível excluir o Atributo pois é utilizadao por Demanda 
+sisAtributo.exclusao.erro.segmentoTpAcessoSgttas=Não foi possível excluir o Atributo pois ele possui segmentoTpAcessoSgttas.
+sisAtributo.exclusao.erro.itemEstruturaNivelIettns=Não foi possível excluir o Atributo pois ele possui itemEstruturaNivelIettns.
+sisAtributo.exclusao.erro.segmentoItemTpacesSgtitas=Não foi possível excluir o Atributo pois ele possui segmentoItemTpacesSgtitas.
+sisAtributo.exclusao.erro.segmentoCategTpAcessSgts=Não foi possível excluir o Atributo pois ele possui segmentoCategTpAcessSgts.
+sisAtributo.exclusao.erro.estruturaAcessoEttas=Não foi possível excluir o Atributo pois ele possui estruturaAcessoEttas.
+sisAtributo.exclusao.erro.configuracaoCfgsByCodSacapa=Não foi possível excluir o Atributo pois ele possui configuracaoCfgsByCodSacapa.
+sisAtributo.exclusao.erro.configuracaoCfgsByCodSapadrao=Não foi possível excluir o Atributo pois ele possui configuracaoCfgsByCodSapadrao.
+sisAtributo.validacao.registroDuplicado=Já existe um Atributo com a descrição informada.
+
+
+#ATRIBUTO ATT
+atributo.validacao.grupoAtributoGatt.obrigatorio=Obrigatória a seleção do campo Grupo de Atributos.
+atributo.inclusao.sucesso=Atributo incluído com sucesso!
+atributo.alteracao.sucesso=Atributo alterado com sucesso!
+atributo.exclusao.sucesso=Atributo excluído com sucesso!
+atributo.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+atributo.exclusao.erro.demAtributoDemas=Não foi possível excluir o atributo pois ele possui Demanda relacionada.
+atributo.exclusao.erro.locAtributoLocas=Não foi possível excluir o atributo pois ele possui Local relacionado.
+atributo.exclusao.erro.entidadeAtributoEntas=Não foi possível excluir o atributo pois ele possui Entidade Atributo relacionada.
+
+
+#OPCAO x PERFIL
+opcaoPerfil.inclusao.sucesso=Opção x Perfil atualizado com sucesso!
+opcaoPerfil.validacao.perfilPfl.procurar=Obrigatória a seleção do campo Descrição.
+opcaoPerfil.validacao.perfilPfl.trocarProcurar=Após selecionar o Perfil clique em Procurar.
+
+
+#ESTRUTURA ACESSO
+estruturaAcesso.inclusao.sucesso=Permissões atualizadas com sucesso!
+estruturaAcesso.validacao.sisAtributoSatb.obrigatorio=Obrigatória a seleção do campo Classe de Acesso.
+estruturaAcesso.validacao.sisAtributoSatb.definir=Após selecionar a Classe de Acesso clique em Definir Permissões.
+estruturaAcesso.validacao.definirPermissoes.obrigatorio=Para gravar primeiro clique em Definir Permissões, realize as alterações necessárias e clique em Gravar.
+
+# ============= CADASTRO DE ITENS =================#
+itemEstrutura.exclusao.sucesso=Item da estrutura excluído com sucesso!
+
+itemEstrutura.dadosBasicos.inclusao.sucesso=Item da Estrutura incluído com sucesso!
+itemEstrutura.dadosBasicos.alteracao.sucesso=Item da Estrutura alterado com sucesso!
+
+itemEstrutura.beneficiario.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.beneficiario.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.beneficiario.inclusao.jaExiste=Este registro já está cadastrado para este Item.
+itemEstrutura.beneficiario.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.beneficiario.exclusao.sucesso=Registro excluído com sucesso!
+itemEstrutura.beneficiario.validacao.qtdePrevistaIEttB.invalido=Valor inválido para o campo Quantidade Prevista 
+
+itemEstrutura.acao.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.acao.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.acao.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.acao.exclusao.sucesso=Registro excluído com sucesso!
+itemEstrutura.acao.validacao.dataIetta.obrigatorio=Obrigatório o preenchimento do campo Data.
+itemEstrutura.acao.validacao.dataIetta.invalido=Valor inválido para o campo Data.
+
+itemEstrutura.criterio.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.criterio.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.criterio.inclusao.jaExiste=Este registro já está cadastrado para este Item.
+itemEstrutura.criterio.exclusao.sucesso=Registro excluído com sucesso!
+
+itemEstrutura.fonteRecurso.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.fonteRecurso.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.fonteRecurso.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.fonteRecurso.inclusao.jaExiste=Este registro já está cadastrado para este Item.
+itemEstrutura.fonteRecurso.inclusao.naoPermitida=Existem informa&ccedil;&otilde;es cadastradas em outro n&iacute;vel da Estrutura. N&atilde;o &eacute; poss&iacute;vel informar dados financeiros neste n&iacute;vel.
+itemEstrutura.fonteRecurso.exclusao.sucesso=Registro e seus Recursos excluídos com sucesso!
+itemEstrutura.fonteRecurso.exclusao.possuiConta=Registro possui referência em outra tabela. Os dados foram desativados.
+itemEstrutura.fonteRecurso.validacao.dataValorEfieft.obrigatorio=Obrigatório o preenchimento do Campo Data de Câmbio.
+itemEstrutura.fonteRecurso.validacao.dataValorEfieft.invalido=Valor inválido para o campo Data de Câmbio.
+itemEstrutura.fonteRecurso.validacao.valorEfieft.invalido=Valor inválido para o campo Valor 
+itemEstrutura.fonteRecurso.validacao.valorEfieft.obrigatorio=Obrigatório o preenchimento do Campo Valor.
+
+itemEstrutura.recurso.validacao.todosRecursos=Todos os recursos existentes já foram incluídos. Para alterar os valores, clique no ícone do lápis do respectivo recurso.
+itemEstrutura.recurso.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.recurso.inclusao.sucesso=Recurso incluído com sucesso!
+itemEstrutura.recurso.alteracao.sucesso=Recurso alterado com sucesso!
+itemEstrutura.recurso.inclusao.jaExiste=Já Existe um registro para este Recurso e Exercício nesta Fonte de Recurso.
+itemEstrutura.recurso.exclusao.sucesso=Recurso excluído com sucesso!
+itemEstrutura.recurso.exclusao.possuiConta=Recurso possui Conta(s) de Orçamento cadastrada. A(s) Conta(s), e o Recurso foram desativados.
+itemEstrutura.recurso.validacao.dataValorEfiep.obrigatorio=Obrigatório o preenchimento do Campo Data de Câmbio.
+itemEstrutura.recurso.validacao.dataValorEfiep.invalido=Valor inválido para o campo Data de Câmbio.
+itemEstrutura.recurso.validacao.valorRevisadoEfiep.invalido=Valor Inválido para o campo.
+itemEstrutura.recurso.validacao.valorAprovadoEfiep.invalido=Valor Inválido para o campo.
+
+itemEstrutura.entidade.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.entidade.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.entidade.inclusao.jaExiste=Este registro já está cadastrado para este Item.
+itemEstrutura.entidade.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.entidade.exclusao.sucesso=Registro excluído com sucesso!
+itemEstrutura.entidade.validacao.entidadeEnt.obrigatorio=Obrigatória a seleçao do campo Nome.
+itemEstrutura.entidade.validacao.tipoParticipacaoTpp.obrigatorio=Obrigatória a seleção do campo Atuação.
+itemEstrutura.entidade.validacao.dataInicioIette.obrigatorio=Obrigatório o preenchimento do campo Data Início.
+itemEstrutura.entidade.validacao.dataInicioIette.invalido=Valor inválido para o campo Data Início.
+itemEstrutura.entidade.validacao.dataFimIette.obrigatorio=Obrigatório o preenchimento do campo Data Fim.
+itemEstrutura.entidade.validacao.dataFimIette.invalido=Valor inválido para o campo Data Fim.
+itemEstrutura.entidade.validacao.dataFimIette.dataFimMenorQueDataInico=Data Fim deve ser maior ou igual a Data Início.
+
+itemEstrutura.usuario.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.usuario.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.usuario.inclusao.jaExiste=Este registro já está cadastrado para este Item.
+itemEstrutura.usuario.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.usuario.exclusao.sucesso=Registro excluído com sucesso!
+itemEstrutura.usuario.validacao.usuarioUsu.obrigatorio=Obrigatória a seleçao do campo Nome.
+itemEstrutura.usuario.validacao.indEdicaoIettus.obrigatorio=Obrigatória a seleção do campo Permissão.
+itemEstrutura.usuario.validacao.inclusaoUsuarioGrupo=Não é possível incluir duas permissões para um usuário ou um grupo com a opção de manter no próximo nível.
+
+itemEstrutura.indResultado.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.indResultado.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.indResultado.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.indResultado.exclusao.sucesso=Registro excluído com sucesso!
+itemEstrutura.indResultado.validacao.indProjecaoIettr.obrigatorio=Obrigatória a seleçao do campo Projeção.
+itemEstrutura.indResultado.validacao.indTipoQtde.obrigatorio=Obrigatória a seleçao do campo Formato.
+itemEstrutura.indResultado.validacao.prevRealLocal.obrigatorio=Nível de Abrangência deve ser selecionado.
+itemEstrutura.indResultado.validacao.indAcumulavelIettr.obrigatorio=Obrigatória a seleção do campo Acumulável.
+itemEstrutura.indResultado.validacao.indPublicoIettr.obrigatorio=Obrigatória a seleção do campo É Público.
+itemEstrutura.indResultado.validacao.indValorFinalIettr.obrigatorio=Obrigatória a seleção do campo Valor final.
+itemEstrutura.indResultado.validacao.indRealPorLocal.obrigatorio=Obrigatória a seleção do campo Qtde. Realizada Informada por Local.
+itemEstrutura.indResultado.exclusao.exiteEmArf=Não é permitido excluir este indicador pois está sendo utilizado por registro de realizado físico.
+itemEstrutura.indResultado.alteracao.exiteEmArf=Não é permitido alterar o campo acima pois este indicador está sendo utilizado por registro de realizado físico.
+itemEstrutura.indResultado.validacao.indTipoAtualizacaoPrevisto=Obrigatória a seleção do campo de tipo de utilização do serviço de valor previsto.
+itemEstrutura.indResultado.validacao.indTipoAtualizacaoRealizado=Obrigatória a seleção do campo de tipo de utilização do serviço de valor realizado.
+
+itemEstrutura.quantPrevista.exclusao.validacao=Selecione pelo menos um registro para Exclusão
+itemEstrutura.quantPrevista.inclusao.sucesso=Quantidade Prevista incluída com sucesso!
+itemEstrutura.quantPrevista.inclusao.jaExiste=Já Existe um registro para este Exercício neste Item.
+itemEstrutura.quantPrevista.alteracao.sucesso=Quantidade Prevista alterada com sucesso!
+itemEstrutura.quantPrevista.exclusao.sucesso=Quantidade Prevista excluída com sucesso!
+itemEstrutura.quantPrevista.validacao.qtdPrevistaIettf.obrigatorio=Obrigatório o preenchimento do campo Quantidade Prevista.
+itemEstrutura.quantPrevista.validacao.qtdPrevistaIettf.invalido=Valor inválido para o campo Quantidade Prevista.
+itemEstrutura.quantPrevista.validacao.exercicioExe.obrigatorio=Obrigatória a seleção do campo Exercício.
+itemEstrutura.quantPrevista.validacao.indAtivoIettf.obrigatorio=Obrigatória a seleção do campo Ativo.
+itemEstrutura.quantPrevista.validacao.indTipoQtde.valorInt=O valor deve ser um valor inteiro quando for selecionado Quantidade no campo Formato.
+
+itemEstrutura.contaOrcamento.validacao.indAcumuladoEfiec.obrigatorio=Obrigatória a seleção do campo Acumulado
+itemEstrutura.contaOrcamento.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.contaOrcamento.inclusao.naoPermitida=Existem informa&ccedil;&otilde;es cadastradas em outro n&iacute;vel da Estrutura. N&atilde;o &eacute; poss&iacute;vel informar contas neste n&iacute;vel.
+itemEstrutura.contaOrcamento.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.contaOrcamento.exclusao.sucesso=Registro excluído com sucesso!
+itemEstrutura.contaOrcamento.inclusao.erro.jaExiste=Este registro já está cadastrado para este Item.
+itemEstrutura.contaOrcamento.alteracao.consistencia=A combinação dos campos (Estrutura, Exercício, Recursos, Fonte Recursos) já está cadastrada.
+
+itemEstrutura.pontoCritico.validacao.dataIdentificacaoPtc.obrigatorio=Obrigatório o preenchimento do campo Data de Identificação.
+itemEstrutura.pontoCritico.validacao.dataIdentificacaoPtc.invalido=Valor inválido para o campo Data de Identificação.
+itemEstrutura.pontoCritico.validacao.indAmbitoInternoGovPtc.obrigatorio=Obrigatória a seleção do campo Âmbito.
+itemEstrutura.pontoCritico.validacao.indAtivoPtc.obrigatorio=Obrigatória a seleção do campo Estado.
+itemEstrutura.pontoCritico.validacao.dataLimitePtc.obrigatorio=Obrigatório o preenchimento do campo Data Limite.
+itemEstrutura.pontoCritico.validacao.dataLimitePtc.invalido=Valor inválido para o campo Data Limite.
+itemEstrutura.pontoCritico.validacao.dataSolucaoPtc.obrigatorio=Valor inválido para o campo Data Solução.
+itemEstrutura.pontoCritico.validacao.dataSolucaoPtc.obrigatorioQuandoCodUsuSelecionado=Obrigatório o preenchimento do campo Data da Solução quando o campo Responsável pela Solução preenchido.
+itemEstrutura.pontoCritico.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.pontoCritico.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.pontoCritico.exclusao.sucesso=Registro excluído com sucesso!
+itemEstrutura.pontoCritico.exclusao.possuiApontamentos=Não é possível excluir o registro pois ele possui Encaminhamentos cadastrados.
+
+itemEstrutura.apontamento.inclusao.sucesso=Encaminhamento incluído com sucesso!
+itemEstrutura.apontamento.alteracao.sucesso=Encaminhamento alterado com sucesso!
+itemEstrutura.apontamento.exclusao.sucesso=Encaminhamento(s) excluído(s) com sucesso!
+
+itemEstrutura.categoriaAnexo.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.categoriaAnexo.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.categoriaAnexo.exclusao.sucesso=Registro excluído com sucesso!
+itemEstrutura.categoriaAnexo.exclusao.possuiUpload=Não é possível excluir registro pois ele possúi vínculos
+itemEstrutura.categoriaAnexo.exclusao.possuiAri=Não é possível excluir o registro.
+
+itemEstrutura.anexo.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.anexo.alteracao.sucesso=Registro alterado com sucesso!
+itemEstrutura.anexo.exclusao.sucesso=Registro excluído com sucesso!
+
+itemEstrutura.localItem.validacao.identificacaoLit.obrigatorio=Obrigatória a seleção do campo Local
+itemEstrutura.localItem.inclusao.sucesso=Registro incluído com sucesso!
+itemEstrutura.localItem.inclusao.jaExiste=Este registro já está cadastrado para este Item.
+itemEstrutura.localItem.exclusao.sucesso=Registro excluído com sucesso!
+
+itemEstrutura.relatorio.validacao.qtdeItem=100
+itemEstrutura.relatorio.filtro.criterios=Existem critérios selecionados, clique no botão para visualizar/alterar
+itemEstrutura.relatorio.filtro.situacoes=Existem situações selecionadas, clique no botão para visualizar/alterar
+itemEstrutura.relatorio.filtro.nenhumItem=Nenhum item atende o filtro selecionado.
+itemEstrutura.relatorio.nenhumItem=Não existem itens cadastrados.
+
+itemEstrutura.anotacao.inclusao.sucesso=Anotação incluída com sucesso.
+itemEstrutura.anotacao.alteracao.sucesso=Anotação alterada com sucesso.
+itemEstrutura.anotacao.exclusao.sucesso=Anotação excluída com sucesso.
+
+itemEstrutura.regDemanda.inclusao.sucesso=Associação de Demanda incluída com sucesso.
+itemEstrutura.regDemanda.exclusao.sucesso=Associação de Demanda excluída com sucesso.
+
+# ============= ACOMPANHAMENTO =================#
+# ============= ACOMPANHAMENTO =================#
+periodoReferencia.validacao.tipoAcompanhamento.obrigatorio=Obrigatória a seleção do campo Tipo de Acompanhamento.
+periodoReferencia.validacao.orgaoOrg.obrigatorio=Obrigatória a seleção do campo Orgão da Aplicação.
+periodoReferencia.validacao.anoAref.invalido=Obrigatório o preenchimento do campo Ano.
+periodoReferencia.validacao.mesAref.obrigatorio=Obrigatória a seleção do campo Mês.
+periodoReferencia.validacao.dataInicioAref.obrigatorio=Obrigatório o preenchimento do campo Início da elaboração da avaliação.
+periodoReferencia.validacao.dataInicioAref.invalido=Valor inválido para o campo Início da elaboração da avaliação.
+periodoReferencia.validacao.dataLimiteAcompFisicoAref.obrigatorio=Obrigatório o preenchimento do campo Prazo final para acompanhamento físico.
+periodoReferencia.validacao.dataLimiteAcompFisicoAref.invalido=Valor inválido para o campo Prazo final para acompanhamento físico.
+periodoReferencia.validacao.dataLimiteAcompFisicoAref.dataFinalMenorQueDataInicial=Prazo Final acompanhamento físico deve ser maior que Início da elaboração da avaliação.
+periodoReferencia.validacao.prazoFinalPara.obrigatorio=Obrigatório o preenchimento do campo Prazo final para
+periodoReferencia.validacao.prazoFinalPara.invalido=Valor inválido para o campo Prazo final para
+periodoReferencia.validacao.prazoFinalPara.dataFinalMenorQueDataInicial=Prazo final para
+periodoReferencia.geracao.sucesso=Período de Referência gerado com sucesso!
+periodoReferencia.exclusao.sucesso=Período de Referência excluído com sucesso!
+periodoReferencia.exclusao.posicaoJaLiberada=Exclusão não permitida. Já existe posição liberada, recupere antes a posição
+periodoReferencia.exclusao.cancelado=A exclusão foi cancelada.
+periodoReferencia.exclusao.temQuantidade=Existem informações de quantidades armazenadas para a referência selecionada. Se deseja continuar com a exclusão, clique OK. Para cancelar a operação e manter os dados, clique em CANCELAR.
+
+periodoReferencia.validacao.mesAnoTipoAcompanhamento.jaExistente=Já existe um acompanhamento deste mês/ano para este tipo de acompanhamento
+periodoReferencia.validacao.exercicioNaoEncontrado=Não existe um exercício cadastrado que compreenda o mês/ano informado
+periodoReferencia.validacao.itemSelecionado=Nenhum item foi selecionado para gerar o acompanhamento.
+periodoReferencia.validacao.orgaosItensMarcadosTela=O acompanhamento não poderá ser gerado, só é permitido gerar acompanhamento para órgãos que tenham itens marcados.
+
+periodoReferencia.elaboracao.liberar.autorizarEmail.todos=O Sistema está configurado para enviar avisos de conclusão de acompanhamentos. Confirmar o envio de avisos para todos os responsáveis?
+periodoReferencia.elaboracao.realizadoFisico.verificaSituacao.concluido=Se gravar essa Meta Física/Indicador com a situação selecionada, todos os realizados físicos posteriores serão apagados, pois esta situação representa conclusão.
+
+acompanhamento.datasLimites.alteracao.sucesso=Dados alterados com sucesso!
+acompanhamento.datasLimites.dataInicioAri.obrigatorio=Obrigatório o preenchimento do campo Data Início!
+acompanhamento.datasLimites.dataInicioAri.invalido=Valor inválido para o Campo Data Início
+acompanhamento.datasLimites.dataLimiteAcompFisico.obrigatorio=Obrigatório o preenchimento do campo Data Limite para Acompanhamento Físico!
+acompanhamento.datasLimites.dataLimiteAcompFisico.invalido=Valor inválido para o campo Data Limite para Acompanhamento Físico!
+acompanhamento.dadosBasicos.concluirAcompanhamento.naoPossivel=Não é possível concluir o acompanhamento pois nem todas as Posições foram liberadas
+acompanhamento.dadosBasicos.liberar.jaEfetuado=Não foi possível liberar o acompanhamento, pois foi liberado por outro usuário.
+acompanhamento.dadosBasicos.recuperar.jaEfetuado=Não foi possível recuperar o acompanhamento, pois foi recuperado por outro usuário.
+
+acompanhamento.dadosBasicos.alteracao.autorizaEnviaEmail=Autoriza enviar aviso de alteração?
+acompanhamento.dadosBasicos.criacao.autorizaEnviaEmail=Autoriza enviar aviso de criação de Item?
+acompanhamento.periodoReferencia.alteracao.autorizaEnviaEmail=Autoriza enviar aviso de alteração?
+acompanhamento.periodoReferencia.criacao.autorizaEnviaEmail=Autoriza enviar aviso de criação de registro?
+acompanhamento.periodoReferencia.existeAriFaltandoParecer.aviso=Foi identificado novas funções de acompanhamento sem registro de parecer. Confirma gravação de registro de parecer para novas funções de acompanhamento?
+acompanhamento.cadastroItens.eventos.exclusao.autorizaEnviaEmail=Autoriza enviar aviso de exclusão?
+acompanhamento.cadastroItens.eventos.alteracao.autorizaEnviaEmail=Autoriza enviar aviso de alteração?
+acompanhamento.cadastroItens.eventos.criacao.autorizaEnviaEmail=Autoriza enviar aviso de criação de registro?
+acompanhamento.cadastroItens.pontosCriticos.exclusao.autorizaEnviaEmail=Autoriza enviar aviso de exclusão?
+acompanhamento.cadastroItens.pontosCriticos.alteracao.autorizaEnviaEmail=Autoriza enviar aviso de alteração?
+acompanhamento.cadastroItens.pontosCriticos.criacao.autorizaEnviaEmail=Autoriza enviar aviso de criação de registro?
+acompanhamento.cadastroItens.anexo.exclusao.autorizaEnviaEmail=Autoriza enviar aviso de exclusão?
+acompanhamento.cadastroItens.anexo.alteracao.autorizaEnviaEmail=Autoriza enviar aviso de alteração?
+acompanhamento.cadastroItens.anexo.criacao.autorizaEnviaEmail=Autoriza enviar aviso de criação de registro?
+acompanhamento.cadastroItens.apontamentos.exclusao.autorizaEnviaEmail=Autoriza enviar aviso de exclusão?
+acompanhamento.cadastroItens.apontamentos.alteracao.autorizaEnviaEmail=Autoriza enviar aviso de alteração?
+acompanhamento.cadastroItens.apontamentos.criacao.autorizaEnviaEmail=Autoriza enviar aviso de criação de registro?
+acompanhamento.elabAcompanhamento.liberacao.autorizaEnviaEmail=Autoriza enviar aviso de liberação?
+acompanhamento.elabAcompanhamento.recuperacao.autorizaEnviaEmail=Autoriza enviar aviso de recuperação?
+acompanhamento.cadastroItens.dadosGerais.ativar.autorizaEnviaEmail=Autoriza enviar aviso de ativação de monitoramento?
+acompanhamento.cadastroItens.dadosGerais.retirar.autorizaEnviaEmail=Autoriza enviar aviso de retirada de monitoramento?
+acompanhamento.cadastroItens.dadosGerais.bloquear.autorizaEnviaEmail=Autoriza enviar aviso de bloqueio de alterações?
+acompanhamento.cadastroItens.dadosGerais.desbloquear.autorizaEnviaEmail=Autoriza enviar aviso de desbloqueio de alterações?
+acompanhamento.cadastroItens.dadosGerais.alterar.autorizaEnviaEmail=Autoriza enviar aviso de alteração?
+acompanhamento.cadastroItens.dadosGerais.ativar.todosItensFilhos=Deseja ativar monitoramento para todos os níveis abaixo? Clique em OK para ativar para todos os níveis, CANCELAR para ativar somente para este item.
+acompanhamento.cadastroItens.dadosGerais.retirar.todosItensFilhos=Deseja retirar monitoramento para todos os níveis abaixo? Clique em OK para retirar para todos os níveis, CANCELAR para retirar somente para este item.
+
+acompanhamento.datasLimites.gravarJaLiberado=Não é possível alterar dados de Acompanhamentos já liberados!
+acompanhamento.acompRelatorio.edicaoNaoPermitida=Usuário sem permissão para edição de informações.
+
+
+acompanhamento.realizadoFisico.atualizacao.sucesso=Dados do Realizado Físico atualizados com sucesso!
+acompanhamento.realizadoFisico.naoEditar.usuarioSemPermissao=O usuário não possui permissão para editar o Acompanhamento!
+acompanhamento.realizadoFisico.naoEditar.dataLimite=Data Limite para Acompanhamento Físico está vencida!
+acompanhamento.realizadoFisico.naoEditar.liberado=Este Acompanhamento foi liberado, não permitindo sua edição!
+acompanhamento.realizadoFisico.novoIndicador.confirma=Deseja incluir o indicador para este período de acompanhamento?
+acompanhamento.realizadoFisico.novoIndicador.inclusaoSucesso=Indicador incluído com sucesso!
+acompanhamento.realizadoFisico.naoEditar.dataInicioIettEAcomp=Mês/Ano da data de início do acompanhamento deve ser posterior ou igual ao Mês/Ano da data informada no cadastro de programas e ações.
+acompanhamento.realizadoFisico.naoEditar.dataAtualAnteriorDataInicioAcompanhamento=Data de início do acompanhamento não atingida.
+acompanhamento.realizadoFisico.naoEditar.dataInicioNaoInformada=Data de início não informada no Cadastro de Programas e Ações. É permitido informar quantidades a partir do mês/ano da data de início!
+acompanhamento.realizadoFisico.quantidadePorLocal.qtde.invalido=Quantidade/Valor inválido.
+acompanhamento.realizadoFisico.quantidadePorLocal.local.invalido=Obrigatório informar o Local.
+acompanhamento.realizadoFisico.quantidadePorLocal.inclusao.sucesso=Quantidade/Valor por Local incluído com sucesso.
+acompanhamento.realizadoFisico.quantidadePorLocal.exclusao.sucesso=Quantidade(s)/Valor(es) por Local excluído(s) com sucesso.
+acompanhamento.realizadoFisico.quantidadePorLocal.faltaAbrangenciaItem=Falta definir a abrangência local no cadastro do item para permitir registrar quantidades/valores por local.
+acompanhamento.realizadoFisico.validacao.qtdRealizadaArf.invalido=Valor inválido para o campo Realizado!
+acompanhamento.realizadoFisico.validacao.qtdRealizadaArf.obrigatorio=Obrigatório o preenchimento do campo Realizado!
+acompanhamento.realizadoFisico.validacao.qtdRealizadaArf.valorInteiro=O valor deve ser um número inteiro, pois o formato do campo é quantidade.
+acompanhamento.realizadoFisico.validacao.qtdRealizadaArf.valorNumeric=O valor deve ser um número válido.
+acompanhamento.realizadoFisico.validacao.situacaoSit.obrigatorio=Obrigatório o preenchimento do campo Situação!
+
+acompanhamento.acompRelatorio.inclusao.sucesso=Posição incluída com sucesso.
+acompanhamento.acompRelatorio.alteracao.sucesso=Posição alterada com sucesso.
+
+acompanhamento.acompRelatorio.gravacao.usuarioInvalido=Você não é o usuário autorizado a gravar esta posição
+acompanhamento.acompRelatorio.gravacao.acompanhamentoLiberado=Não é possível gravar posição pois o Acompanhamento já foi liberado
+acompanhamento.acompRelatorio.gravacao.posicaoLiberada=Não é possível gravar Posição pois a mesma já foi liberada e precisa ser recuperada para que alteração seja permitida
+acompanhamento.acompRelatorio.gravacao.liberarposicao=Gravação do acompanhamento realizada com sucesso. Deseja também liberar a posição? Selecione OK para liberar, selecione CANCELAR para manter em edição.
+acompanhamento.acompRelatorio.recuperacao.usuarioInvalido=Você não é o usuário autorizado a recuperar esta posição
+acompanhamento.acompRelatorio.recuperacao.acompanhamentoLiberado=Não é possível recuperar posição pois o Acompanhamento já foi liberado
+acompanhamento.acompRelatorio.recuperacao.funcaoSuperiorLiberada=Não é possível recuperar Posição até que todas as funções superiores tenham sido recuperadas
+acompanhamento.acompRelatorio.liberacao.usuarioInvalido=Você não é o usuário autorizado a liberar esta posição
+acompanhamento.acompRelatorio.liberacao.acompanhamentoLiberado=Não é possível liberar posição pois o Acompanhamento já foi liberado
+acompanhamento.acompRelatorio.liberacao.funcaoSuperiorLiberada=Não é possível liberar Posição até que todas as funções superiores tenham sido recuperadas
+acompanhamento.acompRelatorio.gravacao.dataUltrapassada=Não é possível editar posição com a data limite para elaboração ultrapassada
+acompanhamento.acompRelatorio.anexo.exclusaoNaoPermitida=Não é possível excluir o registro
+acompanhamento.acompRelatorio.pontoCritico.exclusaoNaoPermitida=Não é possível excluir o registro
+acompanhamento.acompRelatorio.validacao.avaliacaoArel.obrigatorio=Avaliação é obrigatória para esta situação
+acompanhamento.acompRelatorio.liberacao.sucesso=Posição liberada com sucesso
+acompanhamento.acompRelatorio.recuperacao.sucesso=Posição recuperada com sucesso
+acompanhamento.acompRelatorio.validacao.cor.obrigatorio=Obrigatório o preenchimento do campo Cor.
+acompanhamento.acompRelatorio.validacao.dataAtualAnteriorDataInicioAcompanhamento=Data de início do acompanhamento não atingida.
+acompanhamento.listaItens.validacao.SemRegistroAcompanhamento=Sem registro de acompanhamento
+acompanhamento.listaItens.validacao.AcompanhamentoGeradoOutroUsuario=Acompanhamento gerado para
+
+relAcompanhamento.financeiro.consulta.erro=Erro ao gerar Relatório Financeiro
+relAcompanhamento.financeiro.semValorCadastrado=Nenhum valor informado para este recurso.
+relAcompanhamento.relImpresso.nenhumItem=Não existe nenhum item para selecionar.
+relAcompanhamento.relImpresso.validacao.posicoes=Obrigatória a seleção de pelo menos uma posição quando Posições.
+relAcompanhamento.graficoProjecao.quantidadeInsuficiente=Não é possível projetar pois não existe quantidade para mais de um mês.
+relAcompanhamento.graficoProjecao.semQuantidade=Não é possível projetar pois não existe quantidade realizada informada.
+
+relAcompanhamento.relAccess.opcoes.orgao.obrigatorio=É obrigatório escolher um órgão para este modelo de relatório.
+relAcompanhamento.relAccess.opcoes.situacao.obrigatorio=É obrigatório escolher uma situação para este modelo de relatório.
+relAcompanhamento.relAccess.opcoes.nenhumItem=É necessário escolher uma opção para o relatório.
+relAcompanhamento.relAccess.relacaoItens.nenhumItem=Não há ítens selecionados!
+relAcompanhamento.relAccess.formato.ordemClassificacao.obrigatorio=A ordem de classificação é de preenchimento obrigatório.
+
+##ADM PORTAL
+# fonte
+fonte.exclusao.erro.segmentoItem=Não foi possível excluir Fonte. Ela possui Segmentos.
+fonte.validacao.registroDuplicado=Já existe uma fonte com a descrição informada.
+fonte.inclusao.sucesso=Fonte incluída com sucesso.
+fonte.alteracao.sucesso=Fonte alterada com sucesso.
+fonte.exclusao.sucesso=Fonte excluída com sucesso.
+
+#SEGMENTOS
+segmento.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+segmento.inclusao.sucesso=Segmento incluído com sucesso.
+segmento.alteracao.sucesso=Segmento alterado com sucesso.
+segmento.exclusao.sucesso=Segmento excluído com sucesso.
+segmento.exclusao.erro.segmentoCategoriaSgtcs=Não é possível excluir Segmento que possua Categorias de Segmento.
+segmento.exclusao.erro.segmentoItemSgtis=Não é possível excluir Segmento que possua Itens de Segmento.
+
+#CATEGORIA de SEGMENTOS
+segmentoCategoria.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+segmentoCategoria.inclusao.sucesso=Categoria de Segmento incluída com sucesso.
+segmentoCategoria.alteracao.sucesso=Categoria de Segmento alterada com sucesso.
+segmentoCategoria.exclusao.sucesso=Categoria de Segmento excluída com sucesso.
+segmentoCategoria.exclusao.erro.segmentoItem=Não é possível excluir categoria que possua Itens de Segmento.
+
+
+#SEGMENTOS ITEM
+segmentoItem.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+segmentoItem.inclusao.sucesso=Registro incluído com sucesso.
+segmentoItem.alteracao.sucesso=Registro alterado com sucesso.
+segmentoItem.exclusao.sucesso=Registro excluído com sucesso.
+segmentoItem.validacao.segmentoSgt.obrigatorio=Obrigatória a seleção do campo Segmento.
+segmentoItem.validacao.segmentoCategoriaSgtc.obrigatorio=Obrigatória a seleção do campo Categoria.
+segmentoItem.validacao.segmentoCategoriaSgtcLetra.obrigatorio=Obrigatória a seleção do campo Letra.
+segmentoItem.validacao.editoriasSisAtributoSatb.naoCadastradas=Não há nenhuma editoria para ser selecionada.
+segmentoItem.validacao.editoriasSisAtributoSatb.obrigatorio=Obrigatória a seleção do campo Editoria.
+segmentoItem.validacao.segmentoItemFonteSgtif.obrigatorio=Obrigatória a seleção do campo Fonte.
+segmentoItem.validacao.dataItemSgti.obrigatorio=Obrigatório o preenchimento do campo Data.
+segmentoItem.validacao.dataItemSgti.invalido=Valor inválido para o campo Data.
+segmentoItem.validacao.dataItemSgti.dataMenorQueDataInicial=Data deve ser maior ou igual a Data Início Validade.
+segmentoItem.validacao.dataItemSgti.dataMaiorQueDataFim=Data deve ser menor ou igual a Data Fim Validade.
+segmentoItem.validacao.dataIniValidadeSgti.obrigatorio=Obrigatório o preenchimento do campo Data Início Validade.
+segmentoItem.validacao.dataIniValidadeSgti.invalido=Valor inválido para o campo Data Início Validade.
+segmentoItem.validacao.dataFimValidadeSgti.obrigatorio=Obrigatório o preenchimento do campo Data Fim Validade.
+segmentoItem.validacao.dataFimValidadeSgti.invalido=Valor inválido para o campo Data Fim Validade.
+segmentoItem.validacao.dataFimValidadeSgti.dataFinalMenorQueDataInicial=Data Fim Validade deve ser maior ou igual a Data Início Validade.
+segmentoItem.validacao.segmentoItemLeiauteSgtil.obrigatorio=Obrigatória a seleção do campo Leiaute.
+segmentoItem.validacao.tpAcessoSisAtributoSatb.obrigatorio=Obrigatória a seleção do campo Tipo Acesso quando utilizado.
+segmentoItem.validacao.anexoLegendaSgti.obrigatorio=Obrigatório o preenchimento do campo Legenda de Anexo quando o anexo é informado.
+
+#EDITORIAS
+editoria.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+editoria.inclusao.sucesso=Editoria incluída com sucesso
+editoria.alteracao.sucesso=Editoria alterada com sucesso.
+editoria.exclusao.sucesso=Editoria excluída com sucesso.
+
+#AVISOS
+popup.validacao.dataIniExibicaoPpp.obrigatorio=Obrigatório o preenchimento do campo Início Validade
+popup.validacao.dataFimExibicaoPpp.obrigatorio=Obrigatório o preenchimento do campo Fim Validade
+popup.validacao.dataIniExibicaoPpp.invalido=Valor inválido para o campo Início Validade
+popup.validacao.dataFimExibicaoPpp.invalido=Valor inválido para o campo Fim Validade
+popup.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+popup.inclusao.sucesso=Aviso incluído com sucesso
+popup.alteracao.sucesso=Aviso alterado com sucesso.
+popup.exclusao.sucesso=Aviso excluído com sucesso.
+popup.validacao.dataFinalMenorQueDataInicial=Data Fim maior que Data Início.
+
+#ÁREA DESTAQUES
+destaqueArea.exclusao.erro.subAreaDestaque=Não é possível excluir área de Destaque que possua Sub Áreas.
+destaqueArea.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+destaqueArea.inclusao.sucesso=Área de Destaque incluída com sucesso
+destaqueArea.alteracao.sucesso=Área de Destaque alterada com sucesso.
+destaqueArea.exclusao.sucesso=Área de Destaque excluída com sucesso.
+
+#SUB AREA
+destaqueSubArea.exclusao.erro.destaqueItemRelDtqirs=Não é possível excluir sub Área de Destaque que possua Itens de Destaque.
+destaqueSubArea.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+destaqueSubArea.inclusao.sucesso=Sub Área de Destaque incluída com sucesso
+destaqueSubArea.alteracao.sucesso=Sub Área de Destaque alterada com sucesso.
+destaqueSubArea.exclusao.sucesso=Sub Área de Destaque excluída com sucesso.
+
+#ÁREA DE CONTATO
+contatoArea.exclusao.erro.contatoMailCttms=Não é possível excluir Área de Contato que possua E mail de contato.
+contatoArea.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+contatoArea.inclusao.sucesso=Área de Contato incluída com sucesso
+contatoArea.alteracao.sucesso=Área de Contato alterada com sucesso.
+contatoArea.exclusao.sucesso=Àrea de Contato excluída com sucesso.
+
+# E MAIL DE CONTATO
+contatoMail.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+contatoMail.inclusao.sucesso=E-mail de Contato incluído com sucesso
+contatoMail.alteracao.sucesso=E-mail de Contato alterado com sucesso.
+contatoMail.exclusao.sucesso=E-mail de Contato excluído com sucesso.
+
+# AGENDA
+admPortal.agenda.pesquisa.nenhumRegistro=Nenhum registro encontrado.
+admPortal.agenda.inclusao.sucesso=Agenda incluída com sucesso.
+admPortal.agenda.alteracao.sucesso=Agenda alterada com sucesso.
+admPortal.agenda.exclusao.sucesso=Agenda excluída com sucesso.
+admPortal.agenda.exclusao.erro.destaqueItemRelDtqirs=Não foi possível excluir o registro pois ele possui Destaque cadastrado
+admPortal.agenda.validacao.dataAge.obrigatorio=Obrigatório o preenchimento do campo Data.
+admPortal.agenda.validacao.dataAge.invalido=Valor inválido para o campo Data.
+admPortal.agenda.validacao.horaEventoAge.invalido=Valor inválido para o campo Hora do Evento.
+admPortal.agenda.validacao.minutoEventoAge.invalido=Valor inválido para o campo Minutos da Hora do Evento.
+admPortal.agenda.validacao.dataLimiteAge.obrigatorio=Obrigatório o preenchimento do campo Data Limite.
+admPortal.agenda.validacao.dataLimiteAge.invalido=Valor inválido para o campo Data Limite.
+admPortal.agenda.validacao.dataLimiteAge.dataLimiteMenorQueData=Data Limite deve ser maior ou igual a Data.
+admPortal.agenda.validacao.opcaoPrdc.obrigatorio=Obrigatória a seleção do campo Periodicidade.
+admPortal.agenda.validacao.diasSemanaPrdc.obrigatorio=Obrigatória a seleção de pelo menos um Dia da Semana quando Periodicidade Semanal.
+admPortal.agenda.validacao.diasPrdc.invalido=Obrigatório o preenchimento do campo Dias quando Periodicidade Outro.
+admPortal.agenda.validacao.dataDeAte.obrigatorio=Obrigatório o preenchimento dos dois campos de Data quando um está preenchido.
+admPortal.agenda.validacao.dataDe.invalido=Valor inválido para o campo Data Inicial.
+admPortal.agenda.validacao.dataAte.invalido=Valor inválido para o campo Data Final.
+admPortal.agenda.validacao.dataAte.dataFimMenorQueDataInicio=Data Final deve ser maior ou igual a Data Inicial.
+admPortal.agenda.validacao.pesquisa=Obrigatório o preenchimento de um dos campos para pesquisa.
+admPortal.agenda.validacao.argumento.tamanho=A pesquisa do Argumento deve conter no mínimo 3 caracteres.
+admPortal.agenda.validacao.excluirTodos=Deseja excluir todas as Ocorrências do compromisso?
+admPortal.agenda.validacao.clicarExcluir=Obrigatório selecionar o compromisso a ser excluído.
+admPortal.agenda.validacao.clicarEditar=Obrigatório selecionar o compromisso a ser editado.
+admPortal.agenda.validacao.dataEventoAgeo.obrigatorio=Obrigatório o preenchimento do campo Data.
+admPortal.agenda.validacao.dataEventoAgeo.invalido=Valor inválido para o campo Data.
+admPortal.agenda.validacao.horaEventoAgeo.invalido=Valor inválido para o campo Hora do Evento.
+admPortal.agenda.validacao.minutoEventoAgeo.invalido=Valor inválido para o campo Minutos da Hora do Evento.
+
+
+itemEstrutura.pesquisaEstrutura.validacao.palavraChave.tamanho=A pesquisa da Palavra-chave deve conter no mínimo três caracteres.
+itemEstrutura.pesquisaEstrutura.validacao.palavraChave.obrigatorio=Obrigatório o preenchimento da Palavra-chave.
+itemEstrutura.pesquisaEstrutura.validacao.opcaoPesquisa.obrigatorio=Obrigatória a seleção do campo tipo de pesquisa, Estrutura ou Informações.
+itemEstrutura.pesquisaEstrutura.validacao.estData.invalido=Valor inválido para o campo Data da Estrutura.
+itemEstrutura.pesquisaEstrutura.validacao.estruturaEtt.obrigatorio=Obrigatória a seleção de pelo menos uma Estrutura.
+itemEstrutura.pesquisaEstrutura.validacao.infDataInicial.invalido=Valor inválido para o campo Data Inicial da Informação.
+itemEstrutura.pesquisaEstrutura.validacao.infDataInicial.obrigatorio=Ao ser informada uma das datas se torna obrigatório o preenchimento das duas.
+itemEstrutura.pesquisaEstrutura.validacao.infDataFinal.invalido=Valor inválido para o campo Data Final da Informação.
+itemEstrutura.pesquisaEstrutura.validacao.infDataFinal.obrigatorio=Ao ser informada uma das datas se torna obrigatório o preenchimento das duas.
+itemEstrutura.pesquisaEstrutura.validacao.infDataFinal.dataFimMaiorQueDataInicio=Data Final deve ser maior ou igual a Data Inicial.
+itemEstrutura.pesquisaEstrutura.validacao.informacoes.obrigatorio=Obrigatória a seleção de pelo menos uma Informação.
+
+ 
+#DESTAQUE ITEM
+admPortal.itemDestaque.inclusao.sucesso=Inclusão de Destaques realizada com sucesso.
+admPortal.itemDestaque.exclusao.sucesso=Exclusão de Destaques realizada com sucesso.
+
+#PROJEÇÃO
+acompRelatorio.indicadorResultado.projecao.naoSeraAtingida=A quantidade prevista não será atingida no prazo estimado.
+acompRelatorio.indicadorResultado.projecao.seraAtingidaAntes=A quantidade prevista será atingida antes do prazo estimado.
+acompRelatorio.indicadorResultado.projecao.seraAtingida=A quantidade prevista será atingida no prazo estimado.
+
+# PORTAL
+portal.contato.envio.sucesso=E-mail enviado com sucesso.
+portal.contato.areacontato.obrigatorio=O campo Área de contato deve ser preenchido.
+portal.contato.email.obrigatorio=O campo e-mail deve ser preenchido.
+portal.contato.email.invalido=Campo e-mail incorreto.
+portal.contato.mensagem.invalida=O campo mensagem deve ter no mínimo 10 caracteres.
+portal.artigos.itensPagina=30
+portal.taxacoes.itensPagina=30
+portal.taxacoes.palavra.obrigatorio=O campo Palavra deve ser preenchido
+portal.taxacoes.editoria.obrigatorio=O campo Editoria deve ser preenchido
+portal.pesquisa.itensPagina=30
+portal.pesquisa.palavra.obrigatorio=O campo Palavra chave deve ser preenchido
+portal.pesquisa.segmentos.obrigatorio=O campo Segmentos deve ser preenchido
+portal.agenda.itensPagina=50
+
+
+#============================================#
+#=========== DEMANDAS REGIONAIS =============#
+#============================================#
+
+#GRUPOS DE ATRIBUTOS
+demGrupoAtributo.titulo.E=Grupo de Atributos de Entidades
+demGrupoAtributo.titulo.L=Grupo de Atributos de Locais
+demGrupoAtributo.titulo.D=Grupo de Atributos de Demandas
+demGrupoAtributo.titulo.S=Grupo de Atributos de Sistema
+demGrupoAtributo.titulo.U=Grupo de Atributos de Usuários
+demGrupoAtributo.inclusao.sucesso=Grupo de Atributo incluído com sucesso!
+demGrupoAtributo.alteracao.sucesso=Grupo de Atributo alterado com sucesso!
+demGrupoAtributo.exclusao.sucesso=Grupo de Atributo excluído com sucesso!
+demGrupoAtributo.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+demGrupoAtributo.validacao.sisTipoExibicGrupoSteg.obrigatorio=Obrigatória a seleção do campo Tipo de Exibição.
+demGrupoAtributo.validacao.sisTipoOrdenacaoSto.obrigatorio=Obrigatória a seleção do campo Ordenação.
+demGrupoAtributo.validacao.indObrigatorioGatt.obrigatorio=Obrigatória a seleção do campo Obrigatório.
+demGrupoAtributo.validacao.sisTipoExibicGrupoCadUsuSteg.obrigatorio=Obrigatória a seleção do campo Tipo de Exibição Cadastro de Usuário quando selecionado o campo Cadastro de Usuário.
+demGrupoAtributo.validacao.seqApresentacaoGatt.obrigatorio=Obrigatório o preenchimento do campo Seq. de Ordenação.
+demGrupoAtributo.validacao.seqApresentacaoGatt.invalido=Valor inválido para o campo Seq. de Ordenação.
+demGrupoAtributo.validacao.indAtivoGatt.obrigatorio=Obrigatória a seleção do campo Ativo.
+demGrupoAtributo.exclusao.erro.demAtributoAtts=Não foi possível excluir o Grupo de Atributo pois ele possui AtributosAtts.
+
+
+#ATRIBUTOS
+atributo.titulo.E=Atributos de Entidades
+atributo.titulo.L=Atributos de Locais
+atributo.titulo.D=Atributos de Demandas
+atributo.titulo.U=Atributos de Usuários
+atributo.titulo.S=Atributos de Sistema
+demAtributo.inclusao.sucesso=Atributo incluído com sucesso!
+demAtributo.alteracao.sucesso=Atributo alterado com sucesso!
+demAtributo.exclusao.sucesso=Atributo excluído com sucesso!
+demAtributo.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+demAtributo.validacao.demGrupoAtributo.obrigatorio=Obrigatória a seleção do campo Grupo de Atributos.
+demAtributo.validacao.indAtivo.obrigatorio=Obrigatória a seleção do campo Ativo.
+demAtributo.validacao.registroDuplicado=Já existe um Atributo com a descrição informada.
+demAtributo.exclusao.erro.entidadeAtributoEntas=Não foi possível excluir o Atributo pois ele está relacionado com Entidades.
+demAtributo.exclusao.erro.locAtributoLocas=Não foi possível excluir o Atributo pois ele está relacionado com Locais.
+demAtributo.exclusao.erro.demAtributoDemas=Não foi possível excluir o Atributo pois ele está relacionado com Demandas Regionais.
+
+#CADASTRAR REGISTRO DE DEMANDA
+registroDemanda.itensPagina=10
+registroDemanda.exclusao.nenhumRegistro=Nenhum registro foi selecionado para exclusão
+registroDemanda.exclusao.sucesso=Registro(s) excluído(s) com sucesso
+registroDemanda.exclusao.erro=Erro ao excluir registro(s)
+registroDemanda.inclusao.sucesso=Registro de demanda incluído com sucesso!
+registroDemanda.inclusao.erro=Ocorreu um erro durante a gravação.
+registroDemanda.inclusao.erro.sitDemandaSitd=Inclusão não permitida, não há situação inicial para a demanda!
+registroDemanda.alteracao.sucesso=Registro de demanda alterado com sucesso!
+registroDemanda.alteracao.erro=Ocorreu um erro durante a gravação.
+registroDemanda.validacao.entidadeEnt.obrigatorio=Obrigatória a seleção do campo Entidade.
+registroDemanda.validacao.dataLimiteRegd.invalido=Valor inválido para o campo Data Limite.
+registroDemanda.validacao.dataSolicitacaoRegd.invalido=Valor inválido para o campo Data Solicitação.
+registroDemanda.validacao.dataSolicitacaoRegd.maiorQueAtual=A Data de Solicitação não pode ser maior que a data atual.
+registroDemanda.filtro.nenhumRegistro=Nenhum registro foi encontrado para os critérios de filtro especificados.
+registroDemanda.filtro.validacao.dataLimiteInicial.invalido=Valor inválido para o campo Data Limite Inicial.
+registroDemanda.filtro.validacao.dataLimiteFinal.invalido=Valor inválido para o campo Data Limite Final.
+registroDemanda.filtro.validacao.dataSolicitacaoInicial.invalido=Valor inválido para o campo Data Solicitação Inicial.
+registroDemanda.filtro.validacao.dataSolicitacaoFinal.invalido=Valor inválido para o campo Data Solicitação Final.
+registroDemanda.filtro.validacao.ambasDatasLimites.semDataInicial=É necessário informar a Data Limite Inicial ao informar a Data Limite Final.
+registroDemanda.filtro.validacao.ambasDatasLimites.semDataFinal=É necessário informar a Data Limite Final ao informar a Data Limite Inicial.
+registroDemanda.filtro.validacao.ambasDatasSolicitacao.semDataInicial=É necessário informar a Data Solicitação Inicial ao informar a Data Solicitação Final.
+registroDemanda.filtro.validacao.ambasDatasSolicitacao.semDataFinal=É necessário informar a Data Solicitação Final ao informar a Data Solicitação Inicial.
+registroDemanda.exclusao.erroDemandaRelacionada=Não foi possível realizar a exclusão, uma ou mais demandas selecionadas possuem demandas relacionadas!
+
+#CADASTRAR APONTAMENTO DE DEMANDA
+registroApontamento.inclusao.sucesso=Encaminhamento incluído com sucesso!
+registroApontamento.inclusao.erro=Ocorreu um erro durante a gravação.
+registroApontamento.exclusao.sucesso=Encaminhamento excluído com sucesso!
+registroApontamento.exclusao.erro=Erro ao excluir registro(s).
+
+#CLASSIFICAR DEMANDA
+classificarDemanda.gravar.sucesso=Classificação de demanda realizada com sucesso!
+classificarDemanda.gravar.erro=Ocorreu um erro durante a gravação.
+classificarDemanda.validacao.prioridadePrior.obrigatorio=Obrigatória a seleção do campo Prioridade.
+classificarDemanda.validacao.sitDemandaSitd.obrigatorio=Obrigatória a seleção do campo Situação.
+classificarDemanda.validacao.sitDemandaSitd.invalido=Não é permitido alterar para a situação desejada, pois existem itens de estrutura relacionado com a demanda.
+
+#PERIODO DE REVISAO
+periodoRevisao.validacao.dtInicioPrev.obrigatorio=Obrigatório o preenchimento do campo Data de Início.
+periodoRevisao.validacao.dtInicioPrev.invalido=Valor inválido para o campo Data de Início.
+periodoRevisao.validacao.dtFimPrev.obrigatorio=Obrigatório o preenchimento do campo Data de Fim.
+periodoRevisao.validacao.dtFimPrev.invalido=Valor inválido para o campo Data de Fim.
+periodoRevisao.inclusao.sucesso=Período de Revisão Inserido com Sucesso!
+periodoRevisao.exclusao.sucesso=Período de Revisão Excluído com Sucesso!
+periodoRevisao.alteracao.sucesso=Período de Revisão Alterado com Sucesso!
+periodoRevisao.intersecao.periodo=Este período possui Interseção com outro já cadastrado.
+
+#POSICAO GERAL
+posicaoGeral.validacao.tipoAcompanhamento.obrigatorio=Selecione o tipo de acompanhamento desejado
+posicaoGeral.filtro.nenhumRegistro=Nenhum registro encontrado para o critério selecionado
+
+#INTEGRACAO FINANCEIRA 
+integracaoFinanceira.verificarArquivo.erro=Erro ao fazer upload do arquivo
+integracaoFinanceira.verificarArquivo.ok=Não existem incoerências no arquivo verificado. Clique em Importar para importar os dados do arquivo para o sistema.
+integracaoFinanceira.importarArquivo.importacao.ok=Arquivo importado com sucesso!
+integracaoFinanceira.importarArquivo.importacao.erro=Erro na importação do arquivo.
+integracaoFinanceira.importarArquivo.importacao.contasExistente=Não foi possível completar a operação, alguma das contas já existe no Sistema.
+integracaoFinanceira.exportarArquivo.nomeArquivo.obrigatorio=O Campo Nome do Arquivo é obrigatório.
+integracaoFinanceira.exportarArquivo.mesAnoIni.obrigatorio=O Campo Mês/Ano Inicial é obrigatório.
+integracaoFinanceira.exportarArquivo.mesAnoFim.obrigatorio=O Campo Mês/Ano Final é obrigatório.
+integracaoFinanceira.exportarArquivo.configSisExecFinanCsef.obrigatorio=O Campo Sistema é obrigatório.
+integracaoFinanceira.exportarArquivo.mesAnoIni.invalido=Mês/Ano Inicial inválido.
+integracaoFinanceira.exportarArquivo.mesAnoFim.invalido=Mês/Ano Final inválido.
+integracaoFinanceira.exportarArquivo.mesAnoIniMesAnoFim.invalido=Mês/Ano Final é menor que Mês/Ano Inicial.
+integracaoFinanceira.exportarArquivo.consultaDados.erro=Ocorreu um erro ao consultar os dados no banco.
+integracaoFinanceira.manual.inclusao.ok=Lançamento incluído com sucesso.
+integracaoFinanceira.manual.inclusao.erro=Erro ao adicionar o lançamento.
+integracaoFinanceira.manual.inclusao.contaCadastrada=Já existe uma Conta/Mês/Ano cadastrada.
+integracaoFinanceira.manual.inclusao.naoPermiteManual=O Sistema escolhido não permite inclusão manual.
+integracaoFinanceira.manual.inclusao.versaoInexistente=O Sistema não possui uma versão cadastrada no Mês/Ano.
+integracaoFinanceira.manual.inclusao.contaInexistente=A conta informada não está cadastrada no cadastro de contas.
+integracaoFinanceira.manual.inclusao.valorContaNaoInformado=Não foi possível completar a operação, alguma das contas não foi informada.
+integracaoFinanceira.manual.exclusao.ok=Conta excluída com Sucesso!
+integracaoFinanceira.manual.exclusao.erro=Erro ao excluir Conta.
+integracaoFinanceira.manual.buscar.erro=Erro na busca das contas.
+
+#RELATORIO ACESSO USUARIO 
+relatorioAcessoUsuario.semRegistro.periodoInformado=Não existe registro de acesso no período informado.
+
+#SITUACAO DA DEMANDA
+situacaoDemanda.inclusao.sucesso=Situação da Demanda incluída com sucesso!
+situacaoDemanda.alteracao.sucesso=Situação da Demanda alterada com sucesso!
+situacaoDemanda.exclusao.sucesso=Situação da Demanda excluída com sucesso!
+#situacao.exclusao.erro.acompRealFisicoArfs=Não foi possível excluir situação pois ela possui acompRealFisico.
+#situacao.exclusao.erro.acompRelatorioArels=Não foi possível excluir situação pois ela possui acompRelatorio.
+situacaoDemanda.pesquisa.nenhumRegistro=Nenhum registro foi encontrado para os critérios de pesquisa especificados.
+situacaoDemanda.validacao.descricaoSitd.obrigatorio=Obrigatório o preenchimento do campo Descrição.
+situacaoDemanda.validacao.indConclusaoSitd.obrigatorio=Obrigatória a seleção do campo Representa Conclusão
+situacaoDemanda.validacao.indPrimeiraSituacaoSitd.obrigatorio=Obrigatória a seleção do campo Representa Primeira Situação
+situacaoDemanda.validacao.registroDuplicado=Já existe uma Situação com a descrição informado.
+situacaoDemanda.validacao.indPrimeiraSituacaoSitd.duplicada=Já existe uma situação que representa a primeira situação.
+
+#VERSAO SISTEMA
+integracaoFinanceira.versaoSistema.inclusao.sucesso='Versão de Sistema' incluída com sucesso.
+integracaoFinanceira.versaoSistema.inclusao.duplicidade=Já existe uma 'Versão de Sistema' com o 'Sistema' e 'Mês/Ano' informados.
+integracaoFinanceira.versaoSistema.exclusao.sucesso='Versão de Sistema' excluída com sucesso.
+integracaoFinanceira.versaoSistema.exclusao.erro=Não foi possível excluir o registro porque possui dependências.
+integracaoFinanceira.versaoSistema.alteracao.sucesso='Versão de Sistema' alterado com sucesso.
+integracaoFinanceira.versaoSistema.pesquisar.nenhumRegistro=Nenhum registro foi encontrado.
+
+#SISTEMA
+integracaoFinanceira.sistema.inclusao.sucesso='Sistema' incluído com sucesso.
+integracaoFinanceira.sistema.exclusao.sucesso='Sistema' excluído com sucesso.
+integracaoFinanceira.sistema.exclusao.erro=Não foi possível excluir o registro porque possui dependências.
+integracaoFinanceira.sistema.alteracao.sucesso='Sistema' alterado com sucesso.
+integracaoFinanceira.sistema.pesquisar.nenhumRegistro=Nenhum registro foi encontrado.
+
+#FILTRO ÍTENS ACOMPANHAMENTO
+filtroAcompanhamento.validacao.tipoAcompanhamento=Não existe Tipo Acompanhamento ativo cadastrado.

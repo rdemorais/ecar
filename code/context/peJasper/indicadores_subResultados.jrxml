@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="indicadores_subGerais" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codCorOE" class="java.lang.Long"/>
+	<parameter name="caminho_smileVermelho" class="java.lang.String"/>
+	<parameter name="caminho_smileVerde" class="java.lang.String"/>
+	<parameter name="caminho_smileAmarelo" class="java.lang.String"/>
+	<parameter name="caminho_indicadores_subResultados_subIndicadores" class="java.lang.String"/>
+	<parameter name="caminho_relBijari_subOE_subEst_subResult" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="periodoAcompanhamento" class="java.util.List"/>
+	<field name="indicador" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="526" y="0" width="69" height="20" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Consolidado
+Anual]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="363" y="11" width="27" height="9" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["2012"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="336" y="11" width="27" height="9" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["2012"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="526" y="3" width="1" height="13" forecolor="#FFFFFF"/>
+			</line>
+			<textField>
+				<reportElement mode="Opaque" x="309" y="11" width="27" height="9" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["2012"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="309" y="0" width="108" height="11" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[META]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="390" y="11" width="27" height="9" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["2012"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="417" y="0" width="109" height="20" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[VALOR
+REALIZADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="194" y="0" width="54" height="20" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="417" y="3" width="1" height="13" forecolor="#FFFFFF"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="248" y="0" width="61" height="20" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[INDICADORES]]></text>
+			</staticText>
+			<line>
+				<reportElement x="335" y="10" width="1" height="10" forecolor="#FFFFFF"/>
+			</line>
+			<line>
+				<reportElement x="363" y="10" width="1" height="10" forecolor="#FFFFFF"/>
+			</line>
+			<line>
+				<reportElement x="390" y="10" width="1" height="10" forecolor="#FFFFFF"/>
+			</line>
+			<line>
+				<reportElement x="247" y="3" width="1" height="13" forecolor="#FFFFFF"/>
+			</line>
+			<line>
+				<reportElement x="308" y="3" width="1" height="13" forecolor="#FFFFFF"/>
+			</line>
+			<line>
+				<reportElement x="316" y="10" width="95" height="1" forecolor="#FFFFFF"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="194" height="20" forecolor="#FFFFFF" backcolor="#3366FF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[    RESULTADOS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="193" y="3" width="1" height="13" forecolor="#FFFFFF"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="595" height="17">
+					<printWhenExpression><![CDATA[$P{codCorOE} == 1L]]></printWhenExpression>
+				</reportElement>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="5" y="0" width="1" height="17" forecolor="#3333FF"/>
+					<graphicElement>
+						<pen lineWidth="10.0"/>
+					</graphicElement>
+				</line>
+				<subreport>
+					<reportElement x="193" y="0" width="55" height="17"/>
+					<subreportParameter name="caminho_smileVerde">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileVerde}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="codCorOE">
+						<subreportParameterExpression><![CDATA[$P{codCorOE}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_relBijari_subOE_subEst_subResult">
+						<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst_subResult}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_smileVermelho">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileVermelho}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_smileAmarelo">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileAmarelo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_relBijari_subOE_subEst">
+						<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{resultados})]]></dataSourceExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_relBijari_subOE_subEst}]]></subreportExpression>
+				</subreport>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="12" y="0" width="181" height="17"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+				</textField>
+				<subreport>
+					<reportElement x="247" y="0" width="348" height="17"/>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{indicador})]]></dataSourceExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_indicadores_subResultados_subIndicadores}]]></subreportExpression>
+				</subreport>
+			</frame>
+			<frame>
+				<reportElement x="0" y="0" width="595" height="17">
+					<printWhenExpression><![CDATA[$P{codCorOE} == 0L]]></printWhenExpression>
+				</reportElement>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="5" y="0" width="1" height="17" forecolor="#FF0066"/>
+					<graphicElement>
+						<pen lineWidth="10.0"/>
+					</graphicElement>
+				</line>
+				<subreport>
+					<reportElement x="193" y="0" width="55" height="17"/>
+					<subreportParameter name="caminho_smileVerde">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileVerde}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="codCorOE">
+						<subreportParameterExpression><![CDATA[$P{codCorOE}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_relBijari_subOE_subEst_subResult">
+						<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst_subResult}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_smileVermelho">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileVermelho}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_smileAmarelo">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileAmarelo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_relBijari_subOE_subEst">
+						<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{resultados})]]></dataSourceExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_relBijari_subOE_subEst}]]></subreportExpression>
+				</subreport>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="12" y="0" width="181" height="17"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+				</textField>
+				<subreport>
+					<reportElement x="247" y="0" width="348" height="17"/>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{indicador})]]></dataSourceExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_indicadores_subResultados_subIndicadores}]]></subreportExpression>
+				</subreport>
+			</frame>
+			<frame>
+				<reportElement x="0" y="0" width="595" height="17">
+					<printWhenExpression><![CDATA[$P{codCorOE} == 2L]]></printWhenExpression>
+				</reportElement>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="12" y="0" width="181" height="17"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+				</textField>
+				<subreport>
+					<reportElement x="193" y="0" width="55" height="17"/>
+					<subreportParameter name="caminho_smileVerde">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileVerde}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_smileVermelho">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileVermelho}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="caminho_smileAmarelo">
+						<subreportParameterExpression><![CDATA[$P{caminho_smileAmarelo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{periodoAcompanhamento})]]></dataSourceExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_relBijari_subOE_subEst_subResult}]]></subreportExpression>
+				</subreport>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="5" y="0" width="1" height="17" forecolor="#CCCCCC"/>
+					<graphicElement>
+						<pen lineWidth="10.0"/>
+					</graphicElement>
+				</line>
+				<subreport>
+					<reportElement x="247" y="0" width="348" height="17"/>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_indicadores_subResultados_subIndicadores}]]></subreportExpression>
+				</subreport>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

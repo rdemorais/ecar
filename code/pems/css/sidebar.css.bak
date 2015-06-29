@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+html {  overflow: hidden; }
+body{ background: #000000; height:100%; padding:0;margin:0;}
+
+
+#header{position:relative; z-index:1; height:55px; background-color:#034EA2; font: 14px "DINPro-Medium"; color:#BCBEC0; min-width:1200px; width:100%; padding-left:50%; left:-600px;}
+#popup{position:absolute; left:70px; top:130px; margin-right:70px; height:800px; z-index:10;}
+    .separator{position:relative; top:10px; margin:-1px 1px; }
+	.headerSpace{padding:19px 8px 14px;  color:#BCBEC0;}
+	.headerSpaceOver{color: #FFF;}
+    #plano{margin-right:10px; line-height:45px;}
+    #logoSmall{position:relative; padding-right:15px; top:2px; margin-left:12px;}
+    #logos{  position:relative; top:10px; padding:2px 40px 0 30px;}
+#body{ background:url(../image/fundoinicio.png) center #000000; height:683px; min-width:1200px;}
+	#login{width:170px; height:150px; text-align:center; background-color:#034FA2; padding-top:20px; position:relative; margin-left:50%; left:-85px;}
+	#loginTitle{font: 20px "DINPro-Bold"; color:#fff; line-height:27px;}
+	#user, #pass{width:133px; height:16px; background-color:#094588; border:0; font: 12px "DINPro-Medium"; color:#D1D3D4;padding-left:5px; margin-top:8px;}
+	#pass{width:114px;}
+	#loginBtn{position:relative; top:4px; margin-left:-4px; }
+
+	#searchSplash{width:100%; min-height:620px; height:64%; background-color:#E6E7E8;}
+	#status{display:none;}
+	#statusSide{height:120px; width:274px;  margin-left:6px;}
+	.statusItem{ float:left; width:45px; margin:20px 21px 0 0; }
+	.statusItem img{}
+	.statusCount{display:none;}
+	.statusTitle{display:none;}
+
+
+	#objPanel{height:295px; width:255px; color:#fff; margin-top:30px;float:none; position:static; margin-left:0;}
+	.panelItem{height:45px; width:51px; float:left;margin:6px; font:30px "DINPro-Medium"; text-align:center; padding-top:5px; color:rgba(255,255,255,.25);}
+	.panelTitle{font: 14px "DINPro-Medium"; color:#808285; float:left;  border-bottom:#808285 solid 1px; padding-bottom:5px; margin-left:6px; margin-bottom:10px; width:241px; letter-spacing:0;}
+	.panelTitleSel{margin:4px; border:#E6E7E8 solid 2px; padding:-10px; outline: 2px solid #231F20;}
+	.obj1{background-color:#F16477;}
+	.obj2{background-color:#B92F92;}
+	.obj3{background-color:#9B5BA5;}
+	.obj4{background-color:#B1005D;}
+	.obj5{background-color:#0079C1;}
+	.obj6{background-color:#00B5CC;}
+	.obj7{background-color:#7E81BE;}
+	.obj8{background-color:#492F92;}
+	.obj9{background-color:#7AC143;}
+	.obj10{background-color:#B2BB1E;}
+	.obj11{background-color:#60C5BA;}
+	.obj12{background-color:#00958F;}
+	.obj13{background-color:#F58025;}
+	.obj14{background-color:#FDB913;}
+	.obj15{background-color:#BB8D0B;}
+	.obj16{background-color:#B15C12;}
+	#splashSep{  margin-left:-10px; height:10px; width:150px;-webkit-transform:rotate(90deg) scale(1,.485); margin:0; left:188px; top:450px;}
+	#filtrosPanel{height:205px; width:255px; float:none; position:static; margin:0; margin-top:23px;}
+
+	.filtro1{ background:url(../image/filtro1.gif) no-repeat;background-size:100%; clear:both;}
+	.filtro2{ background:url(../image/filtro2.gif) no-repeat;background-size:100%;}
+	.filtro3{ background:url(../image/filtro3.gif) no-repeat;background-size:100%;}
+	.filtro4{ background:url(../image/filtro4.gif) no-repeat;background-size:100%;}
+	.filtro5{ background:url(../image/filtro5.gif) no-repeat;background-size:100%;}
+	.filtro6{ background:url(../image/filtro6.gif) no-repeat;background-size:100%;}
+	.filtro7{ background:url(../image/filtro7.gif) no-repeat;background-size:100%;}
+	.filtro8{ background:url(../image/filtro8.gif) no-repeat;background-size:100%;}
+	.filtroSubBot, .filtroSubTop{  font-size:17px; text-transform:uppercase; background-color:#606060; width:430px; height:120px; z-index:1; position:absolute; color:#fff; left:13px; top:156px; line-height:7px; letter-spacing:-1px; text-align:left; padding:16px 24px; display:none; visibility:hidden;}
+	.filtroSubTop{height:103px; top:55px; padding-top:8px; }
+	#filtroSubSel{font:11px "DINPro-Medium"; color:#929497;padding:6px; float:left; height:94px;}
+	#filtroSubSel strong{border-bottom:solid 1px; padding-bottom:4px; padding-right:70px;}
+	#filtroSubSel ul{margin-left:-24px; list-style-type:square; text-indent:-5px; }
+	#tagCloud,#searchField, #searchBtn { padding:0; margin:3px 6px; width:246px; float:left; height:52px; }
+	#searchField{ height:75px; border-bottom:solid 2px #939598; margin-bottom:2px;}
+	#searchBtn{padding:0; margin:20px 4px 0px 0px; height:45px; width:112px; float:right; } 
+	#tagCloudInput{position:relative; left:55px; top:-42px; width:175px; height:28px; background:transparent; border:0; font:12px "DINPro-Medium"; color:#808285; line-height:13px;}
+	#searchFieldInput{position:relative; left:58px; top:-25px; height:14px; width:174px;background:transparent; border:0; font:12px "DINPro-Medium"; color:#808285;}
+
+    #footer{clear:both; z-index:20; background-color:#636466; bottom:0; min-width:1200px; width:100%; height:235px; text-align:center; }
+	#footer img{padding-top:40px; margin:0 30px;}
+	
+    #searchSidebar{background-color:#E6E7E8; width:275px; height:100%; float:left;padding-left:20px; overflow:auto; overflow-x:hidden;}
+    #results{background-color:#fff; width:100%; height:100%;}
+    #notepad{float:left; width:245px;  margin-bottom:200px; border-top:solid 2px #939598; padding-top:25px; margin-top:30px;margin-left:6px;}
+    #notepadTitle{ color:#fff; font:14px "DINPro-Medium"; padding:10px; background: url(../image/notepad_close.gif) no-repeat 210px#6D6E71;}
+    #notepadText{padding:10px; height:240px;background-color:#C7C8CA;}
+    #notepadText textarea{width:220px; height:230px; font:13px "DINPro-Regular"; background-color:transparent; color:#5D5E60; border:0;  overflow:auto; overflow-x:hidden;}
+    #notepadBtn img{float:left;}
+
+
+	
+.visible{opacity:1; -webkit-transition: opacity .4s cubic-bezier(0.5, 0, 0.2, 1);}
+.hidden{opacity:0; -webkit-transition: opacity .4s cubic-bezier(0.5, 0, 0.2, 1);}
+.animate{-webkit-transition: all .3s cubic-bezier(0.5, 0, 0.2, 1); -moz-transition: all .3s cubic-bezier(0.5, 0, 0.2, 1); -ms-transition: all .3s cubic-bezier(0.5, 0, 0.2, 1);}
+.right{float:right;}	
+.po{cursor:pointer;}
+

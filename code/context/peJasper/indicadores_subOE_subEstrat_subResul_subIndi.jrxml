@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="indicadores_subResultados_subIndicadores" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.771561000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table" isDefault="false">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" isDefault="false" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" isDefault="false" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" isDefault="false" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1"/>
+	<parameter name="caminho_indicadores_subOE_subEstrat_subResul_subIndi" class="java.lang.String"/>
+	<parameter name="codCorOE" class="java.lang.String"/>
+	<parameter name="caminho_smileVermelho" class="java.lang.String"/>
+	<parameter name="caminho_smileVerde" class="java.lang.String"/>
+	<parameter name="caminho_smileAmarelo" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="meta2012" class="java.lang.String"/>
+	<field name="meta2013" class="java.lang.String"/>
+	<field name="meta2014" class="java.lang.String"/>
+	<field name="meta2015" class="java.lang.String"/>
+	<field name="valorRealizado2012" class="java.lang.String"/>
+	<field name="valorRealizado2013" class="java.lang.String"/>
+	<field name="valorRealizado2014" class="java.lang.String"/>
+	<field name="valorRealizado2015" class="java.lang.String"/>
+	<field name="cosolidadoAnual" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="16">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="0" width="60" height="9"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="62" y="0" width="26" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{meta2012} == null ? "-" : $F{meta2012}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="116" y="0" width="26" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{meta2014} == null ? "-" : $F{meta2014}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="89" y="0" width="26" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{meta2013} == null ? "-" : $F{meta2013}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="143" y="0" width="26" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{meta2015} == null ? "-" : $F{meta2015}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="0" width="26" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{valorRealizado2013} == null ? "-" : $F{valorRealizado2013}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="0" width="26" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{valorRealizado2015} == null ? "-" : $F{valorRealizado2015}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="0" width="26" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{valorRealizado2014} == null ? "-" : $F{valorRealizado2014}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="26" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{valorRealizado2012} == null ? "-" : $F{valorRealizado2012}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="0" width="43" height="9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Black" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cosolidadoAnual} == null ? "-" : $F{cosolidadoAnual}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="15" width="54" height="1" forecolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$P{REPORT_DATA_SOURCE}.next()]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="66" y="15" width="101" height="1" forecolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$P{REPORT_DATA_SOURCE}.next()]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="1" height="9" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="88" y="0" width="1" height="9" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="115" y="0" width="1" height="9" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToTallestObject" x="61" y="0" width="1" height="9" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="142" y="0" width="1" height="9" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="223" y="0" width="1" height="9" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="250" y="0" width="1" height="9" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="169" y="0" width="1" height="9" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="175" y="15" width="100" height="1" forecolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$P{REPORT_DATA_SOURCE}.next()]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="280" y="15" width="41" height="1" forecolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$P{REPORT_DATA_SOURCE}.next()]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="277" y="0" width="1" height="9" isPrintWhenDetailOverflows="true" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="196" y="0" width="1" height="9" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

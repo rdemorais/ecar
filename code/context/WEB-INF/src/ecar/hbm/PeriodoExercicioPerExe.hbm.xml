@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PeriodoExercicioPerExe" 
+    table="TB_PERIODO_EXERCICIO_PEREXE"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPerExe"
+        type="java.lang.Long"
+        column="COD_PEREXE"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="nomePerExe"
+        type="java.lang.String"
+        column="NOME_PEREXE"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to ExercicioExe -->
+    <set
+        name="exercicioExes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PEREXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ExercicioExe"
+        />
+    </set>
+	
+    <!-- bi-directional one-to-many association to ExercicioExe -->
+    <set
+        name="poderPeriodoExercicioPodPerexes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PEREXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PoderPeriodoExercicioPodPerExe"
+        />
+    </set>
+
+    <set
+        name="orgaoPeriodoExercicioOrgPerexes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PEREXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.OrgaoPeriodoExercicioOrgPerExe"
+        />
+    </set>
+
+    <set
+        name="unidadeOrcamentariaPeriodoExercicioUoPerexes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PEREXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UnidadeOrcamentariaPeriodoExercicioUoPerExe"
+        />
+    </set>
+</class>
+</hibernate-mapping>

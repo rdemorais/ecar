@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.EstAtribTipoAcompEata" 
+  	table="tb_est_atrib_tipo_acomp_eata"
+    lazy="true" batch-size="10"
+  	>
+    <id 
+    	column="cod_eata" 
+    	name="codEata" 
+    	type="java.lang.Long">
+      <generator class="increment"/>
+    </id>
+    <property 
+    	column="sequencia_eata" 
+    	length="4" 
+    	name="sequenciaEata"
+      	type="java.lang.Long"/>
+    <property 
+    	column="exibir_eata" 
+    	length="1" 
+    	name="exibirEata"
+      	type="java.lang.String"/>
+     <!-- SERPRO --> 	
+         <property 
+    	column="filtro_eata" 
+    	length="1" 
+    	name="filtroEata"
+      	type="java.lang.String"/> 	
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to TbTipoAcompanhamentoTa -->
+    <many-to-one 
+    	class="ecar.pojo.TipoAcompanhamentoTa"
+      	name="tipoAcompanhamentoTa">
+	    <column name="cod_ta"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbEstruturaAtributoEttat -->
+    <many-to-one 
+    	class="ecar.pojo.EstruturaAtributoEttat"
+      	name="estruturaAtributoEttat">
+      	<column name="cod_ett"/>
+      	<column name="cod_atb"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.BeneficiarioBnf" 
+    table="TB_BENEFICIARIO_BNF"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codBnf"
+        type="java.lang.Long"
+        column="COD_BNF"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoBnf"
+        type="java.lang.String"
+        column="IND_ATIVO_BNF"
+        length="1"
+    />
+    <property
+        name="dataInclusaoBnf"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_BNF"
+        length="7"
+    />
+    <property
+        name="nomeBnf"
+        type="java.lang.String"
+        column="NOME_BNF"
+        length="2000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to ItemEstrtBenefIettb -->
+    <set
+        name="itemEstrtBenefIettbs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_BNF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtBenefIettb"
+        />
+    </set>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettbH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettbHs">
+      <key>
+        <column name="COD_BNF"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettbH"/>
+    </set>     
+    <!-- Final Mantis #2156 -->
+</class>
+</hibernate-mapping>

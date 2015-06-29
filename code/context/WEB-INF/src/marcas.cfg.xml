@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		
+		
+		<!--property name="hibernate.connection.username">sa_ecar</property>
+		<property name="hibernate.connection.password">serenaya</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ecar</property-->
+		
+		<property name="hibernate.connection.username">sa_ecar</property>
+		<property name="hibernate.connection.password">j7v3q-raf</property>
+		<!--property name="hibernate.connection.url">jdbc:postgresql://10.1.1.165:5432/ecar</property-->
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ecar</property>				
+		
+		<property name="hibernate.generate_statistics">true</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.default_schema">public</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.jdbc.use_streams_for_binary">true</property>
+		<property name="hibernate.jdbc.batch_size">20</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+
+
+		<!-- configuration pool via c3p0
+		<property name="c3p0.acquire_increment">1</property>
+		<property name="c3p0.idle_test_period">100</property> 
+		<property name="c3p0.max_size">100</property>
+		<property name="c3p0.max_statements">0</property>
+		<property name="c3p0.min_size">10</property>
+		<property name="c3p0.timeout">100</property> 
+		-->
+		
+		<!-- ========================== -->
+		<!-- Cache                      -->
+		<!-- ==========================  
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
+
+		<property name="hibernate.cache.use_structured_entries">true</property>
+		<property name="hibernate.cache.use_minimal_puts">true</property>
+		-->
+		<!-- ========================== -->
+		<!-- Definicao de Tipos         -->
+		<!-- ========================== -->
+		<mapping resource="ecar/hbm/TiposEcar.hbm.xml" />
+		<!-- ========================== -->
+		<!-- Mapeamentos                -->
+		<!-- ========================== -->
+		<mapping resource="ecar/hbm/Faixa.hbm.xml" />
+		<mapping resource="ecar/hbm/Sinalizacao.hbm.xml" />
+		<mapping resource="ecar/hbm/Aba.hbm.xml" />
+		<mapping resource="ecar/hbm/AcompRealFisicoArf.hbm.xml" />
+		<mapping resource="ecar/hbm/AcompRealFisicoLocalArfl.hbm.xml" />
+		<mapping resource="ecar/hbm/AcompReferenciaAref.hbm.xml" />
+		<mapping resource="ecar/hbm/AcompReferenciaItemAri.hbm.xml" />
+		<mapping resource="ecar/hbm/AcompRefItemLimitesArli.hbm.xml" />
+		<mapping resource="ecar/hbm/AcompRefLimitesArl.hbm.xml" />
+		<mapping resource="ecar/hbm/AcompRelatorioArel.hbm.xml" />
+		<mapping resource="ecar/hbm/AgendaAge.hbm.xml" />
+		<mapping resource="ecar/hbm/AgendaEntidadesAgeent.hbm.xml" />
+		<mapping resource="ecar/hbm/AgendaOcorrenciaAgeo.hbm.xml" />
+		<mapping resource="ecar/hbm/ApontamentoApt.hbm.xml" />
+		<mapping resource="ecar/hbm/AreaAre.hbm.xml" />
+		<mapping resource="ecar/hbm/AtributoAtt.hbm.xml" />
+		<mapping resource="ecar/hbm/AtributosAtb.hbm.xml" />
+		<mapping resource="ecar/hbm/BeneficiarioBnf.hbm.xml" />
+		<mapping resource="ecar/hbm/Categoria.hbm.xml" />
+		<mapping resource="ecar/hbm/ConfigExecFinanCef.hbm.xml" />
+		<mapping resource="ecar/hbm/ConfigMailCfgm.hbm.xml" />
+		<mapping resource="ecar/hbm/ConfigRelatorioCfgrel.hbm.xml" />
+		<mapping resource="ecar/hbm/ConfigSisExecFinanCsef.hbm.xml" />
+		<mapping resource="ecar/hbm/ConfigSisExecFinanCsefv.hbm.xml" />
+		<mapping resource="ecar/hbm/ConfigTipoDadoCtd.hbm.xml" />
+		<mapping resource="ecar/hbm/ConfiguracaoCfg.hbm.xml" />
+		<mapping resource="ecar/hbm/ContasRejeitadasCrej.hbm.xml" />
+		<mapping resource="ecar/hbm/ContatoAreaCtta.hbm.xml" />
+		<mapping resource="ecar/hbm/ContatoMailCategoriaCttm.hbm.xml" />
+		<mapping resource="ecar/hbm/ContatoMailCttm.hbm.xml" />
+		<mapping resource="ecar/hbm/Cor.hbm.xml" />
+		<mapping resource="ecar/hbm/CorTipoFuncAcompCtfa.hbm.xml" />
+		<mapping resource="ecar/hbm/CriterioCri.hbm.xml" />
+		<mapping resource="ecar/hbm/DemAtributoDema.hbm.xml" />
+		<mapping resource="ecar/hbm/DestaqueAreaDtqa.hbm.xml" />
+		<mapping resource="ecar/hbm/DestaqueItemRelDtqir.hbm.xml" />
+		<mapping resource="ecar/hbm/DestaqueSubAreaDtqsa.hbm.xml" />
+		<mapping resource="ecar/hbm/DestaqueTipoOrdemDtqto.hbm.xml" />
+		<mapping resource="ecar/hbm/DiaSemanaDsm.hbm.xml" />
+		<mapping resource="ecar/hbm/EfIettFonteTotEfieft.hbm.xml" />
+		<mapping resource="ecar/hbm/EfIettFonTotRevEfieftr.hbm.xml" />
+		<mapping resource="ecar/hbm/EfIettPrevisaoRevEfiepr.hbm.xml" />
+		<mapping resource="ecar/hbm/EfImportOcorrenciasEfio.hbm.xml" />
+		<mapping resource="ecar/hbm/EfItemEstContaEfiec.hbm.xml" />
+		<mapping resource="ecar/hbm/EfItemEstPrevisaoEfiep.hbm.xml" />
+		<mapping resource="ecar/hbm/EfItemEstRealizadoEfier.hbm.xml" />
+		<mapping resource="ecar/hbm/Email.hbm.xml" />
+		<mapping resource="ecar/hbm/EmpresaEmp.hbm.xml" />
+		<mapping resource="ecar/hbm/EnderecoEnd.hbm.xml" />
+		<mapping resource="ecar/hbm/EntidadeAtributoEnta.hbm.xml" />
+		<mapping resource="ecar/hbm/EntidadeEnt.hbm.xml" />
+		<mapping resource="ecar/hbm/Etiqueta.hbm.xml" />
+		<mapping resource="ecar/hbm/EspecieEsp.hbm.xml" />
+		<mapping resource="ecar/hbm/EstAtribTipoAcompEata.hbm.xml" />
+		<mapping resource="ecar/hbm/Estilo.hbm.xml" />
+		<mapping resource="ecar/hbm/EstrutTpFuncAcmpEtttfa.hbm.xml" />
+		<mapping resource="ecar/hbm/EstruturaAcessoEtta.hbm.xml" />
+		<mapping resource="ecar/hbm/EstruturaAtributoEttat.hbm.xml" />
+		<mapping resource="ecar/hbm/EstruturaEtt.hbm.xml" />
+		<mapping resource="ecar/hbm/EstruturaFuncaoEttf.hbm.xml" />
+		<mapping resource="ecar/hbm/ExercicioExe.hbm.xml" />
+		<mapping resource="ecar/hbm/FonteFon.hbm.xml" />
+		<mapping resource="ecar/hbm/FonteRecursoFonr.hbm.xml" />
+		<mapping resource="ecar/hbm/FuncaoFun.hbm.xml" />
+		<mapping resource="ecar/hbm/GrupoAtributoGatt.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoEfiecH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoEfieftH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoEfiepH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoEfierH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoGrupoMotivo.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettaH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettbH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettcH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIetteH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettfH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettlH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettrH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettSatbH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettupH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettusH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettutfaH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoIettvH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoMaster.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoMotivo.hbm.xml" />
+		<mapping resource="ecar/hbm/IdiomaIdm.hbm.xml" />
+		<mapping resource="ecar/hbm/IettIndResulRevIettrr.hbm.xml" />
+		<mapping resource="ecar/hbm/IettUsutpfuacrevIettutfar.hbm.xml" />
+		<mapping resource="ecar/hbm/ImportacaoImp.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstFisicoRevIettfr.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstLocalRevIettlr.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrtBenefIettb.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrtIndResulIettr.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrtIndResulLocalIettirl.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrUplCategIettuc.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutAcaoIetta.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutCriterioIettc.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutEntidadeIette.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutFisicoIettf.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutLocalIettl.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutMarcadorIettm.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutUploadIettup.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstruturaIett.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstruturaIettMin.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstruturaIettPPA.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstruturarevisaoIettrev.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstruturaSisAtributoIettSatb.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutUsuarioIettus.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrutVinculoIettv.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstUsutpfuacIettutfa.hbm.xml" />
+		<mapping resource="ecar/hbm/Link.hbm.xml" />
+		<mapping resource="ecar/hbm/LocalGrupoLgp.hbm.xml" />
+		<mapping resource="ecar/hbm/LocalItemLit.hbm.xml" />
+		<mapping resource="ecar/hbm/LocAtributoLoca.hbm.xml" />
+		<mapping resource="ecar/hbm/Log.hbm.xml" />
+		<mapping resource="ecar/hbm/ModeloRelatorioMrel.hbm.xml" />
+		<mapping resource="ecar/hbm/OpcaoMenuOpcm.hbm.xml" />
+		<mapping resource="ecar/hbm/OpcaoOpc.hbm.xml" />
+		<mapping resource="ecar/hbm/OrgaoOrg.hbm.xml" />
+		<mapping resource="ecar/hbm/OrgaoPeriodoExercicioOrgPerExe.hbm.xml" />
+		<mapping resource="ecar/hbm/PaginaAreaSitePa.hbm.xml" />
+		<mapping resource="ecar/hbm/PaginaPgn.hbm.xml" />
+		<mapping resource="ecar/hbm/PerfilPfl.hbm.xml" />
+		<mapping resource="ecar/hbm/PeriodicidadePrdc.hbm.xml" />
+		<mapping resource="ecar/hbm/PeriodoExercicioPerExe.hbm.xml" />
+		<mapping resource="ecar/hbm/PeriodoRevisao.hbm.xml" />
+		<mapping resource="ecar/hbm/Pesquisa.hbm.xml" />
+		<mapping resource="ecar/hbm/PoderPeriodoExercicioPodPerExe.hbm.xml" />
+		<mapping resource="ecar/hbm/PoderPod.hbm.xml" />
+		<mapping resource="ecar/hbm/PontocriticoCorPtccor.hbm.xml" />
+		<mapping resource="ecar/hbm/PontoCriticoPtc.hbm.xml" />
+		<mapping resource="ecar/hbm/PopupComportamentoPppc.hbm.xml" />
+		<mapping resource="ecar/hbm/PopupPpp.hbm.xml" />
+		<mapping resource="ecar/hbm/PrioridadePrior.hbm.xml" />
+		<mapping resource="ecar/hbm/RecursoRec.hbm.xml" />
+		<mapping resource="ecar/hbm/RegApontamentoRegda.hbm.xml" />
+		<mapping resource="ecar/hbm/RegControleAcessoRca.hbm.xml" />
+		<mapping resource="ecar/hbm/RegDemandaRegd.hbm.xml" />
+		<mapping resource="ecar/hbm/RelacionamentoIettEtiqueta.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoAreaSgta.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoCategoriaSgtc.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoCategoriaTpAcesSgt.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoItemFonteSgtif.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoItemLeiauteSgtil.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoItemSgti.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoItemTpAcesSgtITA.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoLeiauteSgtl.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoSgt.hbm.xml" />
+		<mapping resource="ecar/hbm/SegmentoSisAtribSgtsa.hbm.xml" />
+		<mapping resource="ecar/hbm/SequenciadoraSeq.hbm.xml" />
+		<mapping resource="ecar/hbm/SisAtributoSatb.hbm.xml" />
+		<mapping resource="ecar/hbm/SisGrupoAtributoSga.hbm.xml" />
+		<mapping resource="ecar/hbm/SisTipoExibicGrupoSteg.hbm.xml" />
+		<mapping resource="ecar/hbm/SisTipoOrdenacaoSto.hbm.xml" />
+		<mapping resource="ecar/hbm/SitDemandaSitd.hbm.xml" />
+		<mapping resource="ecar/hbm/SituacaoSit.hbm.xml" />
+		<mapping resource="ecar/hbm/StatusRelatorioSrl.hbm.xml" />
+		<mapping resource="ecar/hbm/SubAreaSare.hbm.xml" />
+		<mapping resource="ecar/hbm/TelefoneTel.hbm.xml" />
+		<mapping resource="ecar/hbm/TextosSiteTxt.hbm.xml" />
+		<mapping resource="ecar/hbm/TfuncacompConfigmailTfacfgm.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoAcompAbasSisatributoTaAbaSatb.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoAcompanhamentoTa.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoAcompFuncAcompTafc.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoAcompGrpAcesso.hbm.xml" />
+		<mapping
+			resource="ecar/hbm/TipoAcompTipofuncacompSisatributoTaTpfaSatb.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoEnderecoCorrTpec.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoEnderecoTend.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoFuncAcompTpfa.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoFuncAcompTpfaPermiteAlterar.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoParticipacaoTpp.hbm.xml" />
+		<mapping resource="ecar/hbm/Uf.hbm.xml" />
+		<mapping
+			resource="ecar/hbm/UnidadeOrcamentariaPeriodoExercicioUoPerExe.hbm.xml" />
+		<mapping resource="ecar/hbm/UnidadeOrcamentariaUO.hbm.xml" />
+		<mapping resource="ecar/hbm/UploadTipoArquivoUta.hbm.xml" />
+		<mapping resource="ecar/hbm/UploadTipoCategoriaUtc.hbm.xml" />
+		<mapping resource="ecar/hbm/UsuarioAtributoUsua.hbm.xml" />
+		<mapping resource="ecar/hbm/UsuarioUsu.hbm.xml" />
+		<mapping resource="ecar/hbm/VisaoDemandasVisDem.hbm.xml" />
+		<mapping resource="ecar/hbm/VisaoAtributoDemanda.hbm.xml" />
+		<mapping resource="ecar/hbm/AtributoDemandaAtbdem.hbm.xml" />
+		<mapping resource="ecar/hbm/DemandasGrpAcesso.hbm.xml" />
+		<mapping resource="ecar/hbm/PesquisaGrpAcesso.hbm.xml" />
+		<mapping resource="ecar/hbm/ApontamentoAnexo.hbm.xml" />
+		<mapping resource="ecar/hbm/ParametroPar.hbm.xml" />
+		<mapping resource="ecar/hbm/ServicoSer.hbm.xml" />
+		<mapping resource="ecar/hbm/ItemEstrtIndResulCorIettrcor.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoPtcH.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoCorPtcH.hbm.xml" />
+		<mapping resource="ecar/hbm/ServicoParametroSerPar.hbm.xml" />
+		<mapping resource="ecar/hbm/historico/HistoricoXml.hbm.xml" />
+		<mapping resource="ecar/hbm/PontoCriticoSisAtributoPtcSatb.hbm.xml" />
+		<mapping resource="ecar/hbm/VisaoSituacaoDemanda.hbm.xml" />
+		<mapping resource="ecar/hbm/VisaoDemandasGrpAcesso.hbm.xml" />
+		<mapping resource="ecar/hbm/RegDemandaAnexoRegdan.hbm.xml" />
+		<mapping resource="ecar/hbm/TipoValor.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoEttath.hbm.xml" />
+		<mapping resource="ecar/hbm/HistoricoConfig.hbm.xml" />
+		<mapping resource="ecar/hbm/intercambioDados/MotivoRejeicaoMtr.hbm.xml" />
+
+		<mapping resource="ecar/hbm/intercambioDados/LogIntercambioDadosLid.hbm.xml" />
+		<!--
+			mapping
+			resource="ecar/hbm/intercambioDados/LogIntercambioDadosImportadosLidi.hbm.xml"/
+		-->
+		<!--
+			mapping
+			resource="ecar/hbm/intercambioDados/LogIntercambioDadosRejeitadosLidr.hbm.xml"/
+		-->
+
+		<mapping
+			resource="ecar/hbm/intercambioDados/PerfilIntercambioDadospflid.hbm.xml" />
+
+		<mapping
+			resource="ecar/hbm/intercambioDados/tecnologia/DadosTecnologiaPerfilDtp.hbm.xml" />
+
+
+		<mapping
+			resource="ecar/hbm/intercambioDados/EntidadeLogIntercambioDadosEtlogid.hbm.xml" />
+		<mapping
+			resource="ecar/hbm/intercambioDados/DadosTecnlogiaLogIntercambioDadosLogdtid.hbm.xml" />
+		<mapping
+			resource="ecar/hbm/intercambioDados/PerfilIntercambioDadosLogPflogid.hbm.xml" />
+		<mapping resource="ecar/hbm/PesquisaIett.hbm.xml" />
+		<!--
+			<class-cache class="ecar.pojo.ConfiguracaoCfg" usage="read-write"/>
+		-->
+	</session-factory>
+</hibernate-configuration>

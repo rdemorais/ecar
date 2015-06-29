@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!--
+		Created by the Middlegen Hibernate plugin 2.1
+
+		http://boss.bekk.no/boss/middlegen/ http://www.hibernate.org/
+	-->
+
+	<class name="ecar.pojo.intercambioDados.PerfilIntercambioDadosPflid"
+		table="tb_perfil_intercambio_dados_pflid" lazy="false">
+		<meta attribute="implement-equals" inherit="false">true</meta>
+
+		<id name="codPflid" type="java.lang.Long" column="cod_pflid">
+			<generator class="sequence">
+				<param name="sequence">tb_perfil_intercambio_dados_pflid_cod_pflid_seq</param>
+			</generator>
+		</id>
+
+		<property name="nomePflid" type="java.lang.String" column="nome_pflid"
+			not-null="true" length="40" />
+
+		<property name="codTipoServicoPflid" type="java.lang.Long"
+			column="cod_tipo_servico_pflid" not-null="true" />
+
+		<property name="nomeTipoServicoPflid" type="java.lang.String"
+			column="nome_tipo_servico_pflid" not-null="true" length="40" />
+
+		<property name="indUsuarioProcessamentoAssociacaoItemPflid"
+			type="java.lang.String" column="ind_usu_processamento_associacao_item_pflid"
+			length="1" />
+
+		<many-to-one name="usuarioImportacao" class="ecar.pojo.UsuarioUsu"
+			not-null="false">
+			<column name="cod_usu_imp" />
+		</many-to-one>
+
+		<!-- No futuro a associação many to one deverá ser utilizada para referenciar um CRUD de Tecnologia -->
+		<many-to-one name="dadosTecnologiaPerfilDtp" class="ecar.pojo.intercambioDados.tecnologia.DadosTecnologiaPerfilDtp" not-null="false" cascade="all">
+			<column name="cod_dtp" />
+		</many-to-one>
+
+		<property name="indAtivoAvisoImpPflid" type="java.lang.String"
+			column="ind_ativo_aviso_imp_pflid" length="1" />
+
+		<many-to-one name="grupoAcessoEnvioEmailPflid" class="ecar.pojo.SisAtributoSatb"
+			not-null="false">
+			<column name="cod_satb_acesso_envio_email_imp" />
+		</many-to-one>
+
+		<many-to-one name="composicaoEmailPflid" class="ecar.pojo.TextosSiteTxt"
+			not-null="false">
+			<column name="cod_txts"></column>
+		</many-to-one>
+
+		<property name="indModoProcessamentoPflid" type="java.lang.String"
+			column="ind_modo_processamento_pflid" length="1" />
+
+		<property name="codSistemaDestinoPflid" type="java.lang.Long"
+			column="cod_sistema_destino_pflid" not-null="true" />
+
+		<property name="nomeSistemaDestinoPflid" type="java.lang.String"
+			column="nome_sistema_destino_pflid" not-null="true" length="40" />
+
+		<property name="codSistemaOrigemPflid" type="java.lang.Long"
+			column="cod_sistema_origem_pflid" not-null="true" />
+
+		<property name="nomeSistemaOrigemPflid" type="java.lang.String"
+			column="nome_sistema_origem_pflid" not-null="true" length="40" />
+
+		<property name="dataInclusaoPflid" type="java.util.Date" column="dt_inclusao_pflid" />
+			
+		<many-to-one name="usuarioInclusaoPflid" class="ecar.pojo.UsuarioUsu" not-null="false">
+			<column name="cod_usu_inclusao_pflid"></column>
+		</many-to-one>	
+
+		<property name="dataAlteracaoPflid" type="java.util.Date" column="dt_alteracao_pflid" />
+			
+		<many-to-one name="usuarioAlteracaoPflid" class="ecar.pojo.UsuarioUsu" >
+			<column name="cod_usu_alteracao_pflid"></column>
+		</many-to-one>	
+
+		<property name="indAtivoPflid" type="java.lang.String" column="ind_ativo_pflid" />
+
+		<joined-subclass
+			name="ecar.pojo.intercambioDados.funcionalidade.PerfilIntercambioDadosCadastroPidc" 
+			table="TB_PERFIL_INTERCAMBIO_DADOS_CADASTRO_PIDC" lazy="false">
+
+			<key column="COD_PFLID" />
+
+			<many-to-one name="grupoAcessoItensImportadosPidc" class="ecar.pojo.SisAtributoSatb"
+				column="cod_satb_acesso_perm_item_pidc" />
+
+			<many-to-one name="situacaoNaoInformadaPidc" class="ecar.pojo.SituacaoSit"
+				not-null="true" column="cod_sit_nao_informado_pidc" />
+
+			<many-to-one name="situacaoSemCorrespondentePidc" class="ecar.pojo.SituacaoSit"
+				not-null="true" column="cod_sit_sem_correspondente_pidc" />
+
+			<many-to-one name="estruturaBasePidc" class="ecar.pojo.EstruturaEtt"
+				not-null="true" column="cod_ett_base_pidc" />
+
+			<many-to-one name="atributoBasePidc" class="ecar.pojo.AtributosAtb"
+				not-null="true" column="cod_atb_base_pidc" />
+
+			<many-to-one name="estruturaCriacaoItemPidc" class="ecar.pojo.EstruturaEtt"
+				not-null="true" column="cod_ett_criacao_item_pidc" />
+
+			<many-to-one name="estruturaItemNivelSuperiorPidc" class="ecar.pojo.EstruturaEtt"
+				not-null="true" column="cod_ett_item_nivel_superior_pidc" />
+
+			<many-to-one name="atributoNivelSuperiorPidc" class="ecar.pojo.AtributosAtb"
+				not-null="true" column="cod_atb_nivel_superior_pidc" />
+
+		</joined-subclass>
+
+	</class>
+</hibernate-mapping>

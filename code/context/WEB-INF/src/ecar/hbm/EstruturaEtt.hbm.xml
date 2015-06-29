@@ -1,0 +1,430 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EstruturaEtt" 
+    table="TB_ESTRUTURA_ETT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codEtt"
+        type="java.lang.Long"
+        column="COD_ETT"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="siglaEtt"
+        type="java.lang.String"
+        column="SIGLA_ETT"
+        length="10"
+    />
+    <property
+        name="nomeEtt"
+        type="java.lang.String"
+        column="NOME_ETT"
+        length="30"
+    />
+    <property
+        name="labelEtt"
+        type="java.lang.String"
+        column="LABEL_ETT"
+        length="30"
+    />
+    <property
+        name="indAtivoEtt"
+        type="java.lang.String"
+        column="IND_ATIVO_ETT"
+        length="1"
+    />
+    <property
+        name="dataInclusaoEtt"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_ETT"
+        length="7"
+    />
+    <property
+        name="indPrevFinanceiraEtt"
+        type="java.lang.String"
+        column="IND_PREV_FINANCEIRA_ETT"
+        length="1"
+    />
+    <property
+        name="dataUltManutEtt"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUT_ETT"
+        length="7"
+    />
+    <property
+        name="seqApresentacaoEtt"
+        type="java.lang.Integer"
+        column="SEQ_APRESENTACAO_ETT"
+        length="3"
+    />
+    <property
+        name="codCor1Ett"
+        type="java.lang.String"
+        column="COD_COR1_ETT"
+        length="20"
+    />
+    <property
+        name="codCor2Ett"
+        type="java.lang.String"
+        column="COD_COR2_ETT"
+        length="20"
+    />
+    <property
+        name="codCor3Ett"
+        type="java.lang.String"
+        column="COD_COR3_ETT"
+        length="20"
+    />
+    <property
+        name="codCor4Ett"
+        type="java.lang.String"
+        column="COD_COR4_ETT"
+        length="20"
+    />
+	
+	<property 
+		name="indExibirImprimirListagem" 
+		column="ind_exibir_imprimir_listagem_ett" 
+		type="java.lang.String" 
+		length="1">
+	</property>
+	
+	<property 
+		name="indExibirOpcaoModelo" 
+		column="ind_exibir_opcao_modelo" 
+		type="java.lang.String" 
+		length="1">
+	</property>
+	
+	<property 
+		name="tamanhoListagemVerticalEtt" 
+		type="java.lang.Long" 
+		column="tamanho_listagem_vertical_ett" 
+		length="10">
+	</property>
+	
+	<property
+        name="indEtapaNivelSuperiorEtt"
+        type="java.lang.String"
+        column="ind_etapa_nivel_superior_ett"
+        length="1">
+    </property>
+    
+    <property 
+		name="indExibirGerarArquivos" 
+		column="ind_exibir_gerar_arquivos_ett" 
+		type="java.lang.String" 
+		length="1">
+	</property>
+
+	<property
+        name="virtual"
+        type="java.lang.Boolean"
+        column="virtual"
+        length="1">
+    </property>
+    
+    <property
+        name="indExibirEstruturaEtt"
+        type="java.lang.String"
+        column="ind_exibir_estrutura_ett"
+        length="1"
+    />
+    
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to codAtbExibirEstruturaEtt -->
+    <many-to-one
+        name="atributoAtbExibirEstruturaEtt"
+        class="ecar.pojo.AtributosAtb"
+        not-null="false"
+    >
+        <column name="cod_atb_exibir_estrutura_ett" />
+    </many-to-one>
+    
+    <set
+        name="sisAtributoSatbEttSuperior"
+		table="tb_estrutura_sisatributo_ettsatb"
+        lazy="true" batch-size="10"
+		>
+        <key>
+            <column name="COD_ETT" />
+        </key>
+		<many-to-many
+			column="COD_SATB"
+            class="ecar.pojo.SisAtributoSatb"
+        />
+    </set>
+    
+	<!-- bi-directional one-to-many association to EstruturaAtributoEttat -->
+    <set
+        name="estruturaAtributoEttats"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_ETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstruturaAtributoEttat"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to EstrutTpFuncAcmpEtttfa -->
+    <set
+        name="estrutTpFuncAcmpEtttfas"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_ETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstrutTpFuncAcmpEtttfa"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to EstruturaAcessoEtta -->
+    <set
+        name="estruturaAcessoEttas"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="COD_ETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstruturaAcessoEtta"
+        />
+    </set>
+	
+    <!-- bi-directional one-to-many association to EstruturaSituacaoEtt -->	
+	<!-- Alterado -->		
+    <set
+        name="estruturaSituacaoEtts"
+        lazy="true"
+        batch-size="10"
+		cascade="save-update"
+		table="TB_ESTRUTURA_SITUACAO_ETTS"
+    >
+        <key>
+            <column name="COD_ETT" />
+        </key>
+        <many-to-many 
+            class="ecar.pojo.SituacaoSit"
+			column="COD_SIT"
+        />
+    </set>
+		
+    <!-- bi-directional one-to-many association to EstruturaFuncaoEttf -->
+    <set
+        name="estruturaFuncaoEttfs"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_ETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstruturaFuncaoEttf"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIetts"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+    
+    <set
+        name="itemEstruturaIettPPAs"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIettPPA"
+        />
+    </set>    
+    
+    <!-- bi-directional one-to-many association to EstruturaEtt -->
+    <set
+        name="estruturaEtts"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ETT_PAI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstruturaEtt"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to EstruturaEtt -->
+    <many-to-one
+        name="estruturaEtt"
+        class="ecar.pojo.EstruturaEtt"
+        not-null="true"
+    >
+        <column name="COD_ETT_PAI" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+
+<!-- bi-directional one-to-many association to TbItemEstruturarevisaoIettrev -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstruturarevisaoIettrevs" batch-size="10">
+      <key>
+        <column name="cod_ett"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturarevisaoIettrev"/>
+    </set>
+
+
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="tipoAcompanhamentoTas"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TipoAcompanhamentoTa"
+        />
+    </set>    
+
+    <!-- Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHs">
+      <key>
+        <column name="COD_ETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>  
+    <!-- Mantis #2156 -->
+    
+    <!-- bi-directional one-to-many association to TipoAcompanhamentoTa -->
+    <set
+        name="estruturaNivelGeracaoTas"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="cod_ett_nivel_geracao_ta" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TipoAcompanhamentoTa"
+        />
+    </set>    
+    
+	<!-- Associations -->
+	<!-- bi-directional many-to-many association to Item de Estrutura -->
+    <set 
+	      	name="itensEstruturaVirtual" 
+	      	table="TB_ITEM_ESTRUTURA_VIRTUAL_IEV"
+	      	lazy="true"
+	      	batch-size="10"
+	      	cascade="none"><!-- cascade="save-update"> -->
+	          <key>
+	              <column name="cod_ett" />
+	          </key>
+	          <many-to-many 
+			column="cod_iett"
+			class="ecar.pojo.ItemEstruturaIett" />
+    </set>
+
+	<set
+        name="perfilIntercambioDadosCadastroPidcsBaseImp"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="cod_ett_base_pidc" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.intercambioDados.funcionalidade.PerfilIntercambioDadosCadastroPidc"
+        />
+    </set>
+    
+    <set
+        name="perfilIntercambioDadosCadastroPidcsCriacaoItemImp"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="cod_ett_criacao_item_pidc" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.intercambioDados.funcionalidade.PerfilIntercambioDadosCadastroPidc"
+        />
+    </set>   
+
+    <set
+        name="perfilIntercambioDadosCadastroPidcsItemNivelSuperiorImp"
+        lazy="true"
+        batch-size="10"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="cod_ett_item_nivel_superior_pidc" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.intercambioDados.funcionalidade.PerfilIntercambioDadosCadastroPidc"
+        />
+    </set>     
+    
+</class>
+</hibernate-mapping>

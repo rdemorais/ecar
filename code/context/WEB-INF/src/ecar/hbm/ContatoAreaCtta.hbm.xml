@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ContatoAreaCtta" 
+    table="TB_CONTATO_AREA_CTTA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codCtta"
+        type="java.lang.Long"
+        column="COD_CTTA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="nomeCtta"
+        type="java.lang.String"
+        column="NOME_CTTA"
+        length="30"
+    />
+    <property
+        name="assuntoRetornoCtta"
+        type="java.lang.String"
+        column="ASSUNTO_RETORNO_CTTA"
+        length="20"
+    />
+    <property
+        name="indEmailRespostaCtta"
+        type="java.lang.String"
+        column="IND_EMAIL_RESPOSTA_CTTA"
+        length="1"
+    />
+    <property
+        name="indLogadoCtta"
+        type="java.lang.String"
+        column="IND_LOGADO_CTTA"
+        length="1"
+    />
+    <property
+        name="indAtivoCtta"
+        type="java.lang.String"
+        column="IND_ATIVO_CTTA"
+        length="1"
+    />
+    <property
+        name="dataInclusaoCtta"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_CTTA"
+        length="7"
+    />
+    <property
+        name="textoRetornoCtta"
+        type="java.lang.String"
+        column="TEXTO_RETORNO_CTTA"
+        length="2000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to ContatoMailCttm -->
+    <set
+        name="contatoMailCttms"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_CTTA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ContatoMailCttm"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

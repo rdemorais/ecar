@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.PesquisaIett" 
+	table="tb_pesquisa_iett"
+    lazy="false"
+	>
+    <composite-id class="ecar.pojo.PesquisaIettPK" name="comp_id">
+      <key-property column="cod_pesquisa" length="10" name="codPesquisa" type="java.lang.Long"/>
+      <key-property column="cod_iett" length="10" name="codIett" type="java.lang.Long"/>
+      <key-property column="cod_aref" length="10" name="codAref" type="java.lang.Long"/>
+    </composite-id>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ecar.pojo.Pesquisa -->
+    <many-to-one class="ecar.pojo.Pesquisa" insert="false"
+      name="pesquisa" update="false">
+      <column name="cod_pesquisa"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to ecar.pojo.ItemEstruturaIett -->
+    <many-to-one class="ecar.pojo.ItemEstruturaIett" insert="false"
+      name="itemEstruturaIett" update="false">
+      <column name="cod_iett"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to ecar.pojo.AcompReferenciaAref -->
+    <many-to-one class="ecar.pojo.AcompReferenciaAref" insert="false"
+      name="acompReferenciaAref" update="false">
+      <column name="cod_aref"/>
+    </many-to-one>
+    <!-- end of derived association(s) -->
+  </class>
+</hibernate-mapping>

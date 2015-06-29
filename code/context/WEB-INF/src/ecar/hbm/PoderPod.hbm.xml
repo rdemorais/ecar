@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PoderPod" 
+    table="TB_PODER_POD"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPod"
+        type="java.lang.Long"
+        column="COD_POD"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="siglaPod"
+        type="java.lang.String"
+        column="SIGLA_POD"
+        length="5"
+    />
+    <property
+        name="nomePod"
+        type="java.lang.String"
+        column="NOME_POD"
+        length="100"
+    />
+    <property
+        name="indAtivoPod"
+        type="java.lang.String"
+        column="IND_ATIVO_POD"
+        length="1"
+    />
+
+    <!-- bi-directional one-to-many association to OrgaoOrg -->
+    <set
+        name="orgaoOrgs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_POD" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.OrgaoOrg"
+        />
+    </set>
+
+
+    <!-- bi-directional one-to-many association to poderPeriodoExercicioPodPerexes -->
+    <set
+        name="poderPeriodoExercicioPodPerexes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_POD" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PoderPeriodoExercicioPodPerExe"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

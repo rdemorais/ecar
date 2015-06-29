@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioBijari" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5000000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="62"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Users\\fabio.bicalho\\ambientesDeAplicacoes\\ECAR\\workspace\\ecar-ws\\context\\peJasper\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="caminho_relBijari_subOE" class="java.lang.String"/>
+	<parameter name="caminho_relBijari_subOE_subEst" class="java.lang.String"/>
+	<parameter name="graficoRelatorioExecutivoResultados" class="java.lang.Object"/>
+	<parameter name="graficoRelatorioExecutivoResultadosPrioritarios" class="java.lang.Object"/>
+	<parameter name="caminho_smileAmarelo" class="java.lang.String"/>
+	<parameter name="caminho_smileVerde" class="java.lang.String"/>
+	<parameter name="caminho_smileVermelho" class="java.lang.String"/>
+	<parameter name="caminho_relBijari_subOE_subEst_subResult" class="java.lang.String"/>
+	<parameter name="caminho_smileBranco" class="java.lang.String"/>
+	<parameter name="cruzLogo" class="java.lang.String"/>
+	<parameter name="msLogo" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="codCor" class="java.lang.Long"/>
+	<field name="estrategias" class="java.util.Collection"/>
+	<field name="siglaIett" class="java.lang.String"/>
+	<variable name="walla" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="246" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="59" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="89" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="60" width="555" height="29"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[OE 1 + OE 6...]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="90" width="555" height="20" forecolor="#CCCCCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[STATUS DOS RESULTADOS DOS FILTROS SELECIONADOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="110" width="277" height="30" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[RESULTADOS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="245" width="555" height="1" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="277" y="110" width="278" height="30" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[RESULTADOS PRIORITÁRIOS]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement x="0" y="140" width="277" height="105"/>
+				<imageExpression class="java.awt.Image"><![CDATA[$P{graficoRelatorioExecutivoResultados}]]></imageExpression>
+			</image>
+			<image hAlign="Center">
+				<reportElement x="278" y="140" width="276" height="105"/>
+				<imageExpression class="java.awt.Image"><![CDATA[$P{graficoRelatorioExecutivoResultadosPrioritarios}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="277" y="144" width="1" height="97" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement x="277" y="114" width="1" height="22" forecolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="0" width="555" height="28" forecolor="#FFFFFF" backcolor="#0B509E"/>
+				<box leftPadding="30"/>
+				<textElement verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PLANO ESTRATÉGICO DO MINISTÉRIO DA SAÚDE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="7" y="6" width="17" height="16"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{cruzLogo}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="337" y="2" width="218" height="23"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{msLogo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="28" width="206" height="22" forecolor="#333333"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO EXECUTIVO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="73" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#FF0066">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 01" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="0" y="0" width="208" height="20" forecolor="#B93092" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 02" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#735BA4">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 03" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#B1005D">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 04" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#0079C1">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 05" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#00B5CC">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 06" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#7E81BE">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 07" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#492F92">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 08" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#7BC143">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 09" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#B2121E">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 10" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#61C5BA">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 11" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#00958F">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 12" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#F58025">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 13" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#FDB813">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 14" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#B8290A">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 15" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="208" height="20" forecolor="#B15C11">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 16" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["OBJETIVO ESTRATÉGICO " + $F{siglaIett}.substring(2)]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement positionType="Float" x="1" y="38" width="554" height="30" forecolor="#F16477" backcolor="#F16477">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 01" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#B93092" backcolor="#B93092">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 02" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#735BA4" backcolor="#735BA4">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 03" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="1" y="38" width="554" height="30" forecolor="#B1005D" backcolor="#B1005D">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 04" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#0079C1" backcolor="#0079C1">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 05" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#00B5CC" backcolor="#00B5CC">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 06" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#7E81BE" backcolor="#7E81BE">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 07" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#492F92" backcolor="#492F92">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 08" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#7BC143" backcolor="#7BC143">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 09" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#B2121E" backcolor="#B2121E">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 10" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#61C5BA" backcolor="#61C5BA">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 11" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#00958F" backcolor="#00958F">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 12" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#F58025" backcolor="#F58025">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 13" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#FDB813" backcolor="#FDB813">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 14" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#B8290A" backcolor="#B8290A">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 15" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="38" width="555" height="30" forecolor="#B15C11" backcolor="#B15C11">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equalsIgnoreCase( "OE 16" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="389" y="38" width="90" height="14" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESPONSÁVEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="480" y="38" width="75" height="30" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ARTICULAÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="389" y="53" width="90" height="15" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CORRESPONSÁVEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="327" y="38" width="61" height="30" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="134" y="38" width="192" height="30" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    RESULTADOS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="20" width="555" height="18"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="38" width="133" height="30" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    ESTRATÉGIAS]]></text>
+			</staticText>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" x="1" y="68" width="390" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileVerde">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileVerde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaIett">
+					<subreportParameterExpression><![CDATA[$F{siglaIett}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_relBijari_subOE_subEst_subResult">
+					<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst_subResult}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_relBijari_subOE">
+					<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileBranco">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileBranco}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileVermelho">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileVermelho}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileAmarelo">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileAmarelo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_relBijari_subOE_subEst">
+					<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{estrategias})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_relBijari_subOE}]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement positionType="Float" x="326" y="42" width="1" height="22" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="133" y="42" width="1" height="22" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="388" y="42" width="1" height="22" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="479" y="42" width="1" height="22" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="393" y="52" width="82" height="1" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

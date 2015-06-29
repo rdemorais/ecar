@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ConfiguracaoCfg" 
+    table="TB_CONFIGURACAO_CFG"
+    lazy="false"
+    >
+    <meta attribute="implement-equals" inherit="false">true</meta>
+    <id
+        name="codCfg"
+        type="java.lang.Long"
+        column="COD_CFG"
+    >
+        <generator class="increment"/>
+    </id>
+
+    <property
+        name="nomeEstruturaCfg"
+        type="java.lang.String"
+        column="NOME_ESTRUTURA_CFG"
+        length="30"
+    />
+    <property
+        name="tpArqIntegFinanceiraCfg"
+        type="java.lang.String"
+        column="TP_ARQ_INTEG_FINANCEIRA_CFG"
+        length="3"
+    />
+
+    <property
+        name="indGerarHistoricoCfg"
+        type="java.lang.String"
+        column="IND_GERAR_HISTORICO_CFG"
+        length="1"
+    />
+
+   <property 
+   		column="hora_envio_mail_cfg" 
+   		name="horaEnvioMailCfg" 
+   		type="java.lang.String"
+   		length="5"
+   	/>
+    <property 
+    	column="dias_antecedencia_mail_cfg" 
+		length="8"	
+		name="diasAntecedenciaMailCfg" 
+		type="java.lang.Long"
+	/>
+	
+	<property
+        name="ultimoEnvioEmailCfg"
+        type="java.sql.Timestamp"
+        column="ultimo_envio_mail_cfg"
+        length="7"
+    />
+	
+
+    <property 
+    	column="titulo_sistema" 
+		length="30"	
+		name="tituloSistema" 
+		type="java.lang.String"
+	/>
+
+    	
+    <property 
+    	column="exib_default_est_cfg" 
+		length="1"	
+		name="exibDefaultEstCfg" 
+		type="java.lang.String"
+	/>
+	
+
+    <property 
+    	column="email_server" 
+		length="30"	
+		name="emailServer" 
+		type="java.lang.String"
+	/>
+	  
+    <property 
+    	column="context_path" 
+		length="2000"	
+		name="contextPath" 
+		type="java.lang.String"
+	/>
+
+	<many-to-one
+        name="estilo"
+        class="ecar.pojo.Estilo"
+        not-null="true"
+       >
+        <column name="COD_ESTILO" />
+    </many-to-one>
+
+    <property 
+    	column="imagem_esquerda" 
+		length="200"
+		name="imagemEsquerda" 
+		type="java.lang.String"
+	/>
+
+    <property 
+    	column="raiz_upload" 
+		length="200"	
+		name="raizUpload" 
+		type="java.lang.String"
+	/>
+
+    <property 
+    	column="path_upload_categoria" 
+		length="200"	
+		name="uploadCategoria" 
+		type="java.lang.String"
+	/>
+
+    <property 
+    	column="path_upload_anexos" 
+		length="200"	
+		name="uploadAnexos" 
+		type="java.lang.String"
+	/>
+
+    <property 
+    	column="path_upload_empresa" 
+		length="200"	
+		name="uploadEmpresa" 
+		type="java.lang.String"
+	/>
+
+    <property 
+    	column="path_upload_adm_portal" 
+		length="200"	
+		name="uploadAdmPortal" 
+		type="java.lang.String"
+	/>
+
+    <property 
+    	column="path_upload_usuarios" 
+		length="200"	
+		name="uploadUsuarios" 
+		type="java.lang.String"
+	/>
+	
+	<property 
+		column="path_upload_icone_links"
+		length="200"
+		name="uploadIconeLinks"
+		type="java.lang.String"
+	/>
+	
+	<property 
+		column="path_upload_exportacao_demandas"
+		length="200"
+		name="uploadExportacaoDemandas"
+		type="java.lang.String"
+	/>
+	
+	<property 
+		column="separador_arq_txt"
+		length="40"
+		name="separadorArqTXT"
+		type="java.lang.String"
+	/>
+	
+	<property 
+		column="separador_campo_multivalor"
+		length="40"
+		name="separadorCampoMultivalor"
+		type="java.lang.String"
+	/>
+	
+	<property
+		column="path_upload_integracao"
+		length="200"
+		name="uploadIntegracao"
+		type="java.lang.String"
+	/>
+
+    <property 
+    	column="num_registros_popup" 
+		length="8"	
+		name="numRegistros" 
+		type="java.lang.Long"
+	/>
+
+
+    <property 
+    	column="qtde_itens_gal_anexo" 
+		length="8"	
+		name="qtdeItensGalAnexo" 
+		type="java.lang.Long"
+	/>
+	
+	<property 
+    	column="nu_itens_exibidos_paginacao" 
+		name="nuItensExibidosPaginacao" 
+		type="java.lang.Integer"
+	/>
+	
+	 <property
+        name="ultimaAtualizacaoEmail"
+        type="java.sql.Timestamp"
+        column="ULT_ATUALIZ_EMAIL_CFG"
+        length="7"
+    />
+    
+    <property 
+    	column="intervalo_atualiz_email" 
+		length="8"	
+		name="intervaloAtualizacaoEmail" 
+		type="java.lang.Long"
+	/>
+	
+	<property
+        name="labelMonitorado"
+        type="java.lang.String"
+        column="LABEL_MONITORADO"
+        length="40"
+    />
+
+	<property
+        name="labelOrgao"
+        type="java.lang.String"
+        column="LABEL_ORGAO"
+        length="40"
+    />
+    
+    <property
+        name="labelAgrupamentoItensSemOrgao"
+        type="java.lang.String"
+        column="LABEL_AGRUPAMENTO_ITENS_SEM_ORGAO"
+        length="80"
+    />
+    
+    <property
+        name="labelSituacaoParecer"
+        type="java.lang.String"
+        column="LABEL_SITUACAOPARECER"
+        length="40"
+    />
+
+	<property
+        name="labelCorParecer"
+        type="java.lang.String"
+        column="LABEL_CORPARECER"
+        length="40"
+    />
+    
+    <property
+        name="labelSituacaoListaPareceres"
+        type="java.lang.String"
+        column="LABEL_SITUACAOLISTAPARECERES"
+        length="40"
+    />
+	
+    <property
+        name="financeiroDescValor1Cfg"
+        type="java.lang.String"
+        column="FINANCEIRO_DESC_VALOR_1_CFG"
+        length="40"
+    />
+
+    <property
+        name="financeiroDescValor2Cfg"
+        type="java.lang.String"
+        column="FINANCEIRO_DESC_VALOR_2_CFG"
+        length="40"
+    />
+
+    <property
+        name="financeiroDescValor3Cfg"
+        type="java.lang.String"
+        column="FINANCEIRO_DESC_VALOR_3_CFG"
+        length="40"
+    />
+
+    <property
+        name="financeiroDescValor4Cfg"
+        type="java.lang.String"
+        column="FINANCEIRO_DESC_VALOR_4_CFG"
+        length="40"
+    />
+
+    <property
+        name="financeiroDescValor5Cfg"
+        type="java.lang.String"
+        column="FINANCEIRO_DESC_VALOR_5_CFG"
+        length="40"
+    />
+
+    <property
+        name="financeiroDescValor6Cfg"
+        type="java.lang.String"
+        column="FINANCEIRO_DESC_VALOR_6_CFG"
+        length="40"
+    />
+    
+    <property
+        name="recursoDescValor1Cfg"
+        type="java.lang.String"
+        column="RECURSO_DESC_VALOR_1_CFG"
+        length="40"
+    />
+
+    <property
+        name="recursoDescValor2Cfg"
+        type="java.lang.String"
+        column="RECURSO_DESC_VALOR_2_CFG"
+        length="40"
+    />
+
+    <property
+        name="recursoDescValor3Cfg"
+        type="java.lang.String"
+        column="RECURSO_DESC_VALOR_3_CFG"
+        length="40"
+    />
+
+	<property 
+    	column="periodo_padrao" 
+		name="periodoPadrao" 
+		type="java.lang.Long"
+	/>
+	
+	<property 
+    	column="tempo_sessao_cfg" 
+		name="tempoSessao" 
+		type="java.lang.Long"
+	/>
+	
+	<property
+        name="indOcultarObservacoesParecer"
+        type="java.lang.String"
+        column="IND_OCULTAR_OBS_PARECER"
+        length="1"
+    />
+    
+     <property
+        name="indExibirSituacoesFormatoAbas"
+        type="java.lang.String"
+        column="IND_EXIBIR_SITUACOES_FORMATO_ABAS"
+        length="1"
+    />
+    
+    <property
+        name="indExibirArvoreNavegacaoCfg"
+        type="java.lang.String"
+        column="IND_EXIBIR_ARVORE_NAVEGACAO_CFG"
+        length="1"
+    />
+
+    <!-- Associations -->
+     <!-- bi-directional many-to-one association to SisAtributoSatb -->
+     <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="sisGrupoAtributoSgaByUnidMedida"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_GR_ATR_UNID_MEDIDA" />
+    </many-to-one>
+
+    <many-to-one
+        name="sisGrupoAtributoSgaByTipoEvento"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_GR_ATR_TIPO_EVENTO" />
+    </many-to-one>
+
+    <many-to-one
+        name="sisAtributoSatbByCodSacapa"
+        class="ecar.pojo.SisAtributoSatb"
+        not-null="false"
+    >
+        <column name="COD_SATB_CAPA" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="sisAtributoSatbByCodSaAcesso"
+        class="ecar.pojo.SisAtributoSatb"
+        not-null="true"
+    >
+        <column name="COD_SATB_ACESSO" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="sisAtributoSatbByCodSapadrao"
+        class="ecar.pojo.SisAtributoSatb"
+        not-null="true"
+    >
+        <column name="COD_SATB_PADRAO" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSgaByCodSgaGrAtrPgIni"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_GR_ATR_PG_INI" />
+    </many-to-one>
+      <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSgaTipoPontoCritico"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_PONTO_CRITICO" />
+    </many-to-one>  
+    
+    
+    <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSgaByCodSgaGrAtrNvPlan"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_GR_ATR_NV_PLAN" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSgaByCodSgaGrAtrClAcesso"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_GR_ATR_CL_ACESSO" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSgaByCodSgaGrAtrLeiCapa"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_GR_ATR_LEI_CAPA" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSgaByCodSgaGrAtrTpAcesso"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_GR_ATR_TP_ACESSO" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSgaByCodSgaGrAtrMetasFisicas"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA_GR_ATR_METAS_FISICAS" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PeriodicidadePrdc -->
+    <many-to-one
+        name="periodicidadePrdc"
+        class="ecar.pojo.PeriodicidadePrdc"
+        not-null="true"
+    >
+        <column name="COD_PRDC_PADRAO" />
+    </many-to-one>
+    
+    <many-to-one
+        name="visaoDemandasVisDem"
+        class="ecar.pojo.VisaoDemandasVisDem"
+        not-null="false"
+    >
+        <column name="COD_VISAO" />
+    </many-to-one>
+
+   <!-- bi-directional many-to-many association to Abas -->
+    <set
+        name="cfgAbas"
+		table="TB_CONFIG_ABAS_CFGA"
+        lazy="true"
+		cascade="save-update" batch-size="10">
+        <key>
+            <column name="COD_CFG" />
+        </key>
+		<many-to-many
+			column="COD_ABA"
+			class="ecar.pojo.Aba"
+        />
+    </set>
+
+    <set cascade="none" inverse="true" lazy="true" name="configMailCfgms" batch-size="10">
+      <key>
+        <column name="cod_cfg"/>
+      </key>
+      <one-to-many class="ecar.pojo.ConfigMailCfgm"/>
+    </set>
+
+
+    <set cascade="none" inverse="true" lazy="true" name="periodoRevisaoPrevs" batch-size="10">
+      <key>
+        <column name="cod_cfg"/>
+      </key>
+      <one-to-many class="ecar.pojo.PeriodoRevisaoPrev"/>
+    </set>
+
+</class>
+</hibernate-mapping>

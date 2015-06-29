@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PeriodicidadePrdc" 
+    table="TB_PERIODICIDADE_PRDC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPrdc"
+        type="java.lang.Long"
+        column="COD_PRDC"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="numMesesPrdc"
+        type="java.lang.Integer"
+        column="NUM_MESES_PRDC"
+        length="3"
+    />
+    <property
+        name="descricaoPrdc"
+        type="java.lang.String"
+        column="DESCRICAO_PRDC"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PRDC_PADRAO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIetts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PRCD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to TbItemEstruturarevisaoIettrev -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstruturarevisaoIettrevs">
+      <key>
+        <column name="cod_prdc"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturarevisaoIettrev"/>
+    </set>
+
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrtIndResulIettr">
+      <key>
+        <column name="cod_prdc"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrtIndResulIettr"/>
+    </set>
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHs">
+      <key>
+        <column name="COD_PRCD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>  
+    <!-- Final Mantis #2156 -->
+</class>
+</hibernate-mapping>

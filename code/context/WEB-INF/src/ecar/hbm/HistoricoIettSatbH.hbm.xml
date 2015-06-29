@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Gabriel (28/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoIettSatbH" 
+    table="TB_HISTORICO_IETTSATBH" 
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettsatbh"
+        type="java.lang.Long"
+        column="cod_iettsatbh"
+    >
+        <generator class="increment" />
+    </id>    
+
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        
+    >
+        <column name="COD_IETT" />
+    </many-to-one>   
+   
+    <many-to-one
+        name="sisAtributoSatb"
+        class="ecar.pojo.SisAtributoSatb"
+        
+    >
+        <column name="cod_satb" />
+    </many-to-one>    
+   
+    <property
+        name="informacao"
+        type="java.lang.String"
+        column="informacao"
+        length="2000"
+    />
+    
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    
+	    
+	    
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>      
+    
+    <property
+        name="dataUltManutencao"
+        type="java.util.Date"
+        column="data_ult_manutencao"
+        
+    />    
+    
+    <many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	    
+	    
+	>
+    	<column name="COD_MAH" />
+	</many-to-one>     
+    
+</class>
+</hibernate-mapping>

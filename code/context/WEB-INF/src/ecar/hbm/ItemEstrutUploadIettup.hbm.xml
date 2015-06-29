@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrutUploadIettup" 
+    table="TB_ITEM_ESTRUT_UPLOAD_IETTUP"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettup"
+        type="java.lang.Long"
+        column="COD_IETTUP"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataInclusaoIettup"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTUP"
+        length="7"
+    />
+    <property
+        name="indAtivoIettup"
+        type="java.lang.String"
+        column="IND_ATIVO_IETTUP"
+        length="1"
+    />
+    <property
+        name="nomeOriginalIettup"
+        type="java.lang.String"
+        column="NOME_ORIGINAL_IETTUP"
+        length="100"
+    />
+    <property
+        name="tamanhoIettup"
+        type="java.lang.Long"
+        column="TAMANHO_IETTUP"
+        length="10"
+    />
+    <property
+        name="descricaoIettup"
+        type="java.lang.String"
+        column="DESCRICAO_IETTUP"
+        length="2000"
+    />
+    <property
+        name="arquivoIettup"
+        type="java.lang.String"
+        column="ARQUIVO_IETTUP"
+        length="100"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ItemEstrUplCategIettuc -->
+    <many-to-one
+        name="itemEstrUplCategIettuc"
+        class="ecar.pojo.ItemEstrUplCategIettuc"
+        not-null="true"
+    >
+        <column name="COD_IETTUC" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UploadTipoArquivoUta -->
+    <many-to-one
+        name="uploadTipoArquivoUta"
+        class="ecar.pojo.UploadTipoArquivoUta"
+        not-null="true"
+    >
+        <column name="COD_UTA" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+    <many-to-one
+        name="usuarioUsuManutencao"
+        class="ecar.pojo.UsuarioUsu"
+    >
+        <column name="COD_USU_MANUTENCAO" />
+    </many-to-one>
+    
+    <many-to-one
+        name="acompRelatorioArel"
+        class="ecar.pojo.AcompRelatorioArel"
+    >
+        <column name="COD_AREL" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

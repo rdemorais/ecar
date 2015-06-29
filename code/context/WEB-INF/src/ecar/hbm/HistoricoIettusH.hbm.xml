@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Rogerio, Gabriel (24/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoIettusH" 
+    table="TB_HISTORICO_IETTUSH"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettusH"
+        type="java.lang.Long"
+        column="COD_IETTUSH"
+    >
+        <generator class="increment" />
+    </id>  
+    
+	<many-to-one
+        name="tipoFuncAcompTpfa"
+	    class="ecar.pojo.TipoFuncAcompTpfa"
+	>
+    	<column name="COD_TPFA" />
+	</many-to-one>
+
+	<many-to-one
+        name="usuarioUsu"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU" />
+	</many-to-one> 
+
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+	
+    <property
+        name="dataInclusaoIettus"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTUS"
+        length="7"
+    />				
+	
+    <many-to-one
+        name="itemEstruturaIettOrigem"
+	    class="ecar.pojo.ItemEstruturaIett"
+	>
+    	<column name="COD_IETT_ORIG" />
+	</many-to-one>
+
+    <property
+        name="codTpPermIettus"
+        type="java.lang.String"
+        column="COD_TP_PERM_IETTUS"
+        length="1"
+    />
+
+    <property
+        name="cod_atb"
+        type="java.lang.Long"
+        column="cod_atb"
+    />  
+    
+    <property
+        name="indLeituraIettus"
+        type="java.lang.String"
+        column="ind_leitura_iettus"
+        length="18"
+    />      
+ 
+	<property
+        name="indEdicaoIettus"
+        type="java.lang.String"
+        column="ind_edicao_iettus"
+        length="18"
+    /> 
+	
+	<property
+        name="indExcluirIettus"
+        type="java.lang.String"
+        column="ind_excluir_iettus"
+        length="18"
+    /> 	
+	
+   <property
+        name="indAtivMonitIettus"
+        type="java.lang.String"
+        column="IND_ATIV_MONIT_IETTUS"
+        length="1"
+    />
+    
+    <property
+        name="indDesatMonitIettus"
+        type="java.lang.String"
+        column="IND_DESAT_MONIT_IETTUS"
+        length="1"
+    />
+    
+    <property
+        name="indBloqPlanIettus"
+        type="java.lang.String"
+        column="IND_BLOQ_PLAN_IETTUS"
+        length="1"
+    />    
+    
+    <property
+        name="indDesblPlanIettus"
+        type="java.lang.String"
+        column="IND_DESBL_PLAN_IETTUS"
+        length="1"
+    />    
+    
+    <property
+        name="indInfAndamentoIettus"
+        type="java.lang.String"
+        column="IND_INF_ANDAMENTO_IETTUS"
+        length="1"
+    />    
+    
+    <property
+        name="indEmitePosIettus"
+        type="java.lang.String"
+        column="IND_EMITE_POS_IETTUS"
+        length="1"
+    />        
+    
+    <property
+        name="indProxNivelIettus"
+        type="java.lang.String"
+        column="IND_PROX_NIVEL_IETTUS"
+        length="1"
+    />     
+    
+    <property
+        name="indLeituraParecerIettus"
+        type="java.lang.String"
+        column="IND_LEITURA_PARECER_IETTUS"
+        length="1"
+    />      
+
+	<many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>    
+    
+    <many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	    
+	    
+	>
+    	<column name="COD_MAH" />
+	</many-to-one>  
+
+</class>
+</hibernate-mapping>

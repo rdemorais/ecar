@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <class 
+  		name="ecar.pojo.ModeloRelatorioMrel" 
+  		table="tb_modelo_relatorio_mrel"
+	    lazy="false"
+  		>
+  	<meta attribute="implement-equals" inherit="false">true</meta>  
+    <id 
+    	name="codMrel" 
+    	length="4" 
+    	type="java.lang.Integer"
+    	column="cod_mrel"
+      >
+      <generator class="increment"/>
+    </id>
+    <property 
+    	name="descricaoMrel" 
+    	type="java.lang.String"
+    	length="200" 
+      	column="descricao_mrel"
+  	/>
+    <property 
+    	name="classifMrel" 
+    	type="java.lang.String"
+    	column="classif_mrel"
+    	length="20" 
+    />
+    <property 
+    	name="codAlfaMrel" 
+    	type="java.lang.String"
+    	column="cod_alfa_mrel"
+    	length="20" 
+    />
+    <set 
+   		inverse="true" 
+   		name="configRelatorioCfgrels">
+      <key>
+        <column name="cod_mrel"/>
+      </key>
+      <one-to-many 
+      		class="ecar.pojo.ConfigRelatorioCfgrel"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRelatorioGerencialEstrategiasResultados" pageWidth="548" pageHeight="802" columnWidth="548" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="caminhoSubRelatorioStatusProdutoRelatorioGerencial" class="java.lang.String"/>
+	<parameter name="caminhoImagemStatusAmarelo" class="java.lang.String"/>
+	<parameter name="caminhoImagemStatusVerde" class="java.lang.String"/>
+	<parameter name="caminhoImagemStatusVermelho" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="periodoAcompanhamento" class="java.util.Collection"/>
+	<field name="responsavel" class="java.lang.Object"/>
+	<field name="listaMeses" class="java.util.List"/>
+	<field name="siglaAcao" class="java.lang.String"/>
+	<field name="caminhoImagemStatus" class="java.lang.String"/>
+	<field name="mesAnoCicloAtual" class="java.lang.String"/>
+	<field name="atividades" class="java.util.List"/>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<line>
+				<reportElement x="163" y="2" width="1" height="41" forecolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="222" y="2" width="1" height="41" forecolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="325" y="2" width="1" height="41" forecolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="388" y="2" width="1" height="41" forecolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="11" y="2" width="144" height="41" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<box leftPadding="5" rightPadding="2">
+					<leftPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="234" y="29" width="78" height="1" forecolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="234" y="12" width="78" height="14" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavel}.toString()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="531" y="2" width="1" height="41" forecolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="459" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="507" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[JUN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="471" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="519" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="495" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[OUT]]></text>
+			</staticText>
+			<line>
+				<reportElement x="507" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="412" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("2")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="388" y="2" width="12" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[JAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="495" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="483" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="519" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DEZ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ABR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="399" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="411" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MAR]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="520" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("11")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="447" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="399" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[FEV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[JUL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="389" y="25" width="142" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="496" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("9")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="484" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("8")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="483" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="436" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("4")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="389" y="29" width="10" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("0")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="424" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("3")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="448" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("5")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("1")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="472" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("7")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="508" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("10")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="423" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="460" y="29" width="11" height="13" forecolor="#666666" backcolor="#666666">
+					<printWhenExpression><![CDATA[( $F{listaMeses}.contains(new Integer("6")) ? true : false )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="471" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[AGO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="411" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="435" y="2" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="435" y="2" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MAI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="2" width="10" height="41" forecolor="#333333"/>
+				<box leftPadding="2">
+					<pen lineColor="#828282"/>
+					<topPen lineColor="#828282"/>
+					<leftPen lineWidth="0.25" lineColor="#828282"/>
+					<bottomPen lineColor="#828282"/>
+					<rightPen lineColor="#828282"/>
+				</box>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglaAcao}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="175" y="1" width="35" height="35"/>
+				<imageExpression class="java.lang.String"><![CDATA[$F{caminhoImagemStatus}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="174" y="36" width="36" height="8" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mesAnoCicloAtual}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="1">
+			<line>
+				<reportElement x="1" y="0" width="531" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="19">
+			<subreport>
+				<reportElement x="1" y="1" width="547" height="17"/>
+				<subreportParameter name="subRelatorioAcoes">
+					<subreportParameterExpression><![CDATA[$P{subRelatorioAcoes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaOE">
+					<subreportParameterExpression><![CDATA[$P{siglaOE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelProdutoOperacional">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelProdutoOperacional}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelProdutoOperacional}]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="18" width="100" height="1"/>
+			</break>
+		</band>
+	</detail>
+</jasperReport>

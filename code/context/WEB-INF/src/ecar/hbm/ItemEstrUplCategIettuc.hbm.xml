@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrUplCategIettuc" 
+    table="TB_ITEM_ESTR_UPL_CATEG_IETTUC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettuc"
+        type="java.lang.Long"
+        column="COD_IETTUC"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="nomeIettuc"
+        type="java.lang.String"
+        column="NOME_IETTUC"
+        length="30"
+    />
+    <property
+        name="indAtivoIettuc"
+        type="java.lang.String"
+        column="IND_ATIVO_IETTUC"
+        length="1"
+    />
+    <property
+        name="dataInclusaoIettuc"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTUC"
+        length="7"
+    />
+    <property
+        name="imagemIettuc"
+        type="java.lang.String"
+        column="IMAGEM_IETTUC"
+        length="100"
+    />
+    <property
+        name="descricaoIettuc"
+        type="java.lang.String"
+        column="DESCRICAO_IETTUC"
+        length="2000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to UploadTipoCategoriaUtc -->
+    <many-to-one
+        name="uploadTipoCategoriaUtc"
+        class="ecar.pojo.UploadTipoCategoriaUtc"
+        not-null="true"
+    >
+        <column name="COD_UTC" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to ItemEstrutUploadIettup -->
+    <set
+        name="itemEstrutUploadIettups"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETTUC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUploadIettup"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettupH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettupHs">
+      <key>
+        <column name="COD_IETTUC"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettupH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="acompReferenciaItemAri"
+        class="ecar.pojo.AcompReferenciaItemAri"
+        not-null="false"
+    >
+        <column name="COD_ARI" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

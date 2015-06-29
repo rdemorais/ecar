@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relBijari_subOE" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="6" bottomMargin="0">
+	<property name="ireport.zoom" value="2.143588810000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="caminho_relBijari_subOE_subEst" class="java.lang.String"/>
+	<parameter name="caminho_relBijari_subOE_subEst_subResult" class="java.lang.String"/>
+	<parameter name="caminho_smileAmarelo" class="java.lang.String"/>
+	<parameter name="caminho_smileVerde" class="java.lang.String"/>
+	<parameter name="caminho_smileVermelho" class="java.lang.String"/>
+	<parameter name="caminho_smileBranco" class="java.lang.String"/>
+	<parameter name="siglaIett" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="resultados" class="java.util.Collection"/>
+	<field name="siglaEstrategia" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="28" y="1" width="103" height="17"/>
+				<box topPadding="6" leftPadding="2" bottomPadding="6" rightPadding="6"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DINPro-Regular" size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome} + " " + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="131" y="1" width="254" height="17"/>
+				<subreportParameter name="caminho_smileVerde">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileVerde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaIett">
+					<subreportParameterExpression><![CDATA[$P{siglaIett}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_relBijari_subOE_subEst_subResult">
+					<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst_subResult}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileBranco">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileBranco}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileVermelho">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileVermelho}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileAmarelo">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileAmarelo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_relBijari_subOE_subEst">
+					<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{resultados})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_relBijari_subOE_subEst}]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#F16477" backcolor="#F16477">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 01" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#B93092" backcolor="#B93092">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 02" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#735BA4" backcolor="#735BA4">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 03" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#B1005D" backcolor="#B1005D">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 04" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#0079C1" backcolor="#0079C1">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 05" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#00B5CC" backcolor="#00B5CC">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 06" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#7E81BE" backcolor="#7E81BE">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 07" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#492F92" backcolor="#492F92">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 08" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#7BC143" backcolor="#7BC143">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 09" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#B2121E" backcolor="#B2121E">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 10" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#61C5BA" backcolor="#61C5BA">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 11" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#00958F" backcolor="#00958F">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 12" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#F58025" backcolor="#F58025">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 13" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#FDB813" backcolor="#FDB813">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 14" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#B8290A" backcolor="#B8290A">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 15" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="7" height="17" isPrintWhenDetailOverflows="true" forecolor="#B15C11" backcolor="#B15C11">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 16" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="15" y="1" width="13" height="17"/>
+				<box topPadding="6"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="DINPro-Regular" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglaEstrategia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

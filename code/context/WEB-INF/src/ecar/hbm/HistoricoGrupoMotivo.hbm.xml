@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Gabriel (24/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoGrupoMotivo" 
+    table="tb_historico_grupo_motivo_gmh" 
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codGMH"
+        type="java.lang.Long"
+        column="cod_gmh"
+    >
+        <generator class="increment" />
+    </id>    
+
+   
+    <property
+        name="descricao"
+        type="java.lang.String"
+        column="descricao"
+        length="30"
+    />
+    
+    <set cascade="none" inverse="true" lazy="true" name="historicoMotivos">
+      <key>
+        <column name="cod_moh"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoMotivo"/>
+    </set>    
+    
+    
+</class>
+</hibernate-mapping>

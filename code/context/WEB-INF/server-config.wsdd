@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<requestFlow>
+			<handler type="java:gov.pr.celepar.bedel.client.Handler" />
+		</requestFlow>
+		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl" />
+	</globalConfiguration>
+	<transport name="http">
+		<requestFlow>
+			<handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper" />
+			<handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler" />
+		</requestFlow>
+	</transport>
+	
+	<!--  INICIO DECLARACAO DE SERVICOS -->
+	<service name="ItemWebService" provider="java:RPC">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="ecar.webservices.ItemWebService" />
+
+        <beanMapping qname="ns:ItemWebServiceBean" xmlns:ns="urn:ItemWebServiceBean" languageSpecificType="java:ecar.bean.ItemWebServiceBean"/>
+        <beanMapping qname="ns:IndicativoItemWebServiceBean" xmlns:ns="urn:IndicativoItemWebServiceBean" languageSpecificType="java:ecar.bean.IndicativoItemWebServiceBean"/>
+        <beanMapping qname="ns:EstruturaWebServiceBean" xmlns:ns="urn:EstruturaWebServiceBean" languageSpecificType="java:ecar.bean.EstruturaWebServiceBean"/>
+        <beanMapping qname="ns:ItemWSMinBean" xmlns:ns="urn:ItemWSMinBean" languageSpecificType="java:ecar.bean.ItemWSMinBean"/>
+	</service>	
+	<!--  FIM DECLARACAO DE SERVICOS -->
+</deployment>

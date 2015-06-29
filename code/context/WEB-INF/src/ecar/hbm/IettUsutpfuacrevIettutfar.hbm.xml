@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.IettUsutpfuacrevIettutfar" 
+  	table="tb_iett_usutpfuacrev_iettutfar"
+    lazy="false"
+  	>
+    <composite-id class="ecar.pojo.IettUsutpfuacrevIettutfarPK" name="comp_id">
+      <key-property column="cod_tpfa" length="4" name="codTpfa" type="java.lang.Integer"/>
+      <key-property column="cod_iettrev" length="4" name="codIettrev" type="java.lang.Integer"/>
+      <key-property column="cod_usu" length="4" name="codUsu" type="java.lang.Integer"/>
+    </composite-id>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbUsuarioUsu -->
+    <many-to-one class="ecar.pojo.UsuarioUsu" insert="false"
+      name="usuarioUsu" update="false">
+      <column name="cod_usu"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbItemEstruturarevisaoIettrev -->
+    <many-to-one class="ecar.pojo.ItemEstruturarevisaoIettrev"
+      insert="false" name="itemEstruturarevisaoIettrev" update="false">
+      <column name="cod_iettrev"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbTipoFuncAcompTpfa -->
+    <many-to-one class="ecar.pojo.TipoFuncAcompTpfa" insert="false"
+      name="tipoFuncAcompTpfa" update="false">
+      <column name="cod_tpfa"/>
+    </many-to-one>
+    <!-- end of derived association(s) -->
+  </class>
+</hibernate-mapping>

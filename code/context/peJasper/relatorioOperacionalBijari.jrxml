@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioGerencialBijari" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ecarLogo" class="java.lang.String"/>
+	<parameter name="cruzLogo" class="java.lang.String"/>
+	<parameter name="msLogo" class="java.lang.String"/>
+	<parameter name="caminhoSubRelEstratOperacional" class="java.lang.String"/>
+	<parameter name="caminhoSubRelResultOperacional" class="java.lang.String"/>
+	<parameter name="subRelOperacionalTitleProd" class="java.lang.String"/>
+	<parameter name="subRelProdutos" class="java.lang.String"/>
+	<parameter name="caminhoSubRelProdutoOperacional" class="java.lang.String"/>
+	<parameter name="subRelatorioAcoes" class="java.lang.String"/>
+	<parameter name="mostrarParecerProd" class="java.lang.Boolean"/>
+	<parameter name="tipoRelatorio" class="java.lang.String"/>
+	<parameter name="filtro" class="java.lang.String"/>
+	<parameter name="caminhoSubRelIndicadores" class="java.lang.String"/>
+	<field name="siglaIett" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="estrategias" class="java.util.Collection"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="75">
+			<staticText>
+				<reportElement x="1" y="28" width="256" height="22" forecolor="#333333"/>
+				<box leftPadding="0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO OPERACIONAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="28" forecolor="#FFFFFF" backcolor="#0B509E"/>
+				<box leftPadding="30"/>
+				<textElement verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PLANO ESTRATÉGICO DO MINISTÉRIO DA SAÚDE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="50" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="6" y="6" width="17" height="16"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{cruzLogo}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="336" y="2" width="218" height="23"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{msLogo}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="257" y="28" width="297" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tipoRelatorio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="51" width="553" height="24"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{filtro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="129" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement isPrintRepeatedValues="false" x="0" y="22" width="555" height="43" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<box topPadding="5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="2" y="65" width="554" height="64"/>
+				<subreportParameter name="mostrarParecerProd">
+					<subreportParameterExpression><![CDATA[$P{mostrarParecerProd}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subRelatorioAcoes">
+					<subreportParameterExpression><![CDATA[$P{subRelatorioAcoes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subRelOperacionalTitleProd">
+					<subreportParameterExpression><![CDATA[$P{subRelOperacionalTitleProd}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelResultOperacional">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelResultOperacional}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelIndicadores">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelIndicadores}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaOE">
+					<subreportParameterExpression><![CDATA[$F{siglaIett}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subRelProdutos">
+					<subreportParameterExpression><![CDATA[$P{subRelProdutos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelProdutoOperacional">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelProdutoOperacional}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{estrategias})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelEstratOperacional}]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="0" y="2" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#F16477">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 01" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#B93092">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 02" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#735BA4">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 03" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#B1005D">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 04" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#0079C1">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 05" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#00B5CC">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 06" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#7E81BE">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 07" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#492F92">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 08" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#7BC143">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 09" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#B2BB1E">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 10" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#61C5BA">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 11" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#00958F">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 12" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#F58025">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 13" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#FDB813">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 14" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#B88D0A">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 15" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="3" width="554" height="21" isPrintWhenDetailOverflows="true" forecolor="#B15C11">
+					<printWhenExpression><![CDATA[$F{siglaIett}.equals( "OE 16" )]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("OBJETIVO ESTRATÉGICO ").concat($F{siglaIett}.substring(2, $F{siglaIett}.length()).trim())]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="9">
+			<line>
+				<reportElement x="0" y="4" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="33">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20" forecolor="#8C8C8C"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Pag. "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" forecolor="#8C8C8C"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="2" y="5" width="59" height="20"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{ecarLogo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="61" y="0" width="218" height="33" forecolor="#8C8C8C"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Ministério da Saúde - MS
+Secretaria Executiva - SE
+Departamento de Monitoramento e Avaliação do SUS - DEMAS
+Subsecreria de Planejamento e Orçamento - SPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="0" width="48" height="20" forecolor="#8C8C8C"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Emitido em:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="335" y="0" width="100" height="20" forecolor="#8C8C8C"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

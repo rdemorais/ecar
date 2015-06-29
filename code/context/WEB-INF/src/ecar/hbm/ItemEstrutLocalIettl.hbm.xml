@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrutLocalIettl" 
+    table="TB_ITEM_ESTRUT_LOCAL_IETTL"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.ItemEstrutLocalIettlPK">
+        <key-property 
+            name="codLit" 
+            column="COD_LIT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codIett" 
+            column="COD_IETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="dataInclusaoIettl"
+        type="java.util.Date"
+        column="DATA_INCLUSAO_IETTL"
+        length="7"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to LocalItemLit -->
+    <many-to-one
+        name="localItemLit"
+	    class="ecar.pojo.LocalItemLit"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_LIT" />
+	</many-to-one>
+	
+   <many-to-one
+        name="usuarioUsuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    not-null="true"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>	
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

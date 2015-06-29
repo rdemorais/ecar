@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<relatorio titulo="e-CAR">
+	<item>
+		<estrutura nome="estrutura 1" nivel="10">
+			<campos>
+				<campo label="campo 1" valor="45546465456"/>
+				<campo label="campo 2" valor="121232112332"/>
+			</campos>
+		</estrutura>
+		<estrutura nome="estrutura 2" nivel="10">
+			<campos>
+				<campo label="campo 3" valor="asdsadas"/>
+				<campo label="campo 4" valor="zxsfed"/>
+			</campos>
+		</estrutura>
+		<estrutura nome="estrutura 3" nivel="10">
+			<campos>
+				<campo label="campo 5" valor="wef433"/>
+				<campo label="campo 6" valor="gfhyj"/>
+			</campos>
+		</estrutura>
+	</item>
+</relatorio>
+

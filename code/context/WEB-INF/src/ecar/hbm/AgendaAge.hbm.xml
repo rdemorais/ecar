@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AgendaAge" 
+    table="TB_AGENDA_AGE"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codAge"
+        type="java.lang.Long"
+        column="COD_AGE"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoAge"
+        type="java.lang.String"
+        column="DESCRICAO_AGE"
+        length="2000"
+    />
+    <property
+        name="minutoEventoAge"
+        type="java.lang.Integer"
+        column="MINUTO_EVENTO_AGE"
+        length="2"
+    />
+    <property
+        name="indAtivoAge"
+        type="java.lang.String"
+        column="IND_ATIVO_AGE"
+        length="1"
+    />
+    <property
+        name="horaEventoAge"
+        type="java.lang.Integer"
+        column="HORA_EVENTO_AGE"
+        length="2"
+    />
+    <property
+        name="dataAge"
+        type="java.sql.Timestamp"
+        column="DATA_AGE"
+        length="7"
+    />
+    <property
+        name="dataLimiteAge"
+        type="java.sql.Timestamp"
+        column="DATA_LIMITE_AGE"
+        length="7"
+    />
+    <property
+        name="localAge"
+        type="java.lang.String"
+        column="LOCAL_AGE"
+        length="2000"
+    />
+    <property
+        name="eventoAge"
+        type="java.lang.String"
+        column="EVENTO_AGE"
+        length="200"
+    />
+
+    <property
+    	type="java.lang.String"
+        name="nomeContato"
+        column="NOME_CONTATO"
+    />
+
+    <property
+    	type="java.lang.String"
+        name="telefoneContato"
+        column="TELEFONE_CONTATO"
+    />
+    
+    <property
+    	type="java.lang.String"
+        name="orgaoContato"
+        column="ORGAO_CONTATO"
+    />
+    
+    <property
+    	type="java.lang.String"
+        name="comentario"
+        column="COMENTARIO"
+    />
+    
+    <property
+    	type="java.lang.String"
+        name="realizado"
+        column="REALIZADO"
+        length="1"
+    />
+
+    <property
+    	type="java.lang.String"
+        name="exibirPortal"
+        column="EXIBIR_PORTAL"
+        length="1"
+    />
+
+       <property
+       	type="java.sql.Timestamp"
+        name="dataRealizado"
+        column="DATA_REALIZADO"
+        length="8"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to DestaqueItemRelDtqir -->
+    
+    <set
+        name="agendaEntidadesAgeent"
+        lazy="true"
+        inverse="true"
+		cascade="all" 
+    >
+        <key>
+            <column name="COD_AGE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AgendaEntidadesAgeent"
+        />
+    </set>
+    
+    
+    
+    <set
+        name="destaqueItemRelDtqirs"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_AGE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.DestaqueItemRelDtqir"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AgendaOcorrenciaAgeo -->
+    <set
+        name="agendaOcorrenciaAgeos"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_AGE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AgendaOcorrenciaAgeo"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to AgendaEntidadesAgeent -->
+    
+    
+      
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    
+     <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="tipoEventoSatb"
+        class="ecar.pojo.SisAtributoSatb"
+    >
+        <column name="TIPO_EVENTO_COD_SATB" />
+    </many-to-one>
+    
+
+</class>
+</hibernate-mapping>

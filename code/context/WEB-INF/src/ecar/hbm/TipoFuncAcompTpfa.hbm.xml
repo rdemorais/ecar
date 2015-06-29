@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.TipoFuncAcompTpfa" 
+    table="TB_TIPO_FUNC_ACOMP_TPFA"
+    lazy="false"
+>
+    
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codTpfa"
+        type="java.lang.Long"
+        column="COD_TPFA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="labelTpfa"
+        type="java.lang.String"
+        column="LABEL_TPFA"
+        length="40"
+    />
+    <property
+        name="descricaoTpfa"
+        type="java.lang.String"
+        column="DESCRICAO_TPFA"
+        length="30"
+    />
+    <property
+        name="indDesativarMonitoramento"
+        type="java.lang.String"
+        column="IND_DESATIVAR_MONITORAMENTO"
+        length="1"
+    />
+    <property
+        name="indAtivarMonitoramento"
+        type="java.lang.String"
+        column="IND_ATIVAR_MONITORAMENTO"
+        length="1"
+    />
+    <property
+        name="indDesbloquearPlanejamento"
+        type="java.lang.String"
+        column="IND_DESBLOQUEAR_PLANEJAMENTO"
+        length="1"
+    />
+    <property
+        name="indBloquearPlanejamento"
+        type="java.lang.String"
+        column="IND_BLOQUEAR_PLANEJAMENTO"
+        length="1"
+    />
+    <property
+        name="indVisualizarParecer"
+        type="java.lang.String"
+        column="IND_VISUALIZAR_PARECER"
+        length="1"
+    />
+    <property
+        name="indExcluirItemEstrutura"
+        type="java.lang.String"
+        column="IND_EXCLUIR_ITEM_ESTRUTURA"
+        length="1"
+    />
+    <property
+        name="indAlterarItemEstrutura"
+        type="java.lang.String"
+        column="IND_ALTERAR_ITEM_ESTRUTURA"
+        length="1"
+    />
+    <property
+        name="indLerItemEstrutura"
+        type="java.lang.String"
+        column="IND_LER_ITEM_ESTRUTURA"
+        length="1"
+    />
+    <property
+        name="indEmitePosicaoTpfa"
+        type="java.lang.String"
+        column="IND_EMITE_POSICAO_TPFA"
+        length="1"
+    />
+    
+    <property
+        name="indAtualizaSituacaoCadastro"
+        type="java.lang.String"
+        column="ind_atualiza_situacao_cadastro"
+        length="1"
+    />
+    <property
+        name="tamanhoSinalTpfa"
+        type="java.lang.Integer"
+        column="TAMANHO_SINAL_TPFA"
+    />
+    <property
+        name="indInformaAndamentoTpfa"
+        type="java.lang.String"
+        column="IND_INFORMA_ANDAMENTOTPFA"
+        length="1"
+    />
+    <property
+        name="labelPosicaoTpfa"
+        type="java.lang.String"
+        column="LABEL_POSICAO_TPFA"
+        length="40"
+    />
+    <property
+        name="indInitMonitTpfa"
+        type="java.lang.String"
+        column="IND_INIT_MONIT_TPFA"
+        length="1"
+    />
+    <property
+        name="indNaoMonitTpfa"
+        type="java.lang.String"
+        column="IND_NAO_MONIT_TPFA"
+        length="1"
+    />
+    <property
+        name="documentacaoTpfa"
+        type="java.lang.String"
+        column="DOCUMENTACAO_TPFA"
+        length="2000"
+    />
+
+
+
+    <!-- Associations -->
+	
+	<!-- bi-directional one-to-many association to SituacaoTpFuncAcmpSitfa -->
+    <set
+        name="situacaoTpFuncAcmpSitfas" 
+        lazy="true"
+		table="TB_SITUACAO_TP_FUNC_ACMP_SITFA"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <many-to-many
+			column="COD_SIT"
+            class="ecar.pojo.SituacaoSit"
+        />
+    </set>
+  
+    <!-- bi-directional one-to-many association to EstrutTpFuncAcmpEtttfa -->
+    <set
+        name="estrutTpFuncAcmpEtttfas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstrutTpFuncAcmpEtttfa"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstUsutpfuacIettutfa -->
+    <set
+        name="itemEstUsutpfuacIettutfas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstUsutpfuacIettutfa"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TipoFuncAcompTpfa -->
+    <set
+        name="tipoFuncAcompTpfas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_TPFA_SUPERIOR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TipoFuncAcompTpfa"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TipoFuncAcompTpfa -->
+    <many-to-one
+        name="tipoFuncAcompTpfa"
+        class="ecar.pojo.TipoFuncAcompTpfa"
+        not-null="true" 
+    >
+        <column name="COD_TPFA_SUPERIOR" />
+    </many-to-one>
+
+    <!-- bi-directional one-to-many association to TipoFuncAcmpClacesTfaca -->
+	<set
+        name="acompRelatorioArels" 
+        lazy="true"
+		table="TB_ACOMP_RELATORIO_AREL"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRelatorioArel"
+        />		
+    </set>
+
+    <!-- bi-directional one-to-many association to AcompRefItemLimitesArli -->
+    <set
+        name="acompRefItemLimitesArlis"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRefItemLimitesArli"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompRefLimitesArl -->
+    <set
+        name="acompRefLimitesArls"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRefLimitesArl"
+        />
+    </set>
+    
+    <set
+        name="tipoFuncAcompTpfasPermiteAlterarInferior"
+        lazy="false" cascade="save-update" 
+   >
+        <key>
+            <column name="cod_superior_tpfapa" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TipoFuncAcompTpfaPermiteAlterar"
+        />
+    </set>
+    
+       <set
+        name="tipoFuncAcompTpfasPermiteAlterarSuperior"
+        lazy="false" cascade="save-update"
+   >
+        <key>
+            <column name="cod_inferior_tpfapa" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TipoFuncAcompTpfaPermiteAlterar"
+        />
+    </set> 
+    
+    <!-- bi-directional one-to-many association to ItemEstrutUsuarioIettus -->
+    <set
+        name="itemEstrutUsuarioIettuses"
+        lazy="true"
+        inverse="true"
+		cascade="none" 
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUsuarioIettus"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbIettutfaHistorIettutfah -->
+    <!--  retirado para otimizar carregamento
+    <set cascade="none" inverse="true" lazy="true" name="iettutfaHistorIettutfahs">
+      <key>
+        <column name="COD_TPFA"/>
+      </key>
+      <one-to-many class="ecar.pojo.IettutfaHistorIettutfah"/>
+    </set> -->
+    
+    <!-- bi-directional one-to-many association to ItemEstrutUsuarioIettus -->
+    <set
+        name="TfuncacompConfigmailTfacfgm"
+        lazy="true"
+        inverse="true"
+		cascade="none" 
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TfuncacompConfigmailTfacfgm"
+        />
+    </set>
+    
+    
+    
+    <set
+        name="tipoAcompFuncAcompTafcs"
+        lazy="true"
+        inverse="true"
+		cascade="none" 
+    >
+        <key>
+            <column name="COD_TPFA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TipoAcompFuncAcompTafc"
+        />
+    </set>
+    
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettusH -->
+    <set cascade="all-delete-orphan" inverse="true" lazy="true" name="historicoIettusHs">
+      <key>
+        <column name="COD_TPFA"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettusH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoIettutfaH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettutfaHs">
+      <key>
+        <column name="COD_TPFA"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettutfaH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+    
+    <!-- bi-directional many-to-many association to ConfiguracaoCfg -->
+		<!--set name="estruturaFuncoes" table="TB_ESTRUT_FUNC_TIPO_FUNC_ACOMP_ETTFTPFA"
+			lazy="true" cascade="save-update" 	>
+			<key>
+				<column name="COD_TPFA" />
+			</key>
+			<many-to-many class="ecar.pojo.EstruturaFuncaoEttf" 
+				column ="COD_ETT" column="COD_FUN"/>
+		</set-->
+	
+	<!-- bi-directional many-to-many association to EstrutTpFuncAcmpEtttfa -->
+		<!--set name="estruturaFuncoes" table="tb_estrut_tp_func_acmp_tipo_func_acomp_liberado_para_etttpfatpfalp"
+			lazy="true" cascade="save-update" 	>
+			<key>
+				<column name="COD_TPFA_LIBERADO_PARA" />
+			</key>
+			<many-to-many class="ecar.pojo.EstrutTpFuncAcmpEtttfa" 
+				column ="COD_ETT" column="COD_TPFA"/>
+		</set-->
+		
+		
+		<set 
+			name="tipoacompTipofuncacompSisatributoTatpfasatbs" 
+			inverse="true">
+			<key>
+				<column name="cod_tpfa" not-null="true" />
+			</key>
+			<one-to-many class="ecar.pojo.TipoAcompTipofuncacompSisatributoTaTpfaSatb" />
+		</set>
+</class>
+</hibernate-mapping> 

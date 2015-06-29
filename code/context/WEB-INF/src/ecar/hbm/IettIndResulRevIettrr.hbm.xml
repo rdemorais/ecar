@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.IettIndResulRevIettrr" 
+  	table="tb_iett_ind_resul_rev_iettrr"
+    lazy="false"
+  >
+    <id column="cod_iettirr" name="codIettirr" type="java.lang.Integer">
+      <generator class="increment"/>
+    </id>
+<!--    <property column="unid_medida_iettrr" length="20"-->
+<!--      name="unidMedidaIettrr" type="java.lang.String"/>-->
+<!--    <property column="descricao_iettirr" length="2000"-->
+<!--      name="descricaoIettirr" type="java.lang.String"/>-->
+<!--    <property column="nome_iettirr" length="30" name="nomeIettirr" type="java.lang.String"/>-->
+<!--    <property column="ind_projecao_iettrr" length="1"-->
+<!--      name="indProjecaoIettrr" type="java.lang.String"/>-->
+<!--    <property column="ind_acumulavel_iettrr" length="1"-->
+<!--      name="indAcumulavelIettrr" type="java.lang.String"/>-->
+<!--    <property column="ind_tipoqtde" length="1" name="indTipoqtde" type="java.lang.String"/>-->
+
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to TbItemEstFisicoRevIettfr -->
+    <set cascade="delete" inverse="true" lazy="true" name="itemEstFisicoRevIettfrs">
+      <key>
+        <column name="cod_iettirr"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstFisicoRevIettfr"/>
+    </set>
+    <!-- bi-directional many-to-one association to TbItemEstruturarevisaoIettrev -->
+    <many-to-one class="ecar.pojo.ItemEstruturarevisaoIettrev"
+      name="itemEstruturarevisaoIettrev" not-null="true">
+      <column name="cod_iettrev"/>
+    </many-to-one>
+	
+    <!-- bi-directional many-to-one association to ItemEstrtIndResulIettr -->
+    <many-to-one
+        name="itemEstrtIndResulIettr"
+	    class="ecar.pojo.ItemEstrtIndResulIettr"
+	>
+    	<column name="COD_IETTIR" />
+	</many-to-one>
+  </class>
+</hibernate-mapping>

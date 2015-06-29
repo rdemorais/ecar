@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PerfilPfl" 
+    table="TB_PERFIL_PFL"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPfl"
+        type="java.lang.Long"
+        column="COD_PFL"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoPfl"
+        type="java.lang.String"
+        column="DESCRICAO_PFL"
+        length="30"
+    />
+    <property
+        name="nivelPfl"
+        type="java.lang.Integer"
+        column="NIVEL_PFL"
+        length="2"
+    />
+    <property
+        name="indAreaReservadaPfl"
+        type="java.lang.String"
+        column="IND_AREA_RESERVADA_PFL"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to OpcaoPerfilOpcp -->
+    <!-- Alterado -->	
+    <set
+        name="opcaoPerfilOpcps"
+        lazy="true"
+		cascade="save-update"
+		table="TB_OPCAO_PERFIL_OPCP"
+    >
+        <key>
+            <column name="COD_PFL" />
+        </key>
+        <many-to-many 
+            class="ecar.pojo.OpcaoOpc"
+			column="COD_OPCAO"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

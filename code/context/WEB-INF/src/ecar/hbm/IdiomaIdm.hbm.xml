@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.IdiomaIdm" 
+    table="TB_IDIOMA_IDM"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIdm"
+        type="java.lang.Long"
+        column="COD_IDM"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="nomeIdm"
+        type="java.lang.String"
+        column="NOME_IDM"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TextosSiteTxt -->
+    <set
+        name="textosSiteTxts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_IDM" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TextosSiteTxt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PaginaPgn -->
+    <set
+        name="paginaPgns"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_IDM" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PaginaPgn"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

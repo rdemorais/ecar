@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/11/2008 17:38:45 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="ecar.pojo.HistoricoEttath" table="tb_historico_ettath" schema="public" lazy="false">
+     <meta attribute="implement-equals" inherit="false">true</meta>
+        <id name="codEttath" type="java.lang.Long" column="cod_ettath">
+            <generator class="increment" />
+        </id>
+        <many-to-one name="estruturaEtt" class="ecar.pojo.EstruturaEtt" fetch="join">
+            <column name="cod_ett" not-null="true" />
+        </many-to-one>
+        <many-to-one name="atributosAtb" class="ecar.pojo.AtributosAtb" fetch="join">
+            <column name="cod_atb" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioUsuByCodUsuUltManut" class="ecar.pojo.UsuarioUsu" fetch="select">
+            <column name="cod_usu_ult_manut" />
+        </many-to-one>
+        <many-to-one name="usuarioUsuByCodUsuInclusao" class="ecar.pojo.UsuarioUsu" fetch="select">
+            <column name="cod_usu_inclusao" />
+        </many-to-one>
+        <many-to-one name="historicoMaster" class="ecar.pojo.HistoricoMaster" fetch="select">
+            <column name="cod_mah" />
+        </many-to-one>
+        
+        <property name="indObrigatorioEttat" type="java.lang.Character"
+            column="ind_obrigatorio_ettat" length="1" />
+
+        <property name="indListagemImpressCompEttat" type="java.lang.Character"
+            column="ind_listagem_impress_comp_ettat" length="1" />
+
+        <property name="seqApresListagemTelaEttat" type="java.lang.Integer"
+            column="seq_apres_listagem_tela_ettat" />
+
+        <property name="larguraListagemTelaEttat" type="java.lang.Integer"
+            column ="largura_listagem_tela_ettat" />
+
+        <property name="indListagemTelaEttat" type="java.lang.Character"
+            column ="ind_listagem_tela_ettat" length="1" />
+
+        <property name="seqApresentTelaCampoEttat" type="java.lang.Integer"
+            column="seq_apresent_tela_campo_ettat" />
+
+        <property name="labelEstruturaEttat" type="java.lang.String"
+            column="label_estrutura_ettat" length="40" />
+
+        <property name="indListagemImpressaResEttat" type="java.lang.Character"
+            column ="ind_listagem_impressa_res_ettat" length="1" />
+
+        <property name="indRelacaoImpressaEttat" type="java.lang.Character"
+            column ="ind_relacao_impressa_ettat" length="1" />
+
+        <property name="indRevisao" type="java.lang.Character"
+            column ="ind_revisao" length="1" />
+
+        <property name="dicaEttat" type="java.lang.String"
+            column="dica_ettat" length="2000" />
+
+        <property name="indListagemItensEttat" type="java.lang.Character"
+            column="ind_listagem_itens_ettat" length="1" />
+
+        <property name="tamanhoConteudoAtribEttat" type="java.lang.Integer"
+            column="tamanho_conteudo_atrib_ettat" />
+
+        <property name="indPodeBloquearEttat" type="java.lang.Character"
+            column="ind_pode_bloquear_ettat" length="1" />
+
+        <property name="indFiltroEttat" type="java.lang.Character"
+            column="ind_filtro_ettat" length="1" />
+
+        <property name="documentacaoEttat" type="java.lang.String"
+            column="documentacao_ettat" length="2000" />
+
+        <property name="indExcluidoEttat" type="java.lang.Character"
+            column="ind_excluido_ettat" length="1" />
+
+        <property name="dataUltManutencaoEttat" type="java.util.Date"
+            column="data_ult_manutencao_ettat" length="8" />
+
+        <property name="dataInclusaoEttat" type="java.util.Date"
+            column="data_inclusao_ettat" length="8" />
+
+    </class>
+</hibernate-mapping>
+

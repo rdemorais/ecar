@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRelatorioIndicadores_Indicadores" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="5.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="qtdRegistrosDetalhamento" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="caminhoSubRelatorioIndicadores_Detalhamento_Detalhe" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<field name="nome" class="java.lang.String"/>
+	<field name="meta2012" class="java.lang.String"/>
+	<field name="meta2013" class="java.lang.String"/>
+	<field name="meta2014" class="java.lang.String"/>
+	<field name="meta2015" class="java.lang.String"/>
+	<field name="valorRealizado2012" class="java.lang.String"/>
+	<field name="valorRealizado2013" class="java.lang.String"/>
+	<field name="valorRealizado2014" class="java.lang.String"/>
+	<field name="valorRealizado2015" class="java.lang.String"/>
+	<field name="cosolidadoAnual" class="java.lang.String"/>
+	<field name="detalhe" class="java.util.Collection"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="361" height="9" isPrintWhenDetailOverflows="true"/>
+				<box topPadding="2" leftPadding="3" bottomPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Justified" lineSpacing="Single">
+					<font fontName="SansSerif" size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="0" width="9" height="9" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="10" width="428" height="9" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="caminhoSubRelatorioIndicadores_Detalhamento_Detalhe">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadores_Detalhamento_Detalhe}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qtdRegistrosDetalhamento">
+					<subreportParameterExpression><![CDATA[$F{detalhe}.size()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detalhe})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelatorioIndicadores_Detalhamento_Detalhe}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="1">
+			<printWhenExpression><![CDATA[($V{REPORT_COUNT}.intValue() == $P{qtdRegistrosDetalhamento}.intValue() ? false : true)]]></printWhenExpression>
+			<line>
+				<reportElement x="0" y="0" width="338" height="1" forecolor="#828282" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

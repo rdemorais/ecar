@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<Context 
+	displayName="Controle, Acompanhamento e Avaliação de Resultados"
+	className="org.apache.catalina.core.StandardContext" 
+	cachingAllowed="true" 
+	charsetMapperClass="org.apache.catalina.util.CharsetMapper" 
+	cookies="true" 
+	crossContext="false" 
+	debug="0" 
+	docBase="ecar"
+	mapperClass="org.apache.catalina.core.StandardContextMapper" 
+	path="/ecar" 
+	privileged="false" 
+	reloadable="true" 
+	swallowOutput="false" 
+	useNaming="true" 
+	wrapperClass="org.apache.catalina.core.StandardWrapper">
+	
+	<Logger className="org.apache.catalina.logger.FileLogger" prefix="ecar_log." suffix=".txt" timestamp="true"/>
+      <Resource name="jdbc/ecar" auth="Container" type="javax.sql.DataSource"/>
+      <Resource name="jdbc/SentinelaClientDS" auth="Container" type="javax.sql.DataSource" />
+      <ResourceParams name="jdbc/ecar">
+        <parameter>
+          <name>url</name>
+          <value>jdbc:postgresql://10.15.61.102:5433/apg?charSet=latin1</value>
+        </parameter>
+        <parameter>
+          <name>driverClassName</name>
+          <value>org.postgresql.Driver</value>
+        </parameter>
+        <parameter>
+          <name>username</name>
+          <value>sa_apg</value>
+        </parameter>
+        <parameter>
+          <name>password</name>
+          <value>sa_apg</value>
+        </parameter>
+        <parameter>
+          <name>maxActive</name>
+          <value>50</value>
+        </parameter>
+        <parameter>
+          <name>maxIdle</name>
+          <value>50</value>
+        </parameter>
+        <parameter>
+          <name>maxWait</name>
+          <value>10000</value>
+        </parameter>
+		<parameter>
+		  <name>validationQuery</name>
+		  <value>select 1 from TB_COR</value>
+		</parameter>
+      </ResourceParams>
+
+ <ResourceParams name="jdbc/SentinelaClientDS">
+    <parameter>
+      <name>password</name>
+      <value>monitor</value>
+    </parameter>
+    <parameter>
+      <name>url</name>
+      <value>jdbc:postgresql://swebdesenv02.celepar.parana/sentinela?charSet=latin1</value>
+    </parameter>
+    <parameter>
+      <name>driverClassName</name>
+      <value>org.postgresql.Driver</value>
+    </parameter>
+    <parameter>
+      <name>username</name>
+      <value>sa_sentinela_tes</value>
+    </parameter>
+    <parameter>
+      <name>maxActive</name>
+      <value>10</value>
+    </parameter>
+    <parameter>
+      <name>maxIdle</name>
+      <value>5</value>
+    </parameter>
+    <parameter>
+      <name>maxWait</name>
+      <value>10000</value>
+    </parameter>
+	<parameter>
+	  <name>validationQuery</name>
+	  <value>select 1+1</value>
+	</parameter>
+  </ResourceParams>
+</Context>
+  

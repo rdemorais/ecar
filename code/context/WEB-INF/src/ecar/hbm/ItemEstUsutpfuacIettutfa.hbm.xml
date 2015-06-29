@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstUsutpfuacIettutfa" 
+    table="TB_ITEM_EST_USUTPFUAC_IETTUTFA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.ItemEstUsutpfuacIettutfaPK">
+        <key-property 
+            name="codTpfa" 
+            column="COD_TPFA" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codIett" 
+            column="COD_IETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>   
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+    <property
+        name="dataUltManutencao"
+        type="java.util.Date"
+        column="data_ult_manutencao"
+    /> 
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TipoFuncAcompTpfa -->
+    <many-to-one
+        name="tipoFuncAcompTpfa"
+	    class="ecar.pojo.TipoFuncAcompTpfa"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_TPFA" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+	    class="ecar.pojo.UsuarioUsu"
+	    
+	>
+    	<column name="COD_USU" />
+	</many-to-one>
+	
+	<!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="sisAtributoSatb"
+	    class="ecar.pojo.SisAtributoSatb"
+	    
+	>
+    	<column name="COD_SATB" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+	<!-- Mantis #2156 -->
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one> 
+</class>
+</hibernate-mapping>

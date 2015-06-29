@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+	<class 
+  		name="ecar.pojo.GrupoAtributoGatt" 
+  		table="TB_GRUPO_ATRIBUTO_GATT"
+	    lazy="false"
+  		>
+	    <id 
+	    	column="COD_GATT" 
+	    	name="codGatt" 
+	    	type="java.lang.Long">
+		    <generator class="increment"/>
+    	</id>
+    	<property 
+    		column="DESCRICAO_GATT" 
+    		length="2000" 
+    		name="descricaoGatt" 
+    		type="java.lang.String"/>
+	    <property 
+	    	column="IND_TABELA_USO_GATT" 
+	    	length="1"
+      		name="indTabelaUsoGatt" 
+      		not-null="true" 
+      		type="java.lang.String"/>
+    	<property 
+    		column="SEQ_APRESENTACAO_GATT" 
+    		length="3"
+      		name="seqApresentacaoGatt" 
+      		type="java.lang.Integer"/>
+    	<property 
+    		column="IND_OBRIGATORIO_GATT" 
+    		length="1"
+      		name="indObrigatorioGatt" 
+      		type="java.lang.String"/>
+    	<property 
+    		column="IND_SISTEMA_GATT" 
+    		length="1" 
+    		name="indSistemaGatt" 
+    		type="java.lang.String"/>
+    	<property 
+    		column="DATA_INCLUSAO_GATT" 
+    		length="7"
+      		name="dataInclusaoGatt" 
+      		type="java.sql.Date"/>
+    	<property 
+    		column="IND_ATIVO_GATT" 
+    		length="1" 
+    		name="indAtivoGatt" 
+    		type="java.lang.String"/>
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to TbSisTipoOrdenacaoSto -->
+    <many-to-one 
+    	class="ecar.pojo.SisTipoOrdenacaoSto"
+      	name="sisTipoOrdenacaoSto" not-null="true">
+	    <column name="COD_STO"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbSisTipoExibicGrupoSteg -->
+    <many-to-one 
+    	class="ecar.pojo.SisTipoExibicGrupoSteg"
+      	name="sisTipoExibicGrupoSteg" not-null="true">
+      	<column name="COD_STEG"/>
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbAtributoAtt -->
+    <set 
+    	cascade="delete" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="atributoAtts">
+      <key>
+        <column name="COD_GATT"/>
+      </key>
+      <one-to-many class="ecar.pojo.AtributoAtt"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	 <class name="ecar.pojo.VisaoSituacaoDemanda" table="tb_visao_situacao_demanda">
+        <composite-id name="id" class="ecar.pojo.VisaoSituacaoDemandaPK">
+            <key-property name="codVisao" type="java.lang.Long">
+                <column name="cod_visao" />
+            </key-property>
+            <key-property name="codSitd" type="java.lang.Long">
+                <column name="cod_sitd" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="sitDemandaSitd" class="ecar.pojo.SitDemandaSitd" update="false" insert="false" fetch="select" >
+            <column name="cod_sitd" not-null="true" />
+        </many-to-one>
+        <many-to-one name="visaoDemandas" class="ecar.pojo.VisaoDemandasVisDem" update="false" insert="false" fetch="select" >
+            <column name="cod_visao" not-null="true" />
+        </many-to-one>
+        <property name="indAlterar" type="java.lang.Boolean">
+            <column name="ind_alterar" />
+        </property>
+        <property name="indConsultar" type="java.lang.Boolean">
+            <column name="ind_consultar" />
+        </property>
+    </class>
+</hibernate-mapping>

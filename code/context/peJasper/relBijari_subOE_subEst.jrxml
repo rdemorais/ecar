@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relBijari_subOE_subEst" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isFloatColumnFooter="true">
+	<property name="ireport.zoom" value="2.357947691000007"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="caminho_relBijari_subOE_subEst_subResult" class="java.lang.String"/>
+	<parameter name="caminho_smileVermelho" class="java.lang.String"/>
+	<parameter name="caminho_smileVerde" class="java.lang.String"/>
+	<parameter name="caminho_smileAmarelo" class="java.lang.String"/>
+	<parameter name="caminho_smileBranco" class="java.lang.String"/>
+	<parameter name="siglaIett" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="periodoAcompanhamento" class="java.util.Collection"/>
+	<field name="responsavel" class="java.lang.Object"/>
+	<field name="coResponsavel" class="java.util.List"/>
+	<field name="articulacao" class="java.lang.Object"/>
+	<field name="prioritario" class="java.lang.String"/>
+	<field name="siglaResultado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="64" splitType="Stretch">
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#FCDDDC" backcolor="#FCDDDC">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 01" )
+&& $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#ECD3E6" backcolor="#ECD3E6">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 02" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#E4D7E9" backcolor="#E4D7E9">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 03" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#EDCAD5" backcolor="#EDCAD5">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 04" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#C7D9F0" backcolor="#C7D9F0">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 05" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#D2EDF3" backcolor="#D2EDF3">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 06" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#DFDFF0" backcolor="#DFDFF0">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 07" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#CDC6E3" backcolor="#CDC6E3">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 08" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#E2F0D4" backcolor="#E2F0D4">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 09" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#EDEFCF" backcolor="#EDEFCF">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 10" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#DEF1EF" backcolor="#DEF1EF">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 11" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#C4E3E3" backcolor="#C4E3E3">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 12" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#FFEFCF" backcolor="#FFEFCF">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 14" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#FEE2CA" backcolor="#FEE2CA">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 13" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#F1E5C6" backcolor="#F1E5C6">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 15" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="1" width="193" height="56" isPrintWhenDetailOverflows="true" forecolor="#EFD5BE" backcolor="#EFD5BE">
+					<printWhenExpression><![CDATA[$P{siglaIett}.equalsIgnoreCase( "OE 16" ) && $F{prioritario}.equalsIgnoreCase( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="18" y="1" width="176" height="57"/>
+				<box topPadding="6" leftPadding="2" bottomPadding="6" rightPadding="6">
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="DINPro-Black" size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="194" y="7" width="62" height="42"/>
+				<subreportParameter name="caminho_smileVerde">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileVerde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_relBijari_subOE_subEst_subResult">
+					<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst_subResult}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileBranco">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileBranco}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileVermelho">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileVermelho}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileAmarelo">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileAmarelo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{periodoAcompanhamento})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_relBijari_subOE_subEst_subResult}]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="57" width="424" height="1" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="1" height="53" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="271" y="28" width="59" height="1" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="348" y="7" width="1" height="42" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="424" y="7" width="1" height="42" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="256" y="7" width="1" height="42" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="257" y="7" width="91" height="21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Regular" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavel}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="7" width="75" height="42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Regular" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{articulacao}.toString()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="1" width="17" height="56" forecolor="#333333"/>
+				<box topPadding="6" leftPadding="0">
+					<pen lineColor="#FFFFFF"/>
+					<topPen lineColor="#FFFFFF"/>
+					<leftPen lineColor="#FFFFFF"/>
+					<bottomPen lineColor="#FFFFFF"/>
+					<rightPen lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="DINPro-Black" size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglaResultado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="28" width="91" height="21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DINPro-Regular" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{coResponsavel}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

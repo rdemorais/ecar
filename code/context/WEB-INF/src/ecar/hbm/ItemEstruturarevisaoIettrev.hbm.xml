@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.ItemEstruturarevisaoIettrev" 
+  	table="tb_item_estruturarevisao_iettrev"
+    lazy="false"
+  	>
+    <id 
+    	column="cod_iettrev" 
+	    name="codIettrev" 
+    	type="java.lang.Integer">
+      <generator class="increment"/>
+    </id>
+    <property column="val_previsto_futuro_iettrev" length="8"
+      name="valPrevistoFuturoIettrev" type="java.lang.Double"/>
+    <property column="ind_bloq_planejamento_iettrev" length="1"
+      name="indBloqPlanejamentoIettrev" type="java.lang.String"/>
+    <property column="beneficios_iettrev" length="2000"
+      name="beneficiosIettrev" type="java.lang.String"/>
+    <property column="origem_iettrev" length="8" name="origemIettrev" type="java.lang.String"/>
+    <property column="objetivo_especifico_iettrev" length="2000"
+      name="objetivoEspecificoIettrev" type="java.lang.String"/>
+    <property column="objetivo_geral_iettrev" length="2000"
+      name="objetivoGeralIettrev" type="java.lang.String"/>
+    <property column="ind_monitoramento_iettrev" length="1"
+      name="indMonitoramentoIettrev" type="java.lang.String"/>
+    <property column="ind_critica_iettrev" length="1"
+      name="indCriticaIettrev" type="java.lang.String"/>
+    <property column="data_inicio_monitoramento_iettre" length="4"
+      name="dataInicioMonitoramentoIettrev" type="java.sql.Timestamp"/>
+    <property column="data_termino_iettrev" length="4"
+      name="dataTerminoIettrev" type="java.sql.Timestamp"/>
+    <property column="data_inicio_iettrev" length="4"
+      name="dataInicioIettrev" type="java.sql.Timestamp"/>
+    <property column="ind_ativo_iettrev" length="1"
+      name="indAtivoIettrev" type="java.lang.String"/>
+    <property column="data_inclusao_iettrev" length="4"
+      name="dataInclusaoIettrev" type="java.sql.Timestamp"/>
+    <property column="descricao_iettrev" length="2000"
+      name="descricaoIettrev" type="java.lang.String"/>
+    <property column="situacao_iettrev" length="1"
+      name="situacaoIettrev" type="java.lang.String"/>
+    <property column="sigla_iettrev" length="10" name="siglaIettrev" type="java.lang.String"/>
+    <property column="descricao_r5" length="2000" name="descricaoR5rev" type="java.lang.String"/>
+    <property column="descricao_r4" length="2000" name="descricaoR4rev" type="java.lang.String"/>
+    <property column="descricao_r3" length="2000" name="descricaoR3rev" type="java.lang.String"/>
+    <property column="descricao_r2" length="2000" name="descricaoR2rev" type="java.lang.String"/>
+    <property column="descricao_r1" length="2000" name="descricaoR1rev" type="java.lang.String"/>
+    <property column="data_r5" length="4" name="dataR5rev" type="java.sql.Timestamp"/>
+    <property column="data_r4" length="4" name="dataR4rev" type="java.sql.Timestamp"/>
+    <property column="data_r3" length="4" name="dataR3rev" type="java.sql.Timestamp"/>
+    <property column="data_r2" length="4" name="dataR2rev" type="java.sql.Timestamp"/>
+    <property column="data_r1" length="4" name="dataR1rev" type="java.sql.Timestamp"/>
+    <property column="nome_iettrev" length="200" name="nomeIettrev" type="java.lang.String"/>
+    <property column="justificativa_iettrev" length="2000"
+      name="justificativaIettrev" type="java.lang.String"/>
+    <property column="nivel_iettrev" length="4" name="nivelIettrev" type="java.lang.Integer"/>
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to TbPeriodicidadePrdc -->
+    <many-to-one class="ecar.pojo.PeriodicidadePrdc"
+      name="periodicidadePrdcrev" not-null="true">
+      <column name="cod_prdc"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbUnidadeOrcamentariaUo -->
+    <many-to-one class="ecar.pojo.UnidadeOrcamentariaUO"
+      name="unidadeOrcamentariaUorev" not-null="true">
+      <column name="cod_uo"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbItemEstruturaIett -->
+    <many-to-one class="ecar.pojo.ItemEstruturaIett"
+      name="itemEstruturaIettrev" not-null="true">
+      <column name="cod_iett"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbAreaAre -->
+    <many-to-one class="ecar.pojo.AreaAre" name="areaArerev" not-null="true">
+      <column name="cod_are"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbSubAreaSare -->
+    <many-to-one class="ecar.pojo.SubAreaSare" name="subAreaSarerev" not-null="true">
+      <column name="cod_sare"/>
+    </many-to-one><!--
+     bi-directional many-to-one association to TbSituacaoSit 
+    <many-to-one class="ecar.pojo.SituacaoSit" name="situacaoSitrev" not-null="true">
+      <column name="cod_sit"/>
+    </many-to-one>
+    --><!-- bi-directional many-to-one association to TbUsuarioUsu -->
+    <many-to-one class="ecar.pojo.UsuarioUsu" name="usuarioUsuByCodUsuIncIettrev" not-null="true">
+      <column name="cod_usuinc_iettrev"/>
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbItemEstruturarevisaoIettrev -->
+    <set cascade="delete" inverse="true" lazy="true" name="itemEstruturarevisaoIettrevs">
+      <key>
+        <column name="cod_iettrev_pai"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturarevisaoIettrev"/>
+    </set>
+    <!-- bi-directional many-to-one association to TbItemEstruturarevisaoIettrev -->
+    <many-to-one class="ecar.pojo.ItemEstruturarevisaoIettrev"
+      name="itemEstruturarevisaoIettrev" not-null="true">
+      <column name="cod_iettrev_pai"/>
+    </many-to-one>
+
+    <!-- bi-directional one-to-many association to TbItemEstLocalRevIettlr -->
+    <set cascade="delete" inverse="true" lazy="true" name="itemEstLocalRevIettlrs">
+      <key>
+        <column name="cod_iettrev"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstLocalRevIettlr"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to TbIettUsutpfuacrevIettutfar -->
+    <set cascade="delete" inverse="true" lazy="true" name="iettUsutpfuacrevIettutfars">
+      <key>
+        <column name="cod_iettrev"/>
+      </key>
+      <one-to-many class="ecar.pojo.IettUsutpfuacrevIettutfar"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to TbEfIettPrevisaoRevEfiepr -->
+    <set cascade="delete" inverse="true" lazy="true" name="efIettPrevisaoRevEfieprs">
+      <key>
+        <column name="cod_iettrev"/>
+      </key>
+      <one-to-many class="ecar.pojo.EfIettPrevisaoRevEfiepr"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to TbIettIndResulRevIettrr -->
+    <set cascade="delete" inverse="true" lazy="true" name="iettIndResulRevIettrrs">
+      <key>
+        <column name="cod_iettrev"/>
+      </key>
+      <one-to-many class="ecar.pojo.IettIndResulRevIettrr"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to TbIettIndResulRevIettrr -->
+    <set cascade="delete" inverse="true" lazy="true" name="efIettFonTotRevEfieftrs">
+      <key>
+        <column name="cod_iettrev"/>
+      </key>
+      <one-to-many class="ecar.pojo.EfIettFonTotRevEfieftr"/>
+    </set>
+
+
+    <!-- bi-directional many-to-one association to TbOrgaoOrg -->
+    <many-to-one class="ecar.pojo.OrgaoOrg"
+      name="orgaoOrgByCodOrgaoResponsavel2Iettrev" not-null="true">
+      <column name="codorgaoresponsavel2_iettrev"/>
+    </many-to-one>
+
+    <!-- bi-directional many-to-one association to TbOrgaoOrg -->
+    <many-to-one class="ecar.pojo.OrgaoOrg"
+      name="orgaoOrgByCodOrgaoResponsavel1Iettrev" not-null="true">
+      <column name="codorgaoresponsavel1_iettrev"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbEstruturaEtt -->
+
+    <many-to-one class="ecar.pojo.EstruturaEtt" name="estruturaEttrev" not-null="true">
+      <column name="cod_ett"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

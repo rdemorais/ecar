@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AtributosAtb" 
+    table="TB_ATRIBUTOS_ATB"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codAtb"
+        type="java.lang.Long"
+        column="COD_ATB"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoAtb"
+        type="java.lang.String"
+        column="IND_ATIVO_ATB"
+        length="1"
+    />
+    <property
+        name="labelPadraoAtb"
+        type="java.lang.String"
+        column="LABEL_PADRAO_ATB"
+        length="40"
+    />
+    <property
+        name="nomeAtb"
+        type="java.lang.String"
+        column="NOME_ATB"
+        length="40"
+    />
+    <property
+        name="indExclusivoEstruturaAtb"
+        type="java.lang.String"
+        column="IND_EXCLUSIVO_ESTRUTURA_ATB"
+        length="1"
+    />
+    <property
+        name="indOpcionalAtb"
+        type="java.lang.String"
+        column="IND_OPCIONAL_ATB"
+        length="1"
+    />
+    <property
+        name="nomeFkAtb"
+        type="java.lang.String"
+        column="NOME_FK_ATB"
+        length="40"
+    />
+    <property
+        name="codFkAtb"
+        type="java.lang.String"
+        column="COD_FK_ATB"
+        length="40"
+    />
+    
+	<property
+		name="documentacaoAtb"
+		type="java.lang.String"
+		column="DOCUMENTACAO_ATB"
+		length="2000"
+	/>
+
+	 <many-to-one
+        name="sisGrupoAtributoSga"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="false"
+    >
+        <column name="COD_SGA" />
+    </many-to-one>
+    
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to EstruturaAtributoEttat -->
+    <set
+        name="estruturaAtributoEttats"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstruturaAtributoEttat"
+        />
+    </set>
+    
+    <many-to-one
+        name="funcaoFun"
+        class="ecar.pojo.FuncaoFun"
+        not-null="true"
+    >
+        <column name="COD_FUN" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

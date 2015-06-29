@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AcompReferenciaItemAri" 
+    table="TB_ACOMP_REFERENCIA_ITEM_ARI"
+    lazy="true"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codAri"
+        type="java.lang.Long"
+        column="COD_ARI"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataUltManutAri"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUT_ARI"
+        length="7"
+    />
+    <property
+        name="dataInclusaoAri"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_ARI"
+        length="7"
+    />
+    <property
+        name="dataLimiteAcompFisicoAri"
+        type="java.sql.Timestamp"
+        column="DATA_LIMITE_ACOMP_FISICO_ARI"
+        length="7"
+    />
+    <property
+        name="dataInicioAri"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_ARI"
+        length="7"
+    />
+    <property
+        name="indItemMonitoradosAri"
+        type="java.lang.String"
+        column="IND_ITEM_MONITORADOS_ARI"
+        length="1"
+    />
+    <property
+        name="codUsuincAri"
+        type="java.lang.Long"
+        column="COD_USUINC_ARI"
+        length="10"
+    />
+    <property
+        name="codUsuUltManutAri"
+        type="java.lang.Long"
+        column="COD_USU_ULT_MANUT_ARI"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to StatusRelatorioSrl -->
+    <many-to-one
+    	fetch="select"
+        name="statusRelatorioSrl"
+        class="ecar.pojo.StatusRelatorioSrl"
+        not-null="true"
+    >
+        <column name="COD_SRL" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+    	fetch="select"
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to AcompRelatorioArel -->
+    <set
+    	fetch="select"
+        name="acompRelatorioArels"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_ARI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRelatorioArel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompRefItemLimitesArli -->
+    <set
+        name="acompRefItemLimitesArlis"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_ARI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRefItemLimitesArli"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to AcompReferenciaAref -->
+    <many-to-one
+        name="acompReferenciaAref"
+        class="ecar.pojo.AcompReferenciaAref"
+        fetch="select"
+        not-null="true"
+    >
+        <column name="COD_AREF" />
+    </many-to-one>
+    <set
+        name="itemEstrUplCategIettuc"
+        lazy="true"
+        fetch="select"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_ARI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrUplCategIettuc"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.EntidadeAtributoEnta" 
+  	table="TB_ENTIDADE_ATRIBUTO_ENTA"
+    lazy="false"
+  	>
+    <composite-id 
+    	class="ecar.pojo.EntidadeAtributoEntaPK" 
+    	name="comp_id">
+      	<key-property 
+      		column="COD_ENT" 
+      		length="10" 
+      		name="codEnt" 
+      		type="java.lang.Long"/>
+      	<key-property 
+      		column="COD_SATB" 
+      		length="10" 
+      		name="codSatb" 
+      		type="java.lang.Long"/>
+    </composite-id>
+    <property 
+    	column="DATA_INCLUSAO_ENTATT" 
+    	length="7"
+      	name="dataInclusao" 
+      	type="java.sql.Date"/>
+    <property 
+    	column="INFORMACAO_ENTATT" 
+    	length="200"
+      	name="informacao" 
+      	type="java.lang.String"/>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbAtributoAtt -->
+    <many-to-one 
+    	class="ecar.pojo.SisAtributoSatb" 
+    	insert="false"
+      	name="sisAtributoSatb" 
+      	update="false">
+      <column name="COD_SATB"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbEntidadeEnt -->
+    <many-to-one 
+    	class="ecar.pojo.EntidadeEnt" 
+    	insert="false"
+      	name="entidadeEnt" 
+      	update="false">
+      <column name="COD_ENT"/>
+    </many-to-one>
+    <!-- end of derived association(s) -->
+  </class>
+</hibernate-mapping>

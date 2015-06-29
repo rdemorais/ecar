@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EstrutTpFuncAcmpEtttfa" 
+    table="TB_ESTRUT_TP_FUNC_ACMP_ETTTFA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.EstrutTpFuncAcmpEtttfaPK">
+        <key-property 
+            name="codEtt" 
+            column="COD_ETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codTpfa" 
+            column="COD_TPFA" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="indListagemImprResEtttfa"
+        type="java.lang.String"
+        column="IND_LISTAGEM_IMPR_RES_ETTTFA"
+        length="1"
+    />
+    <property
+        name="indListagemImprCompEtttfa"
+        type="java.lang.String"
+        column="IND_LISTAGEM_IMPR_COMP_ETTTFA"
+        length="1"
+    />
+
+    <property
+        name="idPodeBloquearEtttfa"
+        type="java.lang.String"
+        column="IND_PODE_BLOQUEAR_ETTTFA"
+        length="1"
+    />
+
+    <property
+        name="idFiltroEtttfa"
+        type="java.lang.String"
+        column="IND_FILTRO_ETTTFA"
+        length="1"
+    />
+
+    <property
+        name="indListagemTelaEtttfa"
+        type="java.lang.String"
+        column="IND_LISTAGEM_TELA_ETTTFA"
+        length="1"
+    />
+    <property
+        name="seqApresentTelaCampoEtttfa"
+        type="java.lang.Integer"
+        column="SEQ_APRESENT_TELA_CAMPO_ETTTFA"
+        length="2"
+    />
+    <property
+        name="larguraListagemTelaEtttfa"
+        type="java.lang.Integer"
+        column="LARGURA_LISTAGEM_TELA_ETTTFA"
+        length="2"
+    />
+    <property
+        name="seqApresListagemTelaEtttfa"
+        type="java.lang.Integer"
+        column="SEQ_APRES_LISTAGEM_TELA_ETTTFA"
+        length="2"
+    />
+    
+   <property
+        name="indRevisao"
+        type="java.lang.String"
+        column="IND_REVISAO"
+        length="1"
+    />
+    
+    <property
+        name="indManterProximoNivelEtttfa"
+        type="java.lang.String"
+        column="IND_MANTER_PROXIMO_NIVEL_ETTTFA"
+        length="1"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to EstruturaEtt -->
+    <many-to-one
+        name="estruturaEtt"
+	    class="ecar.pojo.EstruturaEtt"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TipoFuncAcompTpfa -->
+    <many-to-one
+        name="tipoFuncAcompTpfa"
+	    class="ecar.pojo.TipoFuncAcompTpfa"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_TPFA" />
+	</many-to-one>
+	
+	
+	<!-- bi-directional many-to-many association Funcoes de acompanhamento com permissao de editar os campos de funcoes de acompnhamento de cadastro geral  -->
+	<set
+		name="libTipoFuncAcompTpfas" 
+		table="tb_estrut_tp_func_acmp_tipo_func_acomp_liberado_para_etttpfatpfalp"
+		lazy="false" 
+		cascade="save-update"
+	>
+		<key>
+			<column name="COD_ETT" />
+			<column name="COD_TPFA" />
+		</key>
+		<many-to-many 
+			class="ecar.pojo.TipoFuncAcompTpfa" column="COD_TPFA_LIBERADO_PARA" />
+	</set>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

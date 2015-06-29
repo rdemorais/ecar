@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRelatorioEncaminhamento_Resultados" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.8181818181818192"/>
+	<property name="ireport.x" value="179"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="siglaOE" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioEncaminhamento_Encaminhamentos" class="java.lang.String"/>
+	<parameter name="qtdRegistrosIndicadores" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="siglaResultado" class="java.lang.String"/>
+	<field name="prioritario" class="java.lang.String"/>
+	<field name="caminhoImagemStatus" class="java.lang.String"/>
+	<field name="comentarios" class="java.util.Collection"/>
+	<field name="mesAnoCicloAtual" class="java.lang.String"/>
+	<field name="situacao" class="java.lang.String"/>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#DEF1EF">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 11" ) &&
+$F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#FEE2CA">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 13" ) && $F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#D2EDF3">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 06" ) &&
+$F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#E2F0D4">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 09" ) && $F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#CDC6E3">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 08" ) && $F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#C7D9F0">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 05" ) && $F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#EDCAD5">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 04" ) && $F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#DFDFF0">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 07" ) && $F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#FCDDDC">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 01" ) && $F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#FFEFCF">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 14" ) &&
+$F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#EFD5BE">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 16" ) &&
+$F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#ECD3E6">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 02" ) &&
+$F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#E4D7E9">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 03" ) &&
+$F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#F1E5C6">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 15" ) &&
+$F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#EDEFCF">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 10" ) && $F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="12" y="0" width="150" height="26" isPrintWhenDetailOverflows="true" backcolor="#C4E3E3">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 12" ) &&
+$F{prioritario}.equals( "S" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="32" y="0" width="130" height="26" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<box leftPadding="5" rightPadding="2">
+					<leftPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#F16477">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 01" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#B93092">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 02" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#735BA4" backcolor="#735BA4">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 03" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#B1005D">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 04" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#0079C1">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 05" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#00B5CC" backcolor="#00B5CC">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 06" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#7E81BE" backcolor="#7E81BE">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 07" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#492F92" backcolor="#492F92">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 08" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#7BC143">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 09" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#B2BB1E">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 10" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#61C5BA" backcolor="#61C5BA">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 11" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#00958F" backcolor="#00958F">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 12" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#F58025">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 13" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#FDB813" backcolor="#FDB813">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 14" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#B88D0A" backcolor="#B88D0A">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 15" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="26" isPrintWhenDetailOverflows="true" forecolor="#B15C11" backcolor="#B15C11">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 16" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="12" y="0" width="20" height="26" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<box leftPadding="2">
+					<pen lineColor="#828282"/>
+					<topPen lineColor="#828282"/>
+					<leftPen lineWidth="0.0" lineColor="#828282"/>
+					<bottomPen lineColor="#828282"/>
+					<rightPen lineColor="#828282"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglaResultado}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="230" y="0" width="19" height="19" isPrintWhenDetailOverflows="true"/>
+				<imageExpression class="java.lang.String"><![CDATA[$F{caminhoImagemStatus}]]></imageExpression>
+			</image>
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="263" y="0" width="290" height="26" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="caminhoSubRelatorioEncaminhamento_Encaminhamentos">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioEncaminhamento_Encaminhamentos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qtdRegistrosIndicadores">
+					<subreportParameterExpression><![CDATA[$F{comentarios}.size()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{comentarios})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelatorioEncaminhamento_Encaminhamentos}]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="10" y="0" width="1" height="26" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="225" y="18" width="28" height="8" forecolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mesAnoCicloAtual}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="172" y="6" width="43" height="14"/>
+				<textElement>
+					<font size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{situacao}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="3">
+			<line>
+				<reportElement x="11" y="1" width="542" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#7BC143">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 09" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#FDB813" backcolor="#FDB813">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 14" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#F58025">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 13" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#B2BB1E">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 10" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#F16477">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 01" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#00958F" backcolor="#00958F">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 12" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#61C5BA" backcolor="#61C5BA">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 11" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#00B5CC" backcolor="#00B5CC">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 06" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#0079C1">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 05" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#B1005D">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 04" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#B15C11" backcolor="#B15C11">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 16" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#7E81BE" backcolor="#7E81BE">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 07" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#735BA4" backcolor="#735BA4">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 03" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#B93092">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 02" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#B88D0A" backcolor="#B88D0A">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 15" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="3" height="3" isPrintWhenDetailOverflows="true" forecolor="#492F92" backcolor="#492F92">
+					<printWhenExpression><![CDATA[$P{siglaOE}.equals( "OE 08" )]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</detail>
+</jasperReport>

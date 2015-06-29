@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cadernoPlanejamento_Novo" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="brasao" class="java.lang.String"/>
+	<parameter name="imgMS" class="java.lang.String"/>
+	<parameter name="ecarLogo" class="java.lang.String"/>
+	<parameter name="ciclo" class="java.lang.String"/>
+	<field name="objetivo" class="java.lang.String"/>
+	<field name="codObj" class="java.lang.String"/>
+	<field name="gerenteObj" class="java.lang.String"/>
+	<field name="gerenteExcObj" class="java.lang.String"/>
+	<field name="estrategia" class="java.lang.String"/>
+	<field name="codEst" class="java.lang.String"/>
+	<field name="responsavelEst" class="java.lang.String"/>
+	<field name="secretariaEst" class="java.lang.String"/>
+	<field name="coresponsavelEst" class="java.lang.String"/>
+	<field name="parecerEst" class="java.lang.String"/>
+	<field name="produto" class="java.lang.String"/>
+	<group name="Objetivo_Grupo" isStartNewPage="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{objetivo}]]></groupExpression>
+		<groupHeader>
+			<band height="78">
+				<rectangle>
+					<reportElement x="0" y="37" width="752" height="20" backcolor="#F1F8F8"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</rectangle>
+				<textField>
+					<reportElement x="0" y="37" width="42" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{codObj}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="45" y="37" width="707" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{objetivo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="57" width="274" height="10"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<text><![CDATA[Gerente]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="67" width="274" height="11"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{gerenteObj}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="274" y="67" width="274" height="11"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{gerenteExcObj}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="274" y="57" width="274" height="10"/>
+					<box leftPadding="3">
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<text><![CDATA[Gerente Executivo]]></text>
+				</staticText>
+				<image>
+					<reportElement x="0" y="0" width="40" height="30"/>
+					<imageExpression class="java.lang.String"><![CDATA[$P{brasao}]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="29"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Ministério da Saúde - MS
+Secretaria Executiva - SE
+Departamento de Monitoramento e Avaliação do SUS - DEMAS]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy HH.mm.ss">
+					<reportElement x="651" y="0" width="100" height="19"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="651" y="19" width="100" height="11"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{ciclo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="310" y="0" width="317" height="20"/>
+					<textElement>
+						<font isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Caderno do Planejamento Estratégico do Ministério da Saúde]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Estrategia_GRUPO" isStartNewPage="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{estrategia}]]></groupExpression>
+		<groupHeader>
+			<band height="69">
+				<rectangle>
+					<reportElement x="0" y="5" width="752" height="20" backcolor="#D2D7DB"/>
+					<graphicElement>
+						<pen lineWidth="0.25"/>
+					</graphicElement>
+				</rectangle>
+				<textField>
+					<reportElement x="0" y="5" width="42" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{codEst}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="45" y="5" width="707" height="20"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{estrategia}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="25" width="274" height="10"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<text><![CDATA[Responsável pela Estratégia]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="274" y="25" width="274" height="10"/>
+					<box leftPadding="3">
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<text><![CDATA[Secretaria]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="548" y="25" width="204" height="10"/>
+					<box leftPadding="3">
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<text><![CDATA[Co-responsável / Articulação]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="35" width="274" height="13"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavelEst}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="274" y="35" width="274" height="13"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{secretariaEst}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="548" y="35" width="204" height="13"/>
+					<box leftPadding="3">
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{coresponsavelEst}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="48" width="752" height="20"/>
+					<box leftPadding="10">
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement markup="html">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{parecerEst}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Produto_GRUPO">
+		<groupExpression><![CDATA[$F{produto}]]></groupExpression>
+		<groupHeader>
+			<band height="39"/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="25"/>
+	</detail>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="8" width="193" height="20"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{imgMS}]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report">
+				<reportElement x="711" y="13" width="40" height="15"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="568" y="8" width="59" height="20"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{ecarLogo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="631" y="13" width="80" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Pag. "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

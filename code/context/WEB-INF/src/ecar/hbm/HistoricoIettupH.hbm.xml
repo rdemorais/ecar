@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Rogerio, Gabriel (24/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoIettupH" 
+    table="TB_HISTORICO_IETTUPH"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettupH"
+        type="java.lang.Long"
+        column="COD_IETTUPH"
+    >
+        <generator class="increment" />
+    </id>
+	
+    <property
+        name="codIettup"
+        type="java.lang.Long"
+        column="COD_IETTUP"
+    />
+	
+    <property
+        name="dataInclusaoIettup"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTUP"
+        length="7"
+    />
+    
+    <property
+        name="indAtivoIettup"
+        type="java.lang.String"
+        column="IND_ATIVO_IETTUP"
+        length="1"
+    />
+    
+    <property
+        name="nomeOriginalIettup"
+        type="java.lang.String"
+        column="NOME_ORIGINAL_IETTUP"
+        length="100"
+    />
+    
+    <property
+        name="tamanhoIettup"
+        type="java.lang.Long"
+        column="TAMANHO_IETTUP"
+    />
+    
+    <property
+        name="descricaoIettup"
+        type="java.lang.String"
+        column="DESCRICAO_IETTUP"
+        length="2000"
+    />
+    
+    <property
+        name="arquivoIettup"
+        type="java.lang.String"
+        column="ARQUIVO_IETTUP"
+        length="100"
+    />
+    
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    
+     <many-to-one
+        name="itemEstrUplCategIettuc"
+        class="ecar.pojo.ItemEstrUplCategIettuc"
+    >
+        <column name="COD_IETTUC" />
+    </many-to-one>
+    
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+
+    <many-to-one
+        name="uploadTipoArquivoUta"
+        class="ecar.pojo.UploadTipoArquivoUta"
+    >
+        <column name="COD_UTA" />
+    </many-to-one>
+    
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>
+       
+    <property
+        name="nomeIettuc"
+        type="java.lang.String"
+        column="NOME_IETTUC"
+    />    
+    
+    <many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	>
+    	<column name="COD_MAH" />
+	</many-to-one>  
+
+  </class>
+</hibernate-mapping>

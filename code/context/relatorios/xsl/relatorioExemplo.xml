@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<relatorio>
+	<campo titulo="Descricao da Acao" texto=" A descricao deve deixar claro
+		o objeto da Ação, para quem nao a conhece. Deve conter a situação
+		inicial, ou seja, a situação que justifica as ações propostas.
+		Pode sintetizar a avaliação ou diagnostico que levou a decisão.
+		Deve relacionar os projetos com as diretrizes de governo, sejam elas 
+		expressas no Projeto de Governo ou no Plano Plurianual, situando a 
+		importância estratégica da Ação."/>
+	<campo titulo="Objetivo Geral" texto="Objetivo maior da ação..."/>
+	<campo titulo="Objetivos Específicos" texto="Orientam a atuação e definem..."/>	
+	
+	<lista item="Encerrar forte conteudo programatico"/>
+	<lista item="Constar como prioridade"/>
+	<lista item="Possuir ampla abrangencia social"/>
+	<lista item="Comprometer o governo em caso de insucesso"/>
+	<lista item="Ter adquirido centralidade política"/>		
+	
+	<lista2>
+		<lt>Critérios</lt>
+		<li>item 1</li>
+		<li>item 2</li>
+		<li>item 3</li>
+		<li>item 4</li>
+		<li>item 5</li>
+	</lista2>
+</relatorio>

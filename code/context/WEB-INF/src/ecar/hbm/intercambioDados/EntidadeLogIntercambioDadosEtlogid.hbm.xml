@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.intercambioDados.EntidadeLogIntercambioDadosEtlogid" 
+    table="tb_log_entidade_interdados_logentid"
+    lazy="false"
+    >   
+   <id
+        name="codEtlogid"
+        type="java.lang.Long"
+        column="cod_etlogid"
+    >
+        <generator class="sequence" >
+        	<param name="sequence">tb_log_entidade_interdados_logentid_seq</param>
+        </generator>
+    </id>
+
+    
+    <property
+        name="nomeEtlogid"
+        type="java.lang.String"
+        column="nome_etloglid"
+        length="50"
+    />
+    
+    <property
+        name="valorLigacaoEtlogid"
+        type="java.lang.String"
+        column="valor_ligacao_etloglid"
+        length="100"
+    />
+  
+    <property
+        name="situcaoEtlogid"
+        type="java.lang.String"
+        column="situacao_etloglid"
+        length="1"
+    />  
+
+    <property
+        name="registroEtlogid"
+        type="java.lang.String"
+        column="registro_etloglid"
+    />  
+
+    <property
+        name="numeroRegistroEtlogid"
+        type="java.lang.Long"
+        column="numero_registro_etloglid"
+    />  
+
+    <property
+        name="indOperacaoRealizadaEtlogid"
+        type="java.lang.String"
+        column="ind_operacao_realizada_etloglid"
+        length="1"
+    />
+    
+       <many-to-one
+        name="motivoRejeicaoEtlogid"
+        class="ecar.pojo.intercambioDados.MotivoRejeicaoMtr"
+       >
+        <column name="cod_mtr" />
+   </many-to-one> 
+   
+    <many-to-one name="logIntercambioDados" 
+        class="ecar.pojo.intercambioDados.LogIntercambioDadosLid" 
+        column="cod_lid"
+        not-null="true"/>
+      
+    
+</class>
+</hibernate-mapping>

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.OpcaoOpc" 
+    table="TB_OPCAO_OPC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codOpcao"
+        type="java.lang.Long"
+        column="COD_OPCAO"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoOpc"
+        type="java.lang.String"
+        column="DESCRICAO_OPC"
+        length="30"
+    />
+    <property
+        name="nivelOpc"
+        type="java.lang.Integer"
+        column="NIVEL_OPC"
+        length="5"
+    />
+    <property
+        name="programaOpc"
+        type="java.lang.String"
+        column="PROGRAMA_OPC"
+        length="100"
+    />
+    <property
+        name="indSiteOpc"
+        type="java.lang.String"
+        column="IND_SITE_OPC"
+        length="1"
+    />
+    <property
+        name="indAdminOpc"
+        type="java.lang.String"
+        column="IND_ADMIN_OPC"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to OpcaoMenuOpcm -->
+    <set
+        name="opcaoMenuOpcmsByCodOpcPai"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_OPC_PAI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.OpcaoMenuOpcm"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to OpcaoMenuOpcm -->
+    <set
+        name="opcaoMenuOpcmsByCodOpcFilho"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_OPC_FILHO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.OpcaoMenuOpcm"
+        />
+    </set>
+	
+    <!-- bi-directional one-to-many association to OpcaoPerfilOpcp -->
+    <!-- Alterado -->		
+    <set
+        name="opcaoPerfilOpcps"
+        lazy="true"
+		cascade="save-update"
+		table="TB_OPCAO_PERFIL_OPCP"
+    >
+        <key>
+            <column name="COD_OPCAO" />
+        </key>
+        <many-to-many 
+            class="ecar.pojo.PerfilPfl"
+			column="COD_PFL"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

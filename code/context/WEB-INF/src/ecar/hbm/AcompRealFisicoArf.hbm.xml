@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AcompRealFisicoArf" 
+    table="TB_ACOMP_REAL_FISICO_ARF"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+
+    <id
+        name="codArf"
+        type="java.lang.Long"
+        column="COD_ARF"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataInclusaoArf"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_ARF"
+        length="7"
+    />
+    <property
+        name="qtdRealizadaArf"
+        type="java.lang.Double"
+        column="QTD_REALIZADA_ARF"
+        length="14"
+    />
+    <property
+        name="dataUltManut"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUT"
+    />
+    <property
+        name="mesArf"
+        type="java.lang.Long"
+        column="MES_ARF"
+        length="2"
+    />
+    <property
+        name="anoArf"
+        type="java.lang.Long"
+        column="ANO_ARF"
+        length="4"
+    />
+    
+    <property
+        name="mesReferenciaArf"
+        type="java.lang.Long"
+        column="MES_REFERENCIA_ARF"
+        length="2"
+    />
+    
+    <property
+        name="anoReferenciaArf"
+        type="java.lang.Long"
+        column="ANO_REFERENCIA_ARF"
+        length="4"
+    />
+    
+    <property
+        name="indEmApuracaoArf"
+        type="java.lang.String"
+        column="IND_EM_APURACAO_ARF"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to ItemEstrtIndResulIettr -->
+    <many-to-one
+        name="itemEstrtIndResulIettr"
+	    class="ecar.pojo.ItemEstrtIndResulIettr"
+	>
+    	<column name="COD_IETTIR" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to SituacaoSit -->
+    <many-to-one
+        name="situacaoSit"
+        class="ecar.pojo.SituacaoSit"
+        not-null="true"
+    >
+        <column name="COD_SIT" />
+    </many-to-one>
+
+ <!-- bi-directional one-to-many association to TbAcompRealFisicoLocal -->
+    <set
+        name="acompRealFisicoLocalArfls"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+        >
+    	<key>
+        	<column name="COD_ARF"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.AcompRealFisicoLocalArfl"/>
+    </set>
+
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUltManut"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU_ULT_MANUT" />
+	</many-to-one>
+
+   
+</class>
+</hibernate-mapping>

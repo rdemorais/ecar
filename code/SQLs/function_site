@@ -1,0 +1,43 @@
+﻿--Orgao
+CREATE OR REPLACE FUNCTION site.orgaoUsu(bigint, bigint)
+  RETURNS varchar AS
+$BODY$
+  declare
+  codUsu bigint;
+  siglaOrg varchar;
+  begin
+	if($2 is not null) then
+		codUsu := $2;
+	else
+		codUsu := $1;
+	end if;
+	
+	siglaOrg := (select sigla_org from tb_orgao_org org 
+			inner join TB_USUARIO_ORGAO_USUORG usu_org on org.cod_org = usu_org.cod_org  
+			where usu_org.cod_usu = codUsu limit 1);
+	return siglaOrg;		
+  end;
+$BODY$
+LANGUAGE plpgsql VOLATILE
+
+--Usuario
+CREATE OR REPLACE FUNCTION site.nomeUsu(bigint, bigint)
+  RETURNS varchar AS
+$BODY$
+  declare
+  codUsu bigint;
+  nomeUsu varchar;
+  begin
+	if($2 is not null) then
+		codUsu := $2;
+	else
+		codUsu := $1;
+	end if;
+	
+	nomeUsu := (select nome_usu from tb_usuario_usu where cod_usu = codUsu);
+	return nomeUsu;		
+  end;
+$BODY$
+LANGUAGE plpgsql VOLATILE
+
+select site.nomeUsu(null, 818)

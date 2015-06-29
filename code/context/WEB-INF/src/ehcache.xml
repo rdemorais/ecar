@@ -1,0 +1,15 @@
+<ehcache>
+  <diskStore path="java.io.tmp"/>
+  <defaultCache
+    maxElementsInMemory="1000"
+    eternal="false"
+    timeToIdleSeconds="10000"
+    timeToLiveSeconds="20000"
+    overflowToDisk="false"/>
+  <cache name="ecar.pojo.ConfiguracaoCfg"
+    maxElementsInMemory="100"
+    eternal="true"
+    overflowToDisk="false"/>
+</ehcache>
+
+

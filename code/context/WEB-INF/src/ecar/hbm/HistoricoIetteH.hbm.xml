@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Rogerio, Gabriel (28/05/2007)
+    - Modificado para comportar Historico 
+-->
+<class 
+    name="ecar.pojo.HistoricoIetteH" 
+    table="TB_HISTORICO_IETTEH"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIetteH"
+        type="java.lang.Long"
+        column="COD_IETTEH"
+    >
+        <generator class="increment" />
+    </id>    
+
+    <property
+        name="dataUltManutencaoIette"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUTENCAO_IETTE"
+        length="7"
+    />
+    
+    <property
+        name="dataFimIette"
+        type="java.sql.Timestamp"
+        column="DATA_FIM_IETTE"
+        length="7"
+    />
+    
+    <property
+        name="dataInicioIette"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_IETTE"
+        length="7"
+    />
+    
+    <property
+        name="descricaoIette"
+        type="java.lang.String"
+        column="DESCRICAO_IETTE"
+        length="30"
+    />
+    
+    
+    
+    <!-- bi-directional many-to-one association to EntidadeEnt -->
+    <many-to-one
+        name="entidadeEnt"
+        class="ecar.pojo.EntidadeEnt"
+        
+    >
+        <column name="cod_ent" />
+    </many-to-one>
+    
+    <!-- bi-directional many-to-one association to TipoParticipacaoTpp -->
+    <many-to-one
+        name="tipoParticipacaoTpp"
+        class="ecar.pojo.TipoParticipacaoTpp"
+        
+    >
+        <column name="cod_tpp" />
+    </many-to-one>        
+    
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+  
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    
+	    
+	    
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>  
+	
+    <!-- bi-directional many-to-one association to HistoricoMaster -->
+    <many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	    
+	    
+	>
+    	<column name="COD_MAH" />
+	</many-to-one>  	
+
+
+</class>
+</hibernate-mapping>

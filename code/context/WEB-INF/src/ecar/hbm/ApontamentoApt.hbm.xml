@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ApontamentoApt" 
+    table="TB_APONTAMENTO_APT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codApt"
+        type="java.lang.Long"
+        column="COD_APT"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataInclusaoApt"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_APT"
+        length="7"
+    />
+    <property
+        name="textoApt"
+        type="java.lang.String"
+        column="TEXTO_APT"
+        length="2000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PontoCriticoPtc -->
+    <many-to-one
+        name="pontoCriticoPtc"
+        class="ecar.pojo.PontoCriticoPtc"
+        not-null="true"
+    >
+        <column name="COD_PTC" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

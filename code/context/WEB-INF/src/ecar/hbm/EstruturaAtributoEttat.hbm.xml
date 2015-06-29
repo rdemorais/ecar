@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EstruturaAtributoEttat" 
+    table="TB_ESTRUTURA_ATRIBUTO_ETTAT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.EstruturaAtributoEttatPK">
+        <key-property 
+            name="codEtt" 
+            column="COD_ETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codAtb" 
+            column="COD_ATB" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="indObrigatorioEttat"
+        type="java.lang.String"
+        column="IND_OBRIGATORIO_ETTAT"
+        length="1"
+    />
+<!-- Inicio SERPRO 17/08/07 -->
+    <property
+        name="indPodeBloquearEttat"
+        type="java.lang.String"
+        column="ind_pode_bloquear_ettat"
+        length="1"
+    />    
+    <property
+        name="indFiltroEttat"
+        type="java.lang.String"
+        column="ind_filtro_ettat"
+        length="1"
+    />    
+
+<!-- Fim SERPRO 17/08/07 -->    
+    <property
+        name="indListagemImpressCompEtta"
+        type="java.lang.String"
+        column="IND_LISTAGEM_IMPRESS_COMP_ETTA"
+        length="1"
+    />
+    <property
+        name="seqApresListagemTelaEttat"
+        type="java.lang.Integer"
+        column="SEQ_APRES_LISTAGEM_TELA_ETTAT"
+        length="4"
+    />
+    <property
+        name="larguraListagemTelaEttat"
+        type="java.lang.Integer"
+        column="LARGURA_LISTAGEM_TELA_ETTAT"
+        length="2"
+    />
+    <property
+        name="indListagemTelaEttat"
+        type="java.lang.String"
+        column="IND_LISTAGEM_TELA_ETTAT"
+        length="1"
+    />
+    <property
+        name="seqApresentTelaCampoEttat"
+        type="java.lang.Integer"
+        column="SEQ_APRESENT_TELA_CAMPO_ETTAT"
+        length="4"
+    />
+    <property
+        name="labelEstruturaEttat"
+        type="java.lang.String"
+        column="LABEL_ESTRUTURA_ETTAT"
+        length="40"
+    />
+    <property
+        name="indListagemImpressaResEtta"
+        type="java.lang.String"
+        column="IND_LISTAGEM_IMPRESSA_RES_ETTA"
+        length="1"
+    />
+    
+    <property 
+    	column="IND_RELACAO_IMPRESSA_ETTAT" 
+    	length="1"
+      	name="indRelacaoImpressaEttat" 
+      	type="java.lang.String"/>
+
+    <property
+        name="indRevisaoEttat"
+        type="java.lang.String"
+        column="IND_REVISAO"
+        length="1"
+    />
+    <property
+        name="dicaEttat"
+        type="java.lang.String"
+        column="DICA_ETTAT"
+        length="2000"
+    />
+    <property
+        name="tamanhoConteudoAtribEttat"
+        type="java.lang.Integer"
+        column="TAMANHO_CONTEUDO_ATRIB_ETTAT"
+        length="4"
+    />
+    <property
+        name="documentacaoEttat"
+        type="java.lang.String"
+        column="DOCUMENTACAO_ETTAT"
+        length="2000"
+    />
+    <property
+        name="indListagemArvoreEttat"
+        type="java.lang.String"
+        column="IND_LISTAGEM_ARVORE_ETTAT"
+        length="1"
+    />    
+    
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to EstruturaEtt -->
+    <many-to-one
+        name="estruturaEtt"
+	    class="ecar.pojo.EstruturaEtt"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to AtributosAtb -->
+    <many-to-one
+        name="atributosAtb"
+	    class="ecar.pojo.AtributosAtb"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ATB" />
+	</many-to-one>
+
+	<!-- bi-directional one-to-many association to TbEstAtribTipoAcompEata -->
+    <set 
+    	cascade="all" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="estAtribTipoAcompEatas">
+      <key>
+        <column name="cod_ett"/>
+        <column name="cod_atb"/>
+      </key>
+      <one-to-many class="ecar.pojo.EstAtribTipoAcompEata"/>
+    </set>
+    
+    <!-- bi-directional many-to-many association to ConfiguracaoCfg -->
+	<set
+		name="libTipoFuncAcompTpfas" 
+		table="TB_ESTRUTURA_ATRIBUTO_TIPO_FUNC_ACOMP_ETTATTPFA"
+		lazy="true" 
+		cascade="save-update"
+	>
+		<key>
+			<column name="COD_ETT" />
+			<column name="COD_ATB" />
+		</key>
+		<many-to-many 
+			class="ecar.pojo.TipoFuncAcompTpfa" column="COD_TPFA" />
+	</set>
+    
+    	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

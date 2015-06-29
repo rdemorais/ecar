@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AcompReferenciaAref" 
+    table="TB_ACOMP_REFERENCIA_AREF"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codAref"
+        type="java.lang.Long"
+        column="COD_AREF"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataUltManutAref"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUT_AREF"
+        length="7"
+    />
+    <property
+        name="dataInclusaoAref"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_AREF"
+        length="7"
+    />
+    <property
+        name="dataLimiteAcompFisicoAref"
+        type="java.sql.Timestamp"
+        column="DATA_LIMITE_ACOMP_FISICO_AREF"
+        length="7"
+    />
+    <property
+        name="dataInicioAref"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_AREF"
+        length="7"
+    />
+    
+     <property
+        name="diaAref"
+        type="java.lang.String"
+        column="DIA_AREF"
+        length="2"
+    />
+    <property
+        name="mesAref"
+        type="java.lang.String"
+        column="MES_AREF"
+        length="2"
+    />
+    <property
+        name="anoAref"
+        type="java.lang.String"
+        column="ANO_AREF"
+        length="4"
+    />
+    <property
+        name="nomeAref"
+        type="java.lang.String"
+        column="NOME_AREF"
+        length="20"
+    />
+     <property
+        name="indInformacaoOrgaoAref"
+        type="java.lang.String"
+        column="IND_INFORMA_ORGAO_AREF"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to OrgaoOrg -->
+    <many-to-one
+        name="orgaoOrg"
+        class="ecar.pojo.OrgaoOrg"
+        not-null="true"
+    >
+        <column name="COD_ORG" />
+    </many-to-one>
+
+    <!-- bi-directional many-to-one association to TipoAcompanhamentoTa -->
+    <many-to-one
+        name="tipoAcompanhamentoTa"
+        class="ecar.pojo.TipoAcompanhamentoTa"
+        fetch="select"
+        not-null="true"
+    >
+        <column name="COD_TA" />
+    </many-to-one>
+
+    <!-- bi-directional one-to-many association to AcompReferenciaItemAri -->
+    <set
+        name="acompReferenciaItemAris"
+        lazy="true"
+        fetch="select"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_AREF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompReferenciaItemAri"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompRefLimitesArl -->
+    <set
+        name="acompRefLimitesArls"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_AREF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRefLimitesArl"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsuByCodUsuIncAref"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU_INC_AREF" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsuByCodUsuUltManutAref"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU_ULT_MANUT_AREF" />
+    </many-to-one>
+	
+    <!-- bi-directional many-to-one association to ExercicioExe -->
+	<!-- garten em 24/02/2005 -->
+    <many-to-one
+        name="exercicioExe"
+        class="ecar.pojo.ExercicioExe"
+        not-null="false"
+    >
+        <column name="COD_EXE" />
+    </many-to-one>
+	
+
+</class>
+</hibernate-mapping>

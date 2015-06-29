@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrutEntidadeIette" 
+    table="TB_ITEM_ESTRUT_ENTIDADE_IETTE"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.ItemEstrutEntidadeIettePK">
+        <key-property 
+            name="codIett" 
+            column="COD_IETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codEnt" 
+            column="COD_ENT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codTpp" 
+            column="COD_TPP" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="dataUltManutencaoIette"
+        type="java.util.Date"
+        column="DATA_ULT_MANUTENCAO_IETTE"
+        length="7"
+    />
+    <property
+        name="dataFimIette"
+        type="java.sql.Timestamp"
+        column="DATA_FIM_IETTE"
+        length="7"
+    />
+    <property
+        name="dataInicioIette"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_IETTE"
+        length="7"
+    />
+    <property
+        name="descricaoIette"
+        type="java.lang.String"
+        column="DESCRICAO_IETTE"
+        length="30"
+    />
+
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to EntidadeEnt -->
+    <many-to-one
+        name="entidadeEnt"
+	    class="ecar.pojo.EntidadeEnt"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ENT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TipoParticipacaoTpp -->
+    <many-to-one
+        name="tipoParticipacaoTpp"
+	    class="ecar.pojo.TipoParticipacaoTpp"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_TPP" />
+	</many-to-one>
+	
+    <many-to-one
+        name="usuarioUsuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    not-null="true"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one> 	
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

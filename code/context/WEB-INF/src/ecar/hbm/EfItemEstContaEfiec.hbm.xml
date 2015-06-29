@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.EfItemEstContaEfiec" 
+    table="TB_EF_ITEM_EST_CONTA_EFIEC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codEfiec"
+        type="java.lang.Long"
+        column="COD_EFIEC"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAcumuladoEfiec"
+        type="java.lang.String"
+        column="IND_ACUMULADO_EFIEC"
+        length="1"
+    />
+
+    <property
+        name="indAtivoEfiec"
+        type="java.lang.String"
+        column="IND_ATIVO_EFIEC"
+        length="1"
+    />
+
+    <property
+        name="contaSistemaOrcEfiec"
+        type="java.lang.String"
+        column="CONTA_SISTEMA_ORC_EFIEC"
+        length="255"
+    />
+
+    <property
+        name="formaInclusao"
+        type="java.lang.Integer"
+        column="FORMA_INCLUSAO"
+        length="2"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to FonteRecursoFonr -->
+    <many-to-one
+        name="fonteRecursoFonr"
+        class="ecar.pojo.FonteRecursoFonr"
+        not-null="true"
+    >
+        <column name="COD_FONR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to ExercicioExe -->
+    <many-to-one
+        name="exercicioExe"
+        class="ecar.pojo.ExercicioExe"
+        not-null="true"
+    >
+        <column name="COD_EXE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to RecursoRec -->
+    <many-to-one
+        name="recursoRec"
+        class="ecar.pojo.RecursoRec"
+        not-null="true"
+    >
+        <column name="COD_REC" />
+    </many-to-one>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoEfiecH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiecHs">
+      <key>
+        <column name="COD_EFIEC"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiecH"/>
+    </set>        
+    <!-- Final Mantis #2156 -->
+
+</class>
+</hibernate-mapping>

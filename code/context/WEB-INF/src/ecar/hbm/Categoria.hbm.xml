@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.Categoria" 
+    table="TB_CATEGORIA"
+    lazy="true"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codigo"
+        type="java.lang.Long"
+        column="cod_categoria"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="nome"
+        type="java.lang.String"
+        column="nome_categoria"
+        length="150"
+    />
+    
+    <property
+        name="indAtivo"
+        type="java.lang.String"
+        column="ind_ativo"
+    />    
+    
+    <!-- Associations -->
+    
+    <set
+    	fetch="select"
+        name="etiquetas"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="cod_categoria" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.Etiqueta"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

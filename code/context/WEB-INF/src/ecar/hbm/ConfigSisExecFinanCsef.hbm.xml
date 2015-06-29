@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ConfigSisExecFinanCsef" 
+    table="TB_CONFIG_SIS_EXEC_FINAN_CSEF"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codCsef"
+        type="java.lang.Long"
+        column="COD_CSEF"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoCsef"
+        type="java.lang.String"
+        column="IND_ATIVO_CSEF"
+        length="1"
+    />
+    <property
+        name="dataInclusaoCsef"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_CSEF"
+        length="7"
+    />
+    <property
+        name="siglaCsef"
+        type="java.lang.String"
+        column="SIGLA_CSEF"
+        length="6"
+    />
+    <property
+        name="nomeCsef"
+        type="java.lang.String"
+        column="NOME_CSEF"
+        length="20"
+    />
+    
+    <property 
+    	column="IND_PERMITEVALORMANUALORC_CSEF" 
+    	length="1"
+      	name="indPermiteValormanualorcCsef" 
+      	type="java.lang.String"/>
+    
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to FonteRecursoFonr -->
+    <set
+        name="fonteRecursoFonrs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_CSEF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.FonteRecursoFonr"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbConfigSisExecFinanCsefv -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="configSisExecFinanCsefvs">
+      	<key>
+        	<column name="COD_CSEF"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.ConfigSisExecFinanCsefv"/>
+    </set>
+        
+</class>
+</hibernate-mapping>

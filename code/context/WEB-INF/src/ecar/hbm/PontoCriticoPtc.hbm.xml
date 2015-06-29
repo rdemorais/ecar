@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PontoCriticoPtc" 
+    table="TB_PONTO_CRITICO_PTC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPtc"
+        type="java.lang.Long"
+        column="COD_PTC"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoPtc"
+        type="java.lang.String"
+        column="IND_ATIVO_PTC"
+        length="1"
+    />
+    <property
+        name="dataInclusaoPtc"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_PTC"
+        length="7"
+    />
+    <property
+        name="dataSolucaoPtc"
+        type="java.sql.Timestamp"
+        column="DATA_SOLUCAO_PTC"
+        length="7"
+    />
+    <property
+        name="descricaoSolucaoPtc"
+        type="java.lang.String"
+        column="DESCRICAO_SOLUCAO_PTC"
+        length="2000"
+    />
+    <property
+        name="indAmbitoInternoGovPtc"
+        type="java.lang.String"
+        column="IND_AMBITO_INTERNO_GOV_PTC"
+        length="1"
+    />
+    <property
+        name="dataLimitePtc"
+        type="java.sql.Timestamp"
+        column="DATA_LIMITE_PTC"
+        length="7"
+    />
+    <property
+        name="dataIdentificacaoPtc"
+        type="java.sql.Timestamp"
+        column="DATA_IDENTIFICACAO_PTC"
+        length="7"
+    />
+    <property
+        name="dataUltManutencaoPtc"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUT_PTC"
+        length="7"
+    />
+    <property
+        name="descricaoPtc"
+        type="java.lang.String"
+        column="DESCRICAO_PTC"
+        length="2000"
+    /><!--
+    <property
+    	name="diasAntecedenciaAvisoPtc"
+    	type="java.lang.Long"
+    	column="dias_antecedencia_aviso_ptc"
+    />
+    <property
+    	name="frequenciaEnvioEmailPtc"
+    	type="java.lang.Long"
+    	column="frequencia_envio_email_ptc"
+    />
+    
+    --><!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+	
+	<many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU_RESPONSAVEL" />
+	</many-to-one>
+
+    <!-- bi-directional one-to-many association to PontoCriticoCorPtccor -->
+    <set
+        name="pontoCriticoCorPtccores"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+		
+		
+    >
+        <key>
+            <column name="COD_PTC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PontocriticoCorPtccor"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to PontoCriticoCorPtccor -->
+    <set
+        name="pontoCriticoSisAtributoPtcSatbs"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+
+    >
+        <key>
+            <column name="COD_PTC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PontoCriticoSisAtributoPtcSatb"
+        />
+    </set>
+    
+	
+    <!-- bi-directional one-to-many association to ApontamentoApt -->
+    <set
+        name="apontamentoApts"
+        lazy="true"
+        inverse="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_PTC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ApontamentoApt"
+        />
+    </set>
+    
+	<many-to-one
+        name="usuarioUsuInclusao"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU_INCLUSAO" />
+	</many-to-one>
+	<many-to-one
+        name="usuarioUsuByCodUsuUltManutPtc"
+        class="ecar.pojo.UsuarioUsu"
+        
+    >
+        <column name="COD_USU_ULT_MANUT_PTC" />
+    </many-to-one>
+
+	<many-to-one
+        name="sisAtributoTipo"
+        class="ecar.pojo.SisAtributoSatb"
+        not-null="true"
+    >
+        <column name="cod_satb_tipo" />
+	</many-to-one>
+	
+	<many-to-one
+        name="acompRelatorioArel"
+        class="ecar.pojo.AcompRelatorioArel"
+        not-null="false"
+    >
+        <column name="cod_arel" />
+	</many-to-one>
+	
+	<set
+        name="historicoPtcHs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PTCH" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.HistoricoPtcH"
+        />
+    </set>
+    
+    <property
+        name="indExcluidoPtc"
+        type="java.lang.String"
+        column="IND_EXCLUIDO_PTC"
+        length="1"
+    />
+
+</class>
+</hibernate-mapping>

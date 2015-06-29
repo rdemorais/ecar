@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.PrioridadePrior" 
+  	table="TB_PRIORIDADE_PRIOR"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_PRIOR" 
+    	name="codPrior" 
+    	type="java.lang.Long">
+      <generator class="increment"/>
+    </id>
+    <property 
+    	column="DESCRICAO_PRIOR" 
+    	length="20" 
+    	name="descricaoPrior" 
+    	type="java.lang.String"/>
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to TbRegDemandaRegd -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="regDemandaRegds">
+      <key>
+        <column name="COD_PRIOR"/>
+      </key>
+      <one-to-many class="ecar.pojo.RegDemandaRegd"/>
+    </set>
+  </class>
+</hibernate-mapping>

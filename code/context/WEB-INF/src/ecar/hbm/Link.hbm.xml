@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<!-- 
+		Created by the Middlegen Hibernate plugin 2.1
+		
+		http://boss.bekk.no/boss/middlegen/
+		http://www.hibernate.org/
+	-->
+	<class 
+		name="ecar.pojo.Link" 
+		table="tb_link" 
+		lazy="true"
+	>
+		<id 
+			column="cod_link" 
+			name="codLink" 
+			type="java.lang.Integer"
+		>
+			<generator class="increment" />
+		</id>
+		<property 
+			column="label_link" 
+			length="100" 
+			name="labelLink"
+			type="java.lang.String" 
+		/>
+		<property 
+			column="exibe_monitoramento_link" 
+			length="1"
+			name="exibeMonitoramentoLink" 
+			type="java.lang.String" 
+		/>
+		<property 
+			column="ordem_link" 
+			length="4" 
+			name="ordemLink"
+			type="java.lang.Integer" 
+		/>
+		<property 
+			column="nome_link" 
+			length="40" 
+			name="nomeLink"
+			type="java.lang.String" 
+		/>		
+		<property 
+			column="url_link" 
+			length="100" 
+			name="urlLink"
+			type="java.lang.String" 
+		/>
+		<property 
+			column="icone_link" 
+			length="100" 
+			name="iconeLink"
+			type="java.lang.String" 
+		/>
+		
+	</class>
+</hibernate-mapping>

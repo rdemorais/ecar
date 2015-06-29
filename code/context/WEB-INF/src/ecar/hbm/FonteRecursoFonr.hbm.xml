@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.FonteRecursoFonr" 
+    table="TB_FONTE_RECURSO_FONR"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codFonr"
+        type="java.lang.Long"
+        column="COD_FONR"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoFonr"
+        type="java.lang.String"
+        column="IND_ATIVO_FONR"
+        length="1"
+    />
+    <property
+        name="dataInclusaoFonr"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_FONR"
+        length="7"
+    />
+    <property
+        name="dataFimValidadeFonr"
+        type="java.sql.Timestamp"
+        column="DATA_FIM_VALIDADE_FONR"
+        length="7"
+    />
+    <property
+        name="dataIniValidadeFonr"
+        type="java.sql.Timestamp"
+        column="DATA_INI_VALIDADE_FONR"
+        length="7"
+    />
+    <property
+        name="indOrcamentoFonr"
+        type="java.lang.String"
+        column="IND_ORCAMENTO_FONR"
+        length="1"
+    />
+    <property
+        name="nomeFonr"
+        type="java.lang.String"
+        column="NOME_FONR"
+        length="30"
+    />    
+    <property 
+    	name="sequenciaFonr" 
+    	length="2" 
+    	column="SEQUENCIA_FONR" 
+    	type="java.lang.Integer"
+    />    
+    <property
+        name="siglaFonr"
+        type="java.lang.String"
+        column="SIGLA_FONR"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ConfigSisExecFinanCsef -->
+    <many-to-one
+        name="configSisExecFinanCsef"
+        class="ecar.pojo.ConfigSisExecFinanCsef"
+        not-null="true"
+    >
+        <column name="COD_CSEF" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to EfItemEstContaEfiec -->
+    <set
+        name="efItemEstContaEfiecs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_FONR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstContaEfiec"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to EfItemEstPrevisaoEfiep -->
+    <set
+        name="efItemEstPrevisaoEfieps"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_FONR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstPrevisaoEfiep"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to EfIettFonteTotEfieft -->
+	<!-- garten em 20/12/2004 -->
+    <set
+        name="efIettFonteTotEfiefts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_FONR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfIettFonteTotEfieft"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbEfIettPrevisaoRevEfiepr -->
+    <set cascade="none" inverse="true" lazy="true" name="efIettPrevisaoRevEfieprs">
+      <key>
+        <column name="cod_fonr"/>
+      </key>
+      <one-to-many class="ecar.pojo.EfIettPrevisaoRevEfiepr"/>
+    </set>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoEfiecH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiecHs">
+      <key>
+        <column name="COD_FONR"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiecH"/>
+    </set>    
+
+    <!-- bi-directional one-to-many association to HistoricoEfieftH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfieftHs">
+      <key>
+        <column name="COD_FONR"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfieftH"/>
+    </set>    
+
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiepHs">
+      <key>
+        <column name="COD_FONR"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiepH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+</class>
+</hibernate-mapping>

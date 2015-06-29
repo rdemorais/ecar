@@ -1,0 +1,865 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstruturaIett" 
+    table="TB_ITEM_ESTRUTURA_IETT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIett"
+        type="java.lang.Long"
+        column="COD_IETT"
+    >
+        <generator class="increment" />
+    </id>
+
+	<property
+        name="atencaoIett"
+        type="java.lang.Boolean"
+        column="atencao_iett"
+    />
+
+    <property
+        name="valPrevistoFuturoIett"
+        type="java.math.BigDecimal"
+        column="VAL_PREVISTO_FUTURO_IETT"
+        length="14"
+    />
+    <property
+        name="indBloqPlanejamentoIett"
+        type="java.lang.String"
+        column="IND_BLOQ_PLANEJAMENTO_IETT"
+        length="1"
+    />
+    <property
+        name="beneficiosIett"
+        type="java.lang.String"
+        column="BENEFICIOS_IETT"
+    />
+    <property
+        name="origemIett"
+        type="java.lang.String"
+        column="ORIGEM_IETT"
+    />
+    <property
+        name="objetivoEspecificoIett"
+        type="java.lang.String"
+        column="OBJETIVO_ESPECIFICO_IETT"
+    />
+    <property
+        name="objetivoGeralIett"
+        type="java.lang.String"
+        column="OBJETIVO_GERAL_IETT"
+    />
+    <property
+        name="indMonitoramentoIett"
+        type="java.lang.String"
+        column="IND_MONITORAMENTO_IETT"
+        length="1"
+    />
+    <property
+        name="indCriticaIett"
+        type="java.lang.String"
+        column="IND_CRITICA_IETT"
+        length="1"
+    />
+    <property
+        name="dataInicioMonitoramentoIett"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_MONITORAMENTO_IETT"
+        length="7"
+    />
+    <property
+        name="dataTerminoIett"
+        type="java.sql.Timestamp"
+        column="DATA_TERMINO_IETT"
+        length="7"
+    />
+    <property
+        name="dataInicioIett"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_IETT"
+        length="7"
+    />
+    <property
+        name="indAtivoIett"
+        type="java.lang.String"
+        column="IND_ATIVO_IETT"
+        length="1"
+    />
+    <property
+        name="dataUltManutencaoIett"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUTENCAO_IETT"
+        length="7"
+    />
+    <property
+        name="dataInclusaoIett"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETT"
+        length="7"
+    />
+    <property
+        name="descricaoIett"
+        type="java.lang.String"
+        column="DESCRICAO_IETT"
+    />
+    <property
+        name="siglaIett"
+        type="java.lang.String"
+        column="SIGLA_IETT"
+    />
+    <property
+        name="nomeIett"
+        type="java.lang.String"
+        column="NOME_IETT"
+    />
+    <property
+        name="descricaoR5"
+        type="java.lang.String"
+        column="DESCRICAO_R5"
+    />
+    <property
+        name="descricaoR4"
+        type="java.lang.String"
+        column="DESCRICAO_R4"
+    />
+    <property
+        name="descricaoR3"
+        type="java.lang.String"
+        column="DESCRICAO_R3"
+    />
+    <property
+        name="descricaoR2"
+        type="java.lang.String"
+        column="DESCRICAO_R2"
+    />
+    <property
+        name="descricaoR1"
+        type="java.lang.String"
+        column="DESCRICAO_R1"
+    />
+    <property
+        name="dataR5"
+        type="java.sql.Timestamp"
+        column="DATA_R5"
+        length="7"
+    />
+    <property
+        name="dataR4"
+        type="java.sql.Timestamp"
+        column="DATA_R4"
+        length="7"
+    />
+    <property
+        name="dataR3"
+        type="java.sql.Timestamp"
+        column="DATA_R3"
+        length="7"
+    />
+    <property
+        name="dataR2"
+        type="java.sql.Timestamp"
+        column="DATA_R2"
+        length="7"
+    />
+    <property
+        name="dataR1"
+        type="java.sql.Timestamp"
+        column="DATA_R1"
+        length="7"
+    />
+    <property
+        name="nivelIett"
+        type="java.lang.Integer"
+        column="NIVEL_IETT"
+        length="10"
+    />
+
+    <property
+        name="indModeloIett"
+        type="java.lang.String"
+        column="IND_MODELO_IETT"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SituacaoSit -->
+    <many-to-one
+    	fetch="select"
+        name="situacaoSit"
+        class="ecar.pojo.SituacaoSit"
+    >
+        <column name="COD_SIT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to EstruturaEtt -->
+    <many-to-one
+    	fetch="select"
+        name="estruturaEtt"
+        class="ecar.pojo.EstruturaEtt"
+        not-null="true"
+    >
+        <column name="COD_ETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to OrgaoOrg -->
+    <many-to-one
+    	fetch="select"
+        name="orgaoOrgByCodOrgaoResponsavel1Iett"
+        class="ecar.pojo.OrgaoOrg"
+        not-null="true"
+    >
+        <column name="COD_ORGAO_RESPONSAVEL1_IETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to OrgaoOrg -->
+    <many-to-one
+    	fetch="select"
+        name="orgaoOrgByCodOrgaoResponsavel2Iett"
+        class="ecar.pojo.OrgaoOrg"
+        not-null="true"
+    >
+        <column name="COD_ORGAO_RESPONSAVEL2_IETT" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to EfItemEstContaEfiec -->
+    <set
+    	fetch="select"
+        name="efItemEstContaEfiecs"
+        lazy="true"
+        inverse="true"
+		cascade="delete"  
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstContaEfiec"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutEntidadeIette -->
+    <set
+    	fetch="select"
+        name="itemEstrutEntidadeIettes"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutEntidadeIette"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompReferenciaItemAri -->
+    <set
+    	fetch="select"
+        name="acompReferenciaItemAris"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompReferenciaItemAri"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstUsutpfuacIettutfa -->
+    <set
+     	fetch="select"
+        name="itemEstUsutpfuacIettutfas"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstUsutpfuacIettutfa"
+        />
+    </set>
+	
+    <!-- bi-directional one-to-many association to ItemEstruturaNivelIettn -->
+    <set
+    	fetch="subselect"
+        name="itemEstruturaNivelIettns"
+		table="TB_ITEM_ESTRUTURA_NIVEL_IETTN"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+		<many-to-many
+			column="COD_ATB"
+            class="ecar.pojo.SisAtributoSatb"
+        />
+    </set>
+	
+    <!-- bi-directional one-to-many association to ItemEstrUplCategIettuc -->
+    <set
+    	fetch="select"
+        name="itemEstrUplCategIettucs"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrUplCategIettuc"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrtBenefIettb -->
+    <set
+    	fetch="select"
+        name="itemEstrtBenefIettbs"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtBenefIettb"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutCriterioIettc -->
+    <set
+    	fetch="select"
+        name="itemEstrutCriterioIettcs"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutCriterioIettc"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstrutUsuarioIettus -->
+    <set
+        name="itemEstrutUsuarioIettusesByCodIett"
+        fetch="select"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUsuarioIettus"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutUsuarioIettus -->
+    <set
+    	fetch="select"
+        name="itemEstrutUsuarioIettusesByCodIettOrigem"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT_ORIG" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUsuarioIettus"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompRealFisicoArf -->
+    <set
+    	fetch="select"
+        name="acompRealFisicoArfs"
+        lazy="true"
+        inverse="true"
+		cascade="none" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRealFisicoArf"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ApontamentoApt -->
+    <set
+    	fetch="select"
+        name="apontamentoApts"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ApontamentoApt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutLocalIettl -->
+    <set
+    	fetch="select"
+        name="itemEstrutLocalIettls"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutLocalIettl"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+    	fetch="select"
+        name="itemEstruturaIetts"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+		order-by="NOME_IETT"
+    >
+        <key>
+            <column name="COD_IETT_PAI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT_PAI" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to EfItemEstPrevisaoEfiep -->
+    <set
+    	fetch="select"
+        name="efItemEstPrevisaoEfieps"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstPrevisaoEfiep"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to EfIettFonteTotEfieft -->
+	<!-- garten em 20/12/2004 -->
+    <set
+    	fetch="select"
+        name="efIettFonteTotEfiefts"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfIettFonteTotEfieft"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to ItemEstrutVinculoIettv -->
+    <set
+    	fetch="select"
+        name="itemEstrutVinculoIettvs"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutVinculoIettv"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PontoCriticoPtc -->
+    <set
+    	fetch="select"
+        name="pontoCriticoPtcs"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PontoCriticoPtc"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrtIndResulIettr -->
+    <set
+    	fetch="select"
+        name="itemEstrtIndResulIettrs"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtIndResulIettr"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutMarcadorIettm -->
+    <set
+    	fetch="select"
+        name="itemEstrutMarcadorIettms"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutMarcadorIettm"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutAcaoIetta -->
+    <set
+    	fetch="select"
+        name="itemEstrutAcaoIettas"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutAcaoIetta"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutUploadIettup -->
+    <set
+    	fetch="select"
+        name="itemEstrutUploadIettups"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUploadIettup"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to SubAreaSare -->
+    <many-to-one
+        name="subAreaSare"
+        class="ecar.pojo.SubAreaSare"
+        not-null="true"
+    >
+        <column name="COD_SARE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to AreaAre -->
+    <many-to-one
+        name="areaAre"
+        class="ecar.pojo.AreaAre"
+        not-null="true"
+    >
+        <column name="COD_ARE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+    	fetch="select"
+        name="usuarioUsuByCodUsuUltManutIett"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU_ULT_MANUT_IETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+    	fetch="select"
+        name="usuarioUsuByCodUsuIncIett"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU_INC_IETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PeriodicidadePrdc -->
+    <many-to-one
+    	fetch="select"
+        name="periodicidadePrdc"
+        class="ecar.pojo.PeriodicidadePrdc"
+        not-null="true"
+    >
+        <column name="COD_PRCD_IETT" />
+    </many-to-one>
+  
+    <many-to-one
+    	fetch="select"
+        name="unidadeOrcamentariaUO"
+        class="ecar.pojo.UnidadeOrcamentariaUO"
+        not-null="true"
+    >
+        <column name="COD_UO" />
+    </many-to-one>
+    
+    <!-- bi-directional one-to-many association to TbItemRegdemandaIregd -->
+     <set
+     	fetch="select"
+        name="itemRegdemandaIregds"
+        lazy="true"
+		table="TB_ITEM_REGDEMANDA_IREGD"
+		cascade="save-update">
+        <key>
+            <column name="COD_IETT"/>
+        </key>
+		<many-to-many
+			column="COD_REGD"
+            class="ecar.pojo.RegDemandaRegd"
+        />
+    </set>    
+    
+    <!-- bi-directional one-to-many association to TbItemEstruturarevisaoIettrev -->
+    <set cascade="all" inverse="true" lazy="true" name="itemEstruturarevisaoIettrevs">
+      <key>
+        <column name="cod_iett"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturarevisaoIettrev"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to TbItemEstruturaSisAtributoIettSatb -->
+    <set 
+    	fetch="select"
+    	name="itemEstruturaSisAtributoIettSatbs"
+    	cascade="delete" 
+    	inverse="true" 
+    	lazy="true">
+      <key>
+        <column name="cod_iett"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturaSisAtributoIettSatb"/>
+    </set>
+    
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>    
+    
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHpais">
+      <key>
+        <column name="COD_IETT_PAI"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>  
+    
+    <!-- bi-directional one-to-many association to HistoricoIettaH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettaHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettaH"/>
+    </set>  
+
+    <!-- bi-directional one-to-many association to HistoricoIettbH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettbHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettbH"/>
+    </set>     
+    
+    <!-- bi-directional one-to-many association to HistoricoIettcH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettcHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettcH"/>
+    </set>     
+    
+    <!-- bi-directional one-to-many association to HistoricoIetteH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIetteHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIetteH"/>
+    </set>     
+    
+    <!-- bi-directional one-to-many association to HistoricoIettlH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettlHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettlH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoIettrH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettrHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettrH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoIettupH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettupHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettupH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettusH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettusHorigs">
+      <key>
+        <column name="COD_IETT_ORIG"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettusH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettusH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettusHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettusH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettutfaH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettutfaHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettutfaH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoEfiecH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiecHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiecH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoEfieftH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfieftHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfieftH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiepHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiepH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettSatbHs">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettSatbH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+    
+    <!-- bi-directional one-to-many association to AgendaAge -->
+    <set cascade="all" inverse="true" lazy="true" name="agendaAge">
+      <key>
+        <column name="COD_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.AgendaAge"/>
+    </set>
+
+	<!-- Associations -->
+	<!-- bi-directional many-to-many association to Estrutura -->
+	<set 
+			fetch="select"
+	      	name="estruturasVirtual" 
+	      	table="TB_ITEM_ESTRUTURA_VIRTUAL_IEV"
+	      	lazy="true"
+	      	cascade="none"> <!-- cascade="save-update"> -->
+	          <key>
+	              <column name="cod_iett" />
+	          </key>
+	          <many-to-many 
+			column="cod_ett"
+			class="ecar.pojo.EstruturaEtt" />
+    </set>
+
+	<!-- Associations -->
+	<!-- bi-directional many-to-many association to ConfiguracaoCfg -->
+    <set
+    	fetch="select"
+        name="pesquisas"
+		table="tb_pesquisa_iett"
+        lazy="true"
+		cascade="save-update">
+        <key>
+            <column name="COD_IETT" />
+        </key>
+		<many-to-many
+			column="COD_PESQUISA"
+			class="ecar.pojo.Pesquisa"
+        />
+    </set>
+	
+    <set
+     	fetch="select"
+        name="relIettEtiqueta"
+        lazy="true"
+        inverse="true"
+ 		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.RelacionamentoIettEtiqueta"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

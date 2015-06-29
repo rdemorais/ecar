@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SegmentoItemFonteSgtif" 
+    table="TB_SEGMENTO_ITEM_FONTE_SGTIF"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSgtif"
+        type="java.lang.Long"
+        column="COD_SGTIF"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoSgtif"
+        type="java.lang.String"
+        column="DESCRICAO_SGTIF"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SegmentoItemSgti -->
+    <set
+        name="segmentoItemSgtis"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGTIF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SegmentoItemSgti"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

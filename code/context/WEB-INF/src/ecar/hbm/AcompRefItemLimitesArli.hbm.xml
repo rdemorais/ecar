@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AcompRefItemLimitesArli" 
+    table="TB_ACOMP_REF_ITEM_LIMITES_ARLI"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.AcompRefItemLimitesArliPK">
+        <key-property 
+            name="codAri" 
+            column="COD_ARI" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codTpfa" 
+            column="COD_TPFA" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="dataLimiteArli"
+        type="java.sql.Timestamp"
+        column="DATA_LIMITE_ARLI"
+        length="7"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to AcompReferenciaItemAri -->
+    <many-to-one
+        name="acompReferenciaItemAri"
+	    class="ecar.pojo.AcompReferenciaItemAri"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ARI" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TipoFuncAcompTpfa -->
+    <many-to-one
+        name="tipoFuncAcompTpfa"
+	    class="ecar.pojo.TipoFuncAcompTpfa"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_TPFA" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

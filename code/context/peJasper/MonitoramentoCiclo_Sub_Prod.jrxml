@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MonitoramentoCiclo_Sub_Prod" language="groovy" pageWidth="596" pageHeight="572" orientation="Landscape" columnWidth="596" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="38"/>
+	<property name="ireport.y" value="0"/>
+	<field name="prodSigla" class="java.lang.String"/>
+	<field name="responsavel" class="java.lang.String"/>
+	<field name="sitProd" class="java.lang.String"/>
+	<field name="periodicidade" class="java.lang.String"/>
+	<field name="txtIndicador" class="java.lang.String"/>
+	<field name="prioritario" class="java.lang.String"/>
+	<field name="ciclo3" class="java.lang.String"/>
+	<field name="ciclo2" class="java.lang.String"/>
+	<field name="ciclo1" class="java.lang.String"/>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="34" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{prodSigla}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="34" y="0" width="96" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{responsavel}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="130" y="0" width="64" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{sitProd}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="194" y="0" width="64" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{periodicidade}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="258" y="0" width="96" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{txtIndicador}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="354" y="0" width="38" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{prioritario}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="546" y="0" width="50" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{ciclo3}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="490" y="0" width="56" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{ciclo2}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="440" y="0" width="50" height="23" forecolor="#010101" backcolor="#FEFEFE"/>
+				<box>
+					<topPen lineWidth="0.25" lineColor="#050000"/>
+					<leftPen lineWidth="0.25" lineColor="#050000"/>
+					<bottomPen lineWidth="0.25" lineColor="#050000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[$F{ciclo1}]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

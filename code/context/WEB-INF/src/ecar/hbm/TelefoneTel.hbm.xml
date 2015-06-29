@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.TelefoneTel" 
+  	table="TB_TELEFONE_TEL"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_TEL" 
+    	name="codTel" 
+    	type="java.lang.Long">
+      	<generator class="increment"/>
+    </id>
+    <property 
+    	column="TELEFONE_TEL" 
+    	length="10" 
+    	name="telefoneTel" 
+    	type="java.lang.String"/>
+    <property 
+    	column="DDD_TEL" 
+    	length="3" 
+    	name="dddTel" 
+    	type="java.lang.String"/>
+    <property 
+    	column="ID_TEL" 
+    	length="30" 
+    	name="idTel" 
+    	type="java.lang.String"/>
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to TbEntidadeTelefoneEntt -->
+ 	<many-to-one 
+    	class="ecar.pojo.EntidadeEnt"
+    	name="entidadeEnt" 
+    	not-null="true">
+      	<column name="COD_ENT"/>
+    </many-to-one>    
+  </class>
+</hibernate-mapping>

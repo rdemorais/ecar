@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class 
+    name="ecar.pojo.SessionWS" 
+    table="TB_SESSIONWS_SES"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSessionWS"
+        type="java.lang.Long"
+        column="COD_SES"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="uuid"
+        type="java.lang.String"
+        column="UUID_SES"
+        length="40"
+    />
+    
+    <property
+        name="dataHoraInicio"
+        type="java.util.Date"
+        column="DATA_HORA_SES"
+        length="40"
+    />
+    
+    <!-- one-to-one name="usuarioUsu" class="ecar.pojo.UsuarioUsu" constrained="false" cascade="save-update,merge,delete-orphan"></one-to-one -->
+</class>
+
+</hibernate-mapping>    

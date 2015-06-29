@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.DestaqueSubAreaDtqsa" 
+    table="TB_DESTAQUE_SUB_AREA_DTQSA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codDtqsa"
+        type="java.lang.Long"
+        column="COD_DTQSA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="qtdMaxItensDtqsa"
+        type="java.lang.Integer"
+        column="QTD_MAX_ITENS_DTQSA"
+        length="5"
+    />
+    <property
+        name="identificacaoDtqsa"
+        type="java.lang.String"
+        column="IDENTIFICACAO_DTQSA"
+        length="30"
+    />
+    <property
+        name="descricaoDtqsa"
+        type="java.lang.String"
+        column="DESCRICAO_DTQSA"
+        length="2000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to DestaqueAreaDtqa -->
+    <many-to-one
+        name="destaqueAreaDtqa"
+        class="ecar.pojo.DestaqueAreaDtqa"
+        not-null="true"
+    >
+        <column name="COD_DTQA" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to DestaqueTipoOrdemDtqto -->
+    <many-to-one
+        name="destaqueTipoOrdemDtqto"
+        class="ecar.pojo.DestaqueTipoOrdemDtqto"
+        not-null="true"
+    >
+        <column name="COD_DTQTO" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to DestaqueItemRelDtqir -->
+    <set
+        name="destaqueItemRelDtqirs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_DTQSA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.DestaqueItemRelDtqir"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

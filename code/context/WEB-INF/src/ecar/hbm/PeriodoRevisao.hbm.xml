@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.PeriodoRevisaoPrev" 
+    table="TB_PERIODO_REVISAO_PREV"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPrev"
+        type="java.lang.Long"
+        column="COD_PREV"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dtInicioPrev"
+        type="java.sql.Timestamp"
+        column="DT_INICIO_PREV"
+    />
+    <property
+        name="descricaoPrev"
+        type="java.lang.String"
+        column="DESCRICAO_PREV"
+        length="30"
+    />
+    <property
+        name="dtFimPrev"
+        type="java.sql.Timestamp"
+        column="DT_FIM_PREV"
+    />
+
+    <!-- Associations -->
+
+  <many-to-one 
+    	class="ecar.pojo.ConfiguracaoCfg" 
+    	name="configuracaoCfg" 
+    	not-null="true">
+      	<column name="COD_CFG"/>
+    </many-to-one>  
+</class>
+</hibernate-mapping>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SisTipoExibicGrupoSteg" 
+    table="TB_SIS_TIPO_EXIBIC_GRUPO_STEG"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSteg"
+        type="java.lang.Long"
+        column="COD_STEG"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoSteg"
+        type="java.lang.String"
+        column="DESCRICAO_STEG"
+        length="40"
+    />
+    <property
+        name="dataInclusaoSteg"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_STEG"
+        length="7"
+    />
+    <property
+        name="indAtivoSteg"
+        type="java.lang.String"
+        column="IND_ATIVO_STEG"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SisGrupoAtributoSga -->
+    <set
+        name="sisGrupoAtributoSgas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_STEG" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SisGrupoAtributoSga"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

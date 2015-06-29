@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SegmentoCategoriaTpAcesSgt" 
+    table="TB_SEGMENTO_CATEG_TP_ACESS_SGT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.SegmentoCategoriaTpAcesSgtPK">
+        <key-property 
+            name="codSgtc" 
+            column="COD_SGTC" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codSatb" 
+            column="COD_SATB" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="sisAtributoSatb"
+	    class="ecar.pojo.SisAtributoSatb"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_SATB" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="SegmentoCategoriaSgtc"
+	    class="ecar.pojo.SegmentoCategoriaSgtc"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_SGTC" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

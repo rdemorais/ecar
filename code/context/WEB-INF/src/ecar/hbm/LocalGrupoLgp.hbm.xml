@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.LocalGrupoLgp" 
+    table="TB_LOCAL_GRUPO_LGP"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codLgp"
+        type="java.lang.Long"
+        column="COD_LGP"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoLgp"
+        type="java.lang.String"
+        column="IND_ATIVO_LGP"
+        length="1"
+    />
+    <property
+        name="dataInclusaoLgp"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_LGP"
+        length="7"
+    />
+    <property
+        name="identificacaoLgp"
+        type="java.lang.String"
+        column="IDENTIFICACAO_LGP"
+        length="40"
+    />
+    
+    <property
+    	name="siglaLgp"
+    	type="java.lang.String"
+    	column="SIGLA_LGP"
+    	length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to LocalItemLit -->
+    <set
+        name="localItemLits"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_LGP" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.LocalItemLit"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to LocalGrupoHierarquiaLgph -->
+    <set
+        name="localGrupoHierarquiaLgphsByCodLgp"
+		table="TB_LOCAL_GRUPO_HIERARQUIA_LGPH"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_LGP" />
+        </key>
+        <many-to-many
+			column="COD_LGP_PAI"
+            class="ecar.pojo.LocalGrupoLgp"
+        />
+<!--		
+        <one-to-many 
+            class="ecar.pojo.LocalGrupoHierarquiaLgph"
+        />
+-->
+    </set>
+    <!-- bi-directional one-to-many association to LocalGrupoHierarquiaLgph -->
+    <set
+        name="localGrupoHierarquiaLgphsByCodLgpPai"
+        lazy="true"
+		table="TB_LOCAL_GRUPO_HIERARQUIA_LGPH"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_LGP_PAI" />
+        </key>
+        <many-to-many
+			column="COD_LGP"
+            class="ecar.pojo.LocalGrupoLgp"
+        />
+<!--		
+        <one-to-many 
+            class="ecar.pojo.LocalGrupoHierarquiaLgph"
+        />
+-->
+    </set>
+
+</class>
+</hibernate-mapping>

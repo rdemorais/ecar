@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PopupPpp" 
+    table="TB_POPUP_PPP"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPpp"
+        type="java.lang.Long"
+        column="COD_PPP"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivaPpp"
+        type="java.lang.String"
+        column="IND_ATIVA_PPP"
+        length="1"
+    />
+    <property
+        name="dataInclusaoPpp"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_PPP"
+        length="7"
+    />
+    <property
+        name="dataFimExibicaoPpp"
+        type="java.sql.Timestamp"
+        column="DATA_FIM_EXIBICAO_PPP"
+        length="7"
+    />
+    <property
+        name="dataIniExibicaoPpp"
+        type="java.sql.Timestamp"
+        column="DATA_INI_EXIBICAO_PPP"
+        length="7"
+    />
+    <property
+        name="indDesativarPpp"
+        type="java.lang.String"
+        column="IND_DESATIVAR_PPP"
+        length="1"
+    />
+    <property
+        name="janelaLarguraPpp"
+        type="java.lang.Integer"
+        column="JANELA_LARGURA_PPP"
+        length="4"
+    />
+    <property
+        name="janelaAlturaPpp"
+        type="java.lang.Integer"
+        column="JANELA_ALTURA_PPP"
+        length="4"
+    />
+    <property
+        name="conteudoPpp"
+        type="java.lang.String"
+        column="CONTEUDO_PPP"
+        length="2000"
+    />
+    <property
+        name="nomePpp"
+        type="java.lang.String"
+        column="NOME_PPP"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PopupComportamentoPppc -->
+    <many-to-one
+        name="popupComportamentoPppc"
+        class="ecar.pojo.PopupComportamentoPppc"
+        not-null="true"
+    >
+        <column name="COD_PPPC" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+	Author: Gabriel Ishigami Solana
+	Since: 0.1 - 30/05/2007
+-->
+
+<class 
+    name="ecar.pojo.ImportacaoImp" 
+    table="TB_IMPORTACAO_IMP"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codImp"
+        type="java.lang.Long"
+        column="COD_IMP"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataHoraImp"
+        type="java.util.Date"
+        column="DATA_HORA_IMP" 
+        not-null="true"
+    />
+    
+    <property
+        name="dataHoraGeracaoSisOrigem"
+        type="java.util.Date"
+        column="DATA_HORA_GERACAO_SIS_ORIGEM"
+        not-null="true" 
+    />
+    
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU_IMP" />
+    </many-to-one>    
+    
+    <property
+        name="nomeArquivoImp"
+        type="java.lang.String"
+        column="NOME_ARQUIVO_IMP"
+        length="200"
+        not-null="true"        
+    />
+    
+    <property
+        name="numRegistrosValidosImp"
+        type="java.lang.Integer"
+        column="NUM_REGISTROS_VALIDOS_IMP"
+        length="6"
+        not-null="true"
+    />
+    
+        <property
+        name="numRegistrosInvalidosImp"
+        type="java.lang.Integer"
+        column="NUM_REGISTROS_INVALIDOS_IMP"
+        length="6"
+        not-null="true"
+    />
+    
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoEfierH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfierHs">
+      <key>
+        <column name="COD_IMP"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfierH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+    
+</class>
+</hibernate-mapping>

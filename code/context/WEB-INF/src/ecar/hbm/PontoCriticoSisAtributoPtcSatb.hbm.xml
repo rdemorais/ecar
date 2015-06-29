@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.PontoCriticoSisAtributoPtcSatb" 
+    table="TB_PONTOCRITICO_SISATRIBUTO_PTCSATB"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.PontoCriticoSisAtributoPtcSatbPK">
+        <key-property 
+            name="codPtc" 
+            column="COD_PTC" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codSatb" 
+            column="COD_SATB" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+
+    <property
+        name="informacao"
+        type="java.lang.String"
+        column="INFORMACAO"
+        length="2000"
+    />
+    
+    <property
+        name="dataUltManutencao"
+        type="java.util.Date"
+        column="DATA_ULT_MANUTENCAO"
+    /> 
+    
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="pontoCriticoPtc"
+	    class="ecar.pojo.PontoCriticoPtc"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_PTC" />
+	</many-to-one>
+		
+    <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="sisAtributoSatb"
+	    class="ecar.pojo.SisAtributoSatb"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_SATB" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>
+
+
+	<set cascade="all" lazy="true" name="tiposValores">
+		<key>
+			<column name="COD_PTC" />
+			<column name="COD_SATB" />
+		</key>
+		<one-to-many class="ecar.pojo.TipoValor" />
+	</set>
+	
+    <!-- end of derived association(s) -->
+  
+</class>
+</hibernate-mapping>

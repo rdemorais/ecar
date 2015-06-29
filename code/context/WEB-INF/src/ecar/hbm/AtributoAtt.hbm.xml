@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.AtributoAtt" 
+  	table="TB_ATRIBUTO_ATT"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_ATT" 
+    	name="codAtt" 
+    	type="java.lang.Long">
+      <generator 
+      	class="increment"/>
+    </id>
+    <property 
+    	column="DESCRICAO_ATT" 
+    	length="40" 
+    	name="descricaoAtt" 
+    	type="java.lang.String"/>
+    <property 
+    	column="DATA_INCLUSAO_ATT" 
+    	length="7"
+      	name="dataInclusaoAtt" 
+      	type="java.sql.Date"/>
+    <property 
+    	column="ATRIB_INF_COMP_ATT" 
+    	length="2000"
+      	name="atribInfCompAtt" 
+      	type="java.lang.String"/>
+    <property 
+    	column="IND_ATIVO_ATT" 
+    	length="1" 
+    	name="indAtivoAtt" 
+    	type="java.lang.String"/>
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to TbEntidadeAtributoEnta -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="entidadeAtributoEntas">
+      <key>
+        <column name="COD_ATT"/>
+      </key>
+      <one-to-many class="ecar.pojo.EntidadeAtributoEnta"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to TbLocAtributoLoca -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="locAtributoLocas">
+      <key>
+        <column name="COD_ATT"/>
+      </key>
+      <one-to-many class="ecar.pojo.LocAtributoLoca"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to TbDemAtributoDema -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="demAtributoDemas">
+      <key>
+        <column name="COD_ATT"/>
+      </key>
+      <one-to-many class="ecar.pojo.DemAtributoDema"/>
+    </set>
+    
+    <!-- bi-directional many-to-one association to TbGrupoAtributoGatt -->
+    <many-to-one 
+    	class="ecar.pojo.GrupoAtributoGatt"
+    	name="grupoAtributoGatt" 
+    	not-null="true">
+      	<column name="COD_GATT"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

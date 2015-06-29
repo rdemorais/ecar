@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.TipoAcompanhamentoTa" 
+    table="TB_TIPO_ACOMPANHAMENTO_TA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codTa"
+        type="java.lang.Long"
+        column="COD_TA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoTa"
+        type="java.lang.String"
+        column="DESCRICAO_TA"
+        length="30"
+    />
+    <property
+        name="indLiberarAcompTa"
+        type="java.lang.String"
+        column="IND_LIBERAR_ACOMP_TA"
+        length="1"
+    />
+    <property
+        name="indLiberarParecerTa"
+        type="java.lang.String"
+        column="IND_LIBERAR_PARECER_TA"
+        length="1"
+    />
+    <property
+        name="indGerarArquivoTa"
+        type="java.lang.String"
+        column="IND_GERAR_ARQUIVO_TA"
+        length="1"
+    />
+    <property
+        name="indMonitoramentoTa"
+        type="java.lang.String"
+        column="IND_MONITORAMENTO_TA"
+        length="1"
+    />
+     <property
+        name="indNaoMonitoramentoTa"
+        type="java.lang.String"
+        column="IND_NAO_MONITORAMENTO_TA"
+        length="1"
+    />
+    <property
+        name="indSepararOrgaoTa"
+        type="java.lang.String"
+        column="IND_SEPARAR_ORGAO_TA"
+        length="1"
+    />
+    <property
+        name="seqApresentacaoTa"
+        type="java.lang.Long"
+        column="SEQ_APRESENTACAO_TA"
+        length="3"
+    />
+    <property
+        name="indAtivoTa"
+        type="java.lang.String"
+        column="IND_ATIVO_TA"
+        length="1"
+    />
+    <!-- Associations -->
+	
+    <!-- bi-directional one-to-many association to EstrutTpFuncAcmpEtttfa -->
+    <set
+        name="acompReferenciaArefs"
+        lazy="true"
+        fetch="select"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_TA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompReferenciaAref"
+        />
+    </set>
+    <set
+        name="tipoAcompFuncAcompTafcs"
+        lazy="false"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_TA" />
+        </key>
+		<one-to-many
+            class="ecar.pojo.TipoAcompFuncAcompTafc"
+        />
+    </set>
+    <set
+        name="sisAtributoSatbs"
+		table="tb_tipo_acomp_satb_tasatb"
+        lazy="true"
+		cascade="save-update">
+        <key>
+            <column name="COD_TA" />
+        </key>
+		<many-to-many
+			column="COD_SATB"
+            class="ecar.pojo.SisAtributoSatb"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbEstAtribTipoAcompEata -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="estAtribTipoAcompEatas">
+      <key>
+        <column name="cod_ta"/>
+      </key>
+      <one-to-many class="ecar.pojo.EstAtribTipoAcompEata"/>
+    </set>
+    
+    <!-- bi-directional many-to-one association to EstruturaEtt -->
+    <many-to-one
+        name="estruturaEtt"
+        class="ecar.pojo.EstruturaEtt">
+        <column name="COD_ETT" />
+    </many-to-one>
+    
+    <!-- bi-directional many-to-one association to EstruturaEtt -->
+    <many-to-one
+        name="estruturaNivelGeracaoTa"
+        class="ecar.pojo.EstruturaEtt"
+    >
+        <column name="cod_ett_nivel_geracao_ta" />
+    </many-to-one>
+     
+    <set
+        name="SituacaoSits"
+		table="tb_tipo_acomp_situacao_tasit"
+        lazy="true"
+		cascade="save-update">
+        <key>
+            <column name="COD_TA" />
+        </key>
+		<many-to-many
+			column="COD_SIT"
+            class="ecar.pojo.SituacaoSit"
+        />
+    </set>
+<!--     
+    <set
+        name="tipoAcompSituacaoTasits"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_TA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TipoAcompSituacaoTasit"
+        />
+    </set>
+  -->  
+
+	<set name="tipoAcompGrpAcessos" 
+		inverse="true"
+		lazy="true">
+	    <key>
+	        <column name="cod_ta" not-null="true" />
+	    </key>
+	    <one-to-many class="ecar.pojo.TipoAcompGrpAcesso" />
+	</set>
+	<set 
+		name="tipoacompAbasSisatributoTaabasatbs" 
+		inverse="true">
+		<key>
+			<column name="cod_ta" not-null="true" />
+		</key>
+		<one-to-many class="ecar.pojo.TipoAcompAbasSisatributoTaAbaSatb" />
+	</set>
+	<set name="tipoacompTipofuncacompSisatributoTatpfasatbs" inverse="true">
+		<key>
+			<column name="cod_ta" not-null="true" />
+		</key>
+		<one-to-many class="ecar.pojo.TipoAcompTipofuncacompSisatributoTaTpfaSatb" />
+	</set>
+</class>
+</hibernate-mapping> 

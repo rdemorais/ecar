@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Gabriel (28/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoMaster" 
+    table="tb_historico_master_mah" 
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codMah"
+        type="java.lang.Long"
+        column="cod_mah"
+    >
+		<generator class="sequence">
+			<param name="sequence">sequence_tb_historico_master_cod_mah</param>
+		</generator>	
+	</id>    
+
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+        
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>    
+   
+    <property
+        name="dataHoraHistorico"
+        type="java.util.Date"
+        column="data_hora_historico"
+        
+    />  
+   
+    <many-to-one
+        name="historicoMotivo"
+	    class="ecar.pojo.HistoricoMotivo"
+        
+	>
+    	<column name="cod_moh" />
+	</many-to-one>    
+   
+    <property
+        name="codReferenciaGeral"
+        type="java.lang.Long"
+        column="cod_referencia_geral"
+        
+    /> 
+    
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>  
+    
+    <!-- bi-directional one-to-many association to HistoricoIettaH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettaHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettaH"/>
+    </set>  
+    
+    <!-- bi-directional one-to-many association to HistoricoIettbH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettbHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettbH"/>
+    </set> 
+    
+    <!-- bi-directional one-to-many association to HistoricoIettcH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettcHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettcH"/>
+    </set>     
+
+    <!-- bi-directional one-to-many association to HistoricoIetteH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIetteHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIetteH"/>
+    </set>         
+    
+    <!-- bi-directional one-to-many association to HistoricoIettfH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettfHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettfH"/>
+    </set>         
+    
+    <!-- bi-directional one-to-many association to HistoricoIettlH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettlHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettlH"/>
+    </set>  
+    
+    <!-- bi-directional one-to-many association to HistoricoIettrH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettrHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettrH"/>
+    </set>   
+    
+    <!-- bi-directional one-to-many association to HistoricoIettupH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettupHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettupH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettusH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettusHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettusH"/>
+    </set>  
+
+    <!-- bi-directional one-to-many association to HistoricoIettutfaH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettutfaHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettutfaH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoEfiecH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiecHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiecH"/>
+    </set>        
+    
+    <!-- bi-directional one-to-many association to HistoricoEfieftH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfieftHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfieftH"/>
+    </set> 
+
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiepHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiepH"/>
+    </set> 
+    
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfierHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfierH"/>
+    </set> 
+    
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettSatbHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettSatbH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <!-- set cascade="none" inverse="true" lazy="true" name="historicoPtcHs">
+      <key>
+        <column name="COD_MAH"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoPtcH"/>
+    </set-->
+</class>
+</hibernate-mapping>

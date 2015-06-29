@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EspecieEsp" 
+    table="TB_ESPECIE_ESP"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codEsp"
+        type="java.lang.Long"
+        column="COD_ESP"
+    >
+    </id>
+
+    <property
+        name="indAtivoEsp"
+        type="java.lang.String"
+        column="IND_ATIVO_ESP"
+        length="1"
+    />
+    <property
+        name="dataInclusaoEsp"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_ESP"
+        length="7"
+    />
+    <property
+        name="descricaoEsp"
+        type="java.lang.String"
+        column="DESCRICAO_ESP"
+        length="100"
+    />
+    
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to EfItemEstPrevisaoEfiep -->
+    <set cascade="none" inverse="true" lazy="true" name="efItemEstPrevisaoEfieps">
+      <key>
+        <column name="COD_ESP"/>
+      </key>
+      <one-to-many class="ecar.pojo.EfItemEstPrevisaoEfiep"/>
+    </set>
+    
+</class>
+</hibernate-mapping>

@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.LocalItemLit" 
+    table="TB_LOCAL_ITEM_LIT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codLit"
+        type="java.lang.Long"
+        column="COD_LIT"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoLit"
+        type="java.lang.String"
+        column="IND_ATIVO_LIT"
+        length="1"
+    />
+    <property
+        name="dataInclusaoLit"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_LIT"
+        length="7"
+    />
+    <property
+        name="identificacaoLit"
+        type="java.lang.String"
+        column="IDENTIFICACAO_LIT"
+        length="40"
+    />
+
+
+	<property
+		name="codLgp"
+		type="java.lang.Long"
+		column="COD_LGP"
+		insert="false"
+		update="false"/>
+    
+    <property
+    	name="siglaLit"
+    	type="java.lang.String"
+    	column="SIGLA_LIT"
+    	length="10"
+    />
+
+    <property
+        name="codIbgeLit"
+        type="java.lang.String"
+        column="COD_IBGE_LIT"
+        length="6"
+    />
+
+    <property
+        name="codPlanejamentoLit"
+        type="java.lang.String"
+        column="COD_PLANEJAMENTO_LIT"
+        length="6"
+    />
+
+    <!-- Associations -->
+    
+    <!-- bi-directional one-to-many association to TbLocalDemandaLdem -->   
+    <!--  Alterado -->
+    <set
+        name="localDemandaLdems"
+        lazy="true"
+		table="TB_LOCAL_DEMANDA_LDEM"
+		cascade="save-update">
+        <key>
+            <column name="COD_LIT"/>
+        </key>
+		<many-to-many
+			column="COD_REGD"
+            class="ecar.pojo.RegDemandaRegd"
+        />
+    </set>
+
+
+    <!-- bi-directional one-to-many association to TbAcompRealFisicoLocal -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+        name="acompRealFisicoLocalArfls"
+        >
+      	<key>
+        	<column name="COD_LIT"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.AcompRealFisicoLocalArfl"/>
+    </set>
+      
+    <!-- bi-directional one-to-many association to TbLocalEntidadeLent -->
+    <!--  Alterado -->
+    <set 
+    	name="localEntidadeLents"
+    	lazy="true"
+		cascade="save-update"
+		table="TB_LOCAL_ENTIDADE_LENT">
+      <key>
+        <column name="COD_LIT"/>
+      </key>
+      <many-to-many
+       	class="ecar.pojo.EntidadeEnt"
+	   	column="COD_ENT"/>
+    </set>
+
+
+    <!-- bi-directional one-to-many association to TbLocAtributoLoca -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="false" 
+    	name="locAtributoLocas">
+      	<key>
+        	<column name="COD_LIT"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.LocAtributoLoca"/>
+    </set>
+
+  
+    <!-- bi-directional one-to-many association to LocalItemHierarquiaLith -->
+    <set
+        name="localItemHierarquiaLithsByCodLit"
+        table="TB_LOCAL_ITEM_HIERARQUIA_LITH"
+        lazy="false"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_LIT" />
+        </key>
+        <many-to-many
+			column="COD_LIT_PAI"
+            class="ecar.pojo.LocalItemLit"
+        />
+<!--
+        <one-to-many 
+            class="ecar.pojo.LocalItemHierarquiaLith"
+        />
+-->
+    </set>
+    <!-- bi-directional one-to-many association to LocalItemHierarquiaLith -->
+    <set
+        name="localItemHierarquiaLithsByCodLitPai"
+        lazy="true"
+        table="TB_LOCAL_ITEM_HIERARQUIA_LITH"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_LIT_PAI" />
+        </key>
+        <many-to-many
+			column="COD_LIT"
+            class="ecar.pojo.LocalItemLit"
+        />
+<!--
+        <one-to-many 
+            class="ecar.pojo.LocalItemHierarquiaLith"
+        />
+-->
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutLocalIettl -->
+    <set
+        name="itemEstrutLocalIettls"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_LIT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutLocalIettl"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to LocalGrupoLgp -->
+    <many-to-one
+        name="localGrupoLgp"
+        class="ecar.pojo.LocalGrupoLgp"
+        not-null="true"
+    >
+        <column name="COD_LGP" />
+    </many-to-one>
+
+
+
+    <!-- bi-directional one-to-many association to TbItemEstLocalRevIettlr -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstLocalRevIettlrs">
+      <key>
+        <column name="cod_lit"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstLocalRevIettlr"/>
+    </set>
+    
+   <!-- bi-directional one-to-many association to ItemEstrtIndResulLocalIettirl -->
+    <set
+        name="itemEstrtIndResulLocalIettirls"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_LIT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtIndResulLocalIettirl"
+        />
+    </set>    
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettlH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettlHs">
+      <key>
+        <column name="COD_LIT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettlH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+</class>
+</hibernate-mapping>

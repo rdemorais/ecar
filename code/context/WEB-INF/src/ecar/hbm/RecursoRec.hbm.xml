@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.RecursoRec" 
+    table="TB_RECURSO_REC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codRec"
+        type="java.lang.Long"
+        column="COD_REC"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoRec"
+        type="java.lang.String"
+        column="IND_ATIVO_REC"
+        length="1"
+    />
+    <property
+        name="indOrcamentoRec"
+        type="java.lang.String"
+        column="IND_ORCAMENTO_REC"
+        length="1"
+    />
+    <property
+        name="dataInclusaoRec"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_REC"
+        length="7"
+    />
+    <property
+        name="siglaRec"
+        type="java.lang.String"
+        column="SIGLA_REC"
+        length="10"
+    />
+    <property
+        name="dataFimValidadeRec"
+        type="java.sql.Timestamp"
+        column="DATA_FIM_VALIDADE_REC"
+        length="7"
+    />
+    <property
+        name="nomeRec"
+        type="java.lang.String"
+        column="NOME_REC"
+        length="100"
+    />
+    <property
+        name="dataIniValidadeRec"
+        type="java.sql.Timestamp"
+        column="DATA_INI_VALIDADE_REC"
+        length="7"
+    />
+    <property 
+    	name="sequenciaRec" 
+    	length="3" 
+    	column="SEQUENCIA_REC" 
+    	type="java.lang.Integer"
+    />
+
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to EfItemEstContaEfiec -->
+    <set
+        name="efItemEstContaEfiecs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_REC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstContaEfiec"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to EfItemEstPrevisaoEfiep -->
+    <set
+        name="efItemEstPrevisaoEfieps"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_REC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstPrevisaoEfiep"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbEfIettPrevisaoRevEfiepr -->
+    <set cascade="none" inverse="true" lazy="true" name="efIettPrevisaoRevEfieprs">
+      <key>
+        <column name="cod_rec"/>
+      </key>
+      <one-to-many class="ecar.pojo.EfIettPrevisaoRevEfiepr"/>
+    </set>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoEfiecH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiecHs">
+      <key>
+        <column name="COD_REC"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiecH"/>
+    </set>    
+
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiepHs">
+      <key>
+        <column name="COD_REC"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiepH"/>
+    </set>    
+    <!-- Final Mantis #2156 -->
+
+    <!-- bi-directional one-to-many association to TbFonteFon -->
+    <set cascade="none" inverse="true" lazy="true" name="fonteFons">
+      <key>
+        <column name="cod_rec"/>
+      </key>
+      <one-to-many class="ecar.pojo.FonteFon"/>
+    </set>
+    
+</class>
+</hibernate-mapping>

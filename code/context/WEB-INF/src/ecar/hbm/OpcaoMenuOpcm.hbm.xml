@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.OpcaoMenuOpcm" 
+    table="TB_OPCAO_MENU_OPCM"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.OpcaoMenuOpcmPK">
+        <key-property 
+            name="codOpcFilho" 
+            column="COD_OPC_FILHO" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codOpcPai" 
+            column="COD_OPC_PAI" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="seqApresentacaoOpcm"
+        type="java.lang.Integer"
+        column="SEQ_APRESENTACAO_OPCM"
+        length="5"
+    />
+    <property
+        name="indSeparadorOpcm"
+        type="java.lang.String"
+        column="IND_SEPARADOR_OPCM"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to OpcaoOpc -->
+    <many-to-one
+        name="opcaoOpcByCodOpcPai"
+	    class="ecar.pojo.OpcaoOpc"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_OPC_PAI" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to OpcaoOpc -->
+    <many-to-one
+        name="opcaoOpcByCodOpcFilho"
+	    class="ecar.pojo.OpcaoOpc"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_OPC_FILHO" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PaginaAreaSitePa -->
+    <many-to-one
+        name="paginaAreaSitePa"
+        class="ecar.pojo.PaginaAreaSitePa"
+        not-null="true"
+    >
+        <column name="COD_PAS" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

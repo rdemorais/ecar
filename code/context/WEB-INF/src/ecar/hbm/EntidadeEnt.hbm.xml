@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!-- 
+		Created by the Middlegen Hibernate plugin 2.1
+		
+		http://boss.bekk.no/boss/middlegen/
+		http://www.hibernate.org/
+	-->
+
+	<class 
+		name="ecar.pojo.EntidadeEnt" 
+		table="TB_ENTIDADE_ENT"
+	    lazy="false"
+	>
+		<meta attribute="implement-equals" inherit="false">true</meta>
+
+		<id name="codEnt" type="java.lang.Long" column="COD_ENT">
+			<generator class="increment" />
+		</id>
+
+		<property name="indAtivoEnt" type="java.lang.String" column="IND_ATIVO_ENT" length="1" />
+		<property name="dataInclusaoEnt" type="java.sql.Timestamp" column="DATA_INCLUSAO_ENT" length="7" />
+		<property name="siglaEnt" type="java.lang.String" column="SIGLA_ENT" length="10" />
+		<property name="nomeEnt" type="java.lang.String" column="NOME_ENT" length="2000" />
+		<property name="indOrgaoEnt" type="java.lang.String" column="IND_ORGAO_ENT" length="1" />
+		
+		
+		<property column="CPF_CNPJ_ENT" length="14" name="cpfCnpjEnt" type="java.lang.String" />
+		<property column="EMAIL_ENT" length="50" name="emailEnt" type="java.lang.String" />
+
+		<!-- Associations -->
+		<!-- bi-directional one-to-many association to ItemEstrutEntidadeIette -->
+		<set name="itemEstrutEntidadeIettes" lazy="true" inverse="true" cascade="none">
+			<key>
+				<column name="COD_ENT" />
+			</key>
+			<one-to-many class="ecar.pojo.ItemEstrutEntidadeIette" />
+		</set>
+
+		<!-- bi-directional one-to-many association to TbEntidadeEnderecoEnen -->
+		<!--  Alterado -->
+		<set name="enderecoEnds" lazy="false" inverse="true" cascade="all">
+			<key>
+				<column name="COD_ENT" />
+			</key>
+			<one-to-many class="ecar.pojo.EnderecoEnd" />
+		</set>
+	
+		<!-- bi-directional one-to-many association to TbEntidadeAtributoEnta -->
+		<set cascade="none" inverse="true" lazy="false" name="entidadeAtributoEntas">
+			<key>
+				<column name="COD_ENT" />
+			</key>
+			<one-to-many class="ecar.pojo.EntidadeAtributoEnta" />
+		</set>
+
+		<!-- bi-directional one-to-many association to TbLocalEntidadeLent -->
+		<!--  Alterado -->
+		<set name="localEntidadeLents" lazy="false" cascade="save-update" table="TB_LOCAL_ENTIDADE_LENT">
+			<key>
+				<column name="COD_ENT" />
+			</key>
+			<many-to-many class="ecar.pojo.LocalItemLit" column="COD_LIT" />
+		</set>
+
+
+		<!-- bi-directional one-to-many association to TbHierarquiaEntidadeHent -->
+		<set name="hierarquiaEntidadeHentsByCodEntPai" lazy="true" cascade="save-update" table="TB_HIERARQUIA_ENTIDADE_HENT">
+			<key>
+				<column name="COD_ENT_PAI" />
+			</key>
+			<many-to-many class="ecar.pojo.EntidadeEnt" column="COD_ENT" />
+		</set>
+
+		<!-- bi-directional one-to-many association to TbHierarquiaEntidadeHent -->
+		<set name="hierarquiaEntidadeHentsByCodEnt" lazy="true" cascade="save-update" table="TB_HIERARQUIA_ENTIDADE_HENT">
+			<key>
+				<column name="COD_ENT" />
+			</key>
+			<many-to-many class="ecar.pojo.EntidadeEnt" column="COD_ENT_PAI" />
+		</set>
+
+		<!-- bi-directional one-to-many association to TbRegDemandaRegd -->
+		<!--  Alterado -->
+	    <set
+	        name="regDemandaRegds"
+	        lazy="true"
+			table="TB_ENTIDADE_DEMANDA_ENTD"
+			cascade="save-update">
+	        <key>
+	            <column name="COD_ENT"/>
+	        </key>
+			<many-to-many
+				column="COD_REGD"
+	            class="ecar.pojo.RegDemandaRegd"
+	        />
+	    </set>
+
+		<!-- bi-directional one-to-many association to TbEntidadeTelefoneEntt -->
+		<!-- Alterado -->
+		<set name="telefoneTels" lazy="false" inverse="true" cascade="all">
+			<key>
+				<column name="COD_ENT" />
+			</key>
+			<one-to-many class="ecar.pojo.TelefoneTel" />
+		</set>
+		
+	<!-- bi-directional one-to-many association to RegDemandaRegd -->
+        <set
+        name="entidadeDemandaEntds"
+        lazy="true"
+		table="TB_ENTIDADE_DEMANDA_ENTD"
+		cascade="save-update">
+        <key>
+            <column name="COD_ENT"/>
+        </key>
+		<many-to-many
+			column="COD_REGD"
+            class="ecar.pojo.RegDemandaRegd"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AgendaEntidadeAgeent -->
+    <set
+        name="agendaEntidadesAgeent"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ENT"/>
+        </key>
+        <one-to-many class="ecar.pojo.AgendaEntidadesAgeent"/>
+    </set>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIetteH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIetteHs">
+      <key>
+        <column name="COD_ENT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIetteH"/>
+    </set>     
+    <!-- Final Mantis #2156 -->
+
+    <!-- bi-directional one-to-many association to UsuarioUsu -->
+    <set
+        name="usuarioUsus"
+        lazy="true"
+		table="TB_USUARIO_ENTIDADE_USUENT"
+		cascade="save-update">
+        <key>
+            <column name="COD_ENT"/>
+        </key>
+		<many-to-many
+			column="COD_USU"
+            class="ecar.pojo.UsuarioUsu"
+        />
+    </set>
+
+	</class>
+</hibernate-mapping>

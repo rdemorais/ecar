@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PopupComportamentoPppc" 
+    table="TB_POPUP_COMPORTAMENTO_PPPC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPppc"
+        type="java.lang.Long"
+        column="COD_PPPC"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoPppc"
+        type="java.lang.String"
+        column="DESCRICAO_PPPC"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PopupPpp -->
+    <set
+        name="popupPpps"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PPPC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PopupPpp"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

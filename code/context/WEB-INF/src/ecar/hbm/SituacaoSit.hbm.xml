@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SituacaoSit" 
+    table="TB_SITUACAO_SIT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSit"
+        type="java.lang.Long"
+        column="COD_SIT"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indComentarioSit"
+        type="java.lang.String"
+        column="IND_COMENTARIO_SIT"
+        length="1"
+    />
+    <property
+        name="indConcluidoSit"
+        type="java.lang.String"
+        column="IND_CONCLUIDO_SIT"
+        length="1"
+    />
+    <property
+        name="comentarioSit"
+        type="java.lang.String"
+        column="COMENTARIO_SIT"
+        length="2000"
+    />
+    <property
+        name="descricaoSit"
+        type="java.lang.String"
+        column="DESCRICAO_SIT"
+        length="50"
+    />
+    <property
+        name="indMetaFisicaSit"
+        type="java.lang.String"
+        column="IND_METAFISICA_SIT"
+        length="1"
+    />
+    
+    <property
+        name="indSemAcompanhamentoSit"
+        type="java.lang.String"
+        column="IND_SEM_ACOMPANHAMENTO_SIT"
+        length="1"
+        not-null="false"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SituacaoTpFuncAcmpSitfa -->
+    <set
+        name="situacaoTpFuncAcmpSitfas"
+		table="TB_SITUACAO_TP_FUNC_ACMP_SITFA"
+		lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SIT" />
+        </key>
+        <many-to-many
+			column="COD_TPFA"
+            class="ecar.pojo.TipoFuncAcompTpfa"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to EstruturaSituacaoEtt -->	
+	<!-- Alterado -->		
+    <set
+        name="estruturaSituacaoEtts"
+        lazy="true"
+		cascade="save-update"
+		table="TB_ESTRUTURA_SITUACAO_ETTS"
+    >
+        <key>
+            <column name="COD_SIT" />
+        </key>
+        <many-to-many 
+            class="ecar.pojo.EstruturaEtt"
+			column="COD_ETT"
+        />
+    </set>
+
+	
+    <!-- bi-directional one-to-many association to AcompRelatorioArel -->
+    <set
+        name="acompRelatorioArels"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SIT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRelatorioArel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompRealFisicoArf -->
+    <set
+        name="acompRealFisicoArfs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SIT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRealFisicoArf"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIetts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SIT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+    
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHs">
+      <key>
+        <column name="COD_SIT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>    
+    <!-- Final Mantis #2156 -->
+     
+   <!-- <set
+        name="tipoAcompSituacaoTasits"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_SIT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TipoAcompSituacaoTasit"
+        />
+    </set>
+    -->
+
+    <set
+        name="perfilIntercambioDadosPflidsNaoInformado"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="cod_sit_nao_informado_imp" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.intercambioDados.PerfilIntercambioDadosPflid"
+        />
+    </set>
+    
+    <set
+        name="perfilIntercambioDadosPflidsSemCorrespondente"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="cod_sit_sem_correspondente_imp" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.intercambioDados.PerfilIntercambioDadosPflid"
+        />
+    </set>
+    
+  </class>
+</hibernate-mapping>

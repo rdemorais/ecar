@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.intercambioDados.DadosTecnlogiaLogIntercambioDadosLogdtid" 
+    table="tb_log_dados_tecnologia_logdtid"
+    lazy="false"
+    >
+    <meta attribute="implement-equals" inherit="false">true</meta>
+   
+   <id
+        name="codDtlid"
+        type="java.lang.Long"
+        column="cod_logdtid"
+    >
+        <generator class="sequence" >
+        	<param name="sequence">tb_log_dados_tecnologia_logdtid_seq</param>
+        </generator>
+    </id>
+
+    <property
+        name="nomeArquivoDtlid"
+        type="java.lang.String"
+        column="nome_arq_logdtid"
+        length="50"
+    />
+
+   <property
+        name="dataGeracaoArquivoDtlid"
+        type="java.sql.Timestamp"
+        column="data_geracao_arquivo_logdtid"/>
+
+
+    <property
+        name="dataInicioIntervaloImportacaoDtlid"
+        type="java.sql.Timestamp"
+        column="data_inicio_intervalo_logdtid"/>
+    
+    <property
+        name="dataFimIntervaloImportacaoDtlid"
+        type="java.sql.Timestamp"
+        column="data_fim_intervalo_logdtid"/>
+
+    
+</class>
+</hibernate-mapping>

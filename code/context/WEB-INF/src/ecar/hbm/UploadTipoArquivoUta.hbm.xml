@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.UploadTipoArquivoUta" 
+    table="TB_UPLOAD_TIPO_ARQUIVO_UTA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codUta"
+        type="java.lang.Long"
+        column="COD_UTA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="tagHtmlUta"
+        type="java.lang.String"
+        column="TAG_HTML_UTA"
+        length="2000"
+    />
+    <property
+        name="descricaoUta"
+        type="java.lang.String"
+        column="DESCRICAO_UTA"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to UploadTipoCategoriaUtc -->
+    <many-to-one
+        name="uploadTipoCategoriaUtc"
+        class="ecar.pojo.UploadTipoCategoriaUtc"
+        not-null="true"
+    >
+        <column name="COD_UTC" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to ItemEstrutUploadIettup -->
+    <set
+        name="itemEstrutUploadIettups"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_UTA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUploadIettup"
+        />
+    </set>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettupH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettupHs">
+      <key>
+        <column name="COD_UTA"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettupH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+</class>
+</hibernate-mapping>

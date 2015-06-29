@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.RegApontamentoRegda" 
+  	table="TB_REG_APONTAMENTO_REGDA"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_REGDA" 
+    	name="codRegda" 
+    	type="java.lang.Long">
+      	<generator class="increment"/>
+    </id>
+    <property
+        name="dataRegda"
+        type="java.sql.Timestamp"
+        column="DATA_REGDA"
+        length="7"
+    />
+    <property 
+    	column="INFO_REGDA" 
+    	length="200" 
+    	name="infoRegda" 
+    	type="java.lang.String"
+    />    
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to TbRegDemandaRegd -->
+    <many-to-one 
+    	class="ecar.pojo.RegDemandaRegd" 
+    	name="regDemandaRegd" 
+    	not-null="true">
+      	<column name="COD_REGD"/>
+    </many-to-one>
+
+    <many-to-one 
+    	class="ecar.pojo.UsuarioUsu" 
+    	name="usuarioUsu" 
+    	not-null="true">
+      	<column name="COD_USU"/>
+    </many-to-one>
+    
+    <set name="anexos" inverse="true" cascade="all-delete-orphan">
+    	<key column="COD_REGDA"/>
+    	<one-to-many class="ecar.pojo.ApontamentoAnexo"/>
+	</set>
+    
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,967 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.UsuarioUsu" 
+    table="TB_USUARIO_USU"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codUsu"
+        type="java.lang.Long"
+        column="COD_USU"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="idDominioUsu"
+        type="java.lang.String"
+        column="ID_DOMINIO_USU"
+        length="20"
+    />
+    <property
+        name="nomeUsu"
+        type="java.lang.String"
+        column="NOME_USU"
+        length="50"
+    />
+<!--    <property-->
+<!--        name="senhaUsu"-->
+<!--        type="java.lang.String"-->
+<!--        column="SENHA_USU"-->
+<!--        length="20"-->
+<!--    />-->
+	<property
+        name="cnpjCpfUsu"
+        type="java.lang.String"
+        column="CNPJ_CPF_USU"
+        length="14"       
+    />
+    <property
+        name="residEnderecoUsu"
+        type="java.lang.String"
+        column="RESID_ENDERECO_USU"
+        length="50"
+    />
+    <property
+        name="dataInclusaoUsu"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_USU"
+        length="7"
+    />
+    <property
+        name="dataUltAlteracaoUsu"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_ALTERACAO_USU"
+        length="7"
+    />
+    <property
+        name="residComplementoUsu"
+        type="java.lang.String"
+        column="RESID_COMPLEMENTO_USU"
+        length="40"
+    />
+    <property
+        name="residDddUsu"
+        type="java.lang.String"
+        column="RESID_DDD_USU"
+        length="3"
+    />
+    <property
+        name="faxUsu"
+        type="java.lang.String"
+        column="FAX_USU"
+        length="10"
+    />
+    <property
+        name="residBairroUsu"
+        type="java.lang.String"
+        column="RESID_BAIRRO_USU"
+        length="40"
+    />
+    <property
+        name="residCepUsu"
+        type="java.lang.String"
+        column="RESID_CEP_USU"
+        length="8"
+    />
+    <property
+        name="dataNascimentoUsu"
+        type="java.sql.Timestamp"
+        column="DATA_NASCIMENTO_USU"
+        length="7"
+    />
+    <property
+        name="email1Usu"
+        type="java.lang.String"
+        column="EMAIL1_USU"
+        length="50"
+    />
+    <property
+        name="residTelefoneUsu"
+        type="java.lang.String"
+        column="RESID_TELEFONE_USU"
+        length="10"
+    />
+<!--    <property-->
+<!--        name="idUsuarioUsu"-->
+<!--        type="java.lang.String"-->
+<!--        column="ID_USUARIO_USU"-->
+<!--        length="20"-->
+<!--    />-->
+    <property
+        name="residCidadeUsu"
+        type="java.lang.String"
+        column="RESID_CIDADE_USU"
+        length="40"
+    />
+    <property
+        name="indAtivoUsu"
+        type="java.lang.String"
+        column="IND_ATIVO_USU"
+        length="1"
+    />
+<!--    <property-->
+<!--        name="respostaLembreteUsu"-->
+<!--        type="java.lang.String"-->
+<!--        column="RESPOSTA_LEMBRETE_USU"-->
+<!--        length="30"-->
+<!--    />-->
+<!--    <property-->
+<!--        name="perguntaLembreteUsu"-->
+<!--        type="java.lang.String"-->
+<!--        column="PERGUNTA_LEMBRETE_USU"-->
+<!--        length="250"-->
+<!--    />-->
+    <property
+        name="indCompletoUsu"
+        type="java.lang.String"
+        column="IND_COMPLETO_USU"
+        length="1"
+    />
+    <property
+        name="dddFaxUsu"
+        type="java.lang.String"
+        column="DDD_FAX_USU"
+        length="3"
+    />
+    <property
+        name="dataUltAcessoUsu"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_ACESSO_USU"
+        length="7"
+    />
+    <property
+        name="comercEnderecoUsu"
+        type="java.lang.String"
+        column="COMERC_ENDERECO_USU"
+        length="50"
+    />
+    <property
+        name="comercCidadeUsu"
+        type="java.lang.String"
+        column="COMERC_CIDADE_USU"
+        length="40"
+    />
+    <property
+        name="comercCepUsu"
+        type="java.lang.String"
+        column="COMERC_CEP_USU"
+        length="8"
+    />
+    <property
+        name="comercBairroUsu"
+        type="java.lang.String"
+        column="COMERC_BAIRRO_USU"
+        length="40"
+    />
+    <property
+        name="comercComplementoUsu"
+        type="java.lang.String"
+        column="COMERC_COMPLEMENTO_USU"
+        length="40"
+    />
+    <property
+        name="comercTelefoneUsu"
+        type="java.lang.String"
+        column="COMERC_TELEFONE_USU"
+        length="10"
+    />
+    <property
+        name="comercDddUsu"
+        type="java.lang.String"
+        column="COMERC_DDD_USU"
+        length="3"
+    />
+    <property
+        name="email2Usu"
+        type="java.lang.String"
+        column="EMAIL2_USU"
+        length="50"
+    />
+    <property
+        name="indAutentSisOpUsu"
+        type="java.lang.String"
+        column="IND_AUTENT_SIS_OP_USU"
+        length="1"
+    />
+    <property
+        name="residRamalUsu"
+        type="java.lang.String"
+        column="RESID_RAMAL_USU"
+        length="6"
+    />
+    <property
+        name="comercRamalUsu"
+        type="java.lang.String"
+        column="COMERC_RAMAL_USU"
+        length="6"
+    />
+
+    <!-- Associations -->
+    
+    <many-to-one
+        name="sessionWS"
+        class="ecar.pojo.SessionWS"
+        not-null="false"
+        cascade="all">
+      
+        <column name="cod_ses" />
+    </many-to-one>
+    <!-- one-to-one 
+    	name="sessionWS" 
+    	class="ecar.pojo.SessionWS" 
+    	cascade="save-update,merge">
+    </one-to-one-->
+  
+    <!-- bi-directional many-to-one association to OrgaoOrg -->
+    <!--  Alterado -->
+    <set
+        name="orgaoOrgs"
+        lazy="false"
+		table="TB_USUARIO_ORGAO_USUORG"
+		cascade="save-update">
+        <key>
+            <column name="COD_USU"/>
+        </key>
+		<many-to-many
+			column="COD_ORG"
+            class="ecar.pojo.OrgaoOrg"
+        />
+    </set>
+
+    <!-- bi-directional many-to-one association to EntidadeEnt -->
+    <set
+        name="entidadeEnts"
+        lazy="false"
+		table="TB_USUARIO_ENTIDADE_USUENT"
+		cascade="save-update">
+        <key>
+            <column name="COD_USU"/>
+        </key>
+		<many-to-many
+			column="COD_ENT"
+            class="ecar.pojo.EntidadeEnt"
+        />
+    </set>
+
+    <!-- bi-directional many-to-one association to TipoEnderecoCorrTpec -->
+    <many-to-one
+        name="tipoEnderecoCorrTpec"
+        class="ecar.pojo.TipoEnderecoCorrTpec"
+        not-null="true"
+    >
+        <column name="COD_TPEC" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Uf -->
+    <many-to-one
+        name="ufByComercUfUsu"
+        class="ecar.pojo.Uf"
+        not-null="true"
+    >
+        <column name="COMERC_UF_USU" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Uf -->
+    <many-to-one
+        name="ufByResidUfUsu"
+        class="ecar.pojo.Uf"
+        not-null="true"
+    >
+        <column name="RESID_UF_USU" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to UsuarioAtributoUsua -->
+    <set
+        name="usuarioAtributoUsuas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UsuarioAtributoUsua"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstUsutpfuacIettutfa -->
+    <set
+        name="itemEstUsutpfuacIettutfas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstUsutpfuacIettutfa"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstUsutpfuacIettutfa -->
+    <set
+        name="itemEstUsutpfuacIettutfaManutencaos"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU_MANUTENCAO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstUsutpfuacIettutfa"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to PontoCriticoPtc -->
+    <set
+        name="pontoCriticoPtcs"
+        lazy="true"
+        inverse="true"
+		cascade="none" 
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PontoCriticoPtc"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to AcompReferenciaAref -->
+    <set
+        name="acompReferenciaArefsByCodUsuIncAref"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU_INC_AREF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompReferenciaAref"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompReferenciaAref -->
+    <set
+        name="acompReferenciaArefsByCodUsuUltManutAref"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU_ULT_MANUT_AREF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompReferenciaAref"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompRelatorioArel -->
+    <set
+        name="acompRelatorioArelsByUsuarioUsu"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRelatorioArel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AcompRelatorioArel -->
+    <set
+        name="acompRelatorioArelsByUsuarioUsuUltimaManutencao"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USUULTMANUT_AREL" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRelatorioArel"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to Log -->
+    <set
+        name="logs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.Log"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutUsuarioIettus -->
+    <set
+        name="itemEstrutUsuarioIettuses"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUsuarioIettus"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to SegmentoItemSgti -->
+    <set
+        name="segmentoItemSgtis"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SegmentoItemSgti"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to EfItemEstRealizadoEfier -->
+    <set
+        name="efItemEstRealizadoEfiers"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstRealizadoEfier"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ApontamentoApt -->
+    <set
+        name="apontamentoApts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ApontamentoApt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to EstruturaEtt -->
+    <set
+        name="estruturaEtts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstruturaEtt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIettsByCodUsuUltManutIett"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU_ULT_MANUT_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIettsByCodUsuIncIett"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU_INC_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to RegControleAcessoRca -->
+    <set
+        name="regControleAcessoRcas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.RegControleAcessoRca"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to SegmentoCategoriaSgtc -->
+    <set
+        name="segmentoCategoriaSgtcs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SegmentoCategoriaSgtc"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to SegmentoSgt -->
+    <set
+        name="segmentoSgts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SegmentoSgt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutMarcadorIettm -->
+    <set
+        name="itemEstrutMarcadorIettms"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutMarcadorIettm"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutUploadIettup -->
+    <set
+        name="itemEstrutUploadIettups"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUploadIettup"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutUploadIettup -->
+    <set
+        name="itemEstrutUploadIettupsUsuManutencao"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU_MANUTENCAO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUploadIettup"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AgendaAge -->
+    <set
+        name="agendaAges"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AgendaAge"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to UnidadeOrcamentariaUO -->
+    <set
+        name="unidadeOrcamentariaUO"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UnidadeOrcamentariaUO"
+        />
+    </set>
+    
+    <!-- Igor - demandas regionais -->
+    <!-- bi-directional one-to-many association to TbRegDemandaRegd -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="regDemandaRegdsByCodUsuInclusaoRegd">
+      	<key>
+        	<column name="COD_USU_INCLUSAO_REGD"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.RegDemandaRegd"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to TbItemEstruturarevisaoIettrev -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstruturaRevisaoIettRevs">
+      <key>
+        <column name="cod_usuinc_iettrev"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturarevisaoIettrev"/>
+    </set>    
+    
+    <!-- bi-directional one-to-many association to TbIettUsutpfuacrevIettutfar -->
+    <set cascade="none" inverse="true" lazy="true" name="iettUsutpfuacrevIettutfars">
+      <key>
+        <column name="cod_usu"/>
+      </key>
+      <one-to-many class="ecar.pojo.IettUsutpfuacrevIettutfar"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to ItemEstrutAcaoIetta -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrutAcaoIettas">
+      <key>
+        <column name="cod_usu"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrutAcaoIetta"/>
+    </set>    
+
+    <!-- bi-directional one-to-many association to TbItemEstruturaSisAtributoIettSatb -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstruturaSisAtributoIettSatbs">
+      <key>
+        <column name="cod_usu_manutencao"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturaSisAtributoIettSatb"/>
+    </set>
+
+    <set cascade="none" inverse="true" lazy="true" name="ImportacaoImps">
+      <key>
+        <column name="COD_USU_IMP"/>
+      </key>
+      <one-to-many class="ecar.pojo.ImportacaoImp"/>
+    </set>    
+    
+    <set cascade="none" inverse="true" lazy="true" name="contasRejeitadasCrejs">
+      <key>
+        <column name="COD_USU"/>
+      </key>
+      <one-to-many class="ecar.pojo.ContasRejeitadasCrej"/>
+    </set>      
+    
+
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrutAcaoIettaUsuManuts">
+      <key>
+        <column name="cod_usu_manutencao"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrutAcaoIetta"/>
+    </set> 
+
+   
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoMaster -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoMasters">
+      <key>
+        <column name="COD_USU"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoMaster"/>
+    </set>    
+
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHincs">
+      <key>
+        <column name="COD_USU_INC_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>   
+    
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHmanuts">
+      <key>
+        <column name="COD_USU_ULT_MANUT_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>  
+    
+    <!-- bi-directional one-to-many association to HistoricoIettaH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettaHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettaH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoIettaH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettaHusus">
+      <key>
+        <column name="COD_USU"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettaH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoIettbH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettbHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettbH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettcH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettcHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettcH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIetteH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIetteHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIetteH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoIettfH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettfHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettfH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoIettlH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettlHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettlH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettrH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettrHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettrH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettupH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettupHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettupH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettupH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettupHusus">
+      <key>
+        <column name="COD_USU"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettupH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettusH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettusHs">
+      <key>
+        <column name="COD_USU"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettusH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoIettrH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettutfaHmanuts">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettutfaH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoIettrH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettutfaHs">
+      <key>
+        <column name="COD_USU"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettutfaH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoEfiecH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiecHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiecH"/>
+    </set>    
+
+    <!-- bi-directional one-to-many association to HistoricoEfieftH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfieftHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfieftH"/>
+    </set>    
+    
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiepHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiepH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoEfierH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfierHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfierH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoEfierH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfierHusus">
+      <key>
+        <column name="COD_USU"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfierH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoEfierH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettSatbHs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettSatbH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstrutUsuarioIettus -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrutUsuarioIettusManuts">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrutUsuarioIettus"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstrutCriterioIettcs -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrutCriterioIettcs">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrutCriterioIettc"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstrutEntidadeIette -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrutEntidadeIette">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrutEntidadeIette"/>
+    </set>    
+    
+    <!-- bi-directional one-to-many association to ItemEstrtBenefIettb -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrtBenefIettb">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrtBenefIettb"/>
+    </set>     
+    
+    <!-- bi-directional one-to-many association to ItemEstrutLocalIettl -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrutLocalIettl">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrutLocalIettl"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstrtIndResulIettr -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstrtIndResulIettr">
+      <key>
+        <column name="COD_USU_MANUTENCAO"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstrtIndResulIettr"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to Email -->
+    <set
+        name="emailsRecebidos"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.Email"
+        />
+    </set>
+    
+    <set
+        name="perfilIntercambioDadosPflids"
+        lazy="true"
+        inverse="true"
+		cascade="none">
+        <key>
+            <column name="cod_usu_imp" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.intercambioDados.PerfilIntercambioDadosPflid"
+        />
+    </set>
+    
+    
+</class>
+</hibernate-mapping>

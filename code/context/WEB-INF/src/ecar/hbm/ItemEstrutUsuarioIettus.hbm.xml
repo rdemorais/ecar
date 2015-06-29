@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrutUsuarioIettus" 
+    table="TB_ITEM_ESTRUT_USUARIO_IETTUS"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettus"
+        type="java.lang.Long"
+        column="COD_IETTUS"
+    >
+        <generator class="increment" />
+    </id>  
+    
+    <property
+        name="codTpPermIettus"
+        type="java.lang.String"
+        column="COD_TP_PERM_IETTUS"
+        length="1"
+    />
+    <property
+        name="indLeituraIettus"
+        type="java.lang.String"
+        column="IND_LEITURA_IETTUS"
+        length="1"
+    />
+    <property
+        name="indExcluirIettus"
+        type="java.lang.String"
+        column="IND_EXCLUIR_IETTUS"
+        length="1"
+    />
+    <property
+        name="indEdicaoIettus"
+        type="java.lang.String"
+        column="IND_EDICAO_IETTUS"
+        length="1"
+    />
+    <property
+        name="indAtivMonitIettus"
+        type="java.lang.String"
+        column="IND_ATIV_MONIT_IETTUS"
+        length="1"
+    />
+    <property
+        name="indDesatMonitIettus"
+        type="java.lang.String"
+        column="IND_DESAT_MONIT_IETTUS"
+        length="1"
+    />
+    <property
+        name="indBloqPlanIettus"
+        type="java.lang.String"
+        column="IND_BLOQ_PLAN_IETTUS"
+        length="1"
+    />    
+    <property
+        name="indDesblPlanIettus"
+        type="java.lang.String"
+        column="IND_DESBL_PLAN_IETTUS"
+        length="1"
+    />    
+    <property
+        name="indInfAndamentoIettus"
+        type="java.lang.String"
+        column="IND_INF_ANDAMENTO_IETTUS"
+        length="1"
+    />    
+    <property
+        name="indEmitePosIettus"
+        type="java.lang.String"
+        column="IND_EMITE_POS_IETTUS"
+        length="1"
+    />        
+    <property
+        name="indProxNivelIettus"
+        type="java.lang.String"
+        column="IND_PROX_NIVEL_IETTUS"
+        length="1"
+    />        
+    <property
+        name="dataInclusaoIettus"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTUS"
+        length="7"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+    <property
+        name="indLeituraParecerIettus"
+        type="java.lang.String"
+        column="IND_LEITURA_PARECER_IETTUS"
+        length="1"
+    />
+    
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU" />
+	</many-to-one>
+	
+	<many-to-one
+        name="itemEstruturaIettOrigem"
+	    class="ecar.pojo.ItemEstruturaIett"
+	>
+    	<column name="COD_IETT_ORIG" />
+	</many-to-one>
+	
+	<many-to-one
+        name="sisAtributoSatb"
+	    class="ecar.pojo.SisAtributoSatb"
+	>
+    	<column name="COD_ATB" />
+	</many-to-one>
+
+	<many-to-one
+        name="tipoFuncAcompTpfa"
+	    class="ecar.pojo.TipoFuncAcompTpfa"
+	>
+    	<column name="COD_TPFA" />
+	</many-to-one>
+	
+	<!-- Mantis #2156 -->
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>
+	<!-- Mantis #2156 -->
+		
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

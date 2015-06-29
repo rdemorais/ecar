@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+  <class 
+  	name="ecar.pojo.ItemEstrtIndResulCorIettrcor" 
+  	table="tb_iettindresul_cor_iettrcor"
+    lazy="false"
+  	>
+   	<composite-id 
+   		class="ecar.pojo.ItemEstrtIndResulCorIettrcorPK" 
+   		name="id">
+      	<key-property 
+	      	column="COD_IETTIR" 
+	      	length="10" 
+	      	name="codIettir" 
+	      	type="java.lang.Long"/>
+      	<key-property 
+	      	column="COD_COR" 
+	      	length="10" 
+	      	name="codCor" 
+	      	type="java.lang.Long"/>
+    </composite-id>
+    <property 
+    	name="frequenciaEnvioEmailIettrcor" 
+    	type="java.lang.Integer"
+    	length="7"
+      	column="frequencia_envio_email_iettrcor"/>
+      	
+    <property 
+    	name="valorPrimEmailIettrcor" 
+    	type="java.math.BigDecimal"
+    	length="7"
+      	column="valor_prim_email_iettrcor"/>
+
+    <property 
+    	name="indAtivoEnvioEmailIettrcor" 
+    	type="java.lang.String"
+    	length="1" 
+      	column="ind_ativo_envio_email_iettrcor"/>
+      
+    <property 
+    	name="indMenorValorIettrcor" 
+    	type="java.lang.String"
+    	length="1" 
+      	column="ind_menor_valor_iettrcor"/>
+    
+    <property 
+    	name="indMaiorValorIettrcor" 
+    	type="java.lang.String"
+    	length="1" 
+      	column="ind_maior_valor_iettrcor"/>
+    
+    <property 
+    	name="sequenciaIettrcor" 
+    	type="java.lang.Integer"
+    	length="7"
+      	column="sequencia_iettrcor"/>
+    
+   <many-to-one 
+    	class="ecar.pojo.ItemEstrtIndResulIettr" 
+    	insert="false"
+      	name="itemEstrtIndResulIettr" 
+      	update="false">
+      	<column name="cod_iettir"/>
+    </many-to-one>
+    <many-to-one 
+    	class="ecar.pojo.Cor" 
+    	insert="false" 
+    	name="cor" 
+    	update="false">
+        <column name="cod_cor"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

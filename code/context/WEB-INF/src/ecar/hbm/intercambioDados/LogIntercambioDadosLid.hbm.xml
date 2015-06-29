@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.intercambioDados.LogIntercambioDadosLid" 
+    table="tb_log_intercambio_dados_logid"
+    lazy="false"
+    >   
+   <id
+        name="codLid"
+        type="java.lang.Long"
+        column="cod_lid"
+    >
+        <generator class="sequence" >
+        	<param name="sequence">tb_log_intercambio_dados_logid_cod_lid_seq</param>
+        </generator>
+    </id>
+
+    <property
+        name="dataHoraProcessamentoLid"
+        type="java.sql.Timestamp"
+        column="data_hora_processamento_lid"
+        not-null="true"
+    />
+    
+    <property
+        name="indSituacaoProcessamentoLid"
+        type="java.lang.String"
+        column="ind_situacao_processamento_lid"
+        length="1"
+    />
+
+	<!-- one-to-one
+        name="perfilLog"
+        class="ecar.pojo.intercambioDados.PerfilIntercambioDadosLogPflogid"
+        not-null="false">
+      
+        <column name="cod_pflogid" />
+    </one-to-one-->
+    
+    <many-to-one
+        name="perfilLog"
+        class="ecar.pojo.intercambioDados.PerfilIntercambioDadosLogPflogid"
+        not-null="false" cascade="save-update"
+       >
+        <column name="cod_pflogid" />
+    </many-to-one>
+    
+    <many-to-one
+        name="dadosTecnologia"
+        class="ecar.pojo.intercambioDados.DadosTecnlogiaLogIntercambioDadosLogdtid"
+         not-null="false" cascade="save-update"    
+        >
+        <column name="cod_logdtid" />
+    </many-to-one>
+       	
+	<property
+        name="conteudoLid"
+        type="java.lang.String"
+        column="conteudo_lid"
+        not-null="true"
+    />
+
+
+	<property
+        name="descricaoErroComunicacaoLid"
+        type="java.lang.String"
+        column="desc_erro_comunicacao_lid"
+        length="500"
+    />
+
+
+	<many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="false"
+       >
+        <column name="cod_usu" />
+    </many-to-one>
+    
+    <property
+        name="quantidadeRegistrosProcessadosLid"
+        type="java.lang.Long"
+        column="quantidade_registros_processados_lid"
+        not-null="true"
+    />
+    
+    <property
+        name="situacaoLogLid"
+        type="java.lang.String"
+        column="situcao_lid"
+        not-null="true"
+        length="1"
+    />
+        
+        <set name="entidadesLog" inverse="true" cascade="save-update">
+        <key column="cod_lid"/>
+        <one-to-many class="ecar.pojo.intercambioDados.EntidadeLogIntercambioDadosEtlogid"/>
+    </set>
+    
+    
+</class>
+</hibernate-mapping>

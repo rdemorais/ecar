@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SegmentoItemSgti" 
+    table="TB_SEGMENTO_ITEM_SGTI"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSgti"
+        type="java.lang.Long"
+        column="COD_SGTI"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="legendaImag1Sgti"
+        type="java.lang.String"
+        column="LEGENDA_IMAG1_SGTI"
+        length="20"
+    />
+    <property
+        name="imagem1Stgi"
+        type="java.lang.String"
+        column="IMAGEM1_STGI"
+        length="100"
+    />
+    <property
+        name="integraSgti"
+        type="java.lang.String"
+        column="INTEGRA_SGTI"
+        length="4000"
+    />
+    <property
+        name="linhaApoioSgti"
+        type="java.lang.String"
+        column="LINHA_APOIO_SGTI"
+        length="2000"
+    />
+    <property
+        name="tituloSgti"
+        type="java.lang.String"
+        column="TITULO_SGTI"
+        length="2000"
+    />
+    <property
+        name="dataInclusaoSgti"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_SGTI"
+        length="7"
+    />
+    <property
+        name="indSuperDestaqueSgti"
+        type="java.lang.String"
+        column="IND_SUPER_DESTAQUE_SGTI"
+        length="1"
+    />
+    <property
+        name="indDestaqueSgti"
+        type="java.lang.String"
+        column="IND_DESTAQUE_SGTI"
+        length="1"
+    />
+    <property
+        name="indUtilizTpAcessoSgti"
+        type="java.lang.String"
+        column="IND_UTILIZ_TP_ACESSO_SGTI"
+        length="1"
+    />
+    <property
+        name="dataFimValidadeSgti"
+        type="java.sql.Timestamp"
+        column="DATA_FIM_VALIDADE_SGTI"
+        length="7"
+    />
+    <property
+        name="dataIniValidadeSgti"
+        type="java.sql.Timestamp"
+        column="DATA_INI_VALIDADE_SGTI"
+        length="7"
+    />
+    <property
+        name="palavrasChavesSgti"
+        type="java.lang.String"
+        column="PALAVRAS_CHAVES_SGTI"
+        length="2000"
+    />
+    <property
+        name="urlLinkSgti"
+        type="java.lang.String"
+        column="URL_LINK_SGTI"
+        length="100"
+    />
+    <property
+        name="anexoLegendaSgti"
+        type="java.lang.String"
+        column="ANEXO_LEGENDA_SGTI"
+        length="20"
+    />
+    <property
+        name="anexoEnderecoSgti"
+        type="java.lang.String"
+        column="ANEXO_ENDERECO_SGTI"
+        length="100"
+    />
+    <property
+        name="indAtivoSgti"
+        type="java.lang.String"
+        column="IND_ATIVO_SGTI"
+        length="1"
+    />
+    <property
+        name="legendaImagCapaSgti"
+        type="java.lang.String"
+        column="LEGENDA_IMAG_CAPA_SGTI"
+        length="20"
+    />
+    <property
+        name="imagemCapaSgti"
+        type="java.lang.String"
+        column="IMAGEM_CAPA_SGTI"
+        length="100"
+    />
+    <property
+        name="legendaImag3Sgti"
+        type="java.lang.String"
+        column="LEGENDA_IMAG3_SGTI"
+        length="20"
+    />
+    <property
+        name="imagem3Sgti"
+        type="java.lang.String"
+        column="IMAGEM3_SGTI"
+        length="100"
+    />
+    <property
+        name="legendaImag2Sgti"
+        type="java.lang.String"
+        column="LEGENDA_IMAG2_SGTI"
+        length="20"
+    />
+    <property
+        name="imagem2Sgti"
+        type="java.lang.String"
+        column="IMAGEM2_SGTI"
+        length="100"
+    />
+    <property
+        name="dataItemSgti"
+        type="java.sql.Timestamp"
+        column="DATA_ITEM_SGTI"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SegmentoItemFonteSgtif -->
+    <many-to-one
+        name="segmentoItemFonteSgtif"
+        class="ecar.pojo.SegmentoItemFonteSgtif"
+        not-null="true"
+    >
+        <column name="COD_SGTIF" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SegmentoCategoriaSgtc -->
+    <many-to-one
+        name="segmentoCategoriaSgtc"
+        class="ecar.pojo.SegmentoCategoriaSgtc"
+        not-null="true"
+    >
+        <column name="COD_SGTC" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SegmentoItemLeiauteSgtil -->
+    <many-to-one
+        name="segmentoItemLeiauteSgtil"
+        class="ecar.pojo.SegmentoItemLeiauteSgtil"
+        not-null="true"
+    >
+        <column name="COD_SGTIL" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SegmentoSgt -->
+    <many-to-one
+        name="segmentoSgt"
+        class="ecar.pojo.SegmentoSgt"
+        not-null="true"
+    >
+        <column name="COD_SGT" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to ItemEstrutVinculoIettv -->
+    <set
+        name="itemEstrutVinculoIettvs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGTI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutVinculoIettv"
+        />
+    </set>
+    
+    <set
+        name="segmentoItemTpacesSgtitas"
+		table="TB_SEGMENTO_ITEM_TPACES_SGTITA"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SGTI" />
+        </key>
+		<many-to-many
+			column="COD_SATB"
+            class="ecar.pojo.SisAtributoSatb"
+        />
+    </set>
+    
+        
+    <!-- bi-directional one-to-many association to DestaqueItemRelDtqir -->
+    <set
+        name="destaqueItemRelDtqirs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGTI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.DestaqueItemRelDtqir"
+        />
+    </set>
+    
+    <set
+        name="segmentoSisAtribSgtsas"
+		table="TB_SEGMENTO_SIS_ATRIB_SGTSA"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SGTI" />
+        </key>
+		<many-to-many
+			column="COD_SATB"
+            class="ecar.pojo.SisAtributoSatb"
+        />
+    </set>
+    
+    <set
+        name="segmentoItemRelacSgtirsByCodSgtiRelac"
+		table="TB_SEGMENTO_ITEM_RELAC_SGTIR"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SGTI_RELAC" />
+        </key>
+		<many-to-many
+			column="COD_SGTI_ORIGEM"
+            class="ecar.pojo.SegmentoItemSgti"
+        />
+    </set>
+
+    <set
+        name="segmentoItemRelacSgtirsByCodSgtiOrigem"
+		table="TB_SEGMENTO_ITEM_RELAC_SGTIR"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SGTI_ORIGEM" />
+        </key>
+		<many-to-many
+			column="COD_SGTI_RELAC"
+            class="ecar.pojo.SegmentoItemSgti"
+        />
+    </set>
+  
+</class>
+</hibernate-mapping>

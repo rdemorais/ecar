@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.RegDemandaAnexoRegdan" 
+  	table="TB_REG_DEMANDA_ANEXO"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_ANEXO" 
+    	name="cod" 
+    	type="java.lang.Long">
+      	<generator class="increment"/>
+    </id>
+    <property 
+    	column="src_anexo" 
+    	length="100" 
+    	name="srcAnexo" 
+    	type="java.lang.String"
+    />    
+    <property
+        name="descricao"
+        type="java.lang.String"
+        column="dsc_anexo"
+        length="2000"
+    /> 
+    <property 
+    	column="dt_inclusao" 
+    	length="7" 
+    	name="dataInclusao" 
+    	type="java.sql.Date"/>
+    <many-to-one 
+    	class="ecar.pojo.RegDemandaRegd" 
+    	name="regDemanda" 
+    	not-null="true">
+      	<column name="COD_REGD"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

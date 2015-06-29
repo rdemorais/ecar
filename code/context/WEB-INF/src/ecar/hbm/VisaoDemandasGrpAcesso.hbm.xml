@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+ <class name="ecar.pojo.VisaoDemandasGrpAcesso"  
+           table="TB_VISAO_DEMANDAS_GRP_ACESSO">    
+          <composite-id name="visaoDemandasGrpAcessoPk" 
+                      class="ecar.pojo.VisaoDemandasGrpAcessoPK">
+
+             <key-many-to-one name="sisAtributo" column="COD_SATB"
+                 class="ecar.pojo.SisAtributoSatb"/>
+             <key-many-to-one name="visao"
+                 column="COD_VISAO"
+                 class="ecar.pojo.VisaoDemandasVisDem"/>
+        </composite-id>        	
+    </class>
+</hibernate-mapping>

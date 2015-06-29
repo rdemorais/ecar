@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PaginaPgn" 
+    table="TB_PAGINA_PGN"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPgn"
+        type="java.lang.Long"
+        column="COD_PGN"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="qtdSubAreaPgn"
+        type="java.lang.Integer"
+        column="QTD_SUB_AREA_PGN"
+        length="4"
+    />
+    <property
+        name="descricaoMapaPgn"
+        type="java.lang.String"
+        column="DESCRICAO_MAPA_PGN"
+        length="2000"
+    />
+    <property
+        name="tituloMapaPgn"
+        type="java.lang.String"
+        column="TITULO_MAPA_PGN"
+        length="20"
+    />
+    <property
+        name="indMapaPgn"
+        type="java.lang.String"
+        column="IND_MAPA_PGN"
+        length="1"
+    />
+    <property
+        name="indLoginPgn"
+        type="java.lang.String"
+        column="IND_LOGIN_PGN"
+        length="1"
+    />
+    <property
+        name="parametrosPgn"
+        type="java.lang.String"
+        column="PARAMETROS_PGN"
+        length="20"
+    />
+    <property
+        name="indHomePgn"
+        type="java.lang.String"
+        column="IND_HOME_PGN"
+        length="1"
+    />
+    <property
+        name="urlPgn"
+        type="java.lang.String"
+        column="URL_PGN"
+        length="100"
+    />
+    <property
+        name="tituloPgn"
+        type="java.lang.String"
+        column="TITULO_PGN"
+        length="2000"
+    />
+    <property
+        name="nomePgn"
+        type="java.lang.String"
+        column="NOME_PGN"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to IdiomaIdm -->
+    <many-to-one
+        name="idiomaIdm"
+        class="ecar.pojo.IdiomaIdm"
+        not-null="true"
+    >
+        <column name="COD_IDM" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PaginaPgn -->
+    <set
+        name="paginaPgns"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PGN_ANTERIOR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PaginaPgn"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PaginaPgn -->
+    <many-to-one
+        name="paginaPgn"
+        class="ecar.pojo.PaginaPgn"
+        not-null="true"
+    >
+        <column name="COD_PGN_ANTERIOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PaginaAreaSitePa -->
+    <many-to-one
+        name="paginaAreaSitePa"
+        class="ecar.pojo.PaginaAreaSitePa"
+        not-null="true"
+    >
+        <column name="COD_PAS" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

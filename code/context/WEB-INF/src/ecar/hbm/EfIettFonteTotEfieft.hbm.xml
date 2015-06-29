@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EfIettFonteTotEfieft" 
+    table="TB_EF_IETT_FONTE_TOT_EFIEFT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.EfIettFonteTotEfieftPK">
+        <key-property 
+            name="codIett" 
+            column="COD_IETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codFonr" 
+            column="COD_FONR" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="valorEfieft"
+        type="java.math.BigDecimal"
+        column="VALOR_EFIEFT"
+        length="14"
+    />
+    <property
+        name="dataValorEfieft"
+        type="java.sql.Timestamp"
+        column="DATA_VALOR_EFIEFT"
+        length="7"
+    />
+    <property
+        name="indAtivoEfieft"
+        type="java.lang.String"
+        column="IND_ATIVO_EFIEFT"
+        length="1"
+    />
+    <property
+        name="dataInclusaoEfieft"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_EFIEFT"
+        length="7"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to FonteRecursoFonr -->
+    <many-to-one
+        name="fonteRecursoFonr"
+	    class="ecar.pojo.FonteRecursoFonr"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_FONR" />
+	</many-to-one>
+	
+
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

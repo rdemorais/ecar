@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ExercicioExe" 
+    table="TB_EXERCICIO_EXE"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codExe"
+        type="java.lang.Long"
+        column="COD_EXE"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataFinalExe"
+        type="java.sql.Timestamp"
+        column="DATA_FINAL_EXE"
+        length="7"
+    />
+    <property
+        name="dataInicialExe"
+        type="java.sql.Timestamp"
+        column="DATA_INICIAL_EXE"
+        length="7"
+    />
+    <property
+        name="descricaoExe"
+        type="java.lang.String"
+        column="DESCRICAO_EXE"
+        length="20"
+    />
+
+    <!-- Associations -->
+    
+	<many-to-one
+        name="periodoExercicioPerExe"
+	    class="ecar.pojo.PeriodoExercicioPerExe"
+	    update="true"
+	    insert="true"
+	>
+    	<column name="COD_PEREXE" />
+	</many-to-one>    
+  
+    <!-- bi-directional one-to-many association to EfItemEstContaEfiec -->
+    <set
+        name="efItemEstContaEfiecs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_EXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstContaEfiec"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to EfItemEstPrevisaoEfiep -->
+    <set
+        name="efItemEstPrevisaoEfieps"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_EXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EfItemEstPrevisaoEfiep"
+        />
+    </set>
+    
+    <!-- Mantis 0010128 - Previsto não é mais informado por exercício.  -->
+    <!-- bi-directional one-to-many association to ItemEstrutFisicoIettf -->
+    <!-- 
+    <set
+        name="itemEstrutFisicoIettfs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_EXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutFisicoIettf"
+        />
+    </set>
+     -->
+     
+    <!-- bi-directional one-to-many association to AcompReferenciaAref -->
+	<!-- garten em 24/02/2005 -->
+    <set
+        name="acompReferenciaArefs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_EXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompReferenciaAref"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbItemEstFisicoRevIettfr -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstFisicoRevIettfrs">
+      <key>
+        <column name="cod_exe"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstFisicoRevIettfr"/>
+    </set>	
+
+
+    <!-- bi-directional one-to-many association to TbEfIettPrevisaoRevEfiepr -->
+    <set cascade="none" inverse="true" lazy="true" name="efIettPrevisaoRevEfieprs">
+      <key>
+        <column name="cod_exe"/>
+      </key>
+      <one-to-many class="ecar.pojo.EfIettPrevisaoRevEfiepr"/>
+    </set>
+
+   <!-- bi-directional one-to-many association to ItemEstrtIndResulLocalIettirl -->
+    <set
+        name="itemEstrtIndResulLocalIettirls"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_EXE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtIndResulLocalIettirl"
+        />
+    </set>	
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettfH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettfHs">
+      <key>
+        <column name="COD_EXE"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettfH"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to HistoricoEfiecH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiecHs">
+      <key>
+        <column name="COD_EXE"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiecH"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to HistoricoEfiepH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoEfiepHs">
+      <key>
+        <column name="COD_EXE"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoEfiepH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+	
+</class>
+</hibernate-mapping>

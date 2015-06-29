@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.EnderecoEnd" 
+  	table="TB_ENDERECO_END"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_END" 
+    	name="codEnd" 
+    	type="java.lang.Long">
+      	<generator class="increment"/>
+    </id>
+    <property column="ENDERECO_END" length="50" name="enderecoEnd" type="java.lang.String"/>
+    <property column="COMPLEMENTO_END" length="40" name="complementoEnd" type="java.lang.String"/>
+    <property column="BAIRRO_END" length="40" name="bairroEnd" type="java.lang.String"/>
+    <property column="CIDADE_END" length="40" name="cidadeEnd" type="java.lang.String"/>
+    <property column="CEP_END" length="8" name="cepEnd" type="java.lang.Integer"/>
+    <property column="ID_END" length="30" name="idEnd" type="java.lang.String"/>
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to TbEntidadeEnderecoEnen -->
+    <!--  Alterado -->
+ 	<many-to-one 
+    	class="ecar.pojo.EntidadeEnt"
+    	name="entidadeEnt" 
+    	not-null="true">
+      	<column name="COD_ENT"/>
+    </many-to-one> 
+    
+    <!-- bi-directional many-to-one association to TbTipoEnderecoTend -->
+    <many-to-one 
+    	class="ecar.pojo.TipoEnderecoTend"
+     	name="tipoEnderecoTend" 
+     	not-null="true">
+      <column name="COD_TPEND"/>
+    </many-to-one>
+
+    <!-- bi-directional many-to-one association to TbUf -->
+    <many-to-one 
+    	class="ecar.pojo.Uf"
+     	name="uf" 
+     	not-null="true">
+      <column name="COD_UF"/>
+    </many-to-one>
+  </class>    
+</hibernate-mapping>

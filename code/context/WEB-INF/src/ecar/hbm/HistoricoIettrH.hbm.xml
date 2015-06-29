@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Rogerio, Gabriel (28/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoIettrH" 
+    table="TB_HISTORICO_IETTRH"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettrH"
+        type="java.lang.Long"
+        column="COD_IETTRH"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="unidMedidaIettr"
+        type="java.lang.String"
+        column="UNID_MEDIDA_IETTR"
+        length="20"
+    />
+    <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="codUnidMedidaIettr"
+        class="ecar.pojo.SisAtributoSatb"
+        not-null="true"
+    >
+        <column name="COD_UNID_MEDIDA" />
+    </many-to-one>
+    
+    <property
+        name="descricaoIettir"
+        type="java.lang.String"
+        column="DESCRICAO_IETTIR"
+        length="2000"
+    />
+    <property
+        name="nomeIettir"
+        type="java.lang.String"
+        column="NOME_IETTIR"
+        length="30"
+    />
+    <property
+        name="indProjecaoIettr"
+        type="java.lang.String"
+        column="IND_PROJECAO_IETTR"
+        length="1"
+    />
+    <property
+        name="indAcumulavelIettr"
+        type="java.lang.String"
+        column="IND_ACUMULAVEL_IETTR"
+        length="1"
+    />
+    <property
+        name="indPublicoIettr"
+        type="java.lang.String"
+        column="IND_PUBLICO_IETTR"
+        length="1"
+    />
+    <property
+        name="indTipoQtde"
+        type="java.lang.String"
+        column="IND_TIPOQTDE"
+        length="1"
+    />
+    <property
+        name="indValorFinalIettr"
+        type="java.lang.String"
+        column="IND_VALORFINAL_IETTR"
+        length="1"
+    />
+    <property
+        name="indRealPorLocal"
+        type="java.lang.String"
+        column="IND_REAL_POR_LOCAL"
+        length="1"
+    />
+    
+    <property
+        name="indPrevPorLocal"
+        type="java.lang.String"
+        column="IND_PREV_POR_LOCAL"
+        length="1"
+    />    
+    
+    <property
+        name="fonteIettr"
+        type="java.lang.String"
+        column="FONTE_IETTR"
+        length="1000"
+    />
+    <property
+        name="formulaIettr"
+        type="java.lang.String"
+        column="FORMULA_IETTR"
+        length="2000"
+    />
+    <property
+        name="indiceMaisRecenteIettr"
+        type="java.lang.Double"
+        column="INDICE_MAIS_RECENTE_IETTR"
+        length="14"
+    />
+    <property
+        name="dataApuracaoIettr"
+        type="java.util.Date"
+        column="DATA_APURACAO_IETTR"
+        length="7"
+    />
+    
+    <property
+        name="dataUltManutencao"
+        type="java.util.Date"
+        column="DATA_ULT_MANUTENCAO"
+        length="7"
+    />   
+    
+    <!-- Associations -->
+    
+   <many-to-one
+        name="usuarioUsuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>    
+  
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to AcompRealFisicoArf -->
+    <set
+        name="acompRealFisicoArfs"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETTIR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRealFisicoArf"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrutFisicoIettf -->
+    <set
+        name="itemEstrutFisicoIettfs"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETTIR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutFisicoIettf"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to IettIndResulRevIettrr -->
+    <set
+        name="iettIndResulRevIettrrs"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETTIR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.IettIndResulRevIettrr"
+        />
+    </set>
+    
+   <!-- bi-directional one-to-many association to ItemEstrtIndResulLocalIettirl -->
+    <set
+        name="itemEstrtIndResulLocalIettirls"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETTIR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtIndResulLocalIettirl"
+        />
+    </set>
+    
+    <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="sisAtributoSatb"
+        class="ecar.pojo.SisAtributoSatb"
+        
+    >
+        <column name="COD_SATB" />
+    </many-to-one>
+
+    <many-to-one
+        name="periodicidadePrdc"
+        class="ecar.pojo.PeriodicidadePrdc"
+        
+    >
+        <column name="COD_PRDC" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to HistoricoIettfH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettfHs">
+      <key>
+        <column name="COD_IETTIR"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettfH"/>
+    </set>
+    <!-- bi-directional many-to-one association to historico_master_mah -->
+    <many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	>
+    	<column name="COD_MAH" />
+	</many-to-one> 
+</class>
+</hibernate-mapping>

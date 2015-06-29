@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.EfItemEstRealizadoEfier" 
+    table="TB_EF_ITEM_EST_REALIZADO_EFIER"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codEfier"
+        type="java.lang.Long"
+        column="COD_EFIER"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataInclusaoEfier"
+        type="java.util.Date"
+        column="DATA_INCLUSAO_EFIER"
+        length="7"
+    />
+    <property
+        name="indManualEfier"
+        type="java.lang.String"
+        column="IND_MANUAL_EFIER"
+        length="1"
+    />
+    <property
+        name="valor1Efier"
+        type="java.lang.Double"
+        column="VALOR_1_EFIER"
+        length="14"
+    />
+    <property
+        name="valor2Efier"
+        type="java.lang.Double"
+        column="VALOR_2_EFIER"
+        length="14"
+    />
+    <property
+        name="valor3Efier"
+        type="java.lang.Double"
+        column="VALOR_3_EFIER"
+        length="14"
+    />
+    <property
+        name="valor4Efier"
+        type="java.lang.Double"
+        column="VALOR_4_EFIER"
+        length="14"
+    />
+    <property
+        name="valor5Efier"
+        type="java.lang.Double"
+        column="VALOR_5_EFIER"
+        length="14"
+    />
+    <property
+        name="valor6Efier"
+        type="java.lang.Double"
+        column="VALOR_6_EFIER"
+        length="14"
+    />
+    <property
+        name="contaSistemaOrcEfier"
+        type="java.lang.String"
+        column="CONTA_SISTEMA_ORC_EFIER"
+        length="255"
+    />
+    <property
+        name="anoReferenciaEfier"
+        type="java.lang.Long"
+        column="ANO_REFERENCIA_EFIER"
+        length="4"
+    />
+    <property
+        name="mesReferenciaEfier"
+        type="java.lang.Long"
+        column="MES_REFERENCIA_EFIER"
+        length="2"
+    />
+    
+    <property 
+    	column="DATA_HORA_INFO_EFIER" 
+    	length="7"
+      	name="dataHoraInfoEfier" 
+      	type="java.util.Date"/>
+    <property 
+    	column="IND_CONTABILIDADE_EFIER" 
+    	length="1"
+      	name="indContabilidadeEfier" 
+      	type="java.lang.String"/>
+      	
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+    
+
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+     
+    <many-to-one
+        name="importacaoImp"
+        class="ecar.pojo.ImportacaoImp"
+        not-null="false"
+    >
+        <column name="COD_IMP" />
+    </many-to-one>
+    
+    <many-to-one
+        name="configSisExecFinanCsefv"
+        class="ecar.pojo.ConfigSisExecFinanCsefv"
+        not-null="true"
+    >
+        <column name="COD_CSEFV" />
+    </many-to-one>
+    
+</class>
+</hibernate-mapping>

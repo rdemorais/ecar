@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="ecar.sinalizacao.Sinalizacao" table="tb_sinalizacao">
+		<id name="codSin" type="java.lang.Long" column="codsin">
+			<generator class="increment" />
+		</id>
+
+		<property name="identificacao" type="java.lang.String" column="identificacao" />
+
+		<property name="polaridade" type="java.lang.Boolean" column="polaridade" />
+
+		<!-- bi-directional one-to-many association to faixas -->
+		<set name="faixas" lazy="true" inverse="true" fetch="select">
+			<key>
+				<column name="codsin" />
+			</key>
+			<one-to-many class="ecar.sinalizacao.Faixa" />
+		</set>
+
+		<!-- bi-directional one-to-many association to faixas -->
+		<set name="itemEstrtIndResulIettrList" lazy="true" inverse="true" fetch="select">
+			<key>
+				<column name="codsin" />
+			</key>
+			<one-to-many class="ecar.pojo.ItemEstrtIndResulIettr" />
+		</set>
+	</class>
+</hibernate-mapping>

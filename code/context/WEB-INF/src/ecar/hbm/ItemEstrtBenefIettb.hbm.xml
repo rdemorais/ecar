@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrtBenefIettb" 
+    table="TB_ITEM_ESTRT_BENEF_IETTB"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.ItemEstrtBenefIettbPK">
+        <key-property 
+            name="codIett" 
+            column="COD_IETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codBnf" 
+            column="COD_BNF" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="dataUltManutencaoIettb"
+        type="java.util.Date"
+        column="DATA_ULT_MANUTENCAO_IETTB"
+        length="7"
+    />
+    <property
+        name="comentarioIettb"
+        type="java.lang.String"
+        column="COMENTARIO_IETTB"
+        length="2000"
+    />
+    <property
+        name="qtdPrevistaIettb"
+        type="java.math.BigDecimal"
+        column="QTD_PREVISTA_IETTB"
+        length="14"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to BeneficiarioBnf -->
+    <many-to-one
+        name="beneficiarioBnf"
+	    class="ecar.pojo.BeneficiarioBnf"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_BNF" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+   <many-to-one
+        name="usuarioUsuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    not-null="true"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one> 		
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

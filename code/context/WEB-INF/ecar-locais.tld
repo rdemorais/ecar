@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<taglib>
+     <tlibversion>1.0</tlibversion>
+     <jspversion>1.2</jspversion>
+     <shortname>ecarLocais</shortname>
+     <info>Tag referente aos locais de um item</info>
+     <uri>/WEB-INF/ecar-locais.tld</uri>
+     <display-name>ecar-locais</display-name>
+  <description>
+    Retorna locais de um item de estrutura.
+  </description>
+       
+     <tag>
+          <name>GridLocaisItem</name>
+          <tagclass>ecar.taglib.util.GridLocaisItemTag</tagclass>
+          <bodycontent>JSP</bodycontent>
+          <info>Locais de uma estrutura</info>
+          <attribute>
+	      		<name>codItemEstrutura</name>
+	      		<required>false</required>
+	      		<rtexprvalue>true</rtexprvalue>
+	      		<type>java.lang.String</type>
+		  </attribute>
+          <attribute>
+	      		<name>codItemIndicadorResultado</name>
+	      		<required>false</required>
+	      		<rtexprvalue>true</rtexprvalue>
+	      		<type>java.lang.String</type>
+		  </attribute>
+          <attribute>
+	      		<name>ano</name>
+	      		<required>false</required>
+	      		<rtexprvalue>true</rtexprvalue>
+	      		<type>java.lang.String</type>
+		  </attribute>
+          <attribute>
+	      		<name>nivelAbrangencia</name>
+	      		<required>false</required>
+	      		<rtexprvalue>true</rtexprvalue>
+	      		<type>java.lang.String</type>
+		  </attribute>
+		  <attribute>
+	      		<name>tipo</name>
+	      		<required>false</required>
+	      		<rtexprvalue>true</rtexprvalue>
+	      		<type>java.lang.String</type>
+		  </attribute>
+     </tag>
+</taglib>  

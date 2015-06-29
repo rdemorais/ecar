@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EstruturaAcessoEtta" 
+    table="TB_ESTRUTURA_ACESSO_ETTA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.EstruturaAcessoEttaPK">
+        <key-property 
+            name="codEtt" 
+            column="COD_ETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codAtb" 
+            column="COD_ATB" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="indIncItemEtta"
+        type="java.lang.String"
+        column="IND_INC_ITEM_ETTA"
+        length="1"
+    />
+
+    <property
+        name="indIncAcompMonitoradoEtta"
+        type="java.lang.String"
+        column="IND_INC_ACOMP_MONITORADO_ETTA"
+        length="1"
+    />
+	
+    <property
+        name="indIncAcompSecoutrEtta"
+        type="java.lang.String"
+        column="IND_INC_ACOMP_SECOUTR_ETTA"
+        length="1"
+    />
+
+    <property
+        name="indIncAcompSecpropEtta"
+        type="java.lang.String"
+        column="IND_INC_ACOMP_SECPROP_ETTA"
+        length="1"
+    />
+
+    <property
+        name="indLeiAcompSecoutrEtta"
+        type="java.lang.String"
+        column="IND_LEI_ACOMP_SECOUT_ETTA"
+        length="1"
+    />
+
+    <property
+        name="indLeiAcompSecpropEtta"
+        type="java.lang.String"
+        column="IND_LEI_ACOMP_SECPROP_ETTA"
+        length="1"
+    />
+
+    <property
+        name="indLeiAcompMoniProprEtta"
+        type="java.lang.String"
+        column="IND_LEI_ACOMP_MONI_PROPR_ETTA"
+        length="1"
+    />
+
+    <property
+        name="indLeiAcompMoniSecOutEtta"
+        type="java.lang.String"
+        column="IND_LEI_ACOMP_MONI_SECOUT_ETTA"
+        length="1"
+    />
+
+    <property
+        name="indLeiAcompMoniSecProEtta"
+        type="java.lang.String"
+        column="IND_LEI_ACOMP_MONI_SECPRO_ETTA"
+        length="1"
+    />
+
+    <property
+        name="indLeiAcompSuaResponsEtta"
+        type="java.lang.String"
+        column="IND_LEI_ACOMP_SUARESPONS_ETTA"
+        length="1"
+    />
+    
+    <property
+        name="indExibirHistoricoEtta"
+        type="java.lang.String"
+        column="IND_EXIBIR_HISTORICO_ETTA"
+        length="1"
+    />
+    
+    <property
+        name="indExibirImprimirEtta"
+        type="java.lang.String"
+        column="IND_EXIBIR_IMPRIMIR_ETTA"
+        length="1"
+    />
+    
+     <property
+        name="indExibirGerarArquivosEtta"
+        type="java.lang.String"
+        column="IND_EXIBIR_GERAR_ARQUIVOS_ETTA"
+        length="1"
+    />
+
+    <many-to-one
+        name="estruturaEtt"
+	    class="ecar.pojo.EstruturaEtt"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ETT" />
+	</many-to-one>
+	
+    <many-to-one
+        name="sisAtributoSatb"
+	    class="ecar.pojo.SisAtributoSatb"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ATB" />
+	</many-to-one>
+</class>
+</hibernate-mapping>

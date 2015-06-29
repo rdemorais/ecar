@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.FonteFon" 
+    table="TB_FONTE_FON"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codFon"
+        type="java.lang.Long"
+        column="COD_FON"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="codigoIdentFon"
+        type="java.lang.Long"
+        column="CODIGO_IDENT_FON"
+        length="10"
+    />
+    <property
+        name="nomeFon"
+        type="java.lang.String"
+        column="NOME_FON"
+        length="100"
+    />
+    <property
+        name="indAtivoFon"
+        type="java.lang.String"
+        column="IND_ATIVO_FON"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to EstruturaFuncaoEttf -->
+    <many-to-one
+        name="recursoRec"
+        class="ecar.pojo.RecursoRec"
+        not-null="true"
+    >
+        <column name="COD_REC" />
+    </many-to-one>
+
+    <!-- bi-directional one-to-many association to EfItemEstPrevisaoEfiep -->
+    <set cascade="none" inverse="true" lazy="true" name="efItemEstPrevisaoEfieps">
+      <key>
+        <column name="COD_FON"/>
+      </key>
+      <one-to-many class="ecar.pojo.EfItemEstPrevisaoEfiep"/>
+    </set>
+    
+ 
+</class>
+</hibernate-mapping>

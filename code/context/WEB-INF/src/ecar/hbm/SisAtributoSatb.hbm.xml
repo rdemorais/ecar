@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SisAtributoSatb" 
+    table="TB_SIS_ATRIBUTO_SATB"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSatb"
+        type="java.lang.Long"
+        column="COD_SATB"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataInclusaoSatb"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_SATB"
+        length="8"
+    />
+    <property
+        name="indAtivoSatb"
+        type="java.lang.String"
+        column="IND_ATIVO_SATB"
+        length="1"
+    />
+    <property
+        name="descricaoSatb"
+        type="java.lang.String"
+        column="DESCRICAO_SATB"
+        length="100"
+    />
+    <property
+        name="atribInfCompSatb"
+        type="java.lang.String"
+        column="ATRIB_INF_COMP_SATB"
+        length="2000"
+    />
+
+	<property
+        name="geral"
+        type="java.lang.Boolean"
+        column="GERAL_SATB"
+        length="1">
+    </property>
+
+	<property
+        name="periodico"
+        type="java.lang.Boolean"
+        column="PERIODICO_SATB"
+        length="1">
+    </property>
+
+	<property
+        name="mascara"
+        type="java.lang.String"
+        column="MASCARA_SATB"
+        length="40">
+    </property>
+        
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to UsuarioAtributoUsua -->
+    <set
+        name="usuarioAtributoUsuas"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UsuarioAtributoUsua"
+        />
+    </set>
+ 
+   <!-- bi-directional one-to-many association to SegmentoSgt -->
+    <set
+        name="segmentoTpAcessoSgttas"
+		table="TB_SEGMENTO_TP_ACESSO_SGTTA"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+		<many-to-many
+			column="COD_SGT"
+            class="ecar.pojo.SegmentoSgt"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstruturaNivelIettn -->
+    <set
+    	fetch="select"
+        name="itemEstruturaNivelIettns"
+        lazy="true"
+		table="TB_ITEM_ESTRUTURA_NIVEL_IETTN"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_ATB" />
+        </key>
+		<many-to-many
+			column="COD_IETT"
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstrutUsuarioIettus -->
+    <set
+        name="itemEstrutUsuarioIettuses"
+        lazy="true"
+        inverse="true"
+		cascade="none" 
+    >
+        <key>
+            <column name="COD_ATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUsuarioIettus"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to PontoCriticoPtc -->
+    <set
+        name="pontoCriticoPtcs"
+        lazy="true"
+        inverse="true"
+		cascade="none" 
+    >
+        <key>
+            <column name="COD_ATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PontoCriticoPtc"
+        />
+    </set>
+    
+        
+    <set
+        name="segmentoItemTpacesSgtitas"
+		table="TB_SEGMENTO_ITEM_TPACES_SGTITA"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+		<many-to-many
+			column="COD_SGTI"
+            class="ecar.pojo.SegmentoItemSgti"
+        />
+    </set>
+    <set
+        name="tipoAcompanhamentoTas"
+		table="tb_tipo_acomp_satb_tasatb"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+		<many-to-many
+			column="COD_TA"
+            class="ecar.pojo.TipoAcompanhamentoTa"
+        />
+    </set>
+    <set
+        name="segmentoCategTpAcessSgts"
+		table="TB_SEGMENTO_CATEG_TP_ACESS_SGT"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+		<many-to-many
+			column="COD_SGTC"
+            class="ecar.pojo.SegmentoCategoriaSgtc"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to SegmentoSgt -->
+    <set
+        name="segmentoSisAtribSgtsas"
+		table="TB_SEGMENTO_SIS_ATRIB_SGTSA"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+		<many-to-many
+			column="COD_SEGI"
+            class="ecar.pojo.SegmentoItemSgti"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to EstruturaAcessoEtta -->
+    <set
+        name="estruturaAcessoEttas"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_ATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EstruturaAcessoEtta"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgsByCodSacapa"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SATB_CAPA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgsByCodSapadrao"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SATB_PADRAO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSga"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA" />
+    </many-to-one>
+
+
+ <!-- bi-directional one-to-many association to TbLocAtributoLoca -->
+    <set
+        name="locAtributoLocas"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.LocAtributoLoca"
+        />
+    </set>
+    
+<!-- bi-directional one-to-many association to TbEntidadeAtributoEnta -->
+    <set
+        name="entidadeAtributoEntas"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EntidadeAtributoEnta"
+        />
+    </set>
+    
+<!-- bi-directional one-to-many association to TbDemAtributoDema -->
+    <set
+        name="demAtributoDemas"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.DemAtributoDema"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ItemEstrtIndResulIettr -->
+    <set
+        name="itemEstrtIndResulIettrs"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="COD_SATB" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtIndResulIettr"
+        />
+    </set>
+    
+
+
+    <!-- bi-directional one-to-many association to ItemEstrtIndResulIettr -->
+    <set
+        name="agendaAges"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="tipo_evento_cod_satb" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AgendaAge"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbItemEstruturaSisAtributoIettSatb -->
+    <set cascade="all" inverse="true" lazy="true" name="itemEstruturaSisAtributoIettSatbs">
+      <key>
+        <column name="cod_satb"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturaSisAtributoIettSatb"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to TbItemEstruturaSisAtributoIettSatb -->
+    <set cascade="all" inverse="true" lazy="true" name="historicoIettSatbHs">
+      <key>
+        <column name="cod_satb"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettSatbH"/>
+    </set>
+
+    <set 
+		name="tipoAcompGrpAcessos" 
+		inverse="true" 
+		lazy="true">
+		<key>
+			<column name="cod_satb" not-null="true" />
+		</key>
+		<one-to-many class="ecar.pojo.TipoAcompGrpAcesso" />
+	</set>
+	<set 
+		name="tipoacompTipofuncacompSisatributoTatpfasatbs" 
+		inverse="true">
+		<key>
+			<column name="cod_satb" not-null="true" />
+		</key>
+		<one-to-many class="ecar.pojo.TipoAcompTipofuncacompSisatributoTaTpfaSatb" />
+	</set>
+	<set 
+    	name="tipoacompAbasSisatributoTaabasatbs" 
+        inverse="true">
+		<key>
+    		<column name="cod_satb" not-null="true" />
+		</key>
+		<one-to-many class="ecar.pojo.TipoAcompAbasSisatributoTaAbaSatb" />
+	</set>
+	
+	<!-- Associations -->
+		<!-- bi-directional many-to-many association to ConfiguracaoCfg -->
+	    <set
+	        name="pesquisas"
+			table="TB_SIS_ATRIBUTO_PESQUISA_SATBPES"
+	        lazy="true"
+			cascade="save-update" >
+			<key>
+				<column name="COD_SATB" />
+			</key>
+			<many-to-many
+				column="COD_PESQUISA"
+				class="ecar.pojo.Pesquisa"
+			/>
+		</set>
+
+	
+</class>
+</hibernate-mapping>

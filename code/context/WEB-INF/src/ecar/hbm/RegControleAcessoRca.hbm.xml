@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.RegControleAcessoRca" 
+    table="TB_REG_CONTROLE_ACESSO_RCA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codRca"
+        type="java.lang.Long"
+        column="COD_RCA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="tpContAcessoRca"
+        type="java.lang.String"
+        column="TP_CONT_ACESSO_RCA"
+        length="1"
+    />
+    <property
+        name="dataAcessoRca"
+        type="java.sql.Timestamp"
+        column="DATA_ACESSO_RCA"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

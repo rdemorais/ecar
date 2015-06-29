@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.CorTipoFuncAcompCtfa" 
+    table="TB_COR_TIPO_FUNC_ACOMP_CTFA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.CorTipoFuncAcompCtfaPK">
+        <key-property 
+            name="codCor" 
+            column="COD_COR" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codTpfa" 
+            column="COD_TPFA" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+        	name="posicaoCtfa"
+        	type="java.lang.String"
+        	column="POSICAO_CTFA"
+        	length="1"
+    	/>
+    </composite-id> 
+        
+    <property
+        name="caminhoImagemCtfa"
+        type="java.lang.String"
+        column="CAMINHO_IMAGEM_CTFA"
+        length="100"
+    />
+        
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to Cor -->
+    <many-to-one
+        name="cor"
+	    class="ecar.pojo.Cor"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_COR" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TipoFuncAcompTpfa -->
+    <many-to-one
+        name="tipoFuncAcompTpfa"
+	    class="ecar.pojo.TipoFuncAcompTpfa"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_TPFA" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

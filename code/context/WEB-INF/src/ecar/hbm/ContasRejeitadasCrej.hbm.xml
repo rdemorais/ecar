@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.ContasRejeitadasCrej" 
+    table="TB_CONTAS_REJEITADAS_CREJ"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codCrej"
+        type="java.lang.Long"
+        column="COD_CREJ"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataUltManutencao"
+        type="java.util.Date"
+        column="DATA_ULT_MANUTENCAO"
+        not-null="true"
+    />
+    
+   
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+
+    <property
+        name="contaCrej"
+        type="java.lang.String"
+        column="CONTA_CREJ"
+        length="255"
+        not-null="true"
+    />
+</class>
+</hibernate-mapping>

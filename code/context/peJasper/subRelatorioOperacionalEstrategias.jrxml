@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRelatorioGerencialEstrategias" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="siglaOE" class="java.lang.String"/>
+	<parameter name="caminhoSubRelResultOperacional" class="java.lang.String"/>
+	<parameter name="subRelOperacionalTitleProd" class="java.lang.String"/>
+	<parameter name="subRelProdutos" class="java.lang.String"/>
+	<parameter name="caminhoSubRelProdutoOperacional" class="java.lang.String"/>
+	<parameter name="subRelatorioAcoes" class="java.lang.String"/>
+	<parameter name="mostrarParecerProd" class="java.lang.Boolean"/>
+	<parameter name="caminhoSubRelIndicadores" class="java.lang.String"/>
+	<field name="siglaEstrategia" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="resultados" class="java.util.Collection"/>
+	<detail>
+		<band height="80">
+			<subreport>
+				<reportElement x="0" y="32" width="556" height="48"/>
+				<subreportParameter name="subRelatorioAcoes">
+					<subreportParameterExpression><![CDATA[$P{subRelatorioAcoes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="mostrarParecerProd">
+					<subreportParameterExpression><![CDATA[$P{mostrarParecerProd}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subRelOperacionalTitleProd">
+					<subreportParameterExpression><![CDATA[$P{subRelOperacionalTitleProd}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelIndicadores">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelIndicadores}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaOE">
+					<subreportParameterExpression><![CDATA[$P{siglaOE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="subRelProdutos">
+					<subreportParameterExpression><![CDATA[$P{subRelProdutos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelProdutoOperacional">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelProdutoOperacional}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{resultados})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelResultOperacional}]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="0" y="0" width="555" height="28" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("Estratégia ").concat($F{siglaEstrategia}).concat(": ").concat($F{nome})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="29" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

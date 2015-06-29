@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioOperacionalProdutosBijari" pageWidth="575" pageHeight="802" columnWidth="575" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.6963904734899393"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="caminhoImagemStatusAmarelo" class="java.lang.String"/>
+	<parameter name="caminhoImagemStatusVerde" class="java.lang.String"/>
+	<parameter name="caminhoImagemStatusVermelho" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioStatusAcoesRelOperacionalProdAcoes" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioAtividadesRelOpProdAcoesAtividades" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioStatusAtividadeRelOpProdAcoesAtividades" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="periodoAcompanhamento" class="java.util.Collection"/>
+	<field name="atividades" class="java.util.Collection"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="48" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="50" y="0" width="156" height="46" forecolor="#333333"/>
+				<box leftPadding="5">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="216" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[JAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[FEV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ABR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MAI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[JUN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[JUL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[AGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[OUT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NOV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="0" width="13" height="23" forecolor="#333333"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DEZ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="218" y="22" width="142" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="228" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="240" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="252" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="264" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="276" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="288" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="300" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="312" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="324" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="336" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="348" y="0" width="1" height="36"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="366" y="0" width="1" height="46"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="432" y="22" width="101" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="412" y="0" width="1" height="46"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="547" y="0" width="1" height="46"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="210" y="0" width="1" height="46"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="49" y="0" width="1" height="46"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="50" y="47" width="498" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="370" y="5" width="40" height="37"/>
+				<subreportParameter name="caminhoImagemStatusAmarelo">
+					<subreportParameterExpression><![CDATA[$P{caminhoImagemStatusAmarelo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioStatusAcoesRelOperacionalProdAcoes">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioStatusAcoesRelOperacionalProdAcoes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoImagemStatusVerde">
+					<subreportParameterExpression><![CDATA[$P{caminhoImagemStatusVerde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoImagemStatusVermelho">
+					<subreportParameterExpression><![CDATA[$P{caminhoImagemStatusVermelho}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{periodoAcompanhamento})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelatorioStatusAcoesRelOperacionalProdAcoes}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="48">
+			<subreport>
+				<reportElement x="50" y="0" width="498" height="48"/>
+				<subreportParameter name="caminhoImagemStatusAmarelo">
+					<subreportParameterExpression><![CDATA[$P{caminhoImagemStatusAmarelo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoImagemStatusVerde">
+					<subreportParameterExpression><![CDATA[$P{caminhoImagemStatusVerde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioStatusAtividadeRelOpProdAcoesAtividades">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioStatusAtividadeRelOpProdAcoesAtividades}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioAtividadesRelOpProdAcoesAtividades">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioAtividadesRelOpProdAcoesAtividades}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoImagemStatusVermelho">
+					<subreportParameterExpression><![CDATA[$P{caminhoImagemStatusVermelho}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{atividades})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelatorioAtividadesRelOpProdAcoesAtividades}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrutVinculoIettv" 
+    table="TB_ITEM_ESTRUT_VINCULO_IETTV"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettv"
+        type="java.lang.Long"
+        column="COD_IETTV"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataInclusaoIettv"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTV"
+        length="7"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to AgendaOcorrenciaAgeo -->
+    <many-to-one
+        name="agendaOcorrenciaAgeo"
+        class="ecar.pojo.AgendaOcorrenciaAgeo"
+        not-null="true"
+    >
+        <column name="COD_AGEO" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SegmentoItemSgti -->
+    <many-to-one
+        name="segmentoItemSgti"
+        class="ecar.pojo.SegmentoItemSgti"
+        not-null="true"
+    >
+        <column name="COD_SGTI" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

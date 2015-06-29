@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+	<class 
+	    name="ecar.pojo.Estilo" 
+	    table="TB_ESTILO"
+	    lazy="false"
+	    >
+	    <meta attribute="implement-equals" inherit="false">true</meta>
+	    <id
+	        name="codEstilo"
+	        type="java.lang.Integer"
+	        column="COD_ESTILO"
+	    >
+	        <generator class="increment"/>
+	    </id>
+	
+	    <property
+	        name="nome"
+	        type="java.lang.String"
+	        column="NOME"
+	        length="50"
+	    />
+	    
+		<property
+	        name="descricao"
+	        type="java.lang.String"
+	        column="DESCRICAO"
+	        length="50"
+	    />
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*STATIC PAGES*/
+.oneColumn h1, .oneColumn h2, .oneColumn h3, .oneColumn h4  {text-align: left; font-family: "DinPro-Light"; font-size: 18px;margin-bottom: 5px;}
+.oneColumn h2 {font-size:27px;}
+.oneColumn h1 a, .oneColumn h2 a, .oneColumn h3 a, .oneColumn h4 a  { text-decoration:none; }
+.oneColumn h1 a  {font-size:32px; color:#005BAA;}
+.oneColumn {width:655px; text-align: center; margin:0 auto;}
+.oneColumn p {font-size:18px; line-height:30px;text-align: left;}
+.oneColumn img {margin:50px 0}
+.oneColumn table {border: none;}
+.oneColumn td {border: none;   text-align:left;padding: 0 10px;border-bottom: 1px solid #939598;vertical-align: middle;}
+.oneColumn tr {border: 0;}
+.oneColumn li {text-align:left;}
+
+.oneColumn th {line-height: 3em; font-family: "DinPro-Regular"; font-size:18px; border-top: 1px solid; border-left: 0; border-right: 0; border-bottom: 2px solid; border-color: #6D6E71; text-align:left;}
+.twoColumns {width: 46%; height:auto; padding: 0 8% 0 0; float:left; text-align: justify; /*max-width:480px;*/}
+.twoColumnsLast {width: 46%; height:auto; padding:0 0 0; float:left; text-align: justify; /*max-width:480px;*/}
+.twoColumns li {list-style-position: inside; margin-bottom: 10px; margin-left: 10px;}
+.twoColumnsLast li {list-style-position: inside; margin-bottom: 10px; margin-left: 10px;}
+.twoColumns ul {margin:0; padding:0;}
+.twoColumnsLast ul {margin:0; padding:0;}
+
+.twoColumnsLast img { position: relative; left: -25%; margin: 70px 0 0 0;}
+.last{padding:20px 0 0 2%;}
+.resultsBoxStatic{min-height: 330px;/*max-width: 1020px !important;*/  margin: 0 auto !important; padding: 0 20px 0; margin-bottom: 10px !important;}
+.grayLine {width:96%; height:20px; background: url(../image/retornar-topo.gif) no-repeat  right; margin:50px 2%; border-bottom: 1px solid #939598;}
+.staticTitle { font:18px "DINPro-Medium"; /*line-height:50px;*/ color:#005BAA; text-transform:uppercase; text-decoration:none; /*width:100%; border-bottom:2px solid #005BAA; */}
+.staticTable {border:0; width:100%; text-align:justify; margin: 20px 0; line-height:16px;}
+.staticRow {background: url(../image/column_sep.gif) no-repeat 0; font-family: "DINPro-Black"; width: 255px; padding-left: 15px !important;  line-height:16px;}
+.staticRow, .staticRowLast {padding:4px; border-bottom:1px solid #939598; height: 90px; line-height:16px; }
+.staticRow p, .staticRowLast p {padding:0 10px; margin:4px;  line-height:16px;}
+.staticTable tr { background:url(../image/column_sep.gif) no-repeat right; }
+.svgImage {padding:20px 0;}
+.staticSubTitle {font-size:14px; padding:0 0 5px 0; border-bottom:1px solid #6D6E71;margin: 0; line-height:16px; }
+.staticTable2 {border:0; margin:5px 0 20px 0;}
+.staticTable2 th { background:#005BAA; text-transform:uppercase; color:#FFFFFF; text-align:left; padding-left:20px; line-height:16px;}
+.staticTable2 td {text-align: justify; padding: 0px 20px; border-left: 1px solid #CCC; border-bottom: 1px solid #CCC; line-height:16px;}
+.staticRowLast2 { border-right: 1px solid #CCC; line-height:16px;}
+.staticLink { padding:0 1%; text-decoration:none; font-family:"DinPro-Medium"; font-size:13px !important; color:#6D6E71; border-right:1px solid #6D6E71;}
+.staticLink:first-child { padding:0 1% 0 0;}
+.staticLink:hover { color:#000000;}
+.topo {float:right; font:12px Arial, sans-serif; text-decoration:none; color:#005BAA; margin-top: 5px; }
+.clear {clear:both}
+.dashedLine { background:url(../image/dashed-separator.gif) no-repeat center; height:11px; clear: both; margin: 0 0 0px; padding-top: 56px;}
+.nolist li{list-style:none;}

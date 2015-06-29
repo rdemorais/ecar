@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.UnidadeOrcamentariaUO" 
+    table="TB_UNIDADE_ORCAMENTARIA_UO"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codUo"
+        type="java.lang.Long"
+        column="COD_UO"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoUo"
+        type="java.lang.String"
+        column="DESCRICAO_UO"
+        length="2000"
+    />
+    <property
+        name="siglaUo"
+        type="java.lang.String"
+        column="SIGLA_UO"
+        length="10"
+    />
+    <property
+        name="indAtivoUo"
+        type="java.lang.String"
+        column="IND_ATIVO_UO"
+        length="1"
+    />
+    <property
+        name="codigoIdentUo"
+        type="java.lang.Long"
+        column="CODIGO_IDENT_UO"
+        length="10"
+    />
+
+    <!-- Associations -->
+    <many-to-one
+        name="orgaoOrg"
+        class="ecar.pojo.OrgaoOrg"
+        not-null="true"
+    >
+        <column name="COD_ORG" />
+    </many-to-one>
+  
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="false"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+
+    <property
+        name="indTipoAdministracaoUo"
+        type="java.lang.String"
+        column="IND_TIPO_ADMINISTRACAO_UO"
+        length="1"
+    />
+    <property
+        name="indTipoOrcamentoUo"
+        type="java.lang.String"
+        column="IND_TIPO_ORCAMENTO_UO"
+        length="1"
+    />
+
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIettsByCodUo"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_UO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbItemEstruturarevisaoIettrev -->
+    <set cascade="none" inverse="true" lazy="true" name="itemEstruturarevisaoIettrevs">
+      <key>
+        <column name="cod_uo"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturarevisaoIettrev"/>
+    </set>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHs">
+      <key>
+        <column name="COD_UO"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>    
+    <!-- Final Mantis #2156 -->
+
+   <set
+        name="unidadeOrcamentariaPeriodoExercicioUoPerexes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_UO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UnidadeOrcamentariaPeriodoExercicioUoPerExe"
+        />
+    </set>
+</class>
+</hibernate-mapping>

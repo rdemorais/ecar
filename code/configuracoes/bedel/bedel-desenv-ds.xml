@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<datasources>
+  <local-tx-datasource>
+    <jndi-name>jdbc/BedelClientDS</jndi-name>
+    <connection-url>jdbc:postgresql://scelepar05480.celepar.parana/sentinela</connection-url>
+    <driver-class>org.postgresql.Driver</driver-class>
+    <user-name>bedel_client</user-name>
+    <password>stranger</password>
+    <min-pool-size>1</min-pool-size>
+    <max-pool-size>2</max-pool-size>
+    <blocking-timeout-millis >300000</blocking-timeout-millis >
+    <check-valid-connection-sql>SELECT 1+1</check-valid-connection-sql>
+  </local-tx-datasource>
+</datasources>

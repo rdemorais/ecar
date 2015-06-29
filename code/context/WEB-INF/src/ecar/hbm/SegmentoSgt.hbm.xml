@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SegmentoSgt" 
+    table="TB_SEGMENTO_SGT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSgt"
+        type="java.lang.Long"
+        column="COD_SGT"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="linkPesquisaSgt"
+        type="java.lang.String"
+        column="LINK_PESQUISA_SGT"
+        length="100"
+    />
+    <property
+        name="indMenuSgt"
+        type="java.lang.String"
+        column="IND_MENU_SGT"
+        length="1"
+    />
+    <property
+        name="indAtivoSgt"
+        type="java.lang.String"
+        column="IND_ATIVO_SGT"
+        length="1"
+    />
+    <property
+        name="legendaImagemSgt"
+        type="java.lang.String"
+        column="LEGENDA_IMAGEM_SGT"
+        length="20"
+    />
+    <property
+        name="imagemSgt"
+        type="java.lang.String"
+        column="IMAGEM_SGT"
+        length="100"
+    />
+    <property
+        name="descricaoSgt"
+        type="java.lang.String"
+        column="DESCRICAO_SGT"
+        length="2000"
+    />
+    <property
+        name="tituloSgt"
+        type="java.lang.String"
+        column="TITULO_SGT"
+        length="20"
+    />
+    <property
+        name="indUtilizTpAcessoSgt"
+        type="java.lang.String"
+        column="IND_UTILIZ_TP_ACESSO_SGT"
+        length="1"
+    />
+    <property
+        name="dataInclusaoSgt"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_SGT"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SegmentoAreaSgta -->
+    <many-to-one
+        name="segmentoAreaSgta"
+        class="ecar.pojo.SegmentoAreaSgta"
+        not-null="true"
+    >
+        <column name="COD_SGTA" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SisGrupoAtributoSga -->
+    <many-to-one
+        name="sisGrupoAtributoSga"
+        class="ecar.pojo.SisGrupoAtributoSga"
+        not-null="true"
+    >
+        <column name="COD_SGA" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SegmentoLeiauteSgtl -->
+    <many-to-one
+        name="segmentoLeiauteSgtl"
+        class="ecar.pojo.SegmentoLeiauteSgtl"
+        not-null="true"
+    >
+        <column name="COD_SGTL" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to SegmentoCategoriaSgtc -->
+    <set
+        name="segmentoCategoriaSgtcs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SegmentoCategoriaSgtc"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to SisAtributoSatb -->
+    <set
+        name="segmentoTpAcessoSgttas"
+		table="TB_SEGMENTO_TP_ACESSO_SGTTA"
+        lazy="true"
+		cascade="save-update"
+    >
+        <key>
+            <column name="COD_SGT" />
+        </key>
+		<many-to-many
+			column="COD_SATB"
+            class="ecar.pojo.SisAtributoSatb"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to SegmentoItemSgti -->
+    <set
+        name="segmentoItemSgtis"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SegmentoItemSgti"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

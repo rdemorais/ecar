@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.DestaqueAreaDtqa" 
+    table="TB_DESTAQUE_AREA_DTQA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codDtqa"
+        type="java.lang.Long"
+        column="COD_DTQA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="qtdColunasDtqa"
+        type="java.lang.Integer"
+        column="QTD_COLUNAS_DTQA"
+        length="4"
+    />
+    <property
+        name="dataInclusaoDtqa"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_DTQA"
+        length="7"
+    />
+    <property
+        name="descricaoDtqa"
+        type="java.lang.String"
+        column="DESCRICAO_DTQA"
+        length="2000"
+    />
+    <property
+        name="nomeDtqa"
+        type="java.lang.String"
+        column="NOME_DTQA"
+        length="20"
+    />
+    <property
+        name="identificacaoDtqa"
+        type="java.lang.String"
+        column="IDENTIFICACAO_DTQA"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to DestaqueSubAreaDtqsa -->
+    <set
+        name="destaqueSubAreaDtqsas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+		order-by="IDENTIFICACAO_DTQSA"
+    >
+        <key>
+            <column name="COD_DTQA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.DestaqueSubAreaDtqsa"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

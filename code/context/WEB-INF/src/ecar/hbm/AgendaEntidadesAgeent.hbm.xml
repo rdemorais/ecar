@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AgendaEntidadesAgeent" 
+    table="TB_AGENDA_ENTIDADES_AGEENT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.AgendaEntidadesAgeentPK">
+        <key-property 
+	    	type="java.lang.Long"
+            name="codAge" 
+            column="COD_AGE" 
+        />
+        <key-property 
+	    	type="java.lang.Long"
+            name="codEnt" 
+            column="COD_ENT" 
+        />
+    </composite-id>    
+    <property
+		type="java.sql.Timestamp"
+        name="dataInclusaoAgeent"
+        column="DATA_INCLUSAO_AGEENT"
+        length="8"
+    />
+    
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="agendaAge"
+	    class="ecar.pojo.AgendaAge"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_AGE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to LocalItemLit -->
+    <many-to-one
+        name="entidadeEnt"
+	    class="ecar.pojo.EntidadeEnt"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ENT" />
+	</many-to-one>
+	
+   <many-to-one
+        name="usuarioUsuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    not-null="true"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>	
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

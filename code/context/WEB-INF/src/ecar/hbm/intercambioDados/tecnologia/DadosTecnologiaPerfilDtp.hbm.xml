@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- Generated 01/06/2010 10:35:44 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+	<class name="ecar.pojo.intercambioDados.tecnologia.DadosTecnologiaPerfilDtp"
+		table="tb_dados_tecnologia_perfil_dtp" abstract="true" lazy="false">
+		<meta attribute="implement-equals" inherit="false">true</meta>
+		<id name="codDtp" type="java.lang.Long">
+			<column name="cod_dtp" />
+			<generator class="sequence">
+				<param name="sequence">tb_dados_tecnologia_perfil_dtp_cod_dtp_seq</param>
+			</generator>
+		</id>
+		<property name="encodeDtp" type="java.lang.String">
+			<column name="encode_dtp" length="20" />
+		</property>
+
+	    <property name="tipoTecnologia"
+	        type="TecnologiaType"
+	        column="tipo_tecnologia_dtp"
+	    /> 
+
+
+		<joined-subclass
+			name="ecar.pojo.intercambioDados.tecnologia.DadosTecnologiaPerfilWsDtpw"
+			table="tb_dados_tecnologia_perfil_ws_dtpw"
+			extends="ecar.pojo.intercambioDados.tecnologia.DadosTecnologiaPerfilDtp">
+
+			<key column="cod_dtp" />
+
+			<property name="protocoloServidorPrimarioDtpw" type="java.lang.String">
+				<column name="protocolo_servidor_primario_dtpw" length="50" />
+			</property>
+			<property name="tipoHostServidorPrimarioDtpw" type="java.lang.String">
+				<column name="tipo_host_servidor_primario_dtpw" length="1" />
+			</property>
+			<property name="hostServidorPrimarioDtpw" type="java.lang.String">
+				<column name="host_servidor_primario_dtpw" length="50" />
+			</property>
+			<property name="portaServidorPrimarioDtpw" type="java.lang.String">
+				<column name="porta_servidor_primario_dtpw" length="50" />
+			</property>
+			<property name="caminhoServicoServidorPrimarioDtpw" type="java.lang.String">
+				<column name="servico_servidor_primario_dtpw" length="50" />
+			</property>
+			<property name="loginServidorPrimarioDtpw" type="java.lang.String">
+				<column name="login_servidor_primario_dtpw" length="50" />
+			</property>
+			<property name="senhaServidorPrimarioDtpw" type="java.lang.String">
+				<column name="senha_servidor_primario_dtpw" length="50" />
+			</property>
+			<property name="protocoloServidorSecundarioDtpw" type="java.lang.String">
+				<column name="protocolo_servidor_secundario_dtpw" length="50" />
+			</property>
+			<property name="tipoHostServidorSecundarioDtpw" type="java.lang.String">
+				<column name="tipo_host_servidor_secundario_dtpw" length="1" />
+			</property>
+			<property name="hostServidorSecundarioDtpw" type="java.lang.String">
+				<column name="host_servidor_secundario_dtpw" length="50" />
+			</property>
+			<property name="portaServidorSecundarioDtpw" type="java.lang.String">
+				<column name="porta_servidor_secundario_dtpw" length="50" />
+			</property>
+			<property name="caminhoServicoServidorSecundario" type="java.lang.String">
+				<column name="servico_servidor_secundario_dtpw" length="50" />
+			</property>
+			<property name="indModoIntervaloSelecaoDtpw" type="java.lang.String">
+				<column name="ind_modo_intervalo_selecao_dtpw" length="1" />
+			</property>
+			<property name="loginServidorSecundarioDtpw" type="java.lang.String">
+				<column name="login_servidor_secundario_dtpw" length="50" />
+			</property>
+			<property name="senhaServidorSecundarioDtpw" type="java.lang.String">
+				<column name="senha_servidor_secundario_dtpw" length="50" />
+			</property>
+
+
+		</joined-subclass>
+
+		<joined-subclass
+			name="ecar.pojo.intercambioDados.tecnologia.DadosTecnologiaPerfilTxtDtpt"
+			table="tb_dados_tecnologia_perfil_txt_dtpt"
+			extends="ecar.pojo.intercambioDados.tecnologia.DadosTecnologiaPerfilDtp">
+
+			<key column="cod_dtp" />
+
+			<property name="indRejeitarNomenclaturaDiferenteDtpt" type="java.lang.String">
+				<column name="ind_rejeitar_nomenclatura_diferente_dtpt" length="50" />
+			</property>
+			<property name="separadorCamposDtpt" type="java.lang.String">
+				<column name="separador_campos_dtpt" length="50" />
+			</property>
+
+		</joined-subclass>
+
+	</class>
+</hibernate-mapping>

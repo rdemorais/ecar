@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SequenciadoraSeq" 
+    table="TB_SEQUENCIA_ID"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSeq"
+        type="java.lang.Long"
+        column="codigo"
+    >
+        <generator class="native" >
+	         <param name="sequence">tb_sequencia_id_codigo_seq</param>
+         </generator>
+    </id>
+
+	<!-- 
+    <property
+        name="tabelaSeq"
+        type="java.lang.String"
+        column="TABELA_SEQ"
+        length="30"
+    /> -->
+    <property
+        name="sequenciaSeq"
+        type="java.lang.Long"
+        column="sequencia"
+        length="10"
+    />
+
+    <property
+        name="ano"
+        type="java.lang.Integer"
+        column="ano"
+    />
+    
+    <!-- Associations -->
+      
+    <many-to-one
+        name="estrutura"
+        class="ecar.pojo.EstruturaEtt"
+        not-null="false"
+    >
+        <column name="COD_ETT" />
+    </many-to-one>
+  
+    <many-to-one
+        name="atributoLivreSistema"
+        class="ecar.pojo.SisAtributoSatb"
+        not-null="false"
+    >
+        <column name="cod_satb" />
+    </many-to-one>
+
+    <many-to-one
+        name="funcao"
+        class="ecar.pojo.FuncaoFun"
+        not-null="false"
+    >
+        <column name="COD_FUN" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

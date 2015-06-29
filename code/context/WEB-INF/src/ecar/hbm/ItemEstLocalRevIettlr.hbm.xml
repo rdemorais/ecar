@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.ItemEstLocalRevIettlr" 
+  	table="tb_item_est_local_rev_iettlr"
+    lazy="false"
+  	>
+    <composite-id class="ecar.pojo.ItemEstLocalRevIettlrPK" name="comp_id">
+      <key-property column="cod_lit" length="4" name="codLit" type="java.lang.Integer"/>
+      <key-property column="cod_iettrev" length="4" name="codIettrev" type="java.lang.Integer"/>
+    </composite-id>
+    <property column="data_inclusao_iettlr" length="4"
+      name="dataInclusaoIettlr" type="java.sql.Date"/>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbLocalItemLit -->
+    <many-to-one class="ecar.pojo.LocalItemLit" insert="false"
+      name="localItemLit" update="false">
+      <column name="cod_lit"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbItemEstruturarevisaoIettrev -->
+    <many-to-one class="ecar.pojo.ItemEstruturarevisaoIettrev"
+      insert="false" name="itemEstruturarevisaoIettrev" update="false">
+      <column name="cod_iettrev"/>
+    </many-to-one>
+    <!-- end of derived association(s) -->
+  </class>
+</hibernate-mapping>

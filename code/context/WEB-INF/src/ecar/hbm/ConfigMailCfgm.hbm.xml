@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.ConfigMailCfgm" 
+  	table="tb_config_mail_cfgm"
+    lazy="false"
+  	>
+	<meta attribute="implement-equals" inherit="false">true</meta>
+    <id 
+    	column="cod_cfgm" 
+    	length="4" 
+    	name="codCfgm" 
+    	type="java.lang.Integer">
+      <generator class="increment"/>
+    </id>
+    <property 
+    	column="descricao_cfgm" 
+    	length="200" name="descricaoCfgm" 
+    	type="java.lang.String"
+    />
+    <property 
+    	column="ativo_cfgm" 
+    	length="1" 
+    	name="ativoCfgm" 
+    	type="java.lang.String"
+    />
+    
+    <property 
+    	column="IND_ENVIO_OBRIGATORIO" 
+    	name="indEnvioObrigatorio" 
+    	type="java.lang.String"
+    	length="1" 
+    />
+    
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbConfiguracaoCfg -->
+    <many-to-one 
+    	class="ecar.pojo.ConfiguracaoCfg" 
+	    insert="false"
+    	name="configuracaoCfg" 
+    	update="false">
+      <column name="cod_cfg"/>
+    </many-to-one>
+    <!-- end of derived association(s) -->
+    <!-- bi-directional one-to-many association to TbTfuncacompConfigmailTfacfgm -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="tfuncacompConfigmailTfacfgms">
+      	<key>
+        	<column name="cod_cfgm"/>
+      </key>
+      <one-to-many class="ecar.pojo.TfuncacompConfigmailTfacfgm"/>
+    </set>
+    <!-- bi-directional many-to-one association to TbTextosSiteTxt -->
+    <many-to-one class="ecar.pojo.TextosSiteTxt"
+      name="textosSiteSms" not-null="true">
+      <column name="cod_txts_sms"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbTextosSiteTxt -->
+    <many-to-one class="ecar.pojo.TextosSiteTxt"
+      name="textosSiteMail" not-null="true">
+      <column name="cod_txts_mail"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.EfIettPrevisaoRevEfiepr" 
+	table="tb_ef_iett_previsao_rev_efiepr"
+    lazy="false"
+	>
+    <composite-id class="ecar.pojo.EfIettPrevisaoRevEfieprPK" name="comp_id">
+      <key-property column="cod_iettrev" length="4" name="codIettrev" type="java.lang.Integer"/>
+      <key-property column="cod_rec" length="4" name="codRec" type="java.lang.Integer"/>
+      <key-property column="cod_fonr" length="4" name="codFonr" type="java.lang.Integer"/>
+      <key-property column="cod_exe" length="4" name="codExe" type="java.lang.Integer"/>
+    </composite-id>
+    <property column="data_inclusao_efiepr" length="4"
+      name="dataInclusaoEfiepr" type="java.sql.Date"/>
+    <property column="ind_ativo_efiepr" length="1" name="indAtivoEfiepr" type="java.lang.String"/>
+    <property column="valor_revisado_efiepr" length="8"
+      name="valorRevisadoEfiepr" type="java.lang.Double"/>
+    <property column="valor_aprovado_efiepr" length="8"
+      name="valorAprovadoEfiepr" type="java.lang.Double"/>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbRecursoRec -->
+    <many-to-one class="ecar.pojo.RecursoRec" insert="false"
+      name="recursoRec" update="false">
+      <column name="cod_rec"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbFonteRecursoFonr -->
+    <many-to-one class="ecar.pojo.FonteRecursoFonr" insert="false"
+      name="fonteRecursoFonr" update="false">
+      <column name="cod_fonr"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbExercicioExe -->
+    <many-to-one class="ecar.pojo.ExercicioExe" insert="false"
+      name="exercicioExe" update="false">
+      <column name="cod_exe"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbItemEstruturarevisaoIettrev -->
+    <many-to-one class="ecar.pojo.ItemEstruturarevisaoIettrev"
+      insert="false" name="itemEstruturarevisaoIettrev" update="false">
+      <column name="cod_iettrev"/>
+    </many-to-one>
+    <!-- end of derived association(s) -->
+  </class>
+</hibernate-mapping>

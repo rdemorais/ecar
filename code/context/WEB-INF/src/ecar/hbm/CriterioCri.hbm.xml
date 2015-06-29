@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.CriterioCri" 
+    table="TB_CRITERIO_CRI"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codCri"
+        type="java.lang.Long"
+        column="COD_CRI"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoCri"
+        type="java.lang.String"
+        column="IND_ATIVO_CRI"
+        length="1"
+    />
+    <property
+        name="dataInclusaoCri"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_CRI"
+        length="7"
+    />
+    <property
+        name="descricaoCri"
+        type="java.lang.String"
+        column="DESCRICAO_CRI"
+        length="2000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to ItemEstrutCriterioIettc -->
+    <set
+        name="itemEstrutCriterioIettcs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_CRI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutCriterioIettc"
+        />
+    </set>
+
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettcH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettcHs">
+      <key>
+        <column name="COD_CRI"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettcH"/>
+    </set>     
+    <!-- Final Mantis #2156 -->
+
+</class>
+</hibernate-mapping>

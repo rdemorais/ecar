@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRelOperacionalTitleProd" pageWidth="555" pageHeight="752" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="produtos" class="java.util.List"/>
+	<parameter name="siglaOE" class="java.lang.String"/>
+	<parameter name="subRelProdutos" class="java.lang.String"/>
+	<title>
+		<band height="34" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="30" forecolor="#FF0066" backcolor="#FF0066"/>
+			</rectangle>
+			<line>
+				<reportElement x="284" y="16" width="100" height="1" forecolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="217" y="5" width="1" height="20" forecolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="400" y="5" width="1" height="20" forecolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="263" y="5" width="1" height="20" forecolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="267" y="13" width="131" height="17" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CORRESPONSÁVEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="0" width="153" height="30" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CRONOGRAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="41" height="30" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="0" width="208" height="30" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUTOS / MARCOS INTERMEDIARIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="0" width="131" height="17" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESPONSÁVEL]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="2" height="39" forecolor="#FF0066" backcolor="#FF0066"/>
+			</rectangle>
+			<subreport>
+				<reportElement x="6" y="0" width="549" height="39"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{produtos})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{subRelProdutos}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

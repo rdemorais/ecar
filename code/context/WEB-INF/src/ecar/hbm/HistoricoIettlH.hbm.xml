@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Gabriel (28/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoIettlH" 
+    table="TB_HISTORICO_IETTLH"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettLH"
+        type="java.lang.Long"
+        column="COD_IETTLH"
+    >
+        <generator class="increment" />
+    </id>
+   
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        
+    >
+        <column name="COD_IETT" />
+    </many-to-one>   
+   
+    <!-- bi-directional many-to-one association to LocalItemLit -->
+    <many-to-one
+        name="localItemLit"
+        class="ecar.pojo.LocalItemLit"
+        
+    >
+        <column name="cod_lit" />
+    </many-to-one>   
+   
+    <property 
+        name="dataInclusaoIettl"
+        type="java.util.Date"
+        column="DATA_INCLUSAO_IETTL"
+        
+    />
+    
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    
+	    
+	    
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>  
+
+	
+    <!-- bi-directional many-to-one association to historico_master_mah -->
+    <many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	    
+	    
+	>
+    	<column name="COD_MAH" />
+	</many-to-one> 	
+	
+    <!-- end of derived association(s) -->
+</class>
+</hibernate-mapping>

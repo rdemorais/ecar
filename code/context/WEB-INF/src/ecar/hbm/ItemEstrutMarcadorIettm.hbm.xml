@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrutMarcadorIettm" 
+    table="TB_ITEM_ESTRUT_MARCADOR_IETTM"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettm"
+        type="java.lang.Long"
+        column="COD_IETTM"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataInclusaoIettm"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTM"
+        length="7"
+    />
+    <property
+        name="descricaoIettm"
+        type="java.lang.String"
+        column="DESCRICAO_IETTM"
+        length="2000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Cor -->
+    <many-to-one
+        name="cor"
+        class="ecar.pojo.Cor"
+        not-null="true"
+    >
+        <column name="COD_COR" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

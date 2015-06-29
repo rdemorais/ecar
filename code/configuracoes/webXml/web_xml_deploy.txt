@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+<web-app>
+	<display-name>Controle, Acompanhamento e Avaliação de Resultados</display-name>
+	 <description>Controle, Acompanhamento e Avaliação de Resultados</description>
+	 
+	 <session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+   <!-- Filtro Bedel -->
+    <filter>
+    	<filter-name>BedelFilter</filter-name>
+    	<filter-class>gov.pr.celepar.bedel.client.BedelFilter</filter-class>
+    </filter>
+    <filter-mapping>
+    	<filter-name>BedelFilter</filter-name>
+    	<url-pattern>/services/*</url-pattern>
+    </filter-mapping>
+   <!-- Fim Filtro Bedel -->
+	
+	<filter> 
+     <filter-name>SegurancaFilter</filter-name> 
+     <filter-class>gov.pr.celepar.sentinela.client.SegurancaFilter</filter-class> 
+    </filter> 
+
+ 	<filter>
+		<filter-name>FechaSessao</filter-name>
+		<filter-class>comum.database.FechaSessaoFilter</filter-class>
+	</filter>
+
+	<filter> 
+     <filter-name>AtualizaMail</filter-name> 
+     <filter-class>ecar.email.AtualizadorEmail</filter-class> 
+    </filter> 
+
+	<filter-mapping>
+		<filter-name>AtualizaMail</filter-name>
+		<url-pattern>/portal/pages/index.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+	     <filter-name>SegurancaFilter</filter-name>
+	     <url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>FechaSessao</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+	   <listener-class>gov.pr.celepar.sentinela.geral.SentinelaListener</listener-class>
+	</listener>
+	
+	
+	<listener>
+	   <listener-class>ecar.email.AgendadorListener</listener-class>
+	</listener>
+	
+
+<!--	<servlet>-->
+<!--		<servlet-name>RelatorioExemplo</servlet-name>-->
+<!--		<servlet-class>ecar.servlet.relatorio.RelatorioExemplo</servlet-class>-->
+<!--	</servlet>-->
+	
+	<servlet>
+		<servlet-name>RelatorioItemEstrutura</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RelatorioItemEstrutura</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RelacaoItemEstrutura</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RelacaoItemEstrutura</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RevisaoItemEstrutura</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RevisaoItemEstrutura</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RevisaoItemEstruturaMetasFisicas</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RevisaoItemEstruturaMetasFisicas</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LayoutArquivoExportacao</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.LayoutArquivoExportacao</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RelatorioAcompanhamentoImpresso</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RelatorioAcompanhamentoImpresso</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DownloadFile</servlet-name>
+		<servlet-class>ecar.servlet.file.DownloadFile</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>GraficoEvolucaoPosicoes</servlet-name>
+		<servlet-class>ecar.servlet.grafico.GraficoEvolucaoPosicoes</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>GraficoRealizadoPorExercicio</servlet-name>
+		<servlet-class>ecar.servlet.grafico.GraficoRealizadoPorExercicio</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>GraficoRealizadoNoExercicio</servlet-name>
+		<servlet-class>ecar.servlet.grafico.GraficoRealizadoNoExercicio</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GraficoPrevisaoIndicadoresResultado</servlet-name>
+		<servlet-class>ecar.servlet.grafico.GraficoPrevisaoIndicadoresResultado</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RelatorioApendiceDois</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RelatorioApendiceDois</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RelatorioApendiceTres</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RelatorioApendiceTres</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RelatorioAcessoUsuario</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RelatorioAcessoUsuario</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RelatorioOcorrenciasImportacao</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RelatorioOcorrenciasImportacao</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RelatorioAcompanhamento</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.RelatorioAcompanhamento</servlet-class>
+	</servlet>
+
+<!--  INICIO -  R E L A T O R I O S  D O  P P A  -->
+
+	<servlet>
+		<servlet-name>RelatorioPPAServlet</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.PPA.RelatorioPPAServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RelatorioPPAProgramaServlet</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.PPA_Programa.RelatorioPPAProgramaServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RelatorioPPALinhaAcaoServlet</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.PPA_LinhaAcao.RelatorioPPALinhaAcaoServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RelatorioPPALinhaProgramaServlet</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.PPA_LinhaPrograma.RelatorioPPALinhaProgramaServlet</servlet-class>
+	</servlet>	
+
+	<servlet>
+		<servlet-name>RelatorioPPAOrgaoServlet</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.PPA_Orgao.RelatorioPPAOrgaoServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RelatorioPPAOrgaoUnidadeServlet</servlet-name>
+		<servlet-class>ecar.servlet.relatorio.PPA_OrgaoUnidade.RelatorioPPAOrgaoUnidadeServlet</servlet-class>
+	</servlet>
+
+
+	
+	<servlet-mapping>
+		<servlet-name>RelatorioPPAServlet</servlet-name>
+		<url-pattern>/relatorio/RelatorioPPA</url-pattern> 
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RelatorioPPAProgramaServlet</servlet-name>
+		<url-pattern>/Relatorio/PPAPrograma</url-pattern> 
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RelatorioPPALinhaAcaoServlet</servlet-name>
+		<url-pattern>/Relatorio/PPALinhaAcao</url-pattern> 
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RelatorioPPALinhaProgramaServlet</servlet-name>
+		<url-pattern>/Relatorio/PPALinhaPrograma</url-pattern> 
+	</servlet-mapping>	
+
+	<servlet-mapping>
+		<servlet-name>RelatorioPPAOrgaoServlet</servlet-name>
+		<url-pattern>/Relatorio/PPAOrgao</url-pattern> 
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>RelatorioPPAOrgaoUnidadeServlet</servlet-name>
+		<url-pattern>/Relatorio/PPAOrgaoUnidade</url-pattern> 
+	</servlet-mapping>
+	
+<!--  FIM    -  R E L A T O R I O S  D O  P P A  -->
+
+<!--  INICIO  - A J A X  - COMPONENTE PESQUISAR LOCAIS -->
+
+<servlet>
+	<servlet-name>PesquisaLocalServlet</servlet-name>
+	<servlet-class>ecar.servlet.componente.PesquisaLocalServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>PesquisaLocalServlet</servlet-name>
+	<url-pattern>/ajax/pesquisaLocalByGrupo</url-pattern> 
+</servlet-mapping>
+
+<!--  FIM      - A J A X  - COMPONENTE PESQUISAR LOCAIS -->
+
+<!--  INICIO  - A J A X  - COMPONENTE PESQUISAR LOCAIS - HIERARQUIA -->
+
+<servlet>
+	<servlet-name>PesquisaLocalHierarquiaServlet</servlet-name>
+	<servlet-class>ecar.servlet.componente.PesquisaLocalHierarquiaServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>PesquisaLocalHierarquiaServlet</servlet-name>
+	<url-pattern>/ajax/pesquisaLocal</url-pattern> 
+</servlet-mapping>
+
+<!--  FIM      - A J A X  - COMPONENTE PESQUISAR LOCAIS - HIERARQUIA -->
+
+<!--  INICIO  - A J A X  - COMPONENTE SALVAR INDICADORES POR LOCAL  -->
+
+<servlet>
+	<servlet-name>SalvarIndicadorPorLocalServlet</servlet-name>
+	<servlet-class>ecar.servlet.componente.SalvarIndicadorPorLocalServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>SalvarIndicadorPorLocalServlet</servlet-name>
+	<url-pattern>/ajax/salvarIndicadorLocal</url-pattern> 
+</servlet-mapping>
+
+<!--  FIM      - A J A X  - COMPONENTE SALVAR INDICADORES POR LOCAL  -->
+
+	<servlet-mapping>
+		<servlet-name>RelatorioItemEstrutura</servlet-name>
+		<url-pattern>/RelatorioItemEstrutura</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RelacaoItemEstrutura</servlet-name>
+		<url-pattern>/RelacaoItemEstrutura</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RevisaoItemEstrutura</servlet-name>
+		<url-pattern>/RevisaoItemEstrutura</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RevisaoItemEstruturaMetasFisicas</servlet-name>
+		<url-pattern>/RevisaoItemEstruturaMetasFisicas</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LayoutArquivoExportacao</servlet-name>
+		<url-pattern>/LayoutArquivoExportacao</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RelatorioAcompanhamentoImpresso</servlet-name>
+		<url-pattern>/RelatorioAcompanhamentoImpresso</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DownloadFile</servlet-name>
+		<url-pattern>/DownloadFile</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>GraficoEvolucaoPosicoes</servlet-name>
+		<url-pattern>/GraficoEvolucaoPosicoes</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GraficoRealizadoPorExercicio</servlet-name>
+		<url-pattern>/GraficoRealizadoPorExercicio</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GraficoRealizadoNoExercicio</servlet-name>
+		<url-pattern>/GraficoRealizadoNoExercicio</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GraficoPrevisaoIndicadoresResultado</servlet-name>
+		<url-pattern>/GraficoPrevisaoIndicadoresResultado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RelatorioApendiceDois</servlet-name>
+		<url-pattern>/RelatorioApendiceDois</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RelatorioApendiceTres</servlet-name>
+		<url-pattern>/RelatorioApendiceTres</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RelatorioAcessoUsuario</servlet-name>
+		<url-pattern>/RelatorioAcessoUsuario</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RelatorioOcorrenciasImportacao</servlet-name>
+		<url-pattern>/RelatorioOcorrenciasImportacao</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RelatorioAcompanhamento</servlet-name>
+		<url-pattern>/RelatorioAcompanhamento</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+
+   	<!-- INICIO CONFIGURACOES DO AXIS -->
+	<listener>
+		<listener-class>org.apache.axis.transport.http.AxisHTTPSessionListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>AxisServlet</servlet-name>
+		<servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern> 
+	</servlet-mapping>
+
+	<!-- currently the W3C havent settled on a media type for WSDL;
+		http://www.w3.org/TR/2003/WD-wsdl12-20030303/#ietf-draft
+		for now we go with the basic 'it's XML' response -->
+	<mime-mapping>
+		<extension>wsdl</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+
+	<mime-mapping>
+		<extension>xsd</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+
+  	<!-- FIM CONFIGURACOES DO AXIS -->
+	<security-constraint> 
+		<web-resource-collection>
+			<web-resource-name>SENHA</web-resource-name>
+			<description>Acesso só via HTTPS</description>
+			<url-pattern>/</url-pattern>
+			<http-method>POST</http-method>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<user-data-constraint>
+			<description>Usar SSL</description>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint> 
+</web-app>

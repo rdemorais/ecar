@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relBijari_subOE_subEst_subStaus" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.7684607682500018"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="caminho_smileAmarelo" class="java.lang.String"/>
+	<parameter name="caminho_smileVerde" class="java.lang.String"/>
+	<parameter name="caminho_smileVermelho" class="java.lang.String"/>
+	<parameter name="caminho_smileAzul" class="java.lang.String"/>
+	<parameter name="caminho_smileBranco" class="java.lang.String"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="ano" class="java.lang.Integer"/>
+	<field name="nomeCor" class="java.lang.String"/>
+	<field name="codCor" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="15" y="0" width="25" height="18">
+					<printWhenExpression><![CDATA[$F{codCor} == 2L]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.lang.String"><![CDATA[$P{caminho_smileAmarelo}]]></imageExpression>
+			</image>
+			<image hAlign="Center">
+				<reportElement x="15" y="0" width="25" height="18">
+					<printWhenExpression><![CDATA[$F{codCor} == 1L]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.lang.String"><![CDATA[$P{caminho_smileVerde}]]></imageExpression>
+			</image>
+			<image hAlign="Center">
+				<reportElement x="15" y="0" width="25" height="18">
+					<printWhenExpression><![CDATA[$F{codCor} == 3L]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.lang.String"><![CDATA[$P{caminho_smileVermelho}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="15" y="18" width="25" height="11"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mes} + "/" + $F{ano}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="2" width="1" height="25" forecolor="#CCCCCC"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="2" y="29" width="46" height="1" forecolor="#CCCCCC">
+					<printWhenExpression><![CDATA[$P{REPORT_DATA_SOURCE}.next()]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+			<image hAlign="Center">
+				<reportElement x="15" y="0" width="25" height="18">
+					<printWhenExpression><![CDATA[$F{codCor} == 7L]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.lang.String"><![CDATA[$P{caminho_smileAzul}]]></imageExpression>
+			</image>
+			<image hAlign="Center">
+				<reportElement x="15" y="0" width="25" height="18">
+					<printWhenExpression><![CDATA[$F{codCor} == 0L]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.lang.String"><![CDATA[$P{caminho_smileBranco}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

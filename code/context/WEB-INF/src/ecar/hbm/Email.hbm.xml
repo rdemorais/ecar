@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.Email" 
+    table="TB_EMAIL"
+    lazy="false"
+>
+
+    <id
+        name="codEmail"
+        type="java.lang.Long"
+        column="COD_EMAIL"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="sistema"
+        type="java.lang.String"
+        column="SISTEMA"
+        length="255"
+    />
+    <property
+        name="dataHoraEnvio"
+        type="java.sql.Timestamp"
+        column="DATA_HORA_ENVIO"
+        length="8"
+    />
+    <property
+        name="assunto"
+        type="java.lang.String"
+        column="ASSUNTO"
+        length="255"
+    />
+    <property
+        name="destinatario"
+        type="java.lang.String"
+        column="DESTINATARIO"
+        length="255"
+    />
+    <property
+        name="destinatariocc"
+        type="java.lang.String"
+        column="DESTINATARIOCC"
+        length="255"
+    />
+    <property
+        name="destinatariobcc"
+        type="java.lang.String"
+        column="DESTINATARIOBCC"
+        length="255"
+    />
+    <property
+        name="conteudo"
+        type="java.lang.String"
+        column="CONTEUDO"
+        length="-1"
+    />
+    <property
+        name="lido"
+        type="java.lang.String"
+        column="LIDO"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+	    class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+	>
+    	<column name="COD_USU" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

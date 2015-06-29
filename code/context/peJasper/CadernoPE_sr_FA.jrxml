@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CadernoPE_sr_FA" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cod_obj" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tpfa.descricao_tpfa, usu.nome_usu from tb_item_estrutura_iett as obj
+inner join tb_item_est_usutpfuac_iettutfa fa on obj.cod_iett = fa.cod_iett
+inner join tb_tipo_func_acomp_tpfa tpfa on fa.cod_tpfa = tpfa.cod_tpfa
+inner join tb_usuario_usu usu on fa.cod_usu = usu.cod_usu
+where obj.cod_ett = 2
+and obj.cod_iett = $P{cod_obj}
+and obj.ind_ativo_iett = 'S'
+order by tpfa.descricao_tpfa]]>
+	</queryString>
+	<field name="descricao_tpfa" class="java.lang.String"/>
+	<field name="nome_usu" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="104" y="1" width="339" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome_usu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="1" width="92" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descricao_tpfa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

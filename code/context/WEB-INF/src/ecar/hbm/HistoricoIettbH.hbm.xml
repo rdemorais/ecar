@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Rogerio, Gabriel (28/05/2007)
+    - Modificado para comportar Historico 
+-->
+<class 
+    name="ecar.pojo.HistoricoIettbH" 
+    table="TB_HISTORICO_IETTBH"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettbH"
+        type="java.lang.Long"
+        column="COD_IETTBH"
+    >
+        <generator class="increment" />
+    </id> 
+
+    <property
+        name="dataUltManutencaoIettb"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUTENCAO_IETTB"
+        length="7"
+    />
+    
+    <property
+        name="comentarioIettb"
+        type="java.lang.String"
+        column="COMENTARIO_IETTB"
+        length="2000"
+    />
+    
+    <property
+        name="qtdPrevistaIettb"
+        type="java.math.BigDecimal"
+        column="QTD_PREVISTA_IETTB"
+        length="14"
+    />
+    
+    <!-- bi-directional many-to-one association to BeneficiarioBnf -->
+    <many-to-one
+        name="beneficiarioBnf"
+        class="ecar.pojo.BeneficiarioBnf"
+        
+    >
+        <column name="cod_bnf" />
+    </many-to-one>
+
+
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+  
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    
+	    
+	    
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>  
+	
+    <!-- bi-directional many-to-one association to historico_master_mah -->
+    <many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	    
+	    
+	>
+    	<column name="COD_MAH" />
+	</many-to-one>  	
+	
+</class>
+</hibernate-mapping>

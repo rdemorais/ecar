@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ContatoMailCttm" 
+    table="TB_CONTATO_MAIL_CTTM"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codCttm"
+        type="java.lang.Long"
+        column="COD_CTTM"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="nomeCttm"
+        type="java.lang.String"
+        column="NOME_CTTM"
+        length="2000"
+    />
+    <property
+        name="indOrigemCttm"
+        type="java.lang.String"
+        column="IND_ORIGEM_CTTM"
+        length="1"
+    />
+    <property
+        name="emailCttm"
+        type="java.lang.String"
+        column="EMAIL_CTTM"
+        length="50"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ContatoAreaCtta -->
+    <many-to-one
+        name="contatoAreaCtta"
+        class="ecar.pojo.ContatoAreaCtta"
+        not-null="true"
+    >
+        <column name="COD_CTTA" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to ContatoMailCategoriaCttm -->
+    <many-to-one
+        name="contatoMailCategoriaCttm"
+        class="ecar.pojo.ContatoMailCategoriaCttm"
+        not-null="true"
+    >
+        <column name="COD_CTTMC" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

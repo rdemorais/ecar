@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.TipoAcompFuncAcompTafc" 
+    table="TB_TIPO_ACOMP_FUNC_ACOMP_TAFC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.TipoAcompFuncAcompPK">
+        <key-property 
+            name="codTa" 
+            column="COD_TA" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codTpfa" 
+            column="COD_TPFA" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="indObrigatorio"
+        type="java.lang.String"
+        column="IND_OBRIGATORIO"
+        length="1"
+    />
+    <property
+        name="indOpcional"
+        type="java.lang.String"
+        column="IND_OPCIONAL"
+        length="1"
+    />
+
+    <property
+        name="indRegistroPosicaoTafc"
+        type="java.lang.String"
+        column="IND_REGISTRO_POSICAO_TAFC"
+        length="1"
+    />
+	<property name="indLeituraTipoAcomp" type="java.lang.String">
+    	<column name="ind_leitura_tipo_acomp" length="1" />
+	</property>
+    
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to SisAtributoSatb -->
+    <many-to-one
+        name="tipoAcompanhamentoTa"
+	    class="ecar.pojo.TipoAcompanhamentoTa"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_TA" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="tipoFuncAcompTpfa"
+	    class="ecar.pojo.TipoFuncAcompTpfa"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_TPFA" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

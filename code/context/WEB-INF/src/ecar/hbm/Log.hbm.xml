@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.Log" 
+    table="TB_LOG"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codLog"
+        type="java.lang.Long"
+        column="COD_LOG"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataLog"
+        type="java.sql.Timestamp"
+        column="DATA_LOG"
+        length="7"
+    />
+    <property
+        name="stringSqlLog"
+        type="java.lang.String"
+        column="STRING_SQL_LOG"
+        length="200"
+    />
+    <property
+        name="nomeTabelaLog"
+        type="java.lang.String"
+        column="NOME_TABELA_LOG"
+        length="20"
+    />
+    <property
+        name="operacaoLog"
+        type="java.lang.String"
+        column="OPERACAO_LOG"
+        length="3"
+    />
+    <property
+        name="ipLog"
+        type="java.lang.String"
+        column="IP_LOG"
+        length="20"
+    />
+    <property
+        name="codSessaoLog"
+        type="java.lang.Long"
+        column="COD_SESSAO_LOG"
+        length="10"
+    />
+    <property
+        name="codGrupoLog"
+        type="java.lang.Long"
+        column="COD_GRUPO_LOG"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

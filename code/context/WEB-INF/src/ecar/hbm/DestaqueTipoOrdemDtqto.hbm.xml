@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.DestaqueTipoOrdemDtqto" 
+    table="TB_DESTAQUE_TIPO_ORDEM_DTQTO"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codDtqto"
+        type="java.lang.Long"
+        column="COD_DTQTO"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="rotinaDtqto"
+        type="java.lang.String"
+        column="ROTINA_DTQTO"
+        length="2000"
+    />
+    <property
+        name="identificacaoDtqto"
+        type="java.lang.String"
+        column="IDENTIFICACAO_DTQTO"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to DestaqueSubAreaDtqsa -->
+    <set
+        name="destaqueSubAreaDtqsas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_DTQTO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.DestaqueSubAreaDtqsa"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

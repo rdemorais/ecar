@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.Uf" 
+    table="TB_UF"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codUf"
+        type="java.lang.String"
+        column="COD_UF"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoUf"
+        type="java.lang.String"
+        column="DESCRICAO_UF"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to EmpresaEmp -->
+    <set
+        name="empresaEmps"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_UF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EmpresaEmp"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to UsuarioUsu -->
+    <set
+        name="usuarioUsusByComercUfUsu"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COMERC_UF_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UsuarioUsu"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to UsuarioUsu -->
+    <set
+        name="usuarioUsusByResidUfUsu"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="RESID_UF_USU" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UsuarioUsu"
+        />
+    </set>
+
+
+    <set
+        name="enderecoEnds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_UF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.EnderecoEnd"
+        />
+    </set>
+
+
+</class>
+</hibernate-mapping>

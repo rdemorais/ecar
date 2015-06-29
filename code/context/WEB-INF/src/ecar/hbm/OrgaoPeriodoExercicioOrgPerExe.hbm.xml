@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.OrgaoPeriodoExercicioOrgPerExe" 
+    table="tb_orgao_periodo_exercicio_orgperexe"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="compId" class="ecar.pojo.OrgaoPeriodoExercicioOrgPerExePK">
+        <key-property 
+            name="codOrg" 
+            column="cod_org" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codPerExe" 
+            column="cod_perexe" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="indAtivoOrgPerExe"
+        type="java.lang.String"
+        column="ind_ativo_orgperexe"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ecar.pojo.PoderPod -->
+    <many-to-one
+        name="orgaoOrg"
+	    class="ecar.pojo.OrgaoOrg"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="cod_org" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to ecar.pojo.PeriodoExercicioPerExe -->
+    <many-to-one
+        name="periodoExercicioPerExe"
+	    class="ecar.pojo.PeriodoExercicioPerExe"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="cod_perexe" />
+	</many-to-one>
+
+</class>
+</hibernate-mapping>

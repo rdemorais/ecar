@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<typedef name="ValorType" class="comum.database.EnumType">
+		<param name="enumClass">ecar.pojo.TipoValorEnum</param>
+		<param name="identifierMethod">getCodigo</param>
+		<param name="valueOfMethod">valueOf</param>
+	</typedef>
+	
+	<typedef name="TecnologiaType" class="comum.database.EnumType">
+		<param name="enumClass">ecar.pojo.intercambioDados.tecnologia.TipoTecnologiaEnum</param>
+		<param name="identifierMethod">getCodigo</param>
+		<param name="valueOfMethod">valueOf</param>
+	</typedef>	
+	
+</hibernate-mapping>

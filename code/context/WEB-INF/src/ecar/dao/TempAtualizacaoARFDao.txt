@@ -1,0 +1,498 @@
+package ecar.dao;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Transaction;
+
+import comum.database.Dao;
+
+import ecar.exception.ECARException;
+import ecar.pojo.AcompRealFisicoArf;
+import ecar.pojo.AcompReferenciaItemAri;
+import ecar.pojo.ExercicioExe;
+import ecar.pojo.ItemEstFisicoRevIettfr;
+import ecar.pojo.ItemEstrtFisHistIettfh;
+import ecar.pojo.ItemEstrtIndResulIettr;
+import ecar.pojo.ItemEstrutFisicoIettf;
+import ecar.pojo.ItemEstrutFisicoIettfPK;
+import ecar.pojo.SisAtributoSatb;
+import ecar.pojo.SituacaoSit;
+
+/**
+ * DAO temporária para atualização do ARF
+ * 
+ * @author cristiano
+ */
+public class TempAtualizacaoARFDao extends Dao {
+    /**
+     * 
+     */
+    public TempAtualizacaoARFDao(HttpServletRequest request) {
+		super();
+		this.request = request;
+	}
+    
+    
+    /**
+	 * Atualizar os registros de AcompRealFisico devido a mudanças na tabela
+	 * 
+	 * @param HttpServletRequest request
+	 * @throws ECARException
+	 */
+	public void atualizar (HttpServletRequest request) throws ECARException {
+		Transaction tx = null;
+
+		try {
+			/*
+			// PARTE 1 - não é mais necessária - deve ser executado por script
+			System.out.println("TempAtualizacaoARFDao.atualizar() - Iniciando transacao... PARTE 1");
+			tx = session.beginTransaction();
+
+			// obter os ARF
+			String query = "select ARF from AcompRealFisicoArf as ARF";
+			
+			List listaARF = this.getSession().find(query);
+			
+			System.out.println("TempAtualizacaoARFDao.atualizar() - Total de registros para atualização: " + listaARF.size());
+
+			Iterator it = listaARF.iterator();
+
+			while (it.hasNext()){
+				AcompRealFisicoArf arf = (AcompRealFisicoArf)it.next();
+				
+				// setar o mês/ano do AREF no ARF
+				arf.setMesArf(Long.valueOf(arf.getAcompReferenciaItemAri().getAcompReferenciaAref().getMesAref()));
+				arf.setAnoArf(Long.valueOf(arf.getAcompReferenciaItemAri().getAcompReferenciaAref().getAnoAref()));
+				
+				session.update(arf);
+			}
+
+			System.out.println("TempAtualizacaoARFDao.atualizar() - Commit da transacao... PARTE 1");
+			tx.commit();
+			*/
+
+			// PARTE 2
+			System.out.println("TempAtualizacaoARFDao.atualizar() - Iniciando transacao...");
+			tx = session.beginTransaction();
+
+			// obter os ARF
+			String query = "select ARF from AcompRealFisicoArf as ARF order by ARF.itemEstruturaIett.codIett, ARF.itemEstrtIndResulIettr.codIettir, ARF.mesArf, ARF.anoArf";
+			
+			List listaARF = this.getSession().find(query);
+			
+			System.out.println("TempAtualizacaoARFDao.atualizar() - Total de registros para verificação: " + listaARF.size());
+
+			List listRepetidos = new ArrayList();
+			int cont = 0;
+
+			while (cont < listaARF.size()){
+				AcompRealFisicoArf arf = (AcompRealFisicoArf)listaARF.get(cont);
+				
+				String iettMesAnoAtual = String.valueOf(arf.getItemEstruturaIett().getCodIett())
+										+ String.valueOf(arf.getItemEstrtIndResulIettr().getCodIettir())
+										+ String.valueOf(arf.getMesArf()) 
+										+ String.valueOf(arf.getAnoArf());
+				cont++;
+				if(cont < listaARF.size()) {
+					AcompRealFisicoArf arfAux = (AcompRealFisicoArf)listaARF.get(cont);
+					
+					if(arfAux != null) {
+						String iettMesAnoAux = String.valueOf(arfAux.getItemEstruturaIett().getCodIett())
+													+ String.valueOf(arfAux.getItemEstrtIndResulIettr().getCodIettir())
+													+ String.valueOf(arfAux.getMesArf()) 
+													+ String.valueOf(arfAux.getAnoArf());
+						int ultimoContRepetido = -1;
+						if (iettMesAnoAux.equals(iettMesAnoAtual)){
+							listRepetidos.add(arfAux);
+							ultimoContRepetido = cont;
+						}
+						int contAux = cont;
+						while (iettMesAnoAux.equals(iettMesAnoAtual) && contAux < listaARF.size()){
+							contAux++;
+							if(contAux < listaARF.size()) {
+								arfAux = (AcompRealFisicoArf)listaARF.get(contAux);
+								
+								iettMesAnoAux = String.valueOf(arfAux.getItemEstruturaIett().getCodIett())
+														+ String.valueOf(arfAux.getItemEstrtIndResulIettr().getCodIettir())
+														+ String.valueOf(arfAux.getMesArf()) 
+														+ String.valueOf(arfAux.getAnoArf());
+
+								if (iettMesAnoAux.equals(iettMesAnoAtual)){
+									listRepetidos.add(arfAux);
+									ultimoContRepetido = contAux;
+								}
+							}
+						}
+						
+						if(ultimoContRepetido > -1) {
+							cont = ultimoContRepetido + 1;
+						}
+					}
+				}
+			}
+
+			Iterator it = listRepetidos.iterator();
+
+			while (it.hasNext()){
+				AcompRealFisicoArf arf = (AcompRealFisicoArf)it.next();
+				
+				System.out.println("arf para ser deletado: " + arf.getItemEstruturaIett().getCodIett() + " - " + arf.getItemEstrtIndResulIettr().getCodIettir() + " - " + arf.getMesArf() + " - " + arf.getAnoArf() + " - " + arf.getCodArf());
+				session.delete(arf);
+			}
+
+			System.out.println("TempAtualizacaoARFDao.atualizar() - Commit da transacao...");
+			tx.commit();
+
+		} catch (Exception e) {
+			if (tx != null)
+				try {
+					tx.rollback();
+				} catch (HibernateException r) {
+					this.logger.error(r);
+					throw new ECARException("erro.hibernateException"); 
+				}
+			this.logger.error(e);
+			throw new ECARException("erro.hibernateException"); 
+		}
+	}
+    /**
+	 * Atualizar os registros de AcompRealFisico devido ao mantis 6533
+	 * 
+	 * @param HttpServletRequest request
+	 * @throws ECARException
+	 */
+	public void atualizar2 (HttpServletRequest request) throws ECARException {
+		Transaction tx = null;
+
+		try {
+			System.out.println("TempAtualizacaoARFDao.atualizar2() - Iniciando transacao...");
+			tx = session.beginTransaction();
+
+			// situação "Em andamento": cod_sit=12
+			String query = "select situacao from SituacaoSit as situacao where situacao.codSit=12";
+			List listaSituacao = this.getSession().find(query);
+			SituacaoSit situacao = (SituacaoSit)listaSituacao.get(0);
+			System.out.println("TempAtualizacaoARFDao.atualizar2() - situacao: " + situacao.getDescricaoSit());
+
+			System.out.println("TempAtualizacaoARFDao.atualizar2() - obter dados para 2005");
+
+			// obter as quantidades previstas de revisão de 2004 (cod_exe = 1), de 2005 (cod_exe = 2)
+			query = "select IETTFR from ItemEstFisicoRevIettfr as IETTFR where IETTFR.exercicioExe.codExe=2";
+			
+			int arfAtualizados = 0;
+			
+			List listaIETTFR = this.getSession().find(query);
+			
+			if(listaIETTFR != null && !listaIETTFR.isEmpty()) {
+				// obter os ARF de Dezembro/2004
+				query = "select ARF from AcompRealFisicoArf as ARF where ARF.mesArf=12 and ARF.anoArf=2005 order by ARF.itemEstruturaIett.codIett";
+				
+				List listaARF = this.getSession().find(query);
+				
+				if(listaARF != null && !listaARF.isEmpty()) {
+					Iterator itARF = listaARF.iterator();
+		
+					while (itARF.hasNext()){
+						AcompRealFisicoArf arf = (AcompRealFisicoArf)itARF.next();
+						
+						Iterator itIETTFR = listaIETTFR.iterator();
+						while (itIETTFR.hasNext()){
+							ItemEstFisicoRevIettfr iettfr = (ItemEstFisicoRevIettfr)itIETTFR.next();
+							
+							if(iettfr.getIettIndResulRevIettrr().getItemEstrtIndResulIettr().equals(arf.getItemEstrtIndResulIettr())) {
+								System.out.println("TempAtualizacaoARFDao.atualizar2() - item: " + arf.getItemEstruturaIett().getCodIett() + " - qtde: " + iettfr.getQtdPrevistaIettfr());
+
+								arf.setQtdRealizadaArf(iettfr.getQtdPrevistaIettfr());
+	
+								// situação "Em andamento"
+								arf.setSituacaoSit(situacao);
+								
+								session.update(arf);
+								
+								arfAtualizados++;
+								break;
+							}
+						}
+
+					}
+				}
+			}
+
+			System.out.println("TempAtualizacaoARFDao.atualizar2() - arfAtualizados: " + arfAtualizados);
+			System.out.println("TempAtualizacaoARFDao.atualizar2() - Commit da transacao...");
+			
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				try {
+					tx.rollback();
+				} catch (HibernateException r) {
+					this.logger.error(r);
+					throw new ECARException("erro.hibernateException"); 
+				}
+			this.logger.error(e);
+			throw new ECARException("erro.hibernateException"); 
+		}
+	}
+
+	/**
+	 * Remover registros de ARI desnecessários (Mantis 7135)
+	 * 
+	 * @param HttpServletRequest request
+	 * @throws ECARException
+	 */
+	public void atualizar3 (HttpServletRequest request) throws ECARException {
+		Transaction tx = null;
+
+		try {
+			List listaAriParaRemover = new ArrayList();
+			System.out.println("TempAtualizacaoARFDao.atualizar3() - Iniciando transacao...");
+			tx = session.beginTransaction();
+
+			// selecionar os ARIs do acompanhamento Outubro/2006 - PPA (cod_aref = 46)
+			String query = "select ari from AcompReferenciaItemAri as ari where ari.acompReferenciaAref.codAref=46";
+			List listaAri = this.getSession().find(query);
+
+			if(listaAri != null && !listaAri.isEmpty()) {
+				System.out.println("TempAtualizacaoARFDao.atualizar3() - total de aris: " + listaAri.size());
+
+				Iterator itARI = listaAri.iterator();
+		
+				while (itARI.hasNext()){
+					AcompReferenciaItemAri ari = (AcompReferenciaItemAri)itARI.next();
+					List listaNivel = new ArrayList(ari.getItemEstruturaIett().getItemEstruturaNivelIettns());
+					
+					if(listaNivel != null && !listaNivel.isEmpty()) {
+						Iterator itNivel = listaNivel.iterator();
+						boolean manter = false;
+						while (itNivel.hasNext()){
+							SisAtributoSatb satb = (SisAtributoSatb)itNivel.next();
+							
+							// nivel de planejamento diferente de 35 e 39 (PPA e PPA Apoio)
+							if(satb.getCodSatb().longValue() == 35 || satb.getCodSatb().longValue() == 39) {
+								manter = true;
+								break;
+							}
+						}
+						
+						if(!manter) {
+							listaAriParaRemover.add(ari);
+						}
+					}
+				}
+			}
+			
+			Iterator itARI = listaAriParaRemover.iterator();
+			
+			while (itARI.hasNext()){
+				AcompReferenciaItemAri ari = (AcompReferenciaItemAri)itARI.next();
+				System.out.println("TempAtualizacaoARFDao.atualizar3() - item: " + ari.getItemEstruturaIett().getNomeIett());
+
+				session.delete(ari);
+			}
+
+			System.out.println("TempAtualizacaoARFDao.atualizar3() - listaAriParaRemover: " + listaAriParaRemover.size());
+			System.out.println("TempAtualizacaoARFDao.atualizar3() - Commit da transacao...");
+			
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				try {
+					tx.rollback();
+				} catch (HibernateException r) {
+					this.logger.error(r);
+					throw new ECARException("erro.hibernateException"); 
+				}
+			this.logger.error(e);
+			throw new ECARException("erro.hibernateException"); 
+		}
+	}
+
+	/**
+	 * Remover registros de ARF desnecessários (Mantis 7135)
+	 * 
+	 * @param HttpServletRequest request
+	 * @throws ECARException
+	 */
+	public void atualizar4 (HttpServletRequest request) throws ECARException {
+		Transaction tx = null;
+
+		try {
+			List listaArfParaRemover = new ArrayList();
+			//System.out.println("TempAtualizacaoARFDao.atualizar4() - Iniciando transacao...");
+			//tx = session.beginTransaction();
+
+			// selecionar os ARFs de 10/2006
+			String query = "select arf from AcompRealFisicoArf as arf where arf.mesArf=10 and arf.anoArf=2006";
+			List listaArf = this.getSession().find(query);
+
+			if(listaArf != null && !listaArf.isEmpty()) {
+				// selecionar os ARIs do acompanhamento Outubro/2006 - PPA (cod_aref = 46) e Outubro/2006 - Monitorado (cod_aref = 39)
+				query = "select ari from AcompReferenciaItemAri as ari where " +
+						"ari.acompReferenciaAref.codAref=46 or ari.acompReferenciaAref.codAref=39";
+				List listaAri = this.getSession().find(query);
+	
+				if(listaAri != null && !listaAri.isEmpty()) {
+					System.out.println("TempAtualizacaoARFDao.atualizar4() - total de aris: " + listaAri.size());
+	
+					System.out.println("TempAtualizacaoARFDao.atualizar4() - Identificando ARF sem ARI correspondente");
+					Iterator itARF = listaArf.iterator();
+			
+					while (itARF.hasNext()){
+						AcompRealFisicoArf arf = (AcompRealFisicoArf)itARF.next();
+						
+						Iterator itARI = listaAri.iterator();
+						
+						boolean manter = false;
+						
+						System.out.println("TempAtualizacaoARFDao.atualizar4() - Item: " + arf.getItemEstruturaIett().getNomeIett());
+						
+						while (itARI.hasNext()){
+							AcompReferenciaItemAri ari = (AcompReferenciaItemAri)itARI.next();
+							
+							if(arf.getItemEstruturaIett().equals(ari.getItemEstruturaIett())) {
+								System.out.println("TempAtualizacaoARFDao.atualizar4() - Mantido");
+								manter = true;
+								break;
+							}
+						}
+						
+							
+						if(!manter) {
+							System.out.println("TempAtualizacaoARFDao.atualizar4() - Remover");
+							listaArfParaRemover.add(arf);
+						}
+					}
+				}
+				
+				System.out.println("TempAtualizacaoARFDao.atualizar4() - listaArfParaRemover: " + listaArfParaRemover.size());
+				Iterator itARF = listaArfParaRemover.iterator();
+				
+				while (itARF.hasNext()){
+					AcompRealFisicoArf arf = (AcompRealFisicoArf)itARF.next();
+					System.out.println("TempAtualizacaoARFDao.atualizar4() - removendo item: " + arf.getItemEstruturaIett().getNomeIett());
+	
+					//session.delete(arf);
+				}
+	
+				//System.out.println("TempAtualizacaoARFDao.atualizar4() - Commit da transacao...");
+				
+				//tx.commit();
+			}
+		} catch (Exception e) {
+			if (tx != null)
+				try {
+					tx.rollback();
+				} catch (HibernateException r) {
+					this.logger.error(r);
+					throw new ECARException("erro.hibernateException"); 
+				}
+			this.logger.error(e);
+			throw new ECARException("erro.hibernateException"); 
+		}
+	}
+
+	/**
+	 * Atualização de registros de metas físicas (Mantis 7283)
+	 * 
+	 * @param HttpServletRequest request
+	 * @throws ECARException
+	 */
+	public void atualizar5 (HttpServletRequest request) throws ECARException {
+		Transaction tx = null;
+
+		try {
+			System.out.println("TempAtualizacaoARFDao.atualizar5() - Iniciando transacao...");
+			tx = session.beginTransaction();
+
+			String query = "select iettfr from ItemEstFisicoRevIettfr as iettfr";
+			List listaIettfr = this.getSession().createQuery(query).list();
+
+			Iterator itIettfr = listaIettfr.iterator();
+
+			System.out.println("TempAtualizacaoARFDao.atualizar5() - Buscando relação entre iettf e iettfr.");
+			int i = 0;
+			int j = 0;
+			while (itIettfr.hasNext()){
+				ItemEstFisicoRevIettfr iettfr = (ItemEstFisicoRevIettfr) itIettfr.next();
+				
+				query = "select iettf from ItemEstrutFisicoIettf iettf" +
+						" where iettf.exercicioExe.codExe = " + iettfr.getExercicioExe().getCodExe().toString() +
+						"   and iettf.itemEstrtIndResulIettr.codIettir = " + iettfr.getIettIndResulRevIettrr().getItemEstrtIndResulIettr().getCodIettir().toString();
+				
+				List listaIettf2 = this.getSession().createQuery(query).list();
+				
+				if(listaIettf2.size() > 1){
+					throw new Exception("TempAtualizacaoARFDao.atualizar5() - listaIettf2.size() > 1");
+				}
+				else if (listaIettf2.size() == 1){
+					i++;
+					ItemEstrutFisicoIettf iettf = (ItemEstrutFisicoIettf) listaIettf2.get(0);
+
+					ItemEstrtFisHistIettfh historico = new ItemEstrtFisHistIettfh();
+					
+					historico.setDataInclusaoIettfh(iettf.getDataInclusaoIettf());
+					historico.setIndAtivoIettfh(iettf.getIndAtivoIettf());
+					historico.setQtdPrevistaIettfh(iettf.getQtdPrevistaIettf());
+					//historico.setItemEstrutFisicoIettf(iettf);
+					historico.setExercicioExe((ExercicioExe) this.buscar(ExercicioExe.class, iettfr.getExercicioExe().getCodExe()));
+					historico.setItemEstrtIndResulIettr((ItemEstrtIndResulIettr) this.buscar(ItemEstrtIndResulIettr.class, iettfr.getIettIndResulRevIettrr().getItemEstrtIndResulIettr().getCodIettir()));
+					
+					System.out.println("TempAtualizacaoARFDao.atualizar5() - Inserindo histórico...");
+					session.save(historico);
+					
+					iettf.setDataInclusaoIettf(iettfr.getDataInclusaoIettfr());
+					iettf.setIndAtivoIettf(iettfr.getIndAtivoIettfr());
+					iettf.setQtdPrevistaIettf(iettfr.getQtdPrevistaIettfr());
+					
+					System.out.println("TempAtualizacaoARFDao.atualizar5() - Atualizando iettf com dados de revisão iettfr...");
+					session.update(iettf);					
+				}
+				else {
+					j++;
+					ItemEstrutFisicoIettf iettf = new ItemEstrutFisicoIettf();
+
+					iettf.setDataInclusaoIettf(iettfr.getDataInclusaoIettfr());
+					iettf.setIndAtivoIettf(iettfr.getIndAtivoIettfr());
+					iettf.setQtdPrevistaIettf(iettfr.getQtdPrevistaIettfr());
+					iettf.setItemEstrtIndResulIettr(iettfr.getIettIndResulRevIettrr().getItemEstrtIndResulIettr());
+					iettf.setExercicioExe(iettfr.getExercicioExe());
+
+					ItemEstrutFisicoIettfPK chave = new ItemEstrutFisicoIettfPK();
+					
+					chave.setCodExe(iettfr.getExercicioExe().getCodExe());
+					chave.setCodIettir(iettfr.getIettIndResulRevIettrr().getItemEstrtIndResulIettr().getCodIettir());
+					
+					iettf.setComp_id(chave);
+					
+					System.out.println("TempAtualizacaoARFDao.atualizar5() - Inserindo iettf com dados de revisão iettfr...");
+					session.save(iettf);
+				}
+				
+			}
+
+			System.out.println("TempAtualizacaoARFDao.atualizar5() - Iettf atualizados: " + i);
+			System.out.println("TempAtualizacaoARFDao.atualizar5() - Iettf inseridos: " + j);
+			System.out.println("TempAtualizacaoARFDao.atualizar5() - Iettf total: " + (i + j));
+
+			
+			System.out.println("TempAtualizacaoARFDao.atualizar5() - Commit da transacao...");
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				try {
+					tx.rollback();
+				} catch (HibernateException r) {
+					this.logger.error(r);
+					throw new ECARException("erro.hibernateException"); 
+				}
+			this.logger.error(e);
+			throw new ECARException("erro.hibernateException"); 
+		}
+	}
+}

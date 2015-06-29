@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EmpresaEmp" 
+    table="TB_EMPRESA_EMP" 
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codEmp"
+        type="java.lang.Long"
+        column="COD_EMP"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="siglaEmp"
+        type="java.lang.String"
+        column="SIGLA_EMP"
+        length="20"
+    />
+    <property
+        name="razaoSocialEmp"
+        type="java.lang.String"
+        column="RAZAO_SOCIAL_EMP"
+        length="50"
+    />
+    <property
+        name="cnpjCpfEmp"
+        type="java.lang.String"
+        column="CNPJ_CPF_EMP"
+        length="14"
+    />
+    <property
+        name="complementoEmp"
+        type="java.lang.String"
+        column="COMPLEMENTO_EMP"
+        length="40"
+    />
+    <property
+        name="enderecoEmp"
+        type="java.lang.String"
+        column="ENDERECO_EMP"
+        length="50"
+    />
+    <property
+        name="inscrEstadualEmp"
+        type="java.lang.String"
+        column="INSCR_ESTADUAL_EMP"
+        length="15"
+    />
+    <property
+        name="bairroEmp"
+        type="java.lang.String"
+        column="BAIRRO_EMP"
+        length="40"
+    />
+    <property
+        name="telefone2Emp"
+        type="java.lang.String"
+        column="TELEFONE2_EMP"
+        length="10"
+    />
+    <property
+        name="ddd2Emp"
+        type="java.lang.String"
+        column="DDD2_EMP"
+        length="3"
+    />
+    <property
+        name="telefone1Emp"
+        type="java.lang.String"
+        column="TELEFONE1_EMP"
+        length="10"
+    />
+    <property
+        name="ddd1Emp"
+        type="java.lang.String"
+        column="DDD1_EMP"
+        length="3"
+    />
+    <property
+        name="cepEmp"
+        type="java.lang.String"
+        column="CEP_EMP"
+        length="8"
+    />
+    <property
+        name="cidadeEmp"
+        type="java.lang.String"
+        column="CIDADE_EMP"
+        length="40"
+    />
+    <property
+        name="logotipoEmailEmp"
+        type="java.lang.String"
+        column="LOGOTIPO_EMAIL_EMP"
+        length="100"
+    />
+    <property
+        name="logotipoEmp"
+        type="java.lang.String"
+        column="LOGOTIPO_EMP"
+        length="100"
+    />
+    <property
+        name="homePageEmp"
+        type="java.lang.String"
+        column="HOME_PAGE_EMP"
+        length="40"
+    />
+    <property
+        name="emailErrosEmp"
+        type="java.lang.String"
+        column="EMAIL_ERROS_EMP"
+        length="50"
+    />
+    <property
+        name="emailContatoEmp"
+        type="java.lang.String"
+        column="EMAIL_CONTATO_EMP"
+        length="50"
+    />
+    <property
+        name="faxEmp"
+        type="java.lang.String"
+        column="FAX_EMP"
+        length="10"
+    />
+    <property
+        name="dddFaxEmp"
+        type="java.lang.String"
+        column="DDD_FAX_EMP"
+        length="3"
+    />
+    <property
+        name="inscrMunicipalEmp"
+        type="java.lang.String"
+        column="INSCR_MUNICIPAL_EMP"
+        length="15"
+    />
+    <property
+        name="logotipoRelatorioEmp"
+        type="java.lang.String"
+        column="LOGOTIPO_RELATORIO_EMP"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TextosSiteTxt -->
+    <set
+        name="textosSiteTxts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_EMP" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.TextosSiteTxt"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to Uf -->
+    <many-to-one
+        name="uf"
+        class="ecar.pojo.Uf"
+        not-null="true"
+    >
+        <column name="COD_UF" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

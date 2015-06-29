@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+  <class 
+  	name="ecar.pojo.PontocriticoCorPtccor" 
+  	table="tb_pontocritico_cor_ptccor"
+    lazy="false"
+  	>
+   	<composite-id 
+   		class="ecar.pojo.PontocriticoCorPtccorPK" 
+   		name="id">
+      	<key-property 
+	      	column="COD_PTC" 
+	      	length="10" 
+	      	name="codPtc" 
+	      	type="java.lang.Long"/>
+      	<key-property 
+	      	column="COD_COR" 
+	      	length="10" 
+	      	name="codCor" 
+	      	type="java.lang.Long"/>
+    </composite-id>
+    <property 
+    	name="frequenciaEnvioEmailPtccor" 
+    	type="java.lang.Integer"
+    	length="7"
+      	column="frequencia_envio_email_ptccor"/>
+      	
+    <property 
+    	name="antecedenciaPrimEmailPtccor" 
+    	type="java.lang.Integer"
+    	length="7"
+      	column="antecedencia_prim_email_ptccor"/>
+
+    <property 
+    	name="indAtivoEnvioEmailPtccor" 
+    	type="java.lang.String"
+    	length="1" 
+      	column="ind_ativo_envio_email_ptccor"/>
+    
+   <many-to-one 
+    	class="ecar.pojo.PontoCriticoPtc" 
+    	insert="false"
+      	name="pontoCriticoPtc" 
+      	update="false">
+      	<column name="cod_ptc"/>
+    </many-to-one>
+    <many-to-one 
+    	class="ecar.pojo.Cor" 
+    	insert="false" 
+    	name="cor" 
+    	update="false">
+        <column name="cod_cor"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Rogerio, Gabriel (28/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoIettutfaH" 
+    table="TB_HISTORICO_IETTUTFAH"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+    
+    <id
+        name="codIettutfaH"
+        type="java.lang.Long"
+        column="COD_IETTUTFAH"
+    >
+        <generator class="increment" />
+    </id>  
+    
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	>
+    	<column name="COD_IETT" />
+	</many-to-one>
+	
+	<many-to-one
+        name="usuarioUsu"
+	    class="ecar.pojo.UsuarioUsu"
+	    
+	    
+	>
+    	<column name="COD_USU" />
+	</many-to-one>  
+	
+	<many-to-one
+        name="tipoFuncAcompTpfa"
+	    class="ecar.pojo.TipoFuncAcompTpfa"
+	>
+    	<column name="COD_TPFA" />
+	</many-to-one>
+	
+    <property
+        name="dataUltManutencao"
+        type="java.sql.Timestamp"
+        column="data_ult_manutencao"
+        length="7"
+    />	
+
+    <many-to-one
+        name="usuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	    
+		
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>  
+	
+	<many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	    
+	    
+	>
+    	<column name="COD_MAH" />
+	</many-to-one>  
+   
+</class>
+</hibernate-mapping>

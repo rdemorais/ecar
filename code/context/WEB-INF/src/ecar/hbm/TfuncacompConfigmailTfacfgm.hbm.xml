@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.TfuncacompConfigmailTfacfgm" 
+  	table="tb_tfuncacomp_configmail_tfacfgm"
+    lazy="false"
+  	>
+    <composite-id class="ecar.pojo.TfuncacompConfigmailTfacfgmPK" name="comp_id">
+      <key-property column="cod_cfg" length="4" name="codCfgm" type="java.lang.Integer"/>
+<!--      <key-property column="cod_cfg" length="8" name="codCfg" type="java.lang.Long"/>-->
+      <key-property column="cod_tpfa" length="8" name="codTpfa" type="java.lang.Long"/>
+    </composite-id>
+    <property column="envia_sms" length="1" name="enviaSms" type="java.lang.String"/>
+    <property column="envia_mail_tfacfgm" length="1"
+      name="enviaMailTfacfgm" type="java.lang.String"/>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbConfigMailCfgm -->
+    <many-to-one class="ecar.pojo.ConfigMailCfgm" 
+      insert="false"
+      name="configMailCfgm" 
+      update="false"
+      >
+      <column name="cod_cfg"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbTipoFuncAcompTpfa -->
+    <many-to-one 
+	    class="ecar.pojo.TipoFuncAcompTpfa" 
+    	insert="false"
+    	name="tipoFuncAcompTpfa" 
+      	update="false"
+      >
+      <column name="cod_tpfa"/>
+    </many-to-one>
+    <!-- end of derived association(s) -->
+  </class>
+</hibernate-mapping>

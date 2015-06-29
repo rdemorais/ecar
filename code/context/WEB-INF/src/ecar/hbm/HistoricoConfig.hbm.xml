@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/12/2008 10:09:28 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="ecar.pojo.HistoricoConfig" table="tb_historico_config" schema="public" lazy="true">
+        <id name="codHistorico" type="long">
+            <column name="cod_historico" />
+             <generator class="sequence">
+				<param name="sequence">tb_historico_config_cod_historico_seq</param>
+			</generator>
+        </id>
+        <property name="nomeHistorico" type="string">
+            <column name="nome_historico" length="100" not-null="true" />
+        </property>
+        <property name="iconeHistorico" type="string">
+            <column name="icone_historico" length="100" />
+        </property>
+        <property name="corHistorico" type="string">
+            <column name="cor_historico" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

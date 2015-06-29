@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SisTipoOrdenacaoSto" 
+    table="TB_SIS_TIPO_ORDENACAO_STO"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSto"
+        type="java.lang.Long"
+        column="COD_STO"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="stringSqlSto"
+        type="java.lang.String"
+        column="STRING_SQL_STO"
+        length="200"
+    />
+    <property
+        name="descricaoSto"
+        type="java.lang.String"
+        column="DESCRICAO_STO"
+        length="40"
+    />
+    <property
+        name="indAtivoSto"
+        type="java.lang.String"
+        column="IND_ATIVO_STO"
+        length="1"
+    />
+    <property
+        name="dataInclusaoSto"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_STO"
+        length="7"
+    />
+
+    <!-- Associations --> 
+    <!-- bi-directional one-to-many association to SisGrupoAtributoSga -->
+    <set
+        name="sisGrupoAtributoSgas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_STO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SisGrupoAtributoSga"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.EstruturaFuncaoEttf" 
+    table="TB_ESTRUTURA_FUNCAO_ETTF"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <composite-id name="comp_id" class="ecar.pojo.EstruturaFuncaoEttfPK">
+        <key-property 
+            name="codEtt" 
+            column="COD_ETT" 
+            type="java.lang.Long"
+            length="10"
+        />
+        <key-property 
+            name="codFun" 
+            column="COD_FUN" 
+            type="java.lang.Long"
+            length="10"
+        />
+    </composite-id>    
+
+    <property
+        name="labelEttf"
+        type="java.lang.String"
+        column="LABEL_ETTF"
+        length="40"
+    />
+    <property
+        name="indListagemImpressCompEttf"
+        type="java.lang.String"
+        column="IND_LISTAGEM_IMPRESS_COMP_ETTF"
+        length="1"
+    />
+    <property
+        name="indListagemImpressaResEttf"
+        type="java.lang.String"
+        column="IND_LISTAGEM_IMPRESSA_RES_ETTF"
+        length="1"
+    />
+
+    <property
+        name="indPodeBloquearEttf"
+        type="java.lang.String"
+        column="IND_PODE_BLOQUEAR_ETTF"
+        length="1"
+    />
+
+    <property
+        name="indRevisaoEttf"
+        type="java.lang.String"
+        column="IND_REVISAO"
+        length="1"
+    />
+    
+    <property
+        name="dicaEttf"
+        type="java.lang.String"
+        column="DICA_ETTF"
+        length="2000"
+    />
+    
+    <property
+    	name="seqApresentacaoTelaEttf"
+    	type="java.lang.Integer"
+    	column="SEQ_APRESENTACAO_TELA_ETTF"
+    	length="4"
+    />
+    
+    <property
+    	name="seqApresentacaoRelatorioEttf"
+    	type="java.lang.Integer"
+    	column="SEQ_APRESENTACAO_RELATORIO_ETTF"
+    	length="4"
+    />
+    <property
+        name="documentacaoEttf"
+        type="java.lang.String"
+        column="DOCUMENTACAO_ETTF"
+        length="2000"
+    />
+    
+    <property
+        name="indExibirHistoricoEttf"
+        type="java.lang.String"
+        column="IND_EXIBIR_HISTORICO_ETTF"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to EstruturaEtt -->
+    <many-to-one
+        name="estruturaEtt"
+	    class="ecar.pojo.EstruturaEtt"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_ETT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to FuncaoFun -->
+    <many-to-one
+        name="funcaoFun"
+	    class="ecar.pojo.FuncaoFun"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_FUN" />
+	</many-to-one>
+	
+	<!-- bi-directional many-to-many association to ConfiguracaoCfg -->
+	<set
+		name="libTipoFuncAcompTpfas" 
+		table="TB_ESTRUT_FUNC_TIPO_FUNC_ACOMP_ETTFTPFA"
+		lazy="false" 
+		cascade="save-update"
+	>
+		<key>
+			<column name="COD_ETT" />
+			<column name="COD_FUN" />
+		</key>
+		<many-to-many 
+			class="ecar.pojo.TipoFuncAcompTpfa" column="COD_TPFA" />
+	</set>
+	
+	
+    <!-- end of derived association(s) -->
+</class>
+</hibernate-mapping>

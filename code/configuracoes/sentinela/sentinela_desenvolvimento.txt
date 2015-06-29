@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Config>			
+		<Atributos>	
+			<Atributo name="paginaErro" 				valor="/erro.jsp"/>
+			<Atributo name="paginaPosLogin" 			valor="/login/ctrl.jsp"/>
+			<Atributo name="paginaLogin"				valor="/login.jsp"/>
+			<Atributo name="tempoRecargaContexto" valor="1800000"/>
+			<Atributo name="tempoRecargaFuncoes" valor="1800000"/>
+			<!--  Para desenvolvimento -->
+			<Atributo name="emDesenvolvimento"  		valor="true"/>
+
+			<!--
+			ALTERAR PARA CADA SISTEMA EM ESPECIFICO
+			<Atributo name="sentinelaAdminDS"       valor="jdbc/SentinelaSSSAdminDS______"/>
+			<Atributo name="sentinelaClientDS"      valor="jdbc/SentinelaClientDS______"/>
+			
+			 -->			
+		</Atributos>
+</Config>

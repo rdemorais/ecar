@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.UploadTipoCategoriaUtc" 
+    table="TB_UPLOAD_TIPO_CATEGORIA_UTC"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codUtc"
+        type="java.lang.Long"
+        column="COD_UTC"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="nomeUtc"
+        type="java.lang.String"
+        column="NOME_UTC"
+        length="20"
+    />
+
+    <property
+        name="urlJanelaUtc"
+        type="java.lang.String"
+        column="URL_JANELA_UTC"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to ItemEstrUplCategIettuc -->
+    <set
+        name="itemEstrUplCategIettucs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_UTC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrUplCategIettuc"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to UploadTipoArquivoUta -->
+    <set
+        name="uploadTipoArquivoUtas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_UTC" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UploadTipoArquivoUta"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<relatorio>
+
+		<item>
+	
+			<hierarquia>
+				<nivel>Programa: Programa do Leite</nivel>
+				<nivel>Ação: Desenvolvimento das Políticas Pecuárias</nivel>
+				<nivel>Meta: Desenvolvimento do Pequeno Produtor</nivel>			
+				<nivel>Etapa: Licitação de Parceria</nivel>			
+			</hierarquia>
+			
+						
+			<dadosBasicos>
+					<atributo1 label="Nome:" valor="Desenvolvimento das políticas pecuárias"/>
+					<atributo1 label="Nome abreviado:" valor="Desenv. Pecuária"/>		
+					<atributo1 label="Área:" valor="Saúde"/>		
+					<atributo1 label="Sub Área:" valor="Infra-estrutura"/>						
+					<atributo1 label="Secretaria Responsável 1:" valor="Sec.Planejamento"/>						
+					<atributo1 label="Secretaria Responsável 2:" valor="Gabinete"/>						
+					<atributo1 label="Responsável:" valor="Felipe Alves Villarinho Lima"/>												
+					<atributo1 label="Co-Responsável:" valor="Usuário B"/>																
+					<atributo1 label="Monitor:" valor="Usuário C"/>												
+					<atributo2 label="Descrição da Ação:" valor="O presidente Luiz Inácio Lula da Silva respondeu às vaias durante o discurso no Fórum Social Mundial, em Porto Alegre, dizendo que eram coisas da juventude e que os manifestantes eram filhos do PT. Na fala, ele também defendeu os diversos setores do seu governo, em especial a política externa."/>												
+					<atributo2 label="Objetivo Geral:" valor="O São Paulo tem dois objetivos na partida contra o time de Limeira, nesta quinta-feira, às 20h30, no estádio do Morumbi: conseguir o terceiro triunfo no Paulista e melhorar o desempenho de sua defesa."/>																		
+					<atributo2 label="Benefícios:" valor="O Fórum Econômico Mundial de Davos ouviu um apelo do primeiro-ministro britânico, Tony Blair, e de outras personalidades para fazer de 2005 o ano de tentar resolver a pobreza na África.Juntaram-se a Blair nesse apelo o presidente da Microsoft, Bill Gates, o cantor Bono, defensor de redução da dívida de países pobres, e o presidente da África do Sul, Thabo Mbeki."/>
+			  	</dadosBasicos>
+				
+				<beneficiarios label="Beneficiários">
+					<beneficiario descricao="População em Geral" quantidade="1000" observacoes="Descrição maior das observações asdasd fafsdfa dfdsaf sdfsda fdsafsdf dsfsd fsdfds."/>
+					<beneficiario descricao="Crianças Carentes" quantidade="5000" observacoes="No entanto, o primeiro-ministro não apoiou diretamente a proposta do presidente da França, Jacques Chirac, para criação de um imposto internacional de solidariedade."/>			
+					<beneficiario descricao="Velinhas Felizes" quantidade="5000" observacoes="Observação Teste"/>						
+					<beneficiario descricao="Mais um Beneficiário" quantidade="5000" observacoes="O Flamengo anunciou a negociação do meia 
+						Ibson com um grupo de investidores portugueses nesta sexta-feira pela manhã. O valor pago pelo grupo ao clube 
+						foi de R$ 7,8 milhões. O destino do jogador ainda não foi revelado, mas é possível que ele vá ou para o 
+						futebol português ou para o futebol russo. A assessoria de imprensa não revelou que investimentos pode 
+						fazer com o dinheiro da venda.O clube anunciou ainda que está negociando com o mesmo grupo a obtenção de 
+						recursos para o CT Ninho do Urubu, o que seria um investimento sem relação alguma com a venda de Ibson."/>									
+				</beneficiarios>
+		
+				<acoes label="Ações Realizadas">
+					<acao data="10/01/2005" descricao="O retrato será exibido no Museu Municipal de Haia de 5 de fevereiro a 16 de maio. Depois ele estará em exposição no Museu Van Gogh, em Amsterdã, como parte de uma mostra sobre desenhos do pintor, entre 1º de julho e 18 de setembro."/>			
+					<acao data="12/02/2005" descricao="Comecei de novo com 30 anos e o resultado foi algo nunca sonhado, afirmou, referindo-se à indicação, o primeiro artista de fala hispânica com uma canção em espanhol competindo no Oscar."/>						
+				</acoes>
+		
+				<criterios label="Critérios">
+					<criterio>Encerrar forte conteúdo Programático</criterio>
+					<criterio>Constar como prioridade do Plano de Investimento</criterio>
+					<criterio>Possuir ampla abrangência social</criterio>			
+					<criterio>Comprometer o governo em caso de insucesso</criterio>			
+					<criterio>Ter adquirido centralidade política</criterio>			
+				</criterios>
+				
+				<entidades label="Entidades">
+					<entidade nome="ONG ABC" atuacao="Controle" inicio="01/01/2003" termino="31/12/2006" descricao="O editor-chefe da rede de TV Al Arabyia, Nabil Khatib, disse à BBC Brasil nesta quinta-feira que a rede está definitivamente disposta a apresentar a mensagem de Ronaldo e já a teria transmitido se tivesse recebido a fita."/>
+					<entidade nome="Celepar" atuacao="Execução" inicio="01/01/2002" termino="31/12/2006" descricao="Os Estados Unidos chegaram ao máximo de 150 mil soldados mobilizados no Iraque desde dezembro do ano passado, quando ampliou o contingente em 12 mil homens para proteger as eleições. Até agora, o governo dos EUA não quis fazer previsões sobre quando as tropas podem começar a voltar. Cada vez que perguntam isto, o presidente George W. Bush se limita a repetir que elas permanecerão no Iraque pelo tempo necessário."/>			
+				</entidades>
+				 
+				<localizacao label="Localização" abrangencia="Municípios">
+					<local>Curitiba</local>
+					<local>Cascavel</local>
+					<local>Londrina</local>
+					<local>Paranaguá</local>
+				</localizacao>
+				
+				<fontesRecurso label="Fontes de Recurso/Recurso">
+					<fonteRecurso nome="BNDES" exercicio="2002" valor="R$1.000.000,00">
+						<recurso nome="Recursos Próprios" valorAprovado="R$1.000.000,00" valorRevisado="R$1.000.000,00"/>
+						<recurso nome="Tesouro do Estado" valorAprovado="R$1.000.000,00" valorRevisado="R$1.000.000,00"/>
+					</fonteRecurso>			
+					<fonteRecurso nome="Nova Fonte de Recurso" exercicio="2004" valor="R$1.000.000,00">
+						<recurso nome="Recursos Próprios de 2004" valorAprovado="R$1.000.000,00" valorRevisado="R$1.000.000,00"/>
+						<recurso nome="Loteria" valorAprovado="R$43.000.000,00" valorRevisado="R$43.000.000,00"/>
+					</fonteRecurso>			
+				</fontesRecurso>
+				
+				<contas label="Contas da Execução Financeira">
+					<conta fonteRecurso="BNDES/Recursos Próprio" unidade="123456" atividade="100322" exercicio="2003" acumulado="Sim"/>
+					<conta fonteRecurso="BNDES/Tesouro do Estado" unidade="123456" atividade="100322" exercicio="2001" acumulado="Sim"/>			
+				</contas>
+				
+				<pontosCriticos label="Pontos Críticos">
+					<pontoCritico 
+						acao="Encaminhar documentação junto ao organismo internacional"
+						dataIdentificacao="01/01/2000"
+						descricao="EUA e Reino Unido fazem plano para deixar Iraque.Os dois países estabeleceram nesta semana uma estratégia de retirada de suas tropas do Iraque, informa o jornal britânico"
+						ambitoDoGoverno="Interno"
+						dataLimiteSolucao="01/01/2005"
+						sugestao="Segundo o diretor de Normas do Banco Central, Sérgio Darcy, a medida irá permitir que clientes que estão com o nome no SPC por terem sido avalistas de terceiros tenham acesso a crédito bancário. Eles só terão de comprovar que têm condições de arcar com o compromisso."
+						dataSolucao="01/01/2003"
+						/>
+					<pontoCritico 
+						acao="Ponto Crítico 2"
+						dataIdentificacao="03/01/2000"
+						descricao="Descrição do Ponto Crítico 2"
+						ambitoDoGoverno="Interno"
+						dataLimiteSolucao="01/01/2005"
+						sugestao="Sugestão do Ponto Crítico 2"
+						dataSolucao="01/01/2003"
+						/>
+				</pontosCriticos>
+				
+				<indicadoresResultado label="Indicadores de Resultado">
+					<indicador 
+						nome="Mortalidade Infantil"
+						descricao="Redução da Mortalidade Infantil no Estado do Paraná"
+						unidade="un"
+						totalizacoes="sim"
+						projecoes="sim"
+						total="61000"
+					>			
+						<exercicio descricao="2002" quantidade="5000"/>
+						<exercicio descricao="2003" quantidade="4000"/>				
+						<exercicio descricao="2004" quantidade="52000"/>				
+					</indicador>
+		
+					<indicador 
+						nome="Índice de Analfabetismo"
+						descricao="Redução do Analfabetismo não só no Estado do Paraná, mas no Universo como um todo"
+						unidade="%"
+						totalizacoes="não"
+						projecoes="sim"
+						total=""
+					>			
+						<exercicio descricao="2002" quantidade="11"/>
+						<exercicio descricao="2003" quantidade="10"/>				
+						<exercicio descricao="2004" quantidade="09"/>				
+					</indicador>
+				</indicadoresResultado>
+				
+				<filho nome="Meta: Desenvolvimento do Pequeno Produtor" nivel="1" dataInicio="01/01/2002" dataTermino="01/01/2006">
+					<filho nome="Etapa: Licitação de Parceria" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006">
+						<filho nome="Fase: Publicação" nivel="3" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>
+						<filho nome="Fase: Abertura" nivel="3" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>				
+					</filho>
+					<filho nome="Etapa: Assinatura Do Contrato" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>
+					<filho nome="Etapa: Início das Obras" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>			
+					<filho nome="Etapa: Inauguração" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>						
+					<filho nome="Etapa: Abetura para os Produtores" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>									
+				</filho>
+		
+				<filho nome="Meta: Desenvolvimento do Pequeno Produtor 2" nivel="1" dataInicio="01/01/2002" dataTermino="01/01/2006">
+					<filho nome="Etapa: Licitação de Parceria" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006">
+						<filho nome="Fase: Publicação" nivel="3" dataInicio="01/01/2002" dataTermino="01/01/2006">
+							<filho nome="Produto:Teste" nivel="4" dataInicio="01/01/2002" dataTermino="01/01/2006"/>
+							<filho nome="Produto:Teste 2" nivel="4" dataInicio="01/01/2002" dataTermino="01/01/2006"/>
+							<filho nome="Produto:Teste 3" nivel="4" dataInicio="01/01/2002" dataTermino="01/01/2006"/>										
+						</filho>
+						<filho nome="Fase: Abertura" nivel="3" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>				
+					</filho>
+					<filho nome="Etapa: Assinatura Do Contrato" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>
+					<filho nome="Etapa: Início das Obras" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>			
+					<filho nome="Etapa: Inauguração" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>						
+					<filho nome="Etapa: Abertura para os Produtores" nivel="2" dataInicio="01/01/2002" dataTermino="01/01/2006"></filho>									
+				</filho>
+					
+					
+				</item>
+		
+		
+</relatorio>
+ 

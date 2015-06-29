@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/12/2008 10:09:28 by Hibernate Tools 3.2.2.GA -->
+<hibernate-mapping>
+    <class name="ecar.pojo.historico.HistoricoXml" table="historicoxml" lazy="true">
+	    <id name="codigo" type="java.lang.Long">
+           <generator class="sequence">
+				<param name="sequence">historicoxml_codigo_seq</param>
+			</generator>
+        </id>
+        <many-to-one name="UsuarioUsu" class="ecar.pojo.UsuarioUsu" fetch="join">
+            <column name="cod_usuario" />
+        </many-to-one>
+        <property name="objeto" type="binary">
+            <column name="objeto" />
+        </property>
+        <property name="dataHistorico" type="timestamp">
+            <column name="data_historico" length="8" />
+        </property>
+        <property name="tipoHistorico" type="java.lang.Long">
+            <column name="tipo_historico" />
+        </property>
+        <property name="idObjetoSerializado" type="java.lang.Long">
+            <column name="id_objeto_serializado" />
+        </property>
+        <property name="historico" type="java.lang.String">
+            <column name="historico" />
+        </property>
+    </class>
+</hibernate-mapping>

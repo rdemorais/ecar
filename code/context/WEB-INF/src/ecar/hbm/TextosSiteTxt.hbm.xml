@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.TextosSiteTxt" 
+    table="TB_TEXTOS_SITE_TXTS"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+	<id 	
+		column="cod_txts" 
+		name="codTxtS" 
+		type="java.lang.Long"
+		length="10">
+      <generator class="increment"/>
+    </id>
+    <property
+        name="textoTxts"
+        type="java.lang.String"
+        column="TEXTO_TXTS"
+        length="2000"
+    />
+    
+    <property
+        name="descricaoUsoTxts"
+        type="java.lang.String"
+        column="DESCRICAO_USO_TXTS"
+        length="60"
+    />
+    <property
+        name="indAtivoTxts"
+        type="java.lang.String"
+        column="IND_ATIVO_TXTS"
+        length="1"
+    />
+    
+    <property 
+    	column="email_responsavel_txts" 
+    	length="50"
+ 		name="emailResponsavelTxts" 
+ 		type="java.lang.String"
+ 	/>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to IdiomaIdm -->
+    <many-to-one
+        name="idiomaIdm"
+	    class="ecar.pojo.IdiomaIdm"
+        not-null="true"
+	>
+    	<column name="COD_IDM" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to EmpresaEmp -->
+    <many-to-one
+        name="empresaEmp"
+	    class="ecar.pojo.EmpresaEmp"
+        not-null="true"
+	>
+    	<column name="COD_EMP" />
+	</many-to-one>
+
+
+    <!-- bi-directional one-to-many association to TbConfigMailCfgm -->
+    <set cascade="none" inverse="true" lazy="true" name="configMailSms">
+      <key>
+        <column name="cod_txts_sms"/>
+      </key>
+      <one-to-many class="ecar.pojo.ConfigMailCfgm"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to TbConfigMailCfgm -->
+    <set cascade="none" inverse="true" lazy="true" name="configMailMail">
+      <key>
+        <column name="cod_txts_mail"/>
+      </key>
+      <one-to-many class="ecar.pojo.ConfigMailCfgm"/>
+    </set>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

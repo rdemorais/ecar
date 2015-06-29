@@ -1,0 +1,2448 @@
+/* Essas s�o as defini��es da nova folha de estilos para o S�tio E-CAR.*/
+
+/* Sortable tables */
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+
+/* INICIO : Cabe�alho - foram alterados iamgens e altura do mesmo. Foi acrescentada a barra amarela, padr�o de governo. */
+#barra-amarela {
+    background: #FFCC00;
+    height: 35px;
+    position: relative;
+}
+#assinatura {
+    position: absolute;
+    z-index: 1;
+}
+.hiddenStructure {
+    background:transparent;
+    border:medium none;
+    display:block;
+    height:1px;
+    margin:-1px 0pt 0pt -1px;
+    overflow:hidden;
+    padding:0pt;
+    width:1px;
+}
+#select {
+    background-color: #FFCC00;
+    margin-left: 50%;
+    position: absolute;
+    z-index: 2;
+}
+.pr{
+    background-color: #FFCC00;
+    font-size: 8pt;
+}
+#marca-brasil {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 1;
+}
+#marca-brasil img {
+    border: 0px;
+}
+/* FIM : Cabe�alho - foram alterados iamgens e altura do mesmo. Foi acrescentada a barra amarela, padr�o de governo. */
+/*******************************************************************************/
+
+/* INICIO : Cabe�alho Padr�o */
+.logoGov {
+	
+}
+
+.bgCor {
+	background-color: #C8A040;
+}
+
+.cabec {
+	background-color: #E3C444;
+	width: 100%;
+	height: 78px;
+}
+
+.cabecOpcoes {
+	background-color: #CED7E7;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #1C2265;
+	padding-left: 6px;
+	height: 17px;
+	width: 154px;
+}
+
+.cabecOpcoes a {
+	text-decoration: none;
+}
+/* FIM : Cabe�alho Padr�o */
+/*******************************************************************************/
+
+/* Conteudo do s�tio. */
+
+/* INICIO : Tela de Login que aparece na p�gina de abertura */
+#login {
+	text-align: center;
+	border: 1px solid #AF8800;
+	background-image: url(../images/bg_login.gif);
+	background-repeat: no-repeat;
+	width: 250px;
+	position: relative;
+	left: 50%;
+	margin-top: 0px;
+	margin-bottom: 82px;
+	margin-left: -125px;
+	padding: 0px;
+	z-index: 5000;
+}
+.login {
+   width: 100%;
+   border: 0px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+/* FIM : Tela de Login que aparece na p�gina de abertura */
+/*******************************************************************************/
+
+/* INICIO: Menu superior */
+
+/* Essa primeira defini��o de menu vale apenas para a p�gina inicial */
+.menu_portal_inicial {
+	background: url(../images/estilo/MenuInicialBackground_pac.gif) right no-repeat;
+	height: 41px;
+}
+.menu_portal_inicial td {
+	padding-top: 5px;
+}
+.menu_portal_inicial .funcoes {
+    padding-left: 450px;
+	vertical-align: top;
+}
+
+/* Esse � o menu aplicado a todas as outras p�ginas */
+/* Itens de navega��o: Ininicial / Informa��es / Cadastro / Monitoramento */
+.menu_portal {
+	background: url(../images/estilo/MenuBackground_pac.gif) right no-repeat;
+	height: 24px;
+	width:100%;
+	margin-top: -2px;
+}
+.item_portal {
+    color: #102463;
+	border-left: 2px solid #D9B456;
+	margin: 0px;
+	padding: 0px;
+	height: 17px;
+}
+.item_portal tr {
+	padding:0;
+}
+.item_portal td {
+	padding:0;
+}
+.item_portal_hover {
+	background-color:#102463;
+	padding: 0;
+	display:block;
+	color:#FFFFFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+}
+.item_portal_hover tr {
+	background-color:#102463;
+	padding:0;
+}
+.item_portal_hover td {
+	background-color:#102463;
+	padding:0;
+}
+.item_portal_a {
+    color: #102463;
+    margin: 0px;
+	padding: 0px 9px 0px 9px;
+	text-transform:capitalize;
+	display:block;
+	height:17px;
+	font-family:Arial, Helvetica, Sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+}
+.item_portal_a_hover {
+	background-color:#102463;
+	border-left: 2px solid #D9B456;
+	margin: 0px;
+	padding: 0px 9px 0px 9px;
+	height: 17px;
+	display:block;
+	color:#FFFFFF;
+	font-family:Arial, Helvetica, Sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	text-transform:capitalize;
+}
+.item_portal_span {
+	display:none;
+	position:absolute;
+}
+.item_portal_span_hover {
+	display:block;
+	width:153px;
+	position:absolute;
+	background-color:#FF9900;
+	border:1px solid #102463;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#102463;
+	margin-top:18px;
+	z-index:8000;
+}
+
+/* Itens de fun��o: Fale Conosco / D�vidas / Gloss�rio / Pesquisa / Sair */
+.funcoes {
+    padding-left:12px;
+	padding-top:0;
+	padding-bottom:0;
+	padding-right:10px;
+	text-align:right;
+	white-space: nowrap;
+}
+.funcoes a {
+	color: #005E29;
+    padding: 8px 8px 7px;
+	text-decoration: none;
+	font-weight: bold;
+	text-transform:capitalize;
+}
+
+/* �rea que lista informa��os do Usu�rio Logado */
+.submenu_portal {
+	background: url(../images/estilo/MenuInicialBackground_pac.gif) right no-repeat;
+	height: 41px;
+}
+.submenu_portal .usuario {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#634601;
+	padding-left:13px;
+	padding-top:0;
+	padding-bottom:12px;
+	padding-right:23px;
+	white-space: nowrap;
+	text-align:left;
+}
+
+.submenu_portal .funcoes {
+	vertical-align: top;
+    padding-left:12px;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:0px;
+	text-align:right;
+	white-space: nowrap;
+}
+/* FIM: Menu superior */
+/*******************************************************************************/
+
+/* INICIO : Popup "Aguarde..." */
+#popup_flutuante {
+	display:none; 
+	top:20%; 
+	left:25%; 
+	width:500px; 
+	height:320px;
+	position:fixed; 
+	border:1px solid #888; 
+	padding:10px; 
+	text-align:center; 
+	font-weight:bold; 
+	color:#fff;
+	background-color: #DCE2ED;
+	z-index: 99000;
+	overflow: auto;
+}
+* html #popup_flutuante {position:absolute;}
+/* FIM : Popup "Aguarde..." */
+/*******************************************************************************/
+
+
+/* INICIO : Conte�do propriamente dito do s�tio */
+body {
+	margin: 0px;
+	background-color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+}
+/* FIM : Conte�do propriamente dito do s�tio */
+/*******************************************************************************/
+
+/* INICIO : Menu lateral. H� mais estilos que se referem a este menu no arquivo css_menu.jsp */
+#menu {
+	background-color: #FFFFFF;
+	float: left;
+	width: 177px;
+	position: absolute;
+	left: 0px;
+	top: 123px;
+	height: 100%;
+	z-index: 2999;
+}
+
+.menuHideShow {
+	background-color: #F7F3DE;
+	border: 1px solid #D6CB3E;
+	vertical-align: top;
+}
+
+#btmenu {
+	margin-top: 136px;
+	width: 7px;
+	height: 48px;
+	z-index: 5001;
+	background-color: #F5E699;
+	border: 1px solid #AD7A00;
+}
+
+/*#btmenu a {
+	background-color: #CED7E7;
+	cursor: e-resize;
+}*/
+#btmenu :hover {
+	background-color: #FFFFFF;
+	/*cursor: e-resize;*/
+}
+
+#btmenu a:hover {
+	background-color: #FFFFFF;
+	/*	cursor: e-resize;*/
+}
+/* FIM : Menu lateral. H� mais estilos que se referem a este menu no arquivo css_menu.jsp */
+/*******************************************************************************/
+
+#conteudo {
+	padding-left: 187px;
+	position: absolute;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	z-index: 0;
+}
+
+/* INICIO : Barra */
+.barra {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-image: url(../images/cabec_canto_barra.gif);
+	background-repeat: no-repeat;
+	padding-right: 6px;
+	text-align: right;
+	background-color: #F4DC61;
+}
+
+.barra a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.barrabotoes {
+	background-color: #F4DC61;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	text-align: left;
+	width: 100%;
+}
+
+.barrabotoes TD {
+	padding: 2px;
+}
+/* FIM : Barra */
+/*******************************************************************************/
+
+/* INICIO : Bot�o */
+.botao {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000;
+	background:url(../images/estilo/fundo_botao_pac.gif) repeat-x center;
+	border: 1px solid #AF8800;
+	height: 17px;
+	margin: 0px;
+}
+
+.botaoLink {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #596D9B;
+	background-color: #FFFFFF;
+	border: 1px solid #596D9B;
+	margin: 0px;
+	text-decoration: none;	
+}
+/* FIM : Bot�o */
+/*******************************************************************************/
+
+/* INICIO : Links */
+a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #634601;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #FF6600;
+}
+
+#linkstop {
+	padding: 2px;
+	text-align: right;
+	display: block;
+}
+/* FIM : Links */
+/*******************************************************************************/
+
+h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #AF8800;
+}
+
+h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #AF8800;
+}
+
+/* INICIO : Formul�rio html */
+.form {
+	background-color: #F5EFCE; /*#F5E699; fundo mais escuro*/
+	margin-top: 1px;
+	margin-bottom: 1px;
+	width: 100%;
+}
+
+.form TABLE {
+	width: 100%;
+}
+
+.form TD {
+	padding: 1px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+}
+
+.texto {
+	padding: 1px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+}
+
+.texto_login {
+	padding: 1px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000;
+	margin-top: 10px;
+}
+
+.label {
+	padding: 1px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color:#634601;
+	text-align: right;
+	width: 30%;
+	font-weight: bold;
+}
+
+.label_rel {
+	padding: 1px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #1C2265;
+	text-align: right;
+	font-weight: bold;
+}
+
+.labelNormal {
+	padding: 1px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #1C2265;
+	text-align: right;
+	width: 30%;
+}
+
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+	border: 1px solid #AF8800;
+}
+
+select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+	border-color: #C8A040;
+}
+
+textarea {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+}
+
+.camposobrigatorios {
+	display: block;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #AF8800;
+	text-align: right;
+}
+/* FIM : Formul�rio html */
+/*******************************************************************************/
+
+/* INICIO : As abas v�o compor estrturas de navega��o do conte�do, semelhantes a um fich�rio. */
+#abas {
+	background-color: #F4DC61;
+	z-index: 0;
+}
+
+.abadesabilitada {
+	background-color: #F5EFCE;
+	border-bottom: 1px solid #C8A040;
+	border-right: 1px solid #C8A040;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abadesabilitada a {
+	text-decoration: none;
+	padding: 5px;
+}
+
+.abadesabilitada td {
+	color: #ad7a00;
+	font-size: 10px;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 21px;
+}
+
+.abahabilitada {
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	border-right: 1px solid #C8A040;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abahabilitada td {
+	color: #634601;
+	font-weight: bold;
+	font-size: 10px;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 21px;
+}
+
+.abapontocriticohabilitada {
+	font-weight: bold;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	border-right: 1px solid #C8A040;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abapontocritico {
+	background-color: #ff7575; /* vermelho claro */
+	border-bottom: 1px solid #C8A040;
+	border-right: 1px solid #C8A040;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abapontocritico a {
+	color: #FFF;
+	text-decoration: none;
+	padding: 5px;
+}
+
+.abapontocritico a:hover {
+	color: #1C2265;
+	text-decoration: none;
+	padding: 5px;
+}
+
+.abapontocritico td {
+	color: #1C2265;
+	font-size: 10px;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 21px;
+}
+
+#abastipoacompanhamento {
+	background-color: #F4DC61;
+}
+
+.abatipoacompanhamentodesabilitada {
+	background-color: #F5E699;
+	border-bottom: 1px solid #C8A040;
+	border-right: 1px solid #C8A040;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abatipoacompanhamentodesabilitada a {
+	text-decoration: none;
+	padding: 5px;
+}
+
+.abatipoacompanhamentodesabilitada td {
+	color: #ad7a00;
+	font-size: 10px;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.abatipoacompanhamentohabilitada {
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	border-right: 1px solid #C8A040;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abatipoacompanhamentohabilitada td {
+	color: #634601;
+	font-weight: bold;
+	font-size: 10px;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#abasestrutura {
+	
+}
+
+.abaestruturadesabilitada {
+	border-top: 1px solid #C8A040;
+	border-right: 1px solid #C8A040;
+	border-bottom: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abaestruturadesabilitada a {
+	text-decoration: none;
+	padding: 3px;
+}
+
+.abaestruturadesabilitada td {
+	font-size: 10px;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.abaestruturahabilitada {
+	border-right: 1px solid #C8A040;
+	border-left: 1px solid #C8A040;
+	border-top: 1px solid #C8A040;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abaestruturahabilitada td {
+	color: #634601;
+	font-weight: bold;
+	font-size: 10px;
+	text-decoration: underline;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+}
+
+#abasrelatorio {
+	background-color: #F4DC61;
+}
+
+.abarelatoriodesabilitada {
+	background-color: #F5EFCE;
+	border-bottom: 1px solid #C8A040;
+	border-right: 1px solid #C8A040;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abarelatoriodesabilitada a {
+	text-decoration: none;
+	padding: 5px;
+}
+
+.abarelatoriodesabilitada td {
+	color: #ad7a00;
+	font-size: 10px;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.abarelatoriohabilitada {
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	border-right: 1px solid #C8A040;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.abarelatoriohabilitada td {
+	color: #634601;
+	font-weight: bold;
+	font-size: 10px;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+/* FIM : As abas v�o compor estrturas de navega��o do conte�do, semelhantes a um fich�rio. */
+/*******************************************************************************/
+
+/* INICIO : Menu Cascata. */
+#menuemcascata a {
+	text-decoration: none;
+	padding-left: 5px;
+}
+
+.cascata_nivel_1 {
+	font-size: 10px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_2 {
+	font-size: 10px;
+	text-indent: 30px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_3 {
+	font-size: 10px;
+	text-indent: 50px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_4 {
+	font-size: 10px;
+	text-indent: 70px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_5 {
+	font-size: 10px;
+	text-indent: 90px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_6 {
+	font-size: 10px;
+	text-indent: 110px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_7 {
+	font-size: 10px;
+	text-indent: 130px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_8 {
+	font-size: 10px;
+	text-indent: 150px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_9 {
+	font-size: 10px;
+	text-indent: 170px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_10 {
+	font-size: 10px;
+	text-indent: 190px;
+	padding-top: 7px;
+}
+
+.cascata_nivel_1 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_2 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_3 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_4 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_5 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_6 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_7 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_8 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_9 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cascata_nivel_10 .selecionado {
+	font-size: 10px;
+	font-weight: bold;
+}
+.selec_nivel {
+	font-size: 10px;
+	text-align: right;
+	padding: 5px;
+}
+/* FIM : Menu Cascata. */
+/*******************************************************************************/
+
+form {
+	padding: 0px;
+	margin: 0px;
+}
+
+/* INICIO : Subconteudo. */
+#subconteudoscroll {
+	display: block;
+	overflow: auto;
+	height: 210px;
+	width: 100%;
+}
+
+#subconteudoscroll td {
+	font-size: 10px;
+}
+
+#subconteudo {
+	width: 100%;
+	background-color: #F7F3DE;
+}
+
+#subconteudo td {
+	font-size: 10px;
+}
+/* FIM : Subconteudo. */
+/*******************************************************************************/
+
+/* INICIO : Espacador. */
+.espacador {
+	background-color: #D6CB3E;
+	height: 2px;
+}
+
+.espacadorBranco {
+	background-color: #FFFFFF;
+	height: 1px;
+}
+/* FIM : Espacador. */
+/*******************************************************************************/
+
+/* INICIO : Tabelas. */
+/* O conte�do � estruturado com tabelas. As defini��es abaixo abrangem os padr�es crom�ticos destas tabelas */
+.linha_titulo td {
+	background-color: #F7F3DE;
+	padding: 5px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.titulo {
+	background-color: #F7F3DE;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.corpo_tabela {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.titulo_exercicio {
+	background-color: #F7F3DE;
+	font-weight: bold;
+}
+
+#menuemcascata .titulo_exercicio a {
+	text-decoration: underline;
+}
+
+#menuemcascata .titulo_exercicio a:hover {
+	color: #FF6600;
+}
+
+#menuemcascata .titulo a {
+	text-decoration: underline;
+}
+
+#menuemcascata .titulo a:hover {
+	color: #FF6600;
+}
+
+.subtitulo {
+	background-color: #F7F3DE;
+	padding: 5px;
+	font-size: 10px;
+}
+
+#subconteudoscroll .linha_titulo td {
+	background-color: #F7F3DE;
+	padding: 5px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.linha_subtitulo td {
+	background-color: #F4DC61;
+	padding: 5px;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.linha_subtitulo th {
+	background-color: #F4DC61;
+	padding: 5px;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+/* Na op��o Monitoramento, em linha_subtiulo, o �ltimo t�tulo de mes-ano deve ter a cor #D6CB3E de background. Isso est� diretamente definido no c�digo e � necess�rio que, ao inv�s disto, esteja no arquivo CSS */
+.ultimo_item{
+    background-color: #D6CB3E;
+}
+
+.linha_subtitulo_legenda td {
+	background-color: #EAEEF4;
+	padding: 5px;
+	font-size: 10px;
+}
+
+.linha_subtitulo2 td {
+	background-color: #FFFFFF;
+	padding: 5px;
+	font-size: 10px;
+}
+
+.linha_subtitulo2_sem_bg td {
+	padding: 5px;
+	font-size: 10px;
+}
+
+.linha_subtitulo2inativo td {
+	background-color: #FFFFFF;
+	color: #CCCCCC;
+	padding: 5px;
+	font-size: 10px;
+}
+
+.subtitulo2inativo {
+	color: #CCCCCC;
+}
+
+#subconteudoscroll .linha_subtitulo td {
+	background-color: #EAEEF4;
+	padding: 5px;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+#subconteudoscroll .linha_subtitulo2 td {
+	background-color: #FFFFFF;
+	padding: 5px;
+	font-size: 10px;
+}
+
+.corpo_popup {
+	margin: 10px;
+}
+
+.tabelaaolado {
+	position: relative;
+	display: block;
+	float: left;
+}
+/* FIM : Tabelas. */
+/*******************************************************************************/
+
+hr {
+   color: #919191;
+}
+
+/* INICIO : O rodap� aparece na p�gina inicial (tela de login) */
+#rodape {
+	text-align: center;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	top: 350px;
+}
+
+.text_rodape {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #6C6C6C;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 110%;
+}
+/* FIM : O rodap� aparece na p�gina inicial (tela de login) */
+/*******************************************************************************/
+
+/* INICIO : Menu P�blico (menu que aparece na tela de login) */
+#menuPublico {
+	text-align: right;
+	border: none;
+	width: 200px;
+	position: absolute;
+	top: 60px;
+	left: 100%;
+	padding: 0px;
+	z-index: 5000;
+	margin-left: -220px;
+}
+/* FIM : Menu P�blico (menu que aparece na tela de login) */
+/*******************************************************************************/
+
+/*.login td {
+	width: 170px;
+	text-align: center;
+}*/
+
+.link_vermelho {
+	color: #CC3300;
+}
+
+.link_verde {
+	color: #009900;	
+}
+
+td {
+	font-size: 10px;
+}
+
+.link_vermelho_negrito {
+	color: #CC3300;
+	font-weight: bold;
+}
+
+.link_problemaDown {
+	color: #FF6600; /*LARANJA FORTE*/
+	font-weight: bold;
+}
+
+.cor_sim td {
+	padding: 3px;
+	color: #634601;
+}
+
+.cor_sim_relatorio td {
+	padding: 3px;
+	color: #634601;
+	background-color: #F0F0F0;
+}
+
+.cor_sim_financeiro td {
+	padding: 3px;
+	color: #634601;
+	background-color: #EAEEF4;
+	font-weight: bold;
+}
+
+.cor_sim_financeiro_destacaLinha td {
+	padding: 3px;
+	color: #634601;
+	background-color: #F0F0F0;
+}
+
+.cor_nao td {
+	background-color: #FFFFFF; /*branco*/
+	padding: 3px;
+	color: #634601;
+}
+
+.cor_over_negrito td {
+	background-color: #DFDFC3; /*laranja claro*/
+	padding: 3px;
+	font-weight: bold;
+}
+
+.cor_over td {
+	background-color: #DFDFC3; /*laranja claro*/
+	padding: 3px;
+}
+
+.cor_clicked td {
+	background-color: #ff9900; /*laranja*/
+	padding: 3px;
+}
+
+.cor_over_clicked td {
+	background-color: #DFDFC3; /*laranja claro*/
+	padding: 3px;
+}
+
+/* INICIO : Informa��o do Usu�rio */
+.item_InfoUsu_span {
+	display:none;
+	position:absolute;
+}
+.item_InfoUsu_span_hover {
+	display:block;
+	width:200px;
+	position:absolute;
+	background-color:#FF9900;
+	border:1px solid #102463;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#102463;
+	margin-top:18px;
+	padding:6px;
+	z-index:8000;
+}
+
+.item_InfoUsu_right1_span_hover {
+	display:block;
+	width:200px;
+	position:absolute;
+	right:1%;
+	background-color:#FF9900;
+	border:1px solid #102463;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#102463;
+	margin-top:18px;
+	padding:6px;
+	z-index:8000;
+}
+
+.item_InfoUsu_right10_span_hover {
+	display:block;
+	width:200px;
+	position:absolute;
+	right:10%;
+	background-color:#FF9900;
+	border:1px solid #102463;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#102463;
+	margin-top:18px;
+	padding:6px;
+	z-index:8000;
+}
+/*destaca o texto da qual o InfoUsu se refere*/
+.item_InfoUsu_td_hover {
+	/*font-weight: bold;*/
+	/*color:#FF6600;*/
+	/*border:1px solid #FF6600;*/
+}
+
+.item_InfoUsu_td{
+	/*font-weight: normal;*/
+	/*color:#1C2265;*/
+	border:none;
+}
+/* FIM : Informa��o do Usu�rio */
+/*******************************************************************************/
+
+/* INICIO : Anexos */
+#anexos {
+	border-bottom: 1px solid #AF8800;
+}
+
+#listAnexos.nenhumCadastrado{
+	font-family:Verdana; color:#634601; font-size:10px;
+}
+
+#anexocategorias {
+	position: relative;
+	display: inline;
+	width: 255px;
+}
+
+#anexocategorias td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #634601;
+	line-height: 120%;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#anexocategorias a {
+	font-weight: normal;
+	padding-left: 0px;
+	text-decoration: none;
+	background-image: none;
+	color: #AF8800;
+}
+
+#anexocategorias a:hover {
+	text-decoration: underline;
+}
+
+.body_anexos {
+	margin: 0;
+	background-color: #F5E699;
+}
+
+.titulo_anexos {
+	display: block;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #2E2B58;
+	background-color: #FFFFFF;
+	padding-left: 12px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#list_anexos {
+	background-color: #FFFFFF;
+	width: 100%;
+	border-bottom: 1px solid #AF8800;
+	border-right: 1px solid #AF8800;
+}
+
+#list_anexos th {
+	background-color: #F5E699;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #634601;
+	font-weight: bold;
+	border-top: 1px solid #AF8800;
+	border-left: 1px solid #AF8800;
+	padding-left: 12px;
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+}
+
+#list_anexos td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #634601;
+	border-top: 1px solid #AF8800;
+	border-left: 1px solid #AF8800;
+	padding-left: 12px;
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+}
+
+.periodoAtual {
+	background-color: #F5E699;
+}
+
+.list_anexos_cor_sim {
+	background-color: #FFFFFF;
+}
+
+.list_anexos_cor_hover {
+	background-color: #DEE4EF;
+}
+
+.list_anexos_cor_nao {
+	background-color: #F5E699;
+}
+/* FIM : Anexos */
+/*******************************************************************************/
+
+/* INICIO : Texto Negrito */
+.texto_negrito {
+	padding: 1px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #634601;
+	font-weight: bold;
+}
+
+.texto_negrito_login {
+	padding: 0px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000;
+	font-weight: bold;
+	background: url(../images/estilo/fundo_botao_pac.gif) repeat-x bottom;
+	border-bottom: 1px solid #AF8800;
+}
+.texto_erro_login {
+	padding: 0px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FF0000;
+	font-weight: bold;
+}
+/* FIM : Texto Negrito */
+/*******************************************************************************/
+
+/* INICIO : Item de Estrutura */
+.a_ancora {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #1F2466;
+	text-decoration: none;
+}
+
+.a_ancora:hover {
+	color: #1F2466;
+}
+
+.list_elab_acomp_cor_sim td {
+	background-color: #F5E699;
+	padding: 3px;
+}
+
+.list_elab_acomp_cor_nao td {
+	background-color: #E1E7F0;
+	padding: 3px;
+}
+
+.espacadorestrutura {
+	background-color: white;
+	height: 1px;
+}
+
+.linha_titulo_estrutura td {
+	padding: 5px;	
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.linha_subtitulo_estrutura td {
+	padding: 5px;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.linha_subtitulo2_estrutura td {
+	padding: 5px;
+	font-size: 10px;
+}
+
+#subconteudo .linha_subtitulo_estrutura{
+    background-color:#F7F3DE;
+}
+/* FIM : Item de Estrutura */
+/*******************************************************************************/
+
+.visivel {
+	display: block;
+}
+
+.naovisivel {
+	display: none;
+}
+
+#pre {
+	white-space: pre;
+	/* white-space: pre-wrap; */ /* css-3 */
+	/* white-space: -moz-pre-wrap !important;*/ /* Mozilla, since 1999 */
+	/* white-space: -pre-wrap;     */ /* Opera 4-6 */
+	/* white-space: -o-pre-wrap;   */ /* Opera 7 */
+	/* word-wrap: break-word;      */ /* Internet Explorer 5.5+ */
+}
+
+/* -- id da mensagem de espera para consultas longas -- */
+#overlay {
+	width: 100%;
+	height: 100%;
+	background: url(../images/overlay.png);
+	filter: Alpha(opacity = 60);
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 999000;
+	display: block;
+}
+
+#popupoverlay {
+	width: 100%;
+	height: 100%;
+	background: url(../images/overlay.png);
+	filter: Alpha(opacity = 60);
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 999000;
+	display: none;
+}
+
+#fundoForm {
+	width: 100%;
+	height: 100%;
+	background: url(../images/overlay.png);
+	filter: Alpha(opacity = 60);
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 999000;
+	display: block;
+}
+
+#aguarde {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 8pt;
+	text-align: center;
+	color: #606060;
+	margin-top: -15px;
+	margin-left: -130px;
+	border: 2px dashed #CC3300;
+	background-color: white;
+	width: 260px;
+	height: 30px;
+	vertical-align: middle;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1000000;
+	display: block;
+}
+
+/* INICIO : Label Dica*/
+/* --
+ * Dica para campos din�micos
+ * -- */
+LABEL.dica {
+	position: relative;
+	padding: 0;
+	color: #039;
+	text-decoration: none;
+	cursor: help;
+	z-index: 10000;
+}
+
+LABEL.dica:hover {
+	position: relative;
+	color: #039;
+	text-decoration: none;
+	padding: 0;
+	cursor: help;
+	background: transparent;
+	z-index: 20000;
+}
+
+LABEL.dica SPAN {
+	display: none;
+	width: 300px;
+	white-space: normal;
+	color: #000;
+	font-family: verdana, arial, tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+	text-decoration: none;
+	text-align: justify;
+	background: #ffe2b9; /* laranja claro */
+	border: 1px solid #999;
+	padding: 5px;
+	position: absolute;
+	top: 3em;
+	z-index: 99000;
+}
+
+.dicaright {
+	right: 10px;
+}
+
+.dicaleft {
+	left: 0px;
+}
+
+.dicaleft50 { /* Usado pelo IE */
+	left: 0px;
+	margin-left: -300px;
+}
+
+BODY.dica {
+	white-space: normal;
+	color: #000;
+	font-family: verdana, arial, tahoma;
+	font-size: 10pt;
+	font-weight: normal;
+	text-decoration: none;
+	text-align: center;
+	background: #ffe2b9; /* laranja claro */
+}
+/* FIM : Label Dica*/
+/*******************************************************************************/
+
+.lista {
+	height: 100px;
+	width: 200px;
+}
+
+/* INICIO : Detalhe de Item de Estrutura */
+.tabelaDetalheItem {
+	background-color: #F4DC61;
+	border-bottom: 1px solid #F5EFCE;
+	border-right: 1px solid #F5EFCE;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+}
+.tabelaDetalheItem table {
+	background-color: #F4DC61;
+	border-bottom: 1px solid #F5EFCE;
+	border-right: 1px solid #F5EFCE;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+}
+.tabelaDetalheItem td {
+	background-color: #F4DC61;
+	border-bottom: 1px solid #F5EFCE;
+	border-right: 1px solid #F5EFCE;
+	border-top: 1px solid #F5EFCE;
+	border-left: 1px solid #F5EFCE;
+}
+/* FIM : Detalhe de Item de Estrutura */
+/*******************************************************************************/
+
+/* INICIO: colunas do form de filtro itens em acompanhamento */
+.widthCol{
+	width: 300px;
+}
+
+.colunaFormFiltroItensAcomp {
+	margin: 0; padding: 0; border: 0; width: 25%;
+}
+
+#selecionado.corSelecao{
+	background-color: #D6CB3E;
+}
+/* FIM: colunas do form de filtro itens em acompanhamento */
+/*******************************************************************************/
+
+/* INICIO: indicadores de resultado */
+#indicadores.indicadoresResultado {
+	background-color: #F5E699;
+ 	font-size: 14px;
+ 	color: #AF8800;
+ 	font-weight: bold;
+ 	align: center; 
+	table-layout: fixed; 
+	text-align: left; 
+	margin-left: auto; 
+	margin-right: auto;
+	border: 0;
+	cellpadding: 0;
+	cellspacing:0;
+}
+#indicadores.locais {
+	color: #AF8800;
+	font-weight:bold;
+	font-size: 14px;
+	table-layout: fixed; 
+	margin-left: auto; 
+	margin-right: auto;
+	border:0;
+	cellpadding:0;
+	cellspacing:0;
+}
+#indicadores.locaisDesc {
+	color: #AF8800;
+	font-size: 12px;
+	table-layout: fixed; 
+	text-align: left; 
+	margin-left: auto; 
+	margin-right: auto;
+	border:0;
+	cellpadding:0;
+	cellspacing:0;
+}
+#total.total {
+	background-color:#FFF9DC;
+}
+/* FIM: indicadores de resultado */
+/*******************************************************************************/
+
+/* INICIO: data limite */
+#dtLimite.spanDtLimite {
+	color:#FF3333;
+}
+/* FIM: indicadores de resultado */
+/*******************************************************************************/
+
+/* INICIO: css Portal */
+/* Submenu */
+#conteudo_index {
+	width:100%;
+}
+#conteudo_index td {
+	border:1px solid #634601;
+	border-collapse:collapse;
+	padding:15px;
+	vertical-align:top;
+}
+#conteudo_index a {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#634601;
+	line-height:125%;
+	margin:0;
+}
+#conteudo_index a:hover {
+	color:#FF9900;
+}
+#conteudo_index .iconmais {
+	display:block;
+}
+.destaque1 {
+   background-color:#FFF9DC;
+   width:23%;
+}
+.destaque2 {
+   background-color:#FFF9DC;
+   width:33%;
+}
+.interno {
+	padding-left:18px;
+}
+.conteudo_interno {
+	background-color:#FFF9DC;
+	padding-left:18px;
+	padding-right:18px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+}
+.legenda {
+	font-style:italic;
+}
+#imagem_noticia_home {
+	width:214px;
+	float:left;
+	margin-right:5px;
+}
+.rodape_portal {
+	line-height:400%;
+}
+#barra_localizacao {
+	width:100%;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+#barra_localizacao td {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+	padding-left:18px;
+	padding-right:18px;
+}
+#barra_localizacao a {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+}
+#barra_localizacao a:hover {
+	color:#FF9900;
+}
+#list_moldura {
+	border-top:1px solid #634601;
+	border-bottom:1px solid #634601;
+}
+.list_paginacao {
+	width:100%;
+	border-bottom:1px solid #FFFFFF;
+	
+}
+.list_artigos {
+	width:100%;
+}
+.list_artigos td {
+	background-color:#FFF9DC;
+	border-bottom:1px solid #FFFFFF;
+	padding-left:18px;
+	padding-right:18px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+}
+.list_artigos a {
+	color:#634601;
+	text-decoration:none;
+	line-height:150%;
+}
+.list_artigos a:hover {
+	color:#FF9900;
+	text-decoration:underline;
+}
+.list_artigos img {
+	float:left;
+	margin-right:8px;
+}
+.list_agenda {
+	width:100%;
+}
+.list_agenda td {
+	background-color:#FFF9DC;
+	border-bottom:1px solid #FFFFFF;
+	padding-left:18px;
+	padding-right:18px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+}
+.list_agenda a {
+	color:#634601;
+	text-decoration:none;
+	line-height:150%;
+}
+.list_agenda a:hover {
+	color:#FF9900;
+	text-decoration:underline;
+}
+.list_duvidas {
+	background-color:#FFFFFF;
+	border-bottom:1px solid #634601;
+	padding-left:18px;
+	padding-right:18px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+}
+#taxacao_procura {
+	border:1px solid #634601;
+	width:233px;
+	background-color:#FFFFFF;
+	margin-left:10px;
+	margin-right:18px;
+}
+#taxacao_procura td {
+	padding:5px;
+}
+.taxacao_zoom {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+	font-weight:bold;
+	margin-right:18px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.tdareazoom {
+	padding-left:18px;
+	padding-right:18px;
+}
+#areazoom {
+	display:block;
+	padding:10px;
+	border:1px solid #634601;
+	overflow: scroll;	
+	height:400px;
+}
+
+.areazoom50 {
+	width:50%;
+}
+.areazoom75 {
+	width:75%;
+}
+.areazoom100 {
+	width:100%;
+}
+.areazoom150 {
+	width:150%;
+}
+.areazoom200 {
+	width:200%;
+}
+.areazoom300 {
+	width:300%;
+}
+#areacalendario {
+	padding-left:18px;
+}
+#tabelacalendario {
+	background-color:#FFFFFF;
+	width:180px;
+}
+#tabelacalendario th {
+	border:1px solid #634601;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#634601;
+	background-color:#FFF9DC;
+	padding:3px;
+}
+.hoje {
+	border:1px solid #634601;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FF9900;
+	background-color:#FFF9DC;
+	padding:3px;
+}
+.dia {
+	border:1px solid #634601;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#634601;
+	background-color:#FFFFFF;
+	padding:3px;
+	empty-cells:show;
+}
+#tabelacalendario a {
+	color:#634601;
+	display:block;
+	height:100%;
+	width:100%;
+	text-decoration:underline;
+	background-color:#FFF9DC;
+	font-weight:bold;
+}
+#tabelacalendario a:hover {
+	color:#FF9900;
+}
+.imagem_noticia_home_sem_tamanho {
+	text-align:center;
+	display:block;
+	float:left;
+	margin-right:10px;	
+}
+
+.imagemartigo_dois_esquerda_sem_tamanho {
+	text-align:center;
+	display:block;
+	float:left;
+	margin-right:10px;
+}
+
+.imagemartigo_um_esquerda_sem_tamanho {
+	text-align:center;
+	display:block;
+	float:left;
+	margin-right:10px;
+}
+
+.imagemartigo_um_centro_sem_tamanho {
+	text-align:center;
+	display: block;
+}
+
+.imagemartigo_tres_esquerda_sem_tamanho {
+	text-align:center;
+	display:block;
+	float:left;
+	margin-right:10px;
+}
+
+.imagemartigo_tres_direita_sem_tamanho {
+	text-align:center;
+	display:block;
+	float:right;
+	margin-left:10px;
+}
+.imagemartigo_um_centro {
+	text-align:center;
+	display:block;
+}
+.imagemartigo_um_centro img {
+	height:164px;
+}
+.imagemartigo_um_esquerda {
+	text-align:center;
+	display:block;
+	float:left;
+	margin-right:10px;
+}
+.imagemartigo_um_esquerda img {
+	width:214px;
+}
+.imagemartigo_dois_esquerda {
+	text-align:center;
+	display:block;
+	float:left;
+	margin-right:10px;
+}
+.imagemartigo_dois_esquerda img {
+	width:214px;
+}
+.imagemartigo_dois_direita {
+	text-align:center;
+	display:block;
+	float:right;
+	margin-left:10px;
+	position:relative;
+	top:300px;
+}
+.imagemartigo_dois_direita img {
+	width:214px;
+}
+.imagemartigo_tres_esquerda {
+	text-align:center;
+	display:block;
+	float:left;
+	margin-right:10px;
+}
+.imagemartigo_tres_esquerda img {
+	width:214px;
+}
+.imagemartigo_tres_direita {
+	text-align:center;
+	display:block;
+	float:right;
+	margin-left:10px;
+}
+.imagemartigo_tres_direita img {
+	width:214px;
+}
+#pesquisa {
+	border:1px solid #634601;
+	width:400px;
+	background-color:#FFFFFF;
+	margin-left:35%;
+}
+
+/*
+ Bloco incluido para posicionar corretamente o componente de calend�rio em rela��o ao campo antecessor
+ */
+img.posicao {
+cursor: pointer;
+position:relative;
+top:4px;	
+}
+
+
+/*
+	Aqui come�am as configura��es referentes a caixa de mail
+*/
+
+#menu_email{
+	position: absolute;
+	left: 5px;
+	padding: 0px;
+	width: 160px;
+	border: 1px solid #CCC;
+}
+
+#menu_email ul{
+	margin: 5px;
+	margin-left: 15px;
+	padding: 0px;
+	list-style: none;
+}
+
+#menu_email ul li{
+	margin-bottom: 5px;
+}
+
+#menu_email ul li a{
+	text-decoration: none;
+}
+
+#menu_email ul li a:hover{
+	text-decoration: underline;
+}
+
+#corpo_email{
+	position: absolute;
+	left: 175px;
+	width: 810px;
+	border: 1px solid #CCC;
+	padding: 15px;
+}
+
+#tabela_email{
+	width: 100%;
+	border-collapse: collapse;
+}
+#tabela_email td{
+	padding: 0px;
+	border: none;
+}
+#tabela_email tbody td{
+	cursor: pointer;
+}
+#tabela_email thead{
+	font-weight: bold;
+	background-color: #FFF9DC;
+}
+#tabela_email .nlido{
+	font-weight: bold;
+}
+#tabela_email .cor1 td{
+	background-color: #F7F9FB;
+}
+#tabela_email .cor1_over td,
+#tabela_email .cor2_over td{
+	background-color: #F7F3DE;
+	cursor: pointer;
+}
+.form_grupo {
+	background-color:#FFF9DC;
+	border-bottom:1px solid #FFFFFF;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+}
+.form_label {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#634601;
+	font-size:10px;
+	padding-left:8px;
+	vertical-align:top;
+	padding-top:3px;
+}
+.form_campo {
+	background-color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+}
+.form_check_radio {
+	background: transparent;
+   	border: none;
+}
+.form_barra_botao {
+	background-color:#FFF9DC;
+	border-bottom:1px solid #FFFFFF;
+	padding-left:10px;
+	padding-right:10px;
+}
+.form_botao {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #634601;
+	background-color: #FFFFFF;
+	border: 1px solid #634601;
+	margin: 0px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:7px;
+	padding-right:7px;
+}
+#paginacao{
+	margin-top: 20px;
+	margin-left: 50px; 
+}
+#paginacao ul li{
+	display: inline;
+}
+.btnemail{
+	border: 1px solid gray;
+}
+.btnemail:hover,
+.btnemail.over{
+	border: 1px solid #634601; 
+	color: #634601; 
+	cursor: pointer;
+}
+
+#detalhe_email{
+	clear: both;
+	margin: 0px;
+	padding: 0px;
+	margin-top: 20px;
+}
+/* FIM: css Portal */
+/*******************************************************************************/
+
+/* INICIO: css rel_ppa */
+#mbox{
+	background-color:#eee; 
+	padding:8px; 
+	border:2px; 
+	outset #666;
+}
+#mbm{
+	font-family:sans-serif;
+	font-weight:bold;
+	float:right;
+	padding-bottom:5px;
+}
+#ol{
+	background-image: url(../images/overlay.png);
+}
+.dialog {
+	display:none
+}
+* html #ol{
+	background-image:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/overlay.png", sizingMethod="scale");
+}
+/* FIM: css rel_ppa */
+/*******************************************************************************/
+
+/* INICIO: tool tip */
+#toolTip .nameTip {
+	border: 1px solid #808080; 
+	background-color: #f0f0f0; 
+	font-weight: bold; 
+	text-align: center;
+}
+#toolTip .descTip {
+	padding: 2px; 
+	width: 95%;
+	text-align: justify;
+}
+/* FIM: tool tip */
+/*******************************************************************************/
+
+/* INICIO: calendario */
+#calendario .buttonCalendario{
+	border: 1px solid #634601;
+	font-size: 90%;
+	font-weight: bold; 
+	height: 17;
+	width: 25;
+	background-color: #FFF9DC;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align : center;
+}
+#calendario .textoCalendario{
+	border: 1px solid #634601;
+	font-size: 65%;
+	font-weight: bold; 
+	background-color: #FFF9DC;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align : center;
+}
+#calendario .seta{
+	border: 0px;
+	font-size: 90%;
+	font-weight: bold; 
+	font-family: Arial, Helvetica, sans-serif;
+	text-align : center;
+	text-decoration: none;	
+}
+#calendario .h1Calendario {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase; 
+	color: #000000; 
+	background-color: #F4DC61; 
+	padding-top: 0.2em; 
+	padding-right: 0.2em; 
+	padding-bottom: 0em; 
+	padding-left: 0.2em; 
+	font-size: 90%;
+	text-align : center;
+	border: 0px;
+}
+#calendario .borda1px { 
+	border-right: #634601 1px solid; 
+	border-top: #634601 1px solid; 
+	border-left: #634601 1px solid; 
+	border-bottom: #634601 1px solid;
+}
+#calendario .tdHeader1 {
+	background-color: #F4DC61;
+	color: #FFFFFF;
+	font-size: 65%;
+	font-weight: bold;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+/* FIM: calendario */
+/*******************************************************************************/
+
+/* INICIO: listagem lateral */
+.divListagemLateral {
+	display:block;
+	overflow: auto;
+	width: 100%;
+	background-color:#F7F9FB;
+}
+/* FIM: listagem lateral */
+/*******************************************************************************/
+
+/* INICIO: src imagem */
+.srcImg {
+	width: 18px;
+	height: 18px;
+	border: 0 none;
+	display: block;
+	float: left;
+	clear: left;
+	margin-right: 5px;
+	vertical-align: middle;
+	text-align: center;
+}
+/* FIM: src imagem */
+/*******************************************************************************/
+
+/* INICIO: background colors utilizadas nas telas */
+.bgCinza {
+	background-color: silver;
+}
+.bgCinzaClaro {
+	background-color: #F0F0F0;
+}
+.bgCinzaClaro2 {
+	background-color: #F4F4F4;
+}
+.bgCinzaClaro3{
+	background-color: #E8E4F1;
+}
+.bgBranco {
+	background-color: white;
+}
+.bgPreto {
+	background-color: black;
+}
+.bgLaranjaClaro {
+	background-color: #ECE9C6;
+}
+.bgAmareloClaro {
+	background-color: #FFFEE2;
+}
+.bgRosaClaro{
+	background-color: #FDE9E1;
+}
+.bgVerdeClaro{
+	background-color: #E0F0E6;
+}
+.bgAzulClaro{
+	background-color: #DDF0FC;
+}
+/* FIM: background colors utilizadas nas telas */
+/*******************************************************************************/
+
+/* INICIO: styles retirados do jsp */
+.fontVermelho{
+	color: red;
+}
+.fontAguarde{
+	color: #CC3300;
+	font-size: 13px;
+	font-weight: bold;
+}
+.fontAguardeAtualizaBD{
+	color: black;
+	font-size:14px;
+	font-style: italic;
+	display: block; 
+	vertical-align: middle;
+	text-align: left;
+	text-decoration: blink; 
+	width: 100px; 
+	height: 22px; 
+	border: 2px solid #000; 
+	background-color: white; 
+	position: absolute; 
+	top: 5px; 
+	left: 185px;
+}
+.fontSituacaoIndicadores {
+	color: #596D9B;
+}
+.fontSituacaoIndicadoresNegrito {
+	color: #596D9B;
+	font-weight: bold;
+}
+.fontLabelEntidade {
+	padding: 1px 3px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#634601;
+	text-align: right;
+	width: 30%;
+	font-weight: bold;
+}
+.barraFlutuanteDeFiltros {
+	border-left: 1px solid #C0C0C0;
+}
+/* FIM: styles retirados do jsp */
+/*******************************************************************************/
+
+/* INICIO: menu do cadastro */
+
+#menuCadastro{
+	border: 1px solid #BFCBDF;
+	padding-left: 5px;
+	position: absolute;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 5px;
+	background-color: #FFFFFF;
+	width: 200px;
+	position: absolute;
+	z-index: 0;
+	overflow:auto;
+	scrollbar-track-color: #F5F1F6;
+	scrollbar-face-color: #E4E6EC;
+	scrollbar-shadow-color: #E4E6EC;
+	scrollbar-highlight-color: #E4E6EC;
+	scrollbar-3dlight-color: #E4E6EC;
+	scrollbar-darkshadow-color: #A4ABC6;
+	scrollbar-arrow-color: #5A6D9C;
+	scrollbar-base-color : #E4E6EC;
+	
+	
+}
+
+
+#btmenuCadastro {
+	margin-top: 136px;
+	width: 7px;
+	height: 48px;
+	z-index: 5001;
+	background-color: #F5E699;
+	border: 1px solid #AD7A00;
+}
+
+#btmenuCadastro :hover {
+	background-color: #FFFFFF;
+	/*cursor: e-resize;*/
+}
+
+#btmenuCadastro a:hover {
+	background-color: #FFFFFF;
+	/*	cursor: e-resize;*/
+}
+
+
+
+#conteudoCadastroPasta {
+	width: "100%";
+	padding-left: 1px;
+	position: absolute;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 5px;
+	z-index: 0;	
+	
+}
+
+
+#conteudoCadastroEstrutura{
+	float: left;
+	padding-left: 208px;
+	padding-top: 1px;
+	padding-right: 2px;
+	padding-bottom: 5px;
+	right: 500px;
+	z-index: 0;
+	top: 0;
+}
+
+#conteudoCadastroEstruturaSemArvore{
+	float: left;
+	padding-left: 1px;
+	padding-top: 5px;
+	padding-right: 2px;
+	padding-bottom: 5px;
+	right: 500px;
+	z-index: 0;
+}
+
+.menuHideShowCadastro {
+	top: 500px;
+	padding-left: 1px;
+	padding-top: 15px;
+	padding-right: 1px;
+	padding-bottom: 200px;
+	z-index: 0;
+	background-color: #F7F3DE;
+	border: 1px solid #D6CB3E;
+	width: 5px;
+}
+
+
+#tituloTelaCadastro{
+	padding-left: 1px;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	z-index: 0;
+}
+
+
+/* FIM: menu do cadastro */
+/*******************************************************************************/

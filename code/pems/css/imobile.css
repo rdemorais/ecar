@@ -1,0 +1,11 @@
+/* CSS Document */
+
+/*#body, #header{display:none;}*/
+/*body{background: url(../image/noshow.gif) no-repeat 50% 0 #DADADA;  }*/
+#iphoneWarning{width:100%; height:100%; background:url(../image/fundomobile.gif) center #000000; position:absolute; top:55px; left:0; z-index:1; text-transform:uppercase; padding:20px; padding-left:50%; margin-left:-300px;}
+#iphoneWarning div:nth-child(1){font-family:"DINPro-Bold"; font-size:34px;width:600px;text-align:center;}
+#iphoneWarning div:nth-child(2){font-family:"DINPro-Medium"; font-size:22px;width:600px; margin-top:40px;}
+#iphoneWarning div:nth-child(3){margin-top:40px; background:url(../image/prosseguir.gif) no-repeat; width:330px; height:69px; margin-left:140px; }
+
+
+

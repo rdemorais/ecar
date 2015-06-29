@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CadernoPE_PG3_Prod" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="srIndicador" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="srGrafPath" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="objSigla" class="java.lang.String"/>
+	<field name="objNome" class="java.lang.String"/>
+	<field name="estSigla" class="java.lang.String"/>
+	<field name="estNome" class="java.lang.String"/>
+	<field name="prodSigla" class="java.lang.String"/>
+	<field name="prodNome" class="java.lang.String"/>
+	<field name="parecer" class="java.lang.String"/>
+	<field name="cor" class="java.lang.String"/>
+	<field name="situacao" class="java.lang.String"/>
+	<field name="responsavel" class="java.lang.String"/>
+	<field name="listIndicadores" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="472" splitType="Stretch">
+			<textField>
+				<reportElement x="187" y="0" width="53" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{objSigla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="534" height="72"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{objNome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="84" width="53" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{estSigla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="84" width="534" height="54"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{estNome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="159" width="53" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{prodSigla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="159" width="534" height="55"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{prodNome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="255" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARECER:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="68" y="283" width="706" height="173"/>
+				<textElement markup="none"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{parecer}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="121" y="225" width="386" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="187" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBJETIVO ESTRATÉGICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="84" width="187" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTRATÉGIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="159" width="187" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="225" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESPONSÁVEL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="253" width="68" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SITUAÇÃO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="273" y="253" width="234" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{situacao}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="121" y="255" width="21" height="20"/>
+				<imageExpression class="java.lang.String"><![CDATA[$F{cor}]]></imageExpression>
+			</image>
+			<subreport>
+				<reportElement x="0" y="456" width="200" height="16"/>
+				<subreportParameter name="srGrafPath">
+					<subreportParameterExpression><![CDATA[$P{srGrafPath}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listIndicadores})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{srIndicador}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

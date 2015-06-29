@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<relatorio titulo="ESTADO DO PARANÁ" capa="169" paginaInicial="170" nomeRelatorio="nomerel">
+	<dados>
+		<campo label="Objetivo" valor="RELATÓRIO DE ACESSOS DOS USUÁRIOS AOS SISTEMA"/>
+		<campo label="Nome do usuário:" valor="PAULO ASSIS"/>
+		<campo label="Período de Acesso" valor="00/00/0000 a 00/00/0000"/>
+	</dados>
+	<controleAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0000 00:00">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+		<itemAcesso nome="PAULO ASSIS" dataAcesso="00/00/0003 00:03">
+		</itemAcesso>
+	</controleAcesso>
+</relatorio>

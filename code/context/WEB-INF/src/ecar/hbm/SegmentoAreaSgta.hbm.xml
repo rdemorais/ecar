@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SegmentoAreaSgta" 
+    table="TB_SEGMENTO_AREA_SGTA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSgta"
+        type="java.lang.Long"
+        column="COD_SGTA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataInclusaoSgta"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_SGTA"
+        length="7"
+    />
+    <property
+        name="descricaoSgta"
+        type="java.lang.String"
+        column="DESCRICAO_SGTA"
+        length="40"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SegmentoSgt -->
+    <set
+        name="segmentoSgts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGTA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SegmentoSgt"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

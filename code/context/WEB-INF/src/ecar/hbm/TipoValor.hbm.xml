@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.TipoValor" 
+    table="TB_TIPO_VALOR"
+    lazy="true"
+>
+
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codigo"
+        type="java.lang.Long"
+        column="COD_ID"
+    >
+        <generator class="native" >
+        	<param name="sequence">tb_tipo_valor_cod_id_seq</param>
+        </generator>
+    </id>
+
+    <property
+        name="conteudo"
+        type="java.lang.String"
+        column="CONTEUDO_ID"
+        length="40"
+    />
+    
+    <property
+        name="tipo"
+        type="ValorType"
+        column="TIPO_ID"
+    /> 
+
+    <!-- many-to-one association to FuncaoFun -->
+    <many-to-one 
+    	class="ecar.pojo.FuncaoFun"
+      	name="funcao"
+      	not-null="false">
+      	<column name="COD_FUN"/>
+    </many-to-one>
+    
+    <!-- <property name="codigoPtc" column="COD_PTC" access="field"/>  -->
+    
+    
+    <!-- bi-directional many-to-one association to ItemEstruturaSisAtributoIettSatb e PontoCriticoSisAtributoPtcSatb -->
+   <many-to-one 
+    	class="ecar.pojo.ItemEstruturaSisAtributoIettSatb"
+      	name="itemEstruturaSisAtributo"
+      	>
+      	<column name="COD_IETT"/>
+      	<column name="COD_SATB"/>
+    </many-to-one> 
+
+  	<many-to-one 
+    	class="ecar.pojo.PontoCriticoSisAtributoPtcSatb"
+      	name="pontoCriticoSisAtributo" 
+      	>
+      	<column name="COD_PTC"/>
+      	<column name="COD_SATB_PTC"/>
+    </many-to-one>
+   
+
+    
+
+</class>
+</hibernate-mapping>

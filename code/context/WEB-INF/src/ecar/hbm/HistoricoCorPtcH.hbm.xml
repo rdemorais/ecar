@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+  <class 
+  	name="ecar.pojo.HistoricoCorPtcH" 
+  	table="TB_HISTORICO_PONTO_CRITICO_COR_PTCCORH"
+    lazy="false"
+  	>
+	
+	<meta attribute="implement-equals" inherit="false">true</meta>
+	
+	<id
+        name="codCorPtcH"
+        type="java.lang.Long"
+        column="cod_cor_ptch"
+    >
+        <generator class="increment" />
+    </id>
+    
+    <property 
+    	name="frequenciaEnvioEmailPtccor" 
+    	type="java.lang.Integer"
+    	length="7"
+      	column="frequencia_envio_email_ptccor"/>
+      	
+    <property 
+    	name="antecedenciaPrimEmailPtccor" 
+    	type="java.lang.Integer"
+    	length="7"
+      	column="antecedencia_prim_email_ptccor"/>
+
+    <property 
+    	name="indAtivoEnvioEmailPtccor" 
+    	type="java.lang.String"
+    	length="1" 
+      	column="ind_ativo_envio_email_ptccor"/>
+      	
+      	
+    <!-- Relacionamentos -->   	
+    
+  	<many-to-one 
+    	class="ecar.pojo.PontoCriticoPtc" 
+      	name="pontoCriticoPtc">
+      	<column name="cod_ptc"/>
+    </many-to-one>
+    
+    <many-to-one 
+    	class="ecar.pojo.Cor" 
+    	name="cor">
+        <column name="cod_cor"/>
+    </many-to-one> 
+    
+    <many-to-one
+        name="historicoPtcH"
+	    class="ecar.pojo.HistoricoPtcH">
+    	<column name="cod_ptch" />
+	</many-to-one>
+	
+     
+  </class>
+</hibernate-mapping>

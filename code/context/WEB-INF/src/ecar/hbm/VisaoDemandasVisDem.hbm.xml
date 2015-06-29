@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.VisaoDemandasVisDem" 
+  	table="TB_VISAO_DEMANDAS"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_VISAO" 
+    	name="codVisao" 
+    	type="java.lang.Long">
+      	<generator class="increment"/>
+    </id>
+    <property 
+    	column="DESCRICAO_VISAO" 
+    	length="500" 
+    	name="descricaoVisao" 
+    	type="java.lang.String"/>
+
+     <property 
+    	column="IND_UTILIZA_REG_ENT_SOL" 
+    	length="1" 
+    	name="utilizarRegraEntidadeSolucionadora" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_VISUAL_DEM_INCL_USU" 
+    	length="1" 
+    	name="visualizarDemandasIncluidasUsuario" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_INC_DEMANDA" 
+    	length="1" 
+    	name="ehPermitidoIncluirDemanda" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_ALT_DEMANDA" 
+    	length="1" 
+    	name="ehPermitidoAlterarDemanda" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_EXC_DEMANDA" 
+    	length="1" 
+    	name="ehPermitidoExcluirDemanda" 
+    	type="java.lang.String"/>
+
+     <property 
+    	column="IND_PERM_INC_APONTA" 
+    	length="1" 
+    	name="ehPermitidoIncluirApontamento" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_ALT_APONTA" 
+    	length="1" 
+    	name="ehPermitidoAlterarApontamento" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_EXC_APONTA" 
+    	length="1" 
+    	name="ehPermitidoExcluirApontamento" 
+    	type="java.lang.String"/>
+
+
+     <property 
+    	column="IND_PERM_INC_ANEXO_APONTA" 
+    	length="1" 
+    	name="ehPermitidoIncluirAnexoApontamento" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_ALT_ANEXO_APONTA" 
+    	length="1" 
+    	name="ehPermitidoAlterarAnexoApontamento" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_EXC_ANEXO_APONTA" 
+    	length="1" 
+    	name="ehPermitidoExcluirAnexoApontamento" 
+    	type="java.lang.String"/>
+
+     <property 
+    	column="IND_PERM_INC_ANEXO_DEM" 
+    	length="1" 
+    	name="ehPermitidoIncluirAnexoDemanda" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_ALT_ANEXO_DEM" 
+    	length="1" 
+    	name="ehPermitidoAlterarAnexoDemanda" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_PERM_EXC_ANEXO_DEM" 
+    	length="1" 
+    	name="ehPermitidoExcluirAnexoDemanda" 
+    	type="java.lang.String"/>
+
+    <many-to-one 
+    	class="ecar.pojo.UsuarioUsu"
+      	name="usuarioInclusao" 
+      	not-null="true">
+      	<column name="COD_USU_INCLUSAO"/>
+    </many-to-one>
+    	
+    	
+    	
+    <!-- bi-directional one-to-many association to RegDemandaRegd -->
+    <!--set
+        name="demandas"
+        lazy="true"
+		table="TB_REG_DEMANDA_REGD"
+		cascade="all">
+        <key>
+            <column name="COD_VISAO"/>
+        </key>
+		<one-to-many class="ecar.pojo.RegDemandaRegd"/>
+    </set-->
+    
+     <!-- unidirectional many-to-many association to VisaoDemandasVisDem-->
+    <set
+        name="visoesGrpAcesso"
+		table="TB_VISAO_DEMANDAS_GRP_ACESSO"
+		cascade="none"
+		inverse="true">
+        <key>
+            <column name="COD_VISAO"/>
+        </key>
+		<one-to-many class="ecar.pojo.VisaoDemandasGrpAcesso"/>
+    </set>
+    
+   <!-- uni-directional one-to-many association to TbSituacaoSit -->
+     <set name="visaoSituacaoDemandas" lazy="true" table="tb_visao_situacao_demanda" cascade="none"
+		inverse="true"
+      fetch="select">
+            <key>
+                <column name="cod_visao" not-null="true" />
+            </key>
+            <one-to-many class="ecar.pojo.VisaoSituacaoDemanda" />
+        </set>
+    
+  </class>
+</hibernate-mapping>

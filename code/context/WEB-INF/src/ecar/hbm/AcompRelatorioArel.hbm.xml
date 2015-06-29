@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AcompRelatorioArel" 
+    table="TB_ACOMP_RELATORIO_AREL"
+    lazy="true"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codArel"
+        type="java.lang.Long"
+        column="COD_AREL"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="dataUltManutArel"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUT_AREL"
+        length="7"
+    />
+    <property
+        name="dataInclusaoArel"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_AREL"
+        length="7"
+    />
+    <property
+        name="indLiberadoArel"
+        type="java.lang.String"
+        column="IND_LIBERADO_AREL"
+        length="1"
+    />
+    <property
+        name="descricaoArel"
+        type="java.lang.String"
+        column="DESCRICAO_AREL"
+        length="2000"
+    />
+
+    <property
+        name="complementoArel"
+        type="java.lang.String"
+        column="COMPLEMENTO_AREL"
+        length="2000"
+    />
+    <!-- Associations -->
+
+    <!-- bi-directional many-to-one association to TipoFuncaoAcompTpfa -->
+    <many-to-one
+        name="tipoFuncAcompTpfaUsuario"
+        class="ecar.pojo.TipoFuncAcompTpfa"
+        not-null="true"
+    >
+        <column name="cod_tpfa_usuario" />
+    </many-to-one>
+  
+    <!-- bi-directional many-to-one association to TipoFuncaoAcompTpfa -->
+    <many-to-one
+        name="tipoFuncAcompTpfa"
+        class="ecar.pojo.TipoFuncAcompTpfa"
+        not-null="true"
+    >
+        <column name="COD_TPFA" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to AcompReferenciaItemAri -->
+    <many-to-one
+    	fetch="select"
+    	lazy="false"
+        name="acompReferenciaItemAri"
+        class="ecar.pojo.AcompReferenciaItemAri"
+        not-null="true"
+    >
+        <column name="COD_ARI" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to SituacaoSit -->
+    <many-to-one
+        name="situacaoSit"
+        class="ecar.pojo.SituacaoSit"
+        not-null="true"
+    >
+        <column name="COD_SIT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsuUltimaManutencao"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USUULTMANUT_AREL" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Cor -->
+    <many-to-one
+        name="cor"
+        class="ecar.pojo.Cor"
+        not-null="true"
+    >
+        <column name="COD_COR" />
+    </many-to-one>
+    
+    <set
+        name="itemEstrutUploadIettup"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_AREL" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutUploadIettup"
+        />
+    </set>
+    
+    <set
+        name="pontoCriticoPtc"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_AREL" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PontoCriticoPtc"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

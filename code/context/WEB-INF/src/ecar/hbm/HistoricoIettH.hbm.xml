@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created Rogerio, Gabriel (02/06/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoIettH" 
+    table="TB_HISTORICO_IETTH"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIettH"
+        type="java.lang.Long"
+        column="COD_IETTH"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="valPrevistoFuturoIett"
+        type="java.math.BigDecimal"
+        column="VAL_PREVISTO_FUTURO_IETT"
+        length="14"
+    />
+
+
+    <property
+        name="indBloqPlanejamentoIett"
+        type="java.lang.String"
+        column="IND_BLOQ_PLANEJAMENTO_IETT"
+        length="1"
+    />
+    
+    <property
+        name="beneficiosIett"
+        type="java.lang.String"
+        column="BENEFICIOS_IETT"
+    />    
+   
+    <property
+        name="origemIett"
+        type="java.lang.String"
+        column="ORIGEM_IETT"
+    />   
+    
+    <property
+        name="objetivoEspecificoIett"
+        type="java.lang.String"
+        column="OBJETIVO_ESPECIFICO_IETT"
+   />    
+    
+    <property
+        name="objetivoGeralIett"
+        type="java.lang.String"
+        column="OBJETIVO_GERAL_IETT"
+    />    
+    
+     <property
+        name="indMonitoramentoIett"
+        type="java.lang.String"
+        column="IND_MONITORAMENTO_IETT"
+        length="1"
+    />
+    
+    <property
+        name="indCriticaIett"
+        type="java.lang.String"
+        column="IND_CRITICA_IETT"
+        length="1"
+    />    
+    
+    <property
+        name="dataInicioMonitoramentoIett"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_MONITORAMENTO_IETT"
+        length="7"
+    />    
+ 
+     <property
+        name="dataTerminoIett"
+        type="java.sql.Timestamp"
+        column="DATA_TERMINO_IETT"
+        length="7"
+    />
+    
+    <property
+        name="dataInicioIett"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_IETT"
+        length="7"
+    />
+    
+    <property
+        name="indAtivoIett"
+        type="java.lang.String"
+        column="IND_ATIVO_IETT"
+        length="1"
+    />    
+   
+    <property
+        name="dataUltManutencaoIett"
+        type="java.sql.Timestamp"
+        column="DATA_ULT_MANUTENCAO_IETT"
+        length="7"
+    />   
+ 
+    <property
+        name="dataInclusaoIett"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETT"
+        length="7"
+    /> 
+    
+    <property
+        name="descricaoIett"
+        type="java.lang.String"
+        column="DESCRICAO_IETT"
+    />    
+    
+    <property
+        name="siglaIett"
+        type="java.lang.String"
+        column="SIGLA_IETT"
+    />    
+    
+    <property
+        name="descricaoR5"
+        type="java.lang.String"
+        column="DESCRICAO_R5"
+    />
+    
+    <property
+        name="descricaoR4"
+        type="java.lang.String"
+        column="DESCRICAO_R4"
+    />
+    
+    <property
+        name="descricaoR3"
+        type="java.lang.String"
+        column="DESCRICAO_R3"
+    />
+    
+    <property
+        name="descricaoR2"
+        type="java.lang.String"
+        column="DESCRICAO_R2"
+    />
+    
+    <property
+        name="descricaoR1"
+        type="java.lang.String"
+        column="DESCRICAO_R1"
+    />
+     
+   <property
+        name="dataR5"
+        type="java.sql.Timestamp"
+        column="DATA_R5"
+        length="7"
+    />
+    
+    <property
+        name="dataR4"
+        type="java.sql.Timestamp"
+        column="DATA_R4"
+        length="7"
+    />
+    
+    <property
+        name="dataR3"
+        type="java.sql.Timestamp"
+        column="DATA_R3"
+        length="7"
+    />
+    
+    <property
+        name="dataR2"
+        type="java.sql.Timestamp"
+        column="DATA_R2"
+        length="7"
+    />
+    
+    <property
+        name="dataR1"
+        type="java.sql.Timestamp"
+        column="DATA_R1"
+        length="7"
+    />    
+    
+    <property
+        name="nomeIett"
+        type="java.lang.String"
+        column="NOME_IETT"
+    />
+    
+     <property
+        name="nivelIett"
+        type="java.lang.Integer"
+        column="NIVEL_IETT"
+        length="10"
+    />
+       
+    <!-- Relacionamentos -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+
+    <many-to-one
+        name="situacaoSit"
+        class="ecar.pojo.SituacaoSit"
+    >
+        <column name="COD_SIT" />
+    </many-to-one>
+
+    <many-to-one
+        name="areaAre"
+        class="ecar.pojo.AreaAre"
+        
+    >
+        <column name="COD_ARE" />
+    </many-to-one>
+
+    <many-to-one
+        name="subAreaSare"
+        class="ecar.pojo.SubAreaSare"
+        
+    >
+        <column name="COD_SARE" />
+    </many-to-one>
+
+    <many-to-one
+        name="unidadeOrcamentariaUO"
+        class="ecar.pojo.UnidadeOrcamentariaUO"
+        
+    >
+        <column name="COD_UO" />
+    </many-to-one>
+    
+    <many-to-one
+        name="usuarioUsuByCodUsuIncIett"
+        class="ecar.pojo.UsuarioUsu"
+        
+    >
+        <column name="COD_USU_INC_IETT" />
+    </many-to-one>    
+    
+    <many-to-one
+        name="usuarioUsuByCodUsuUltManutIett"
+        class="ecar.pojo.UsuarioUsu"
+        
+    >
+        <column name="COD_USU_ULT_MANUT_IETT" />
+    </many-to-one>
+    
+    <many-to-one
+        name="orgaoOrgByCodOrgaoResponsavel1Iett"
+        class="ecar.pojo.OrgaoOrg"
+        
+    >
+        <column name="COD_ORGAO_RESPONSAVEL1_IETT" />
+    </many-to-one>
+ 
+     <many-to-one
+        name="orgaoOrgByCodOrgaoResponsavel2Iett"
+        class="ecar.pojo.OrgaoOrg"
+        
+    >
+        <column name="COD_ORGAO_RESPONSAVEL2_IETT" />
+    </many-to-one>
+ 
+      <many-to-one
+        name="itemEstruturaIettPai"
+        class="ecar.pojo.ItemEstruturaIett" 
+    >
+        <column name="COD_IETT_PAI" />
+    </many-to-one>      
+    
+    <many-to-one
+        name="periodicidadePrdc"
+        class="ecar.pojo.PeriodicidadePrdc"
+        
+    >
+        <column name="COD_PRCD_IETT" />
+    </many-to-one>    
+
+    <many-to-one
+        name="estruturaEtt"
+        class="ecar.pojo.EstruturaEtt"
+        
+    >
+        <column name="COD_ETT" />
+    </many-to-one>       
+       
+    <many-to-one
+        name="historicoMaster"
+	    class="ecar.pojo.HistoricoMaster"
+	    
+	    
+	>
+    	<column name="COD_MAH" />
+	</many-to-one> 
+    
+</class>
+</hibernate-mapping>

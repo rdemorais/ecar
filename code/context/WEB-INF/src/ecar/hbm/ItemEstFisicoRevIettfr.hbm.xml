@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.ItemEstFisicoRevIettfr" 
+  	table="tb_item_est_fisico_rev_iettfr"
+    lazy="false"
+  	>
+    <composite-id class="ecar.pojo.ItemEstFisicoRevIettfrPK" name="comp_id">
+      <key-property column="cod_exe" length="4" name="codExe" type="java.lang.Integer"/>
+      <key-property column="cod_iettirr" length="4" name="codIettirr" type="java.lang.Integer"/>
+    </composite-id>
+    <property column="ind_ativo_iettfr" length="1" name="indAtivoIettfr" type="java.lang.String"/>
+    <property column="data_inclusao_iettfr" length="4"
+      name="dataInclusaoIettfr" type="java.sql.Date"/>
+    <property column="qtd_prevista_iettfr" length="8"
+      name="qtdPrevistaIettfr" type="java.lang.Double"/>
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbIettIndResulRevIettrr -->
+    <many-to-one class="ecar.pojo.IettIndResulRevIettrr" insert="false"
+      name="iettIndResulRevIettrr" update="false">
+      <column name="cod_iettirr"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbExercicioExe -->
+    <many-to-one class="ecar.pojo.ExercicioExe" insert="false"
+      name="exercicioExe" update="false">
+      <column name="cod_exe"/>
+    </many-to-one>
+    <!-- end of derived association(s) -->
+  </class>
+</hibernate-mapping>

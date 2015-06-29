@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.RegDemandaRegd" 
+  	table="TB_REG_DEMANDA_REGD"
+  	>
+	<meta attribute="implement-equals" inherit="false">true</meta>
+    <id 
+    	column="COD_REGD" 
+    	name="codRegd" 
+    	type="java.lang.Long">
+      	<generator class="increment"/>
+    </id>
+    <property 
+    	column="DATA_LIMITE_REGD" 
+    	length="7" 
+    	name="dataLimiteRegd" 
+    	type="java.sql.Date"/>
+    <property 
+    	column="DESCRICAO_REGD" 
+    	length="2000" 
+    	name="descricaoRegd" 
+    	type="java.lang.String"/>
+    <property 
+    	column="OBSERVACAO_REGD" 
+    	length="20" 
+    	name="observacaoRegd" 
+    	type="java.lang.String"/>
+    <property 
+    	column="NUMERO_DOC_ORIGEM_REGD" 
+    	length="22"
+      	name="numeroDocOrigemRegd" 
+      	type="java.lang.Integer"/>
+    <property 
+    	column="DATA_SOLICITACAO_REGD" 
+    	length="7"
+      	name="dataSolicitacaoRegd" 
+      	type="java.sql.Date"/>
+    <property 
+    	column="DATA_INCLUSAO_REGD" 
+    	length="7"
+      	name="dataInclusaoRegd" 
+      	type="java.sql.Date"/>
+    <property 
+    	column="DATA_ALTERACAO_REGD" 
+    	length="7"
+      	name="dataAlteracaoRegd" 
+      	type="java.sql.Date"/>  	
+    <property 
+    	column="IND_ATIVO_REGD" 
+    	length="1" 
+    	name="indAtivoRegd" 
+    	type="java.lang.String"/>
+    <property 
+    	column="NOME_SOLICITANTE_REGD" 
+    	length="50" 
+    	name="nomeSolicitanteRegd" 
+    	type="java.lang.String"/>
+    <property
+    	column = "data_situacao_regd"
+    	name = "dataSituacaoRegd"
+    	type = "java.sql.Timestamp"
+    	/>
+    
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to TbPrioridadePrior -->
+    <many-to-one 	
+    	class="ecar.pojo.PrioridadePrior" 
+    	name="prioridadePrior" 
+    	not-null="true">
+      <column name="COD_PRIOR"/>
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbLocalDemandaLdem -->
+    <!--  Alterado -->
+    <set
+        name="localDemandaLdems"
+        lazy="true"
+		table="TB_LOCAL_DEMANDA_LDEM"
+		cascade="save-update">
+        <key>
+            <column name="COD_REGD"/>
+        </key>
+		<many-to-many
+			column="COD_LIT"
+            class="ecar.pojo.LocalItemLit"
+        />
+    </set>
+      
+    <!-- bi-directional one-to-many association to TbRegApontamentoRegda -->
+    <set 
+    	cascade="save-update" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="regApontamentoRegdas">
+      	<key>
+        	<column name="COD_REGD"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.RegApontamentoRegda"/>
+    </set>
+    <!-- bi-directional one-to-many association to TbItemRegdemandaIregd -->
+        <set
+        name="itemRegdemandaIregds"
+        lazy="true"
+		table="TB_ITEM_REGDEMANDA_IREGD"
+		cascade="save-update">
+        <key>
+            <column name="COD_REGD"/>
+        </key>
+		<many-to-many
+			column="COD_IETT"
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+   
+    <!-- bi-directional one-to-many association to TbDemAtributoDema -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="demAtributoDemas">
+   	   	<key>
+        	<column name="COD_REGD"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.DemAtributoDema"/>
+    </set>
+    <!-- bi-directional many-to-one association to TbSitDemandaSitd -->
+    <many-to-one 
+    	class="ecar.pojo.SitDemandaSitd" 
+    	name="sitDemandaSitd" 
+    	not-null="true">
+      	<column name="COD_SITD"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TbUsuarioUsu -->
+    <many-to-one 
+    	class="ecar.pojo.UsuarioUsu"
+      	name="usuarioUsuByCodUsuInclusaoRegd" 
+      	not-null="true">
+      	<column name="COD_USU_INCLUSAO_REGD"/>
+    </many-to-one>
+    <many-to-one 
+    	class="ecar.pojo.UsuarioUsu"
+      	name="usuarioUsuByCodUsuAlteracaoRegd" 
+      	not-null="true">
+      	<column name="COD_USU_ALTERACAO_REGD"/>
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbEntidadeEnt -->
+    <set
+        name="entidadeOrgaoDemandaEntorgds"
+        lazy="true"
+		table="TB_ENTIDADEORGAO_DEMANDA_ENTORGDEM"
+		cascade="save-update">
+        <key>
+            <column name="COD_REGD"/>
+        </key>
+		<many-to-many
+			column="COD_ENT"
+            class="ecar.pojo.EntidadeEnt"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbRegDemandaRegd -->
+	<set 
+    	cascade="save-update" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="regDemandaRegds">
+   	   	<key>
+        	<column name="COD_REGD_PAI"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.RegDemandaRegd"/>
+    </set>
+    <!-- bi-directional many-to-one association to TbRegDemandaRegd -->
+    <many-to-one 
+    	class="ecar.pojo.RegDemandaRegd" 
+    	name="regDemandaRegd" 
+    	not-null="true">
+      	<column name="COD_REGD_PAI"/>
+    </many-to-one>
+
+
+    <!-- bi-directional one-to-many association to TbEntidadeEnt -->
+    <set
+        name="entidadeDemandaEntds"
+        lazy="true"
+		table="TB_ENTIDADE_DEMANDA_ENTD"
+		cascade="save-update">
+        <key>
+            <column name="COD_REGD"/>
+        </key>
+		<many-to-many
+			column="COD_ENT"
+            class="ecar.pojo.EntidadeEnt"
+        />
+    </set>
+        
+    <!-- bi-directional one-to-many association to Anexos de Demanda -->
+     <set name="anexos" cascade="save-update" inverse="true">
+    	<key column="COD_REGD"/>
+    	<one-to-many class="ecar.pojo.RegDemandaAnexoRegdan"/>
+	</set>
+    
+  </class>
+</hibernate-mapping>

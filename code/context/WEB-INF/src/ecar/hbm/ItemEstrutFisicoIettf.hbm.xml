@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrutFisicoIettf" 
+    table="TB_ITEM_ESTRUT_FISICO_IETTF"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+    
+    <!-- Mantis 0010128 - Previsto não é mais informado por exercício.  -->
+    <id
+        name="codIettf"
+        type="java.lang.Long"
+        column="COD_IETTF"
+    >
+        <generator class="increment" />
+    </id>
+    
+    <property
+        name="indAtivoIettf"
+        type="java.lang.String"
+        column="IND_ATIVO_IETTF"
+        length="1"
+    />
+    <property
+        name="dataInclusaoIettf"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTF"
+        length="7"
+    />
+    <property
+        name="qtdPrevistaIettf"
+        type="java.lang.Double"
+        column="QTD_PREVISTA_IETTF"
+        length="14"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+    
+    <property
+        name="dataUltManutencao"
+        type="java.util.Date"
+        column="DATA_ULT_MANUTENCAO"
+        length="7"
+    />    
+	
+	<property
+        name="mesIettf"
+        type="java.lang.Integer"
+        column="MES_IETTF"        
+    />
+	<property
+        name="anoIettf"
+        type="java.lang.Integer"
+        column="ANO_IETTF"        
+    />   
+    
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstrtIndResulIettr -->
+        <set
+        name="itemEstrtIndResulLocalIettirls"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_IETTF" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtIndResulLocalIettirl"
+        />
+    </set>
+    
+    <many-to-one
+        name="itemEstrtIndResulIettr"
+	    class="ecar.pojo.ItemEstrtIndResulIettr"
+	    not-null="true"
+	>
+    	<column name="COD_IETTIR" />
+	</many-to-one>
+	
+   <many-to-one
+        name="usuarioUsuManutencao"
+	    class="ecar.pojo.UsuarioUsu"
+	>
+    	<column name="COD_USU_MANUTENCAO" />
+	</many-to-one>	
+	
+	
+
+    <!-- Mantis 0010128 - Previsto não é mais informado por exercício.  -->	
+    <!-- bi-directional many-to-one association to ExercicioExe -->
+    <!-- 
+    <many-to-one
+        name="exercicioExe"
+	    class="ecar.pojo.ExercicioExe"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COD_EXE" />
+	</many-to-one>
+	 -->
+	 
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to ItemEstrtFisHistIettfh -->
+    <!-- 
+    <set
+        name="itemEstrtFisHistIettfhs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_EXE" />
+            <column name="COD_IETTIR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtFisHistIettfh"
+        />
+    </set>
+	 -->
+</class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+
+@font-face {
+	font-family: 'DINPro-Black';
+	src: url('../font/DINPro-Black.eot');
+	src: local('☺'), url('../font/DINPro-Black.svg') format('svg'), url('../font/DINPro-Black.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINPro-Bold';
+	src: url('../font/DINPro-Bold.eot');
+	src: local('☺'), url('../font/DINPro-Bold.svg') format('svg'),  url('../font/DINPro-Bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINPro-Light';
+	src: url('../font/DINPro-Light.eot');
+	src: local('☺'),  url('../font/DINPro-Light.svg') format('svg'), url('../font/DINPro-Light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: 'DINPro-Medium';
+	src: url('../font/DINPro-Medium.eot');
+	src: local('☺'),  
+	url('../font/DINPro-Medium.svg') format('svg'),
+	url('../font/DINPro-Medium.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+@font-face {
+	font-family: 'DINPro-Regular';
+	src: url('../font/DINPro-Regular.eot');
+	src: local('☺'),  url('../font/DINPro-Regular.svg') format('svg'), url('../font/DINPro-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+

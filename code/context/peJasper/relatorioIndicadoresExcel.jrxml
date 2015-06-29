@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioIndicadores" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.3166562715303998"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filtro" class="java.lang.String"/>
+	<parameter name="tipoRelatorio" class="java.lang.String"/>
+	<parameter name="msLogo" class="java.lang.String"/>
+	<parameter name="ecarLogo" class="java.lang.String"/>
+	<parameter name="cruzLogo" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadoresExcel_Estrategias" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadoresExcel_Resultados" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadoresExcel_Produtos" class="java.lang.String"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioEncaminhamento_Estrategias" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioEncaminhamento_Resultados" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioEncaminhamento_Encaminhamentos" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadores_Detalhamento" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadores_Detalhamento_Detalhe" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadores_Detalhamento_Estrategias" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadores_Detalhamento_Resultados" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadoresExcel_Acoes" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadoresExcel_Indicadores" class="java.lang.String"/>
+	<field name="siglaIett" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="estrategias" class="java.util.Collection"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="27" width="553" height="26"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{filtro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="0" width="497" height="24"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tipoRelatorio}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="25" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="54" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="76" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="56" width="554" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="65" splitType="Stretch">
+			<subreport>
+				<reportElement x="2" y="17" width="552" height="43"/>
+				<subreportParameter name="caminhoSubRelatorioEncaminhamento_Resultados">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioEncaminhamento_Resultados}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadores_Detalhamento_Detalhe">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadores_Detalhamento_Detalhe}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioEncaminhamento_Estrategias">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioEncaminhamento_Estrategias}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="msLogo">
+					<subreportParameterExpression><![CDATA[$P{msLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadoresExcel_Estrategias">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadoresExcel_Estrategias}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadores_Detalhamento_Resultados">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadores_Detalhamento_Resultados}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadoresExcel_Resultados">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadoresExcel_Resultados}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadores_Detalhamento_Estrategias">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadores_Detalhamento_Estrategias}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioEncaminhamento_Encaminhamentos">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioEncaminhamento_Encaminhamentos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadores_Detalhamento">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadores_Detalhamento}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadoresExcel_Produtos">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadoresExcel_Produtos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaOE">
+					<subreportParameterExpression><![CDATA[$F{siglaIett}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadoresExcel_Indicadores">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadoresExcel_Indicadores}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ecarLogo">
+					<subreportParameterExpression><![CDATA[$P{ecarLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadoresExcel_Acoes">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadoresExcel_Acoes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cruzLogo">
+					<subreportParameterExpression><![CDATA[$P{cruzLogo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{estrategias})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelatorioIndicadoresExcel_Estrategias}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="0" width="23" height="17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[OE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="0" width="23" height="17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="0" width="23" height="17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[R]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="0" width="34" height="17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="0" width="97" height="17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SITUAÇÃO]]></text>
+			</staticText>
+		</band>
+		<band height="3">
+			<line>
+				<reportElement x="0" y="1" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

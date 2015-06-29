@@ -1,0 +1,402 @@
+{
+   "results":[
+      {
+         "id":"1",
+         "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos",
+         "info":"Garantir acesso à atenção à saúde integral, equânime e de qualidade em tempo adequado às necessidades de saúde dos cidadãos, aprimorando a política de atenção básica e da atenção especializada",
+         "produtos":[
+            {
+               "id":"1.1",
+               "prioritario":true,
+               "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+               "status":{
+                  "code":3,
+                  "legenda":"ABR"
+               },
+               "responsavel":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "corresponsavel":{
+                  "secretaria":"SGEO/DEBASUS",
+                  "nome":"José Carlos"
+               },
+               "articulador":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "indicadores":[
+                  {
+                     "title":"Indicador 1",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  },
+                  {
+                     "title":"Indicador 2",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  },
+                  {
+                     "title":"Indicador 3",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  }
+               ],
+               "acoes":[
+                  {
+                     "id":"1.1.1",
+                     "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+                     "status":{
+                        "code":3,
+                        "legenda":"ABR"
+                     },
+                     "responsavel":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "corresponsavel":{
+                        "secretaria":"SGEO/DEBASUS",
+                        "nome":"José Carlos"
+                     },
+                     "articulador":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "indicadores":[
+                        {
+                           "title":"Indicador 1",
+                           "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                        },
+                        {
+                           "title":"Indicador 2",
+                           "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                        }
+                     ]
+                  },
+                  {
+                     "id":"1.1.2",
+                     "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+                     "status":{
+                        "code":3,
+                        "legenda":"ABR"
+                     },
+                     "responsavel":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "corresponsavel":{
+                        "secretaria":"SGEO/DEBASUS",
+                        "nome":"José Carlos"
+                     },
+                     "articulador":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "indicadores":[
+                        {
+                           "title":"Indicador 1",
+                           "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "id":"1.2",
+               "prioritario":true,
+               "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+               "status":{
+                  "code":3,
+                  "legenda":"ABR"
+               },
+               "responsavel":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "corresponsavel":{
+                  "secretaria":"SGEO/DEBASUS",
+                  "nome":"José Carlos"
+               },
+               "articulador":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "indicadores":[
+                  {
+                     "title":"Indicador 1",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  },
+                  {
+                     "title":"Indicador 2",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  }
+               ]
+            },
+            {
+               "id":"1.7",
+               "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+               "status":{
+                  "code":3,
+                  "legenda":"ABR"
+               },
+               "responsavel":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "corresponsavel":{
+                  "secretaria":"SGEO/DEBASUS",
+                  "nome":"José Carlos"
+               },
+               "articulador":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "indicadores":[
+                  {
+                     "title":"Indicador 1",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  }
+               ],
+               "acoes":[
+                  {
+                     "id":"1.7.1",
+                     "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+                     "status":{
+                        "code":3,
+                        "legenda":"ABR"
+                     },
+                     "responsavel":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "corresponsavel":{
+                        "secretaria":"SGEO/DEBASUS",
+                        "nome":"José Carlos"
+                     },
+                     "articulador":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     }
+                  },
+                  {
+                     "id":"1.7.2",
+                     "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+                     "status":{
+                        "code":3,
+                        "legenda":"ABR"
+                     },
+                     "responsavel":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "corresponsavel":{
+                        "secretaria":"SGEO/DEBASUS",
+                        "nome":"José Carlos"
+                     },
+                     "articulador":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     }
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "id":"4",
+         "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos",
+         "info":"Garantir acesso à atenção à saúde integral, equânime e de qualidade em tempo adequado às necessidades de saúde dos cidadãos, aprimorando a política de atenção básica e da atenção especializada",
+         "produtos":[
+            {
+               "id":"4.1",
+               "prioritario":true,
+               "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+               "status":{
+                  "code":3,
+                  "legenda":"ABR"
+               },
+               "responsavel":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "corresponsavel":{
+                  "secretaria":"SGEO/DEBASUS",
+                  "nome":"José Carlos"
+               },
+               "articulador":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "indicadores":[
+                  {
+                     "title":"Indicador 1",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  },
+                  {
+                     "title":"Indicador 2",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  },
+                  {
+                     "title":"Indicador 3",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  }
+               ],
+               "acoes":[
+                  {
+                     "id":"4.1.1",
+                     "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+                     "status":{
+                        "code":3,
+                        "legenda":"ABR"
+                     },
+                     "responsavel":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "corresponsavel":{
+                        "secretaria":"SGEO/DEBASUS",
+                        "nome":"José Carlos"
+                     },
+                     "articulador":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "indicadores":[
+                        {
+                           "title":"Indicador 1",
+                           "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                        },
+                        {
+                           "title":"Indicador 2",
+                           "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                        }
+                     ]
+                  },
+                  {
+                     "id":"4.1.2",
+                     "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+                     "status":{
+                        "code":3,
+                        "legenda":"ABR"
+                     },
+                     "responsavel":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "corresponsavel":{
+                        "secretaria":"SGEO/DEBASUS",
+                        "nome":"José Carlos"
+                     },
+                     "articulador":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "indicadores":[
+                        {
+                           "title":"Indicador 1",
+                           "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "id":"4.2",
+               "prioritario":true,
+               "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+               "status":{
+                  "code":3,
+                  "legenda":"ABR"
+               },
+               "responsavel":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "corresponsavel":{
+                  "secretaria":"SGEO/DEBASUS",
+                  "nome":"José Carlos"
+               },
+               "articulador":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "indicadores":[
+                  {
+                     "title":"Indicador 1",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  },
+                  {
+                     "title":"Indicador 2",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  }
+               ]
+            },
+            {
+               "id":"4.3",
+               "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+               "status":{
+                  "code":3,
+                  "legenda":"ABR"
+               },
+               "responsavel":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "corresponsavel":{
+                  "secretaria":"SGEO/DEBASUS",
+                  "nome":"José Carlos"
+               },
+               "articulador":{
+                  "secretaria":"SAS/DAB",
+                  "nome":"Heider"
+               },
+               "indicadores":[
+                  {
+                     "title":"Indicador 1",
+                     "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros sit amet purus pharetra fringilla. Morbi eget ipsum ac odio vestibulum ornare. "
+                  }
+               ],
+               "acoes":[
+                  {
+                     "id":"4.3.1",
+                     "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+                     "status":{
+                        "code":3,
+                        "legenda":"ABR"
+                     },
+                     "responsavel":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "corresponsavel":{
+                        "secretaria":"SGEO/DEBASUS",
+                        "nome":"José Carlos"
+                     },
+                     "articulador":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     }
+                  },
+                  {
+                     "id":"4.3.2",
+                     "desc":"Identificado vazios assistenciais e insuficiências da Assistência Básica e Assistência Especializada e definidas prioridades de intervenção e financiamentos.",
+                     "status":{
+                        "code":3,
+                        "legenda":"ABR"
+                     },
+                     "responsavel":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     },
+                     "corresponsavel":{
+                        "secretaria":"SGEO/DEBASUS",
+                        "nome":"José Carlos"
+                     },
+                     "articulador":{
+                        "secretaria":"SAS/DAB",
+                        "nome":"Heider"
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}

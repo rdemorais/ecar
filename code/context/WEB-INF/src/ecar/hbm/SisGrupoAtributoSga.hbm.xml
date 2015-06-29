@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SisGrupoAtributoSga" 
+    table="TB_SIS_GRUPO_ATRIBUTO_SGA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSga"
+        type="java.lang.Long"
+        column="COD_SGA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="descricaoSga"
+        type="java.lang.String"
+        column="DESCRICAO_SGA"
+        length="40"
+    />
+    <property
+        name="dataInclusaoSga"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_SGA"
+        length="7"
+    />
+    <property
+        name="indAtivoSga"
+        type="java.lang.String"
+        column="IND_ATIVO_SGA"
+        length="1"
+    />
+    <property
+        name="indTabelaUsoSga"
+        type="java.lang.String"
+        column="IND_TABELA_USO_SGA"
+        length="1"
+    />
+    <property
+        name="indCadSiteSga"
+        type="java.lang.String"
+        column="IND_CAD_SITE_SGA"
+        length="1"
+    />
+    <property
+        name="indSistemaSga"
+        type="java.lang.String"
+        column="IND_SISTEMA_SGA"
+        length="1"
+    />
+    <property
+        name="seqApresentacaoSga"
+        type="java.lang.Integer"
+        column="SEQ_APRESENTACAO_SGA"
+        length="3"
+    />
+    <property
+        name="indObrigatorioSga"
+        type="java.lang.String"
+        column="IND_OBRIGATORIO_SGA"
+        length="1"
+    />
+
+    <property
+        name="indCadUsuSga"
+        type="java.lang.String"
+        column="IND_CAD_USU_SGA"
+        length="1"
+    />
+    
+    <property
+        name="descInfoComplementar"
+        type="java.lang.String"
+        column="desc_info_complementar"
+        length="200"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SisTipoOrdenacaoSto -->
+    <many-to-one
+        name="sisTipoOrdenacaoSto"
+        class="ecar.pojo.SisTipoOrdenacaoSto"
+        not-null="true"
+    >
+        <column name="COD_STO" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to SegmentoSgt -->
+    <set
+        name="segmentoSgts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SegmentoSgt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to SisAtributoSatb -->
+    <set
+        name="sisAtributoSatbs"
+        lazy="false"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.SisAtributoSatb"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgsByCodSgaGrAtrPgIni"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA_GR_ATR_PG_INI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgsByCodSgaGrAtrNvPlan"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA_GR_ATR_NV_PLAN" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgsByCodSgaGrAtrClAcesso"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA_GR_ATR_CL_ACESSO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgsByCodSgaGrAtrLeiCapa"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA_GR_ATR_LEI_CAPA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgsByCodSgaGrAtrTpAcesso"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA_GR_ATR_TP_ACESSO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ConfiguracaoCfg -->
+    <set
+        name="configuracaoCfgsByCodSgaGrAtrMetasFisicas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA_GR_ATR_METAS_FISICAS" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfiguracaoCfg"
+        />
+    </set>
+
+    <set
+        name="grupoAtributosLivresSgas"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SGA" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AtributosAtb"
+        />
+    </set>
+
+    <!-- bi-directional many-to-one association to SisTipoExibicGrupoSteg -->
+    <many-to-one
+        name="sisTipoExibicGrupoSteg"
+        class="ecar.pojo.SisTipoExibicGrupoSteg"
+        not-null="true"
+    >
+        <column name="COD_STEG" />
+    </many-to-one>
+    
+    <!-- bi-directional many-to-one association to SisTipoExibicGrupoSteg -->
+    <many-to-one
+        name="sisTipoExibicGrupoCadUsuSteg"
+        class="ecar.pojo.SisTipoExibicGrupoSteg"
+        not-null="true"
+    >
+        <column name="COD_STEG_CAD_USU" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

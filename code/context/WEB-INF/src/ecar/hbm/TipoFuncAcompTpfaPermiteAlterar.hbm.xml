@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="ecar.pojo.TipoFuncAcompTpfaPermiteAlterar" 
+    table="tb_Tipo_Func_Acomp_Permite_Alterar_tpfapa"
+    lazy="true"
+>
+    
+        <composite-id name="comp_id" 
+                      class="ecar.pojo.TipoFuncAcompTpfaPermiteAlterarPK">
+
+             <key-many-to-one name="cod_superior_tpfapa" column="cod_superior_tpfapa"
+                 class="ecar.pojo.TipoFuncAcompTpfa"/>
+             <key-many-to-one name="cod_inferior_tpfapa"
+                 column="cod_inferior_tpfapa"
+                 class="ecar.pojo.TipoFuncAcompTpfa"/>
+        </composite-id>        
+        
+
+    <property
+        name="permiteAlterarParecer"
+        type="java.lang.String"
+        column="ind_permite_alterar_parecer_tpfapa"
+    />
+	
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!--
+		Created by the Middlegen Hibernate plugin 2.1
+
+		http://boss.bekk.no/boss/middlegen/ http://www.hibernate.org/
+	-->
+
+	<class name="ecar.pojo.intercambioDados.PerfilIntercambioDadosLogPflogid"
+		table="tb_perfil_log_int_dados_pflogid" lazy="false">
+		<meta attribute="implement-equals" inherit="false">true</meta>
+
+		<id name="codPflogid" type="java.lang.Long" column="cod_pflogid">
+			<generator class="sequence">
+				<param name="sequence">tb_perfil_log_int_dados_pflogid_seq</param>
+			</generator>
+		</id>
+
+		<property name="tipoFuncionalidade" type="java.lang.String" column="tipo_func_pflogid" not-null="true" length="50" />
+
+		<property name="dadosFuncionalidade" type="java.lang.String" column="dados_func_pflogid" not-null="true" />
+
+		<property name="tipoTecnologia" type="java.lang.String" column="tipo_tec_pflogid" not-null="true" length="50" />
+
+		<property name="dadosTecnologia" type="java.lang.String" column="dados_tec_pflogid" not-null="true" />
+
+
+	</class>
+</hibernate-mapping>

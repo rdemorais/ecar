@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.Etiqueta" 
+    table="TB_ETIQUETA"
+    lazy="true"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codigo"
+        type="java.lang.Long"
+        column="cod_etiqueta"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="nome"
+        type="java.lang.String"
+        column="nome_etiqueta"
+        length="150"
+    />
+    <property
+        name="nomeFonetico"
+        type="java.lang.String"
+        column="nome_etiqueta_fonetico"
+        length="100"
+    />
+    <property
+        name="indAtivo"
+        type="java.lang.String"
+        column="ind_ativo"
+    />
+    <property
+        name="indPrioritario"
+        type="java.lang.String"
+        column="ind_prioritario"
+    />
+    
+    <!-- Associations -->
+    
+    <set
+    	fetch="select"
+        name="relacionamentosIettEtiqueta"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="cod_itemestrutiett_etiq" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.RelacionamentoIettEtiqueta"
+        />
+    </set>
+    
+    <!-- bi-directional many-to-one association to Categoria -->
+    <many-to-one
+        name="categoria"
+        class="ecar.pojo.Categoria"
+        fetch="select"
+        not-null="true"
+    >
+        <column name="cod_categoria" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

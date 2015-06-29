@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.1435888100000065"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="caminho_indicadores_subResultados" class="java.lang.String"/>
+	<parameter name="caminho_indicadores_subResultados_subIndicadores" class="java.lang.String"/>
+	<parameter name="listaOE" class="java.util.List"/>
+	<parameter name="caminho_relBijari_subOE_subEst_subResult" class="java.lang.String"/>
+	<parameter name="caminho_smileAmarelo" class="java.lang.String"/>
+	<parameter name="caminho_smileVerde" class="java.lang.String"/>
+	<parameter name="caminho_smileVermelho" class="java.lang.String"/>
+	<parameter name="caminho_indicadores_subOE" class="java.lang.String"/>
+	<parameter name="caminho_indicadores_subOE_subEstrat" class="java.lang.String"/>
+	<parameter name="caminho_indicadores_subOE_subEstrat_subResul" class="java.lang.String"/>
+	<parameter name="caminho_indicadores_subOE_subEstrat_subResul_subIndi" class="java.lang.String"/>
+	<parameter name="caminho_smileBranco" class="java.lang.String"/>
+	<parameter name="cruzLogo" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="msLogo" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ecarLogo" class="java.lang.String"/>
+	<parameter name="listaOEGerais" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="59" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="28" width="555" height="31"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DINPro-Medium" size="24"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO INDICADORES]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="84" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="28" forecolor="#FFFFFF" backcolor="#0B509E"/>
+				<box leftPadding="30"/>
+				<textElement verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PLANO ESTRATÉGICO DO MINISTÉRIO DA SAÚDE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="6" y="6" width="17" height="16"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{cruzLogo}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="336" y="2" width="218" height="23"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{msLogo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="60" width="553" height="24"/>
+				<textElement>
+					<font fontName="DINPro-Medium"/>
+				</textElement>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="24" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DINPro-Bold" size="14" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[INDICADORES GERAIS]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="24" width="555" height="1">
+					<printWhenExpression><![CDATA[!$P{listaOEGerais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+			</subreport>
+			<line>
+				<reportElement x="0" y="25" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="26" width="555" height="24" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DINPro-Bold" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INDICADORES DE RESULTADOS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="50" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="0" y="51" width="555" height="23"/>
+				<subreportParameter name="caminho_indicadores_subOE_subEstrat_subResul">
+					<subreportParameterExpression><![CDATA[$P{caminho_indicadores_subOE_subEstrat_subResul}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_indicadores_subOE">
+					<subreportParameterExpression><![CDATA[$P{caminho_indicadores_subOE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_indicadores_subOE_subEstrat">
+					<subreportParameterExpression><![CDATA[$P{caminho_indicadores_subOE_subEstrat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileVerde">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileVerde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_relBijari_subOE_subEst_subResult">
+					<subreportParameterExpression><![CDATA[$P{caminho_relBijari_subOE_subEst_subResult}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileBranco">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileBranco}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_indicadores_subResultados">
+					<subreportParameterExpression><![CDATA[$P{caminho_indicadores_subResultados}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileVermelho">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileVermelho}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="listaOE">
+					<subreportParameterExpression><![CDATA[$P{listaOE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_smileAmarelo">
+					<subreportParameterExpression><![CDATA[$P{caminho_smileAmarelo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_indicadores_subOE_subEstrat_subResul_subIndi">
+					<subreportParameterExpression><![CDATA[$P{caminho_indicadores_subOE_subEstrat_subResul_subIndi}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminho_indicadores_subResultados_subIndicadores">
+					<subreportParameterExpression><![CDATA[$P{caminho_indicadores_subResultados_subIndicadores}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaOE})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminho_indicadores_subOE}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="433" y="0" width="80" height="20" forecolor="#8C8C8C"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Pag. "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="59" y="0" width="218" height="33" forecolor="#8C8C8C"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Ministério da Saúde - MS
+Secretaria Executiva - SE
+Departamento de Monitoramento e Avaliação do SUS - DEMAS
+Subsecretaria de Planejamento e Orçamento - SPO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="6" width="59" height="20"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{ecarLogo}]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report">
+				<reportElement x="513" y="0" width="40" height="20" forecolor="#8C8C8C"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

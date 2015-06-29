@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+ <class name="ecar.pojo.VisaoAtributoDemanda"  
+           table="TB_ATRIBUTO_DEMANDA_VISAO" lazy="false">    
+          <composite-id name="visaoAtributoDemandaPk" 
+                      class="ecar.pojo.VisaoAtributoDemandaPK">
+
+             <key-many-to-one name="atributoDemanda" column="COD_ATBDEM"
+                 class="ecar.pojo.AtributoDemandaAtbdem"/>
+             <key-many-to-one name="visao"
+                 column="COD_VISAO"
+                 class="ecar.pojo.VisaoDemandasVisDem"/>
+        </composite-id>        	
+            
+    <property name="indObrigatorioAtbvis" type="java.lang.String" column="IND_OBRIGATORIO_ATBVIS" length="1"/>
+    <property name="seqApresListagemTelaAtbvis" type="java.lang.Integer" column="SEQ_APRES_LISTAGEM_TELA_ATBVIS" length="4"/>
+    <property name="larguraListagemTelaAtbvis" type="java.lang.Integer" column="LARGURA_LISTAGEM_TELA_ATBVIS" length="2"/>
+    <property name="seqApresTelaCampoAtbvis" type="java.lang.Integer" column="SEQ_APRES_TELA_CAMPO_ATBVIS" length="4"/>
+    <property name="dicaAtbvis" type="java.lang.String" column="DICA_ATBVIS" length="2000"/>
+    <property name="indListagemItensAtbvis" type="java.lang.String" column="IND_LISTAGEM_ITENS_ATBVIS" length="1"/>
+    <property name="indExibivelAtbvis" type="java.lang.String" column="IND_EXIBIVEL_ATBVIS" length="1"/>
+    <property name="indExibivelConsultaAtbvis" type="java.lang.String" column="IND_EXIBIVEL_CONSULTA_ATBVIS" length="1"/>
+    <property name="indEditavelAtbvis" type="java.lang.String" column="IND_EDITAVEL_ATBVIS" length="1"/>
+    <property name="indFiltroAtbvis" type="java.lang.String" column="IND_FILTRO_ATBVIS" length="1"/>   
+    <property name="indRestritivo" type="java.lang.String" column="IND_RESTRITIVO" length="1"/> 
+        
+    </class>
+</hibernate-mapping>

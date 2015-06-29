@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.AgendaOcorrenciaAgeo" 
+    table="TB_AGENDA_OCORRENCIA_AGEO"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codAgeo"
+        type="java.lang.Long"
+        column="COD_AGEO"
+    >
+        <generator class="increment" />
+    </id>
+	
+	<property
+        name="localAgeo"
+        type="java.lang.String"
+        column="LOCAL_AGEO"
+        length="2000"
+    />
+    <property
+        name="descricaoAgeo"
+        type="java.lang.String"
+        column="DESCRICAO_AGEO"
+        length="2000"
+    />
+    <property
+        name="minutoEventoAgeo"
+        type="java.lang.Integer"
+        column="MINUTO_EVENTO_AGEO"
+        length="2"
+    />
+    <property
+        name="horaEventoAgeo"
+        type="java.lang.Integer"
+        column="HORA_EVENTO_AGEO"
+        length="2"
+    />
+    <property
+        name="dataEventoAgeo"
+        type="java.sql.Timestamp"
+        column="DATA_EVENTO_AGEO"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to AgendaAge -->
+    <many-to-one
+        name="agendaAge"
+        class="ecar.pojo.AgendaAge"
+        not-null="true"
+    >
+        <column name="COD_AGE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to ItemEstrutVinculoIettv -->
+    <set
+        name="itemEstrutVinculoIettvs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_AGEO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutVinculoIettv"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to DestaqueItemRelDtqir -->
+    <set
+        name="destaqueItemRelDtqirs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_AGEO" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.DestaqueItemRelDtqir"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstrutAcaoIetta" 
+    table="TB_ITEM_ESTRUT_ACAO_IETTA"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIetta"
+        type="java.lang.Long"
+        column="COD_IETTA"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoIetta"
+        type="java.lang.String"
+        column="IND_ATIVO_IETTA"
+        length="1"
+    />
+    <property
+        name="dataInclusaoIetta"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTA"
+        length="7"
+    />
+    <property
+        name="dataIetta"
+        type="java.sql.Timestamp"
+        column="DATA_IETTA"
+        length="7"
+    />
+    <property
+        name="descricaoIetta"
+        type="java.lang.String"
+        column="DESCRICAO_IETTA"
+        length="2000"
+    />
+    
+    <!-- Mantis #2156 -->
+    <property
+        name="indExclusaoPosHistorico"
+        type="java.lang.Boolean"
+        column="IND_EXCLUSAO_POS_HISTORICO"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+        class="ecar.pojo.ItemEstruturaIett"
+        not-null="true"
+    >
+        <column name="COD_IETT" />
+    </many-to-one>
+
+    <!-- bi-directional many-to-one association to UsuarioUsu -->
+    <many-to-one
+        name="usuarioUsu"
+        class="ecar.pojo.UsuarioUsu"
+        not-null="true"
+    >
+        <column name="COD_USU" />
+    </many-to-one>
+    
+    <many-to-one
+        name="usuarioUsuManutencao"
+        class="ecar.pojo.UsuarioUsu"
+    >
+        <column name="COD_USU_MANUTENCAO" />
+    </many-to-one>
+    
+
+    <!-- Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettaH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettaHs">
+      <key>
+        <column name="COD_IETTA"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettaH"/>
+    </set>
+    <!-- Final Mantis #2156 -->
+</class>
+</hibernate-mapping>

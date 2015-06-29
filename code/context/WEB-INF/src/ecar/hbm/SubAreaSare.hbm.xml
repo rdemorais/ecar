@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.SubAreaSare" 
+    table="TB_SUB_AREA_SARE"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codSare"
+        type="java.lang.Long"
+        column="COD_SARE"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="indAtivoSare"
+        type="java.lang.String"
+        column="IND_ATIVO_SARE"
+        length="1"
+    />
+    <property
+        name="dataInclusaoSare"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_SARE"
+        length="7"
+    />
+    <property
+        name="nomeSare"
+        type="java.lang.String"
+        column="NOME_SARE"
+        not-null="true"
+        length="60"
+    />
+
+    <property
+        name="codigoIdentSare"
+        type="java.lang.Long"
+        column="CODIGO_IDENT_SARE"
+        length="10"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIetts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_SARE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+
+    <set
+        name="itemEstruturaRevisaoIettRevs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ARE" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturarevisaoIettrev"
+        />
+    </set>
+    
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettHs">
+      <key>
+        <column name="COD_SARE"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>    
+    <!-- Final Mantis #2156 -->
+
+</class>
+</hibernate-mapping>

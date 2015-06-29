@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+<class 
+    name="ecar.pojo.ItemEstrtIndResulLocalIettirl" 
+    table="TB_ITEM_ESTRT_IND_RESUL_LOCAL_IETTIRL"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+	<id
+        name="codIettirl"
+        type="java.lang.Long"
+        column="COD_IETTIRL"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="qtdPrevistaIettirl"
+        type="java.lang.Double"
+        column="QTD_PREVISTA_IETTIRL"
+        length="14"
+    />
+
+    <property
+        name="indAtivoIettirl"
+        type="java.lang.String"
+        column="IND_ATIVO_IETTIRL"
+        length="1"
+    />
+
+    <property
+        name="dataInclusaoIettirl"
+        type="java.sql.Timestamp"
+        column="DATA_INCLUSAO_IETTIRL"
+        length="7"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstrutFisicoIettf -->
+    <many-to-one
+        name="itemEstrutFisicoIettf"
+	    class="ecar.pojo.ItemEstrutFisicoIettf"
+	>
+    	<column name="COD_IETTF" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to LocalItemLit -->
+    <many-to-one
+        name="localItemLit"
+	    class="ecar.pojo.LocalItemLit"
+	>
+    	<column name="COD_LIT" />
+	</many-to-one>	
+    
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

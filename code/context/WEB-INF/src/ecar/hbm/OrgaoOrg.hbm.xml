@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.OrgaoOrg" 
+    table="TB_ORGAO_ORG"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codOrg"
+        type="java.lang.Long"
+        column="COD_ORG"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="siglaOrg"
+        type="java.lang.String"
+        column="SIGLA_ORG"
+        length="10"
+    />
+    <property
+        name="descricaoOrg"
+        type="java.lang.String"
+        column="DESCRICAO_ORG"
+        length="2000"
+    />
+    <property
+        name="indAtivoOrg"
+        type="java.lang.String"
+        column="IND_ATIVO_ORG"
+        length="1"
+    />
+
+    <property
+        name="codigoIdentOrg"
+        type="java.lang.Long"
+        column="CODIGO_IDENT_ORG"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TbPoderPod -->
+    <many-to-one 
+    	name="poderPod"
+    	class="ecar.pojo.PoderPod"
+    >
+      	<column name="COD_POD"/>
+    </many-to-one>
+
+    <!-- bi-directional one-to-many association to AcompReferenciaAref -->
+    <set
+        name="acompReferenciaArefs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ORG" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompReferenciaAref"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to UsuarioUsu -->
+    <!--  Alterado -->
+    <set
+        name="usuarioUsus"
+        lazy="true"
+		table="TB_USUARIO_ORGAO_USUORG"
+		cascade="save-update">
+        <key>
+            <column name="COD_ORG"/>
+        </key>
+		<many-to-many
+			column="COD_USU"
+            class="ecar.pojo.UsuarioUsu"
+        />
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIettsByCodOrgaoResponsavel1Iett"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ORGAO_RESPONSAVEL1_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIettsByCodOrgaoResponsavel1IettPPA"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ORGAO_RESPONSAVEL1_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIettPPA"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIettsByCodOrgaoResponsavel2Iett"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ORGAO_RESPONSAVEL2_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIett"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to UnidadeOrcamentariaUO -->
+    <set
+        name="unidadeOrcamentariaUO"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ORG" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.UnidadeOrcamentariaUO"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbRegDemandaRegd -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="regDemandaRegds">
+      	<key>
+        	<column name="COD_ORG"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.RegDemandaRegd"/>
+    </set>
+
+    <!-- bi-directional one-to-many association to TbItemEstruturarevisaoIettrev -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="itemEstruturarevisaoIettrevsByCodorgaoresponsavel2Iettrev">
+      <key>
+        <column name="codorgaoresponsavel2_iettrev"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturarevisaoIettrev"/>
+    </set>
+    <!-- bi-directional one-to-many association to TbItemEstruturarevisaoIettrev -->
+    <set 
+    	cascade="none"
+		inverse="true" 
+		lazy="true" 
+		name="itemEstruturarevisaoIettrevsByCodorgaoresponsavel1Iettrev">
+      <key>
+        <column name="codorgaoresponsavel1_iettrev"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturarevisaoIettrev"/>
+    </set>
+    
+    <!-- Inicio Mantis #2156 -->
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettH1s">
+      <key>
+        <column name="COD_ORGAO_RESPONSAVEL1_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set>  
+    
+    <!-- bi-directional one-to-many association to HistoricoIettH -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoIettH2s">
+      <key>
+        <column name="COD_ORGAO_RESPONSAVEL2_IETT"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoIettH"/>
+    </set> 
+    <!-- Final Mantis #2156 -->
+    
+   <set
+        name="orgaoPeriodoExercicioOrgPerexes"
+        lazy="false"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_ORG" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.OrgaoPeriodoExercicioOrgPerExe"
+        />
+    </set>
+    
+</class>
+</hibernate-mapping>

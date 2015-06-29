@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<relatorio titulo="ESTADO DO PARANÁ - PPA 2004/2007" capa="169" paginaInicial="170">
+	<programa nome="EDUCAÇÃO" codigo="01">
+		<dados>
+			<campo label="Orgão Resp." valor="41 SECRETARIA DE ESTADO DA EDUCAÇÃO"/>
+			<campo label="Objetivo" valor="Universalizar a educação básica e gratuita... texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto "/>
+			<campo label="Publico-Alvo" valor="Crianças, adolescentes, jovens da educação básica..."/>
+		</dados>
+		<valores-financeiros periodo="2004-2007">
+			<valor label="Correntes" valor="6.408.043.750" />
+			<valor label="Capital" valor="583.524.930" />
+			<valor label="Total" valor="6.991.568.680" />
+		</valores-financeiros>
+		<acao periodo="2004-2007">
+			<itemAcao nome="PROJETO, EXPANSÃO, MELHORIA E INOVAÇÃO NO ENSINO MÉDIO DO PARANÁ - PROEM/BID - SEED"
+			 codigo="1050" valorTotal="118.077.200,00">
+				<produto nome="Capacitar profissionais da educação em todas as áreas do currículo" codigo="1001"
+				tipo="professor capacitado" unidade="numero" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Capacitar professores para utilização da ferramenta Portal Educacional" codigo="1002"
+				tipo="professor capacitado" unidade="numero" situacao="ALT" regiao="Estado" valor="5.000" />
+				<produto nome="Adquirir acervo para escolas - Material Bibliográfico de Referência" codigo="1003"
+				tipo="escola" unidade="unidade" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Adquirir equipamentos para Laboratório de Química, Física e Biologia" codigo="1004"
+				tipo="laboratório" unidade="unidade" situacao="ALT" regiao="Estado" valor="5.000" />
+				<produto nome="Capacitar profissionais da educação em todas as áreas do currículo" codigo="1001"
+				tipo="professor capacitado" unidade="numero" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Capacitar professores para utilização da ferramenta Portal Educacional" codigo="1002"
+				tipo="professor capacitado" unidade="numero" situacao="ALT" regiao="Estado" valor="5.000" />
+				<produto nome="Adquirir acervo para escolas - Material Bibliográfico de Referência" codigo="1003"
+				tipo="escola" unidade="unidade" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Adquirir equipamentos para Laboratório de Química, Física e Biologia" codigo="1004"
+				tipo="laboratório" unidade="unidade" situacao="ALT" regiao="Estado" valor="5.000" />
+				<produto nome="Capacitar profissionais da educação em todas as áreas do currículo" codigo="1001"
+				tipo="professor capacitado" unidade="numero" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Capacitar professores para utilização da ferramenta Portal Educacional" codigo="1002"
+				tipo="professor capacitado" unidade="numero" situacao="ALT" regiao="Estado" valor="5.000" />
+				<produto nome="Adquirir acervo para escolas - Material Bibliográfico de Referência" codigo="1003"
+				tipo="escola" unidade="unidade" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Adquirir equipamentos para Laboratório de Química, Física e Biologia" codigo="1004"
+				tipo="laboratório" unidade="unidade" situacao="ALT" regiao="Estado" valor="5.000" />
+			</itemAcao>
+			<itemAcao nome="PROJETO, EXPANSÃO, MELHORIA E INOVAÇÃO NO ENSINO MÉDIO DO PARANÁ - PROEM/BID - SEED"
+			 codigo="1050" valorTotal="118.077.200,00">
+				<produto nome="Capacitar profissionais da educação..."
+				 tipo="professor capacitado" unidade="numero" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Capacitar professores para utilização..."
+				 tipo="professor capacitado" unidade="numero" situacao="ALT" regiao="Estado" valor="5.000" />
+			</itemAcao>
+			<itemAcao nome="PROJETO, EXPANSÃO, MELHORIA E INOVAÇÃO NO ENSINO MÉDIO DO PARANÁ - PROEM/BID - SEED"
+			 codigo="1050" valorTotal="118.077.200,00">
+				<produto nome="Capacitar profissionais da educação..."
+				 tipo="professor capacitado" unidade="numero" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Capacitar professores para utilização..."
+				 tipo="professor capacitado" unidade="numero" situacao="ALT" regiao="Estado" valor="5.000" />
+			</itemAcao>
+		</acao>
+	</programa>
+	<programa nome="EDUCAÇÃO - TETSTETSTE" codigo="02">
+		<dados>
+			<campo label="Orgão Resp." valor="41 SECRETARIA DE ESTADO DA EDUCAÇÃO"/>
+			<campo label="Objetivo" valor="Universalizar a educação básica e gratuita..."/>
+			<campo label="Publico-Alvo" valor="Crianças, adolescentes, jovens da educação básica..."/>
+		</dados>
+		<valores-financeiros periodo="2004-2007">
+			<valor label="Correntes" valor="6.408.043.750" />
+			<valor label="Capital" valor="583.524.930" />
+			<valor label="Total" valor="6.991.568.680" />
+		</valores-financeiros>
+		<acao periodo="2004-2007">
+			<itemAcao nome="PROJETO, EXPANSÃO, MELHORIA E INOVAÇÃO NO ENSINO MÉDIO DO PARANÁ - PROEM/BID - SEED"
+			 codigo="1050" valorTotal="118.077.200,00">
+				<produto nome="Capacitar profissionais da educação..."
+				 tipo="professor capacitado" unidade="numero" situacao="INC" regiao="Estado" valor="20.000" />
+				<produto nome="Capacitar professores para utilização..."
+				 tipo="professor capacitado" unidade="numero" situacao="ALT" regiao="Estado" valor="5.000" />
+			</itemAcao>
+		</acao>
+	</programa>
+</relatorio>

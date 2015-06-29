@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+	<!-- 
+	    Created by the Middlegen Hibernate plugin 2.1
+	
+	    http://boss.bekk.no/boss/middlegen/
+	    http://www.hibernate.org/
+	-->
+	
+<class 
+	    name="ecar.pojo.AtributoVisaoAtbvis" 
+	    table="TB_ATRIBUTO_VISAO_ATBVIS"
+	    lazy="false"
+>
+
+	<id 
+		name="codAtbvis"
+		type="java.lang.Long"
+    	column="COD_ATBVIS"     	 
+    >	
+      	<generator class="increment"/>
+    </id>
+    <many-to-one
+        name="atributoDemandaAssociadoAtbvis"
+        class="ecar.pojo.AtributoDemandaAtbdem"
+        not-null="false"
+    >
+    
+        <column name="COD_ATBDEM" />
+    </many-to-one>
+	<property
+        name="indObrigatorioAtbvis"
+        type="java.lang.String"
+        column="IND_OBRIGATORIO_ATBVIS"
+        length="1"
+    />
+    <property
+        name="seqApresListagemTelaAtbvis"
+        type="java.lang.Integer"
+        column="SEQ_APRES_LISTAGEM_TELA_ATBVIS"
+        length="4"
+    />
+    <property
+        name="larguraListagemTelaAtbvis"
+        type="java.lang.Integer"
+        column="LARGURA_LISTAGEM_TELA_ATBVIS"
+        length="2"
+    />
+    <property
+        name="seqApresTelaCampoAtbvis"
+        type="java.lang.Integer"
+        column="SEQ_APRES_TELA_CAMPO_ATBVIS"
+        length="4"
+    />
+    <property
+        name="dicaAtbvis"
+        type="java.lang.String"
+        column="DICA_ATBVIS"
+        length="2000"
+    />
+    <property
+        name="indListagemItensAtbvis"
+        type="java.lang.String"
+        column="IND_LISTAGEM_ITENS_ATBVIS"
+        length="1"
+    />
+    <property
+        name="indExibivelAtbvis"
+        type="java.lang.String"
+        column="IND_EXIBIVEL_ATBVIS"
+        length="1"
+    />
+        <property
+        name="indEditavelAtbvis"
+        type="java.lang.String"
+        column="IND_EDITAVEL_ATBVIS"
+        length="1"
+    />
+    <property
+        name="indFiltroAtbvis"
+        type="java.lang.String"
+        column="IND_FILTRO_ATBVIS"
+        length="1"
+    />    
+   </class>
+</hibernate-mapping>

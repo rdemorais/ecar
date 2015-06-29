@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="ecar.pojo.intercambioDados.MotivoRejeicaoMtr"    
+  		table="tb_motivo_rejeicao_mtr"
+    	lazy="false">
+  
+    
+    <id name="id" column="cod_mtr"/>
+    <property name="mensagem" column="msg_mtr"/>
+    
+  </class>
+</hibernate-mapping>

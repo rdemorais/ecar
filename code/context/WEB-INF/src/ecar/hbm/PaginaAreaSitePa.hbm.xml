@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.PaginaAreaSitePa" 
+    table="TB_PAGINA_AREA_SITE_PAS"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codPas"
+        type="java.lang.Long"
+        column="COD_PAS"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="seqApresentacaoPas"
+        type="java.lang.Integer"
+        column="SEQ_APRESENTACAO_PAS"
+        length="5"
+    />
+    <property
+        name="corPas"
+        type="java.lang.String"
+        column="COR_PAS"
+        length="20"
+    />
+    <property
+        name="urlPas"
+        type="java.lang.String"
+        column="URL_PAS"
+        length="100"
+    />
+    <property
+        name="indCapaPas"
+        type="java.lang.String"
+        column="IND_CAPA_PAS"
+        length="1"
+    />
+    <property
+        name="textoPas"
+        type="java.lang.String"
+        column="TEXTO_PAS"
+        length="2000"
+    />
+    <property
+        name="nomePas"
+        type="java.lang.String"
+        column="NOME_PAS"
+        length="30"
+    />
+    <property
+        name="tituloPas"
+        type="java.lang.String"
+        column="TITULO_PAS"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to OpcaoMenuOpcm -->
+    <set
+        name="opcaoMenuOpcms"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PAS" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.OpcaoMenuOpcm"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PaginaPgn -->
+    <set
+        name="paginaPgns"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_PAS" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PaginaPgn"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

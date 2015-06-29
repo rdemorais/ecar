@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<relatorio>
+	<acompanhamentos mes="Jun/2005">
+		<itemAcompanhamento estrutura="Programa" nome="Programa do Leite" nivel="1" orgao="SEC">
+			<mes>
+				<posicao>http://localhost:8080/ecar/images/relAcomp/amarelo5.png</posicao>
+				<posicao>http://localhost:8080/ecar/images/relAcomp/amarelo2.png</posicao>
+				<posicao>http://localhost:8080/ecar/images/relAcomp/vermelho3.png</posicao>
+			</mes>
+			<niveis>
+				<nivel>http://localhost:8080/ecar/images/relAcomp/icon_gerencial.png</nivel>
+				<nivel>http://localhost:8080/ecar/images/relAcomp/icon_ppa.png</nivel>
+			</niveis>
+		</itemAcompanhamento>
+		<itemAcompanhamento estrutura="Ação" nome="Desenvolvimento das políticas pecuárias" nivel="2" orgao="SEC">
+			<mes>
+				<posicao>http://localhost:8080/ecar/images/relAcomp/verde5.png</posicao>
+				<posicao>http://localhost:8080/ecar/images/relAcomp/amarelo2.png</posicao>
+				<posicao>http://localhost:8080/ecar/images/relAcomp/vermelho3.png</posicao>
+			</mes>
+			<niveis>
+				<nivel>http://localhost:8080/ecar/images/relAcomp/icon_gerencial.png</nivel>
+				<nivel>http://localhost:8080/ecar/images/relAcomp/icon_ppa.png</nivel>
+			</niveis>
+		</itemAcompanhamento>
+		<itemAcompanhamento estrutura="Ação" nome="Desenvolvimento das políticas pecuárias teste N/A" nivel="2" orgao="">
+			<mes>
+			</mes>
+			<niveis>
+				<nivel>http://localhost:8080/ecar/images/relAcomp/icon_gerencial.png</nivel>
+				<nivel>http://localhost:8080/ecar/images/relAcomp/icon_ppa.png</nivel>
+			</niveis>
+		</itemAcompanhamento>
+	</acompanhamentos>
+	
+	<itens>
+		<item>
+			<hierarquia nome="Programa do Leite" estrutura="Programa">
+				<itemHierarquia nome="Desenvolvimento das políticas pecuárias" nomeEstrutura="Ação" nivel="1"/>
+			</hierarquia>
+			<avaliacoes>
+				<avaliacao label="Parecer atribuído por" responsavel="João Silva" funcao="Monitor" 
+						situacao="Atrasado" cor="http://localhost:8080/ecar/images/relAcomp/amarelo5.png"
+						descricao="A conclusão deste item está relacionada a próxima campanha de eleição.
+							Os resultados obtidos já atendem o programa de governo anterior." statusLiberado="S"/>
+				<avaliacao label="Posição atribuído por" responsavel="Carlos Silva" funcao="Assistente" 
+						situacao="Atrasado" cor="http://localhost:8080/ecar/images/relAcomp/amarelo5.png"
+						descricao="Complemento as verbas solicitados será possível atingir os valores desejados
+							no programa de governo." statusLiberado="S"/>
+				<avaliacao label="Avaliação atribuído por" responsavel="José Silva" funcao="Responsável" 
+						situacao="Atrasado" cor="http://localhost:8080/ecar/images/relAcomp/amarelo5.png"
+						descricao="Os indicadores apresentam um quadro que indica que os resultados desejados não
+								serão atingidos no prazo. Este programa se refere a um dos programas tratados no
+								período da eleição e poderá servir como argumento para as novas eleições. Considerando
+								o prazo restante será necessário dar uma atenção especial a este programa para
+								concluí-lo em tempo hábil." statusLiberado="S"/>
+				<avaliacao label="Parecer atribuído por" responsavel="Pedro Silva" funcao="Monitor" 
+						situacao="Atrasado" cor="http://localhost:8080/ecar/images/relAcomp/amarelo5.png"
+						descricao="A conclusão deste item está relacionada a próxima campanha de eleição.
+							Os resultados obtidos já atendem o programa de governo anterior." statusLiberado="S"/>
+				<avaliacao label="Posição atribuído por" responsavel="Getúlio Silva" funcao="Assistente" 
+						situacao="Atrasado" cor="http://localhost:8080/ecar/images/relAcomp/amarelo5.png"
+						descricao="Complemento as verbas solicitados será possível atingir os valores desejados
+							no programa de governo." statusLiberado="S"/>
+				<avaliacao label="Parecer atribuído por" responsavel="Joaquim da Silva" funcao="Monitor" 
+						situacao="" cor=""
+						descricao="" statusLiberado="N"/>
+			</avaliacoes>
+	
+			<dadosGerais>
+				<atributosDadosGerais label="Nome" conteudo="Melhoria da qualidade do ensino básico em escolas públicas"/>
+				<atributosDadosGerais label="Sigla" conteudo="MQE"/>		
+				<atributosDadosGerais label="Descrição" conteudo="Re-estruturação da rede pública de ensino básico com preparação
+							das instalações para um acréscimo de 50% no número de alunos atendidos."/>		
+				<atributosDadosGerais label="Origem" conteudo="Programa de governo referente ao período eleitoral."/>						
+				<atributosDadosGerais label="Objetivo Geral" conteudo="Qualificar as escolas públicas de ensino básico."/>						
+				<atributosDadosGerais label="Data Início" conteudo="01/01/2001"/>						
+				<atributosDadosGerais label="Data Término" conteudo="10/10/2010"/>						
+				<atributosDadosGerais label="Monitor" conteudo="João Silva"/>												
+				<atributosDadosGerais label="Responsável" conteudo="José Silva"/>																
+				<atributosDadosGerais label="Assistente" conteudo="Carlos Silva"/>												
+		  	</dadosGerais>
+		  	
+		  	<indicadores ano1="2002" ano2="2003">
+		  		<indicador
+		  			nome="Diminuição da evasão escolar"
+		  			situacao="Em atraso"
+		  			comentarios="Aguardando liberação de linhas de financiamento."
+		  			projecao="Este item não será atingido no prazo previsto."
+		  			percentualRealizadoPrevisto="62,50"
+		  			percentual="43,02%"
+		  			totalPrevisto="40%"
+		  			totalRealizado="25%"
+		  			realizadoNoMes="5"
+		  			previstoAno1="10%"
+		  			realizadoAno1="10%"
+		  			previstoAno2="30%" 
+		  			realizadoAno2="15%"/>
+		  		<indicador
+		  			nome="Aumento da credibilidade nas escolas públicas"
+		  			situacao="Suspenso"
+		  			comentarios="O projeto foi substituído por outro na área de educação."
+		  			projecao="Este item não será atingido no prazo previsto."
+		  			percentualRealizadoPrevisto="62,50"
+		  			percentual="43,02%"
+		  			totalPrevisto="40%"
+		  			totalRealizado="25%"
+		  			realizadoNoMes="5"
+		  			previstoAno1="10%"
+		  			realizadoAno1="10%"
+		  			previstoAno2="30%" 
+		  			realizadoAno2="15%"/>
+		  		<indicador
+		  			nome="Diminuição no número de reprovados no vestibular"
+		  			situacao="Concluído"
+		  			comentarios=""
+		  			projecao="A quantidade prevista para este item foi atingida."
+		  			percentualRealizadoPrevisto="125,00"
+		  			percentual="-"
+		  			totalPrevisto="200 un"
+		  			totalRealizado="250 un"
+		  			realizadoNoMes="100"
+		  			previstoAno1="100 un"
+		  			realizadoAno1="100 un"
+		  			previstoAno2="100 un" 
+		  			realizadoAno2="150 un"/>
+		  	</indicadores>
+		  	<evolucaoFinanceira>
+			  	<fonte nome="BNDES">
+				  	<recurso 
+				  		nome="Próprios"
+				  		valorPrevistoAprovado="10.000,00"
+				  		valorPrevistoRevisado="11.000,00"
+				  		valorReservado="5.000,00"
+				  		valorRealizadoEmpenhado="4.000,00"
+				  		valorRealizadoLiquidado="2.000,00"
+				  		valorPago="2.000,00"/>
+				  	<recurso 
+				  		nome="Financiamento Internacional"
+				  		valorPrevistoAprovado="10.000,00"
+				  		valorPrevistoRevisado="11.000,00"
+				  		valorReservado="5.000,00"
+				  		valorRealizadoEmpenhado="4.000,00"
+				  		valorRealizadoLiquidado="2.000,00"
+				  		valorPago="2.000,00"/>
+
+				  	<subTotalFonte subTotalPrevistoAprovado="20.000,00"
+				  		subTotalPrevistoRevisado="22.000,00"
+				  		subTotalReservado="10.000,00"
+				  		subTotalRealizadoEmpenhado="8.000,00"
+				  		subTotalRealizadoLiquidado="4.000,00"
+				  		subTotalPago="4.000,00"/>
+				  	
+			  	</fonte>
+			  	<fonte nome="Tesouro do estado">
+				  	<recurso 
+				  		nome="Próprios"
+				  		valorPrevistoAprovado="10.000,00"
+				  		valorPrevistoRevisado="11.000,00"
+				  		valorReservado="5.000,00"
+				  		valorRealizadoEmpenhado="4.000,00"
+				  		valorRealizadoLiquidado="2.000,00"
+				  		valorPago="2.000,00"/>
+				  	<recurso 
+				  		nome="Outros"
+				  		valorPrevistoAprovado="10.000,00"
+				  		valorPrevistoRevisado="11.000,00"
+				  		valorReservado="5.000,00"
+				  		valorRealizadoEmpenhado="4.000,00"
+				  		valorRealizadoLiquidado="2.000,00"
+				  		valorPago="2.000,00"/>
+				  	<subTotalFonte
+				  		subTotalPrevistoAprovado="20.000,00"
+				  		subTotalPrevistoRevisado="22.000,00"
+				  		subTotalReservado="10.000,00"
+				  		subTotalRealizadoEmpenhado="8.000,00"
+				  		subTotalRealizadoLiquidado="4.000,00"
+				  		subTotalPago="4.000,00"/>
+			  	</fonte>
+			  	<totalEvolucaoFinanceira
+			  		totalPrevistoAprovado="40.000,00"
+			  		totalPrevistoRevisado="44.000,00"
+			  		totalReservado="20.000,00"
+			  		totalRealizadoEmpenhado="16.000,00"
+			  		totalRealizadoLiquidado="8.000,00"
+			  		totalPago="8.000,00"/>
+		  	</evolucaoFinanceira>
+	  	</item>
+	</itens>
+</relatorio>

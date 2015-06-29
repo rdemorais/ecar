@@ -1,0 +1,51 @@
+# (sentido decrescente da hierarquia)
+# ALL - DEBUG - INFO - WARN - ERROR - FATAL - OFF
+log4j.rootCategory=OFF
+
+log4j.logger.ecar=WARN, fileOut
+log4j.logger.comum=WARN, fileOut
+
+log4j.logger.gov.pr.celepar.sentinela=FATAL, fileOut
+
+#pacote das páginas JSP
+log4j.logger.org.apache.jsp=WARN, fileOut
+
+log4j.logger.org.apache.catalina=ERROR, fileOut
+log4j.logger.org.apache.commons=ERROR, fileOut
+
+log4j.logger.net.sf.hibernate=INFO, fileOut
+
+log4j.logger.net.sf.hibernate.SQL=INFO, fileOut
+
+log4j.logger.AUDITORIA=INFO, audit
+
+### log JDBC bind parameters ###
+log4j.logger.net.sf.hibernate.type=INFO, fileOut
+
+### Appender para escrever no console ###
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d %-5p %-5c{3} %x:%L -> %m%n
+
+### Appender para escrever em um arquivo
+log4j.appender.fileOut=org.apache.log4j.RollingFileAppender
+log4j.appender.fileOut.File=/usr/lib/jboss4/server/default/log/ecar_log.txt
+### Controla o tamanho maximo do arquivo
+log4j.appender.fileOut.MaxFileSize=500KB
+### Faz backup dos arquivos de log (apenas 5)
+log4j.appender.fileOut.MaxBackupIndex=5
+### Layout - Formato como a mensagen será mostrada
+log4j.appender.fileOut.layout=org.apache.log4j.PatternLayout
+log4j.appender.fileOut.layout.ConversionPattern=%d %-5p %-5c{3} %x:%L -> %m%n
+
+### Appender para auditoria - gera um novo arquivo a cada semana
+log4j.appender.audit=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.audit.File=/usr/lib/jboss4/server/default/log/ecar_auditoria_log.txt
+### DatePattern para gerar arquivo a cada semana
+log4j.appender.audit.DatePattern='.'yyyy-ww
+### Layout - Formato como a mensagen será mostrada
+log4j.appender.audit.layout=org.apache.log4j.PatternLayout
+### %m = mensagem, %n = separador de linha
+log4j.appender.audit.layout.ConversionPattern=%m%n
+

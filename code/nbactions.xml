@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-Site</actionName>
+            <displayName>Site</displayName>
+            <goals>
+                <goal>site:site</goal>
+                <goal>site:jar</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>Site</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-Sonar</actionName>
+            <displayName>Sonar</displayName>
+            <goals>
+                <goal>sonar:sonar</goal>
+            </goals>
+        </action>
+    </actions>

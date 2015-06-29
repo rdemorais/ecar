@@ -1,0 +1,23 @@
+/* CSS Document */
+
+/*body{width:768px; height:1024px;}*/
+html, body, a, img, div{-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-touch-callout: none;}
+
+#loginBg{  clear:both;}
+#login {padding-top: 4px;}
+#loginTitle {font: 17px "DINPro-Bold"; line-height: 19px;}
+#pass {width: 133px;}
+#loginBtn {background: url(../image/loginbtn-mobile.gif);width: 138px;height: 30px;margin-right: 17px;}
+#senha {margin-top: 72px;}
+
+.statusMItem{width:125px; }
+#nav{padding:0 26px; min-width:700px;}
+#pass{width:110px; margin-left: 13px;}
+#loginBtn{top:10px; margin-right:17px;}
+#resultsScroll{overflow:hidden; margin:0 20px;}
+#resultsBox{overflow:hidden;}
+
+
+
+.visible{ -webkit-transition: none;}
+.hidden{ -webkit-transition: none;}

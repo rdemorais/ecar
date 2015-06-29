@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.ItemEstruturaIettPPA" 
+    table="TB_ITEM_ESTRUTURA_IETT"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codIett"
+        type="java.lang.Long"
+        column="COD_IETT"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="objetivoEspecificoIett"
+        type="java.lang.String"
+        column="OBJETIVO_ESPECIFICO_IETT"
+    />
+    <property
+        name="objetivoGeralIett"
+        type="java.lang.String"
+        column="OBJETIVO_GERAL_IETT"
+    />
+
+    <property
+        name="dataTerminoIett"
+        type="java.sql.Timestamp"
+        column="DATA_TERMINO_IETT"
+        length="7"
+    />
+    <property
+        name="dataInicioIett"
+        type="java.sql.Timestamp"
+        column="DATA_INICIO_IETT"
+        length="7"
+    />
+    <property
+        name="indAtivoIett"
+        type="java.lang.String"
+        column="IND_ATIVO_IETT"
+        length="1"
+    />
+    <property
+        name="descricaoIett"
+        type="java.lang.String"
+        column="DESCRICAO_IETT"
+    />
+    <property
+        name="siglaIett"
+        type="java.lang.String"
+        column="SIGLA_IETT"
+    />
+    <property
+        name="nomeIett"
+        type="java.lang.String"
+        column="NOME_IETT"
+    />
+    <property
+        name="descricaoR2"
+        type="java.lang.String"
+        column="DESCRICAO_R2"
+    />
+    <property
+        name="nivelIett"
+        type="java.lang.Integer"
+        column="NIVEL_IETT"
+        length="10"
+    />
+    
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to EstruturaEtt -->
+    <many-to-one
+        name="estruturaEtt"
+        class="ecar.pojo.EstruturaEtt"
+        not-null="true"
+    >
+        <column name="COD_ETT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to OrgaoOrg -->
+    <many-to-one
+        name="orgaoOrgByCodOrgaoResponsavel1Iett"
+        class="ecar.pojo.OrgaoOrg"
+        not-null="true"
+    >
+        <column name="COD_ORGAO_RESPONSAVEL1_IETT" />
+    </many-to-one>
+   
+    <!-- bi-directional one-to-many association to ItemEstruturaIett -->
+    <set
+        name="itemEstruturaIetts"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT_PAI" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstruturaIettPPA"
+        />
+    </set>
+
+    <!-- bi-directional one-to-many association to TbItemEstruturaSisAtributoIettSatb -->
+    <set 
+    	name="itemEstruturaSisAtributoIettSatbs"
+    	cascade="delete" 
+    	inverse="true" 
+    	lazy="true">
+      <key>
+        <column name="cod_iett"/>
+      </key>
+      <one-to-many class="ecar.pojo.ItemEstruturaSisAtributoIettSatb"/>
+    </set>
+    
+    <!-- bi-directional one-to-many association to ItemEstrtIndResulIettr -->
+    <set
+        name="itemEstrtIndResulIettrs"
+        lazy="true"
+        inverse="true"
+		cascade="delete" 
+    >
+        <key>
+            <column name="COD_IETT" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtIndResulIettr"
+        />
+    </set>
+    
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIettPPA"
+        class="ecar.pojo.ItemEstruturaIettPPA"
+        not-null="true"
+    >
+        <column name="COD_IETT_PAI" />
+    </many-to-one>
+
+
+</class>
+</hibernate-mapping>

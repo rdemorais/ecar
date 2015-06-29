@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.ConfigSisExecFinanCsefv" 
+  	table="TB_CONFIG_SIS_EXEC_FINAN_CSEFV"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_CSEFV" 
+    	name="codCsefv" 
+    	type="java.lang.Long">
+      	<generator class="increment"/>
+    </id>
+    <property 
+    	column="VERSAO_CSEFV" 
+    	length="22" 
+    	name="versaoCsefv" 
+    	type="java.lang.Long"/>
+    <property 
+    	column="mes_versao_csefv" 
+    	length="22" 
+    	name="mesVersaoCsefv" 
+    	type="java.lang.Long"/>
+    <property 
+    	column="ano_versao_csefv" 
+    	length="22" 
+    	name="anoVersaoCsefv" 
+    	type="java.lang.Long"/>
+    <property 
+    	column="DATA_INCLUSAO_CSEFV" 
+    	length="7"
+      	name="dataInclusaoCsefv" 
+      	type="java.sql.Date"/>
+    <property 
+    	column="IND_ATIVO_CSEFV" 
+    	length="1" 
+    	name="indAtivoCsefv" 
+    	type="java.lang.String"/>
+    	
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to TbConfigSisExecFinanCsef -->
+    <many-to-one 
+    	class="ecar.pojo.ConfigSisExecFinanCsef"
+      	name="configSisExecFinanCsef" 
+      	not-null="true">
+      	<column name="COD_CSEF"/>
+    </many-to-one>
+    
+    <!-- bi-directional one-to-many association to ConfigExecFinanCef -->
+    <set
+        name="configExecFinanCefs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_CSEFV" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ConfigExecFinanCef"
+        />
+    </set>
+    
+    <set cascade="none" inverse="true" lazy="true" name="importacaoImps">
+      <key>
+        <column name="COD_CSEFV"/>
+      </key>
+      <one-to-many class="ecar.pojo.ImportacaoImp"/>
+    </set>     
+    
+  </class>
+</hibernate-mapping>

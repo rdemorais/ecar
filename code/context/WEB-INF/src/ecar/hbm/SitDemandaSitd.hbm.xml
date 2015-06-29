@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+  <!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+  <class 
+  	name="ecar.pojo.SitDemandaSitd" 
+  	table="TB_SIT_DEMANDA_SITD"
+    lazy="false"
+  	>
+    <id 
+    	column="COD_SITD" 
+    	name="codSitd" 
+    	type="java.lang.Long">
+      	<generator class="increment"/>
+    </id>
+    <property 
+    	column="DESCRICAO_SITD" 
+    	length="30" 
+    	name="descricaoSitd" 
+    	type="java.lang.String"/>
+    <property 
+    	column="IND_CONCLUSAO_SITD" 
+    	length="1"
+      	name="indConclusaoSitd" 
+      	type="java.lang.String"/>
+    <property 
+    	column="IND_PRIMEIRA_SITUACAO_SITD" 
+    	length="1"
+      	name="indPrimeiraSituacaoSitd" 
+      	type="java.lang.String"/>
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to TbRegDemandaRegd -->
+    <set 
+    	cascade="none" 
+    	inverse="true" 
+    	lazy="true" 
+    	name="regDemandaRegds">
+      	<key>
+       		<column name="COD_SITD"/>
+      	</key>
+      	<one-to-many class="ecar.pojo.RegDemandaRegd"/>
+    </set>
+    
+    <set name="visaoSituacaoDemandas" lazy="true" table="tb_visao_situacao_demanda" cascade="none" inverse="true" fetch="select" >
+            <key>
+                <column name="cod_sitd" not-null="true" />
+            </key>
+            <one-to-many class="ecar.pojo.VisaoSituacaoDemanda" />
+        </set>
+  </class>
+</hibernate-mapping>

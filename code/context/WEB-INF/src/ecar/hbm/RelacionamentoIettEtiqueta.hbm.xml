@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.RelacionamentoIettEtiqueta" 
+    table="REL_ITEMESTRUTIETT_ETIQUETA"
+    lazy="true"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+
+    <id
+        name="codigo"
+        type="java.lang.Long"
+        column="cod_itemestrutiett_etiq"
+    >
+        <generator class="increment" />
+    </id>
+
+   <property
+        name="indAtivo"
+        type="java.lang.String"
+        column="ind_ativo"
+        length="1"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to ItemEstruturaIett -->
+    <many-to-one
+        name="itemEstruturaIett"
+	    class="ecar.pojo.ItemEstruturaIett"
+	>
+    	<column name="cod_iett" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to Etiqueta -->
+    <many-to-one
+        name="etiqueta"
+	    class="ecar.pojo.Etiqueta"
+	>
+    	<column name="cod_etiqueta" />
+	</many-to-one>
+
+   
+</class>
+</hibernate-mapping>

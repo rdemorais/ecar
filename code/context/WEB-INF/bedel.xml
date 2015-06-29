@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<urlBedelWS>http://10.15.60.218:8080/bedel/services/ListaServicosFacade</urlBedelWS>
+<!-- 
+<Config>			
+	<Atributos>	
+		<Atributo name="urlBedelWS" valor="http://10.15.60.218:8080/bedel/services/ListaServicosFacade"/>
+	</Atributos>
+</Config>
+-->

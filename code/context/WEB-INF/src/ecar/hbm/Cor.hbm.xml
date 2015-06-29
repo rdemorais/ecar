@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="ecar.pojo.Cor" 
+    table="TB_COR"
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codCor"
+        type="java.lang.Long"
+        column="COD_COR"
+    >
+        <generator class="increment" />
+    </id>
+
+    <property
+        name="significadoCor"
+        type="java.lang.String"
+        column="SIGNIFICADO_COR"
+        length="20"
+    />
+    <property
+        name="nomeCor"
+        type="java.lang.String"
+        column="NOME_COR"
+        length="20"
+    />
+    <property
+        name="codCorGrafico"
+        type="java.lang.String"
+        column="COD_COR_GRAFICO"
+        length="7"
+    />
+    <property
+        name="ordemCor"
+        type="java.lang.Long"
+        column="ORDEM_COR"
+        length="10"
+    />
+    <property
+        name="indPosicoesGeraisCor"
+        type="java.lang.String"
+        column="IND_POSICOES_GERAIS_COR"
+        length="1"
+    />
+    <property
+        name="indPontoCriticoCor"
+        type="java.lang.String"
+        column="IND_PONTO_CRITICO_COR"
+        length="1"
+    />
+    <property
+        name="indIndicadoresFisicosCor"
+        type="java.lang.String"
+        column="IND_INDICADORES_FISICOS_COR"
+        length="1"
+    />
+    <property
+        name="caminhoImagemPontoCriticoCor"
+        type="java.lang.String"
+        column="CAMINHO_IMAGEM_PONTO_CRITICO_COR"
+        length="100"
+    />
+    
+    <property
+        name="caminhoImagemIndResulCor"
+        type="java.lang.String"
+        column="CAMINHO_IMAGEM_IND_RESUL_COR"
+        length="100"
+    />
+    
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to Faixa -->
+  	<set name="faixas"
+  		 lazy="true"
+  		 inverse="true"
+  		 cascade="none"
+  	>
+  		 <key>
+  		 	<column name="COD_COR" />
+  		 </key>
+  		 <one-to-many class="ecar.sinalizacao.Faixa" />
+  	</set>
+  
+    <!-- bi-directional one-to-many association to AcompRelatorioArel -->
+    <set
+        name="acompRelatorioArels"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_COR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.AcompRelatorioArel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PontoCriticoCorPtccor -->
+    <set
+        name="pontoCriticoCorPtccores"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_COR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.PontocriticoCorPtccor"
+        />
+    </set>
+    
+    
+    <!-- bi-directional one-to-many association to ItemEstrtIndResulCorIettrcor -->
+    <set
+        name="itemEstrtIndResulCorIettrcores"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_COR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrtIndResulCorIettrcor"
+        />
+    </set>
+    
+    
+    
+    <!-- bi-directional one-to-many association to ItemEstrutMarcadorIettm -->
+    <set
+        name="itemEstrutMarcadorIettms"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="COD_COR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.ItemEstrutMarcadorIettm"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to CorTipoFuncAcompCtfa -->
+    <set
+        name="corTipoFuncAcompCtfas"
+        lazy="true"
+        inverse="true"
+		cascade="delete"
+    >
+        <key>
+            <column name="COD_COR" />
+        </key>
+        <one-to-many 
+            class="ecar.pojo.CorTipoFuncAcompCtfa"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

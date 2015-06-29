@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subRelatorioIndicadores_Resultados" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.4200000000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="siglaOE" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadores_Indicadores" class="java.lang.String"/>
+	<parameter name="qtdRegistrosIndicadores" class="java.lang.Integer"/>
+	<parameter name="caminhoSubRelatorioIndicadores_Detalhamento" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadores_Detalhamento_Detalhe" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadores_Estrategias" class="java.lang.String"/>
+	<parameter name="siglaE" class="java.lang.String"/>
+	<parameter name="siglaResultado" class="java.lang.String"/>
+	<parameter name="caminhoSubRelatorioIndicadoresExcel_Acoes" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="siglaProduto" class="java.lang.String"/>
+	<field name="acoes" class="java.util.Collection"/>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="84" y="0" width="341" height="10" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#D7E0F0"/>
+				<box leftPadding="5" rightPadding="2">
+					<leftPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="0" width="20" height="10" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<box leftPadding="2">
+					<pen lineColor="#828282"/>
+					<topPen lineColor="#828282"/>
+					<leftPen lineWidth="0.0" lineColor="#828282"/>
+					<bottomPen lineColor="#828282"/>
+					<rightPen lineColor="#828282"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{siglaResultado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="20" height="10"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{siglaOE}.substring(2, $P{siglaOE}.length()).trim()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="20" y="0" width="1" height="10" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="21" y="0" width="20" height="10"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{siglaE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="41" y="0" width="1" height="10" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="62" y="0" width="1" height="10" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="63" y="0" width="20" height="10"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[("P").concat($F{siglaProduto})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="83" y="0" width="1" height="10" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineColor="#828282"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="10">
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="553" height="10" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="caminhoSubRelatorioIndicadores_Detalhamento_Detalhe">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadores_Detalhamento_Detalhe}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaProduto">
+					<subreportParameterExpression><![CDATA[$F{siglaProduto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadores_Detalhamento">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadores_Detalhamento}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadores_Indicadores">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadores_Indicadores}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaResultado">
+					<subreportParameterExpression><![CDATA[$P{siglaResultado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaOE">
+					<subreportParameterExpression><![CDATA[$P{siglaOE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="siglaE">
+					<subreportParameterExpression><![CDATA[$P{siglaE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="caminhoSubRelatorioIndicadoresExcel_Acoes">
+					<subreportParameterExpression><![CDATA[$P{caminhoSubRelatorioIndicadoresExcel_Acoes}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{acoes})]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{caminhoSubRelatorioIndicadoresExcel_Acoes}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

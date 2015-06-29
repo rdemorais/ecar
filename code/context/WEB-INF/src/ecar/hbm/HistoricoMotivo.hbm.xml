@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created Gabriel (28/05/2007)
+    - Modificado para comportar Historico 
+-->
+
+<class 
+    name="ecar.pojo.HistoricoMotivo" 
+    table="tb_historico_motivo_moh" 
+    lazy="false"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="codMoh"
+        type="java.lang.Long"
+        column="cod_moh"
+    >
+        <generator class="increment" />
+    </id>    
+
+    <many-to-one
+        name="historicoGrupoMotivo"
+        class="ecar.pojo.HistoricoGrupoMotivo"
+        
+    >
+        <column name="cod_gmh" />
+    </many-to-one>
+   
+    <property
+        name="descricao"
+        type="java.lang.String"
+        column="descricao"
+        length="100"
+                
+    />
+    
+    <property
+        name="siglaTabelaAfetada"
+        type="java.lang.String"
+        column="sigla_tabela_afetada"
+        length="20"
+                
+    />    
+    
+    <property
+        name="codAcaoMoh"
+        type="java.lang.Integer"
+        column="cod_acao_moh"
+        length="20"
+                
+    />       
+    
+    <!-- Relacionamento HistoricoMaster -->
+    <set cascade="none" inverse="true" lazy="true" name="historicoMasters">
+      <key>
+        <column name="cod_moh"/>
+      </key>
+      <one-to-many class="ecar.pojo.HistoricoMaster"/>
+    </set> 
+    
+    
+</class>
+</hibernate-mapping>

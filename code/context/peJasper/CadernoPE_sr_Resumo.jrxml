@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CadernoPE_sr_Resumo" language="groovy" pageWidth="160" pageHeight="60" orientation="Landscape" columnWidth="160" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="obj_id" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select count(distinct a.cod_iett) as "Est", count(prod.cod_iett_pai) as "Prod" from tb_item_estrutura_iett a
+left join (
+	select cod_iett_pai from tb_item_estrutura_iett where ind_ativo_iett = 'S' and cod_iett_pai in (
+		select cod_iett from tb_item_estrutura_iett a where ind_ativo_iett = 'S' and a.cod_iett_pai = $P{obj_id}
+	)
+) as prod on prod.cod_iett_pai = a.cod_iett
+where a.ind_ativo_iett = 'S' and a.cod_iett_pai = $P{obj_id}
+]]>
+	</queryString>
+	<field name="Est" class="java.lang.Long"/>
+	<field name="Prod" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="62" height="20"/>
+				<textElement/>
+				<text><![CDATA[Estratégias:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="79" y="0" width="81" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{Est}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="62" height="20"/>
+				<textElement/>
+				<text><![CDATA[Produtos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="79" y="30" width="81" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{Prod}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
