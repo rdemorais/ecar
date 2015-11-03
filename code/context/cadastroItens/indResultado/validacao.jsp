@@ -6,11 +6,11 @@ function validar(form){
 	if(!validaString(form.conceitIettir,'Conceituacao',true)){
 		return(false);
 	}
-	
+	/*
 	if(!validaString(form.interpIettir,'Interpretacao',true)){
 		return(false);
 	}
-	
+	*/
 	if(!validaString(form.fonteIettr,'Fonte',true)){
 		return(false);
 	}

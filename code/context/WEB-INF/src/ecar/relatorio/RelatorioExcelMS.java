@@ -64,6 +64,7 @@ public class RelatorioExcelMS {
 		String responsavel;
 		String emailResponsavel;
 		String areaResponsavel;
+		String rem;
 		
 		for (Object[] obj : listaDb) {
 			
@@ -101,12 +102,20 @@ public class RelatorioExcelMS {
 					emailResponsavel = "";
 				}
 				
+				rem = "";
+				
+				if(obj[7] != null) {
+					if(obj[7].toString().equalsIgnoreCase("Y")) {
+						rem = "*";
+					}
+				}
+				
 				res = new ResultadoExcel(
 						obj[1].toString(), 
 						obj[3].toString(), 
 						obj[5].toString(), 
 						obj[6].toString(),
-						obj[7].toString(),
+						rem,
 						situacao,
 						responsavel,
 						emailResponsavel,

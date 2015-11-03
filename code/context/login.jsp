@@ -124,7 +124,7 @@
 	<div id="login">
 		<table class="texto_negrito_login" width="100%">
 			<tr>
-	        	<td>Acesso ao e-Car Ministério da Saúde</td>
+	        	<td>Acesso ao e-Car Fiocruz</td>
 	    	</tr>
 		</table>
 		<sistema:login 

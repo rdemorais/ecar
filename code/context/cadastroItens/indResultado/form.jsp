@@ -282,7 +282,7 @@ function controlaNivelAbrangencia(){
 	</tr>
 
 	<tr>
-		<td class="label">* Conceitua&ccedil;&atilde;o</td>
+		<td class="label">* Significado</td>
 		<td>
 			<textarea name="conceitIettir" id="conceitIettir" rows="3" cols="60" <%=_readOnly%>
 			onkeyup="return validaTamanhoLimite(this, 2000);"
@@ -299,7 +299,7 @@ function controlaNivelAbrangencia(){
 			</label>
 		</td>
 	</tr>
-
+<!-- 
 	<tr>
 		<td class="label">* Interpreta&ccedil;&atilde;o</td>
 		<td>
@@ -317,9 +317,9 @@ function controlaNivelAbrangencia(){
 			</label>
 		</td>
 	</tr>
-
+ -->
 	<tr>
-		<td class="label">* Fontes</td>
+		<td class="label">* Fonte de dados</td>
 		<td>
 			<textarea name="fonteIettr" rows="3" cols="60" <%=_readOnly%> 
 			onkeyup="return validaTamanhoLimite(this, 1000);"
@@ -338,7 +338,7 @@ function controlaNivelAbrangencia(){
 	</tr>
 
 	<tr>
-		<td class="label">* M&eacute;todo de C&aacute;lculo</td>
+		<td class="label">* F&oacute;rmula</td>
 		<td>
 			<textarea name="mCalcIettir" id="mCalcIettir" rows="3" cols="60" <%=_readOnly%>
 			onkeyup="return validaTamanhoLimite(this, 2000);"
